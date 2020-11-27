@@ -26,6 +26,7 @@ This mod allows users to combine multiple similar resource types. Any of the sup
 	</loadBefore>
 
 	<loadAfter>
+            <li>Yuno.SimpleOresTest</li>
 		<li>Mantrasong.SurvAdd.1</li>
 		<li>chance2000w.clockworkandsteam</li>
 		<li>neceros.coalexpanded</li>

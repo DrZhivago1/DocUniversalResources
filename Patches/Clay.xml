@@ -27,7 +27,7 @@
                             </graphicData>
                             <soundInteract>Standard_Pickup</soundInteract>
                             <soundDrop>Standard_Pickup</soundDrop>
-                            <stackLimit>25</stackLimit>
+                            <stackLimit>75</stackLimit>
                             <statBases>
                                 <MarketValue>1.0</MarketValue>
                                 <Mass>5.0</Mass>
