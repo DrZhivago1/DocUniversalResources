@@ -21,6 +21,10 @@ This mod allows users to combine multiple similar resource types. Any of the sup
 		</li>
 	</modDependencies>
 
+	<loadBefore>
+		<li>drzhivago.docworld</li>	
+	</loadBefore>
+
 	<loadAfter>
 		<li>neceros.coalexpanded</li>
 		<li>vindar.medievaltimes</li>
