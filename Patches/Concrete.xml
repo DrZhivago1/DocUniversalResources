@@ -1,0 +1,300 @@
+<Patch>
+
+    <!--==========
+    Concrete {Industrialisation, UN-Colony (Continued), Simple Concrete, [RF] Concrete (Continued), Expanded Materials - Metals}
+    ==========-->
+
+    <!--DUR Concrete, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.UNColony</li>
+            <li>trasheddt.industrialisation</li>
+            <li>dninemfive.simpleconcrete</li>
+            <li>Mlie.Concrete</li>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Concrete" ParentName="ResourceBase">
+                            <defName>DZ_Concrete</defName>
+                            <label>Concrete</label>
+                            <description>Concrete: A hard, resilient, stony material.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Stone_Drop</soundInteract>
+                            <soundDrop>Stone_Drop</soundDrop>
+                            <stackLimit>25</stackLimit>
+                            <statBases>
+                                <MarketValue>2.0</MarketValue>
+                                <Mass>2.5</Mass>
+                                <Beauty>-5</Beauty>
+                                <Flammability>0</Flammability>
+                                <SharpDamageMultiplier>0.8</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
+                            </statBases>
+                            <thingCategories>
+                                <li>Manufactured</li>
+                            </thingCategories>
+                            <stuffProps>
+                                <stuffAdjective>concrete</stuffAdjective>
+                                <categories>
+                                    <li>Stony</li>
+                                </categories>
+                                <commonality>0.16</commonality>
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <color>(107,109,107)</color>
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <statFactors>
+                                    <Beauty>0.8</Beauty>
+                                    <Flammability>0</Flammability>
+                                    <MeleeWeapon_CooldownMultiplier>1.4</MeleeWeapon_CooldownMultiplier>
+                                    <MaxHitPoints>1.6</MaxHitPoints>
+                                    <WorkToBuild>0.5</WorkToBuild>
+                                </statFactors>
+                            </stuffProps>
+                            <tradeTags />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Industrialisation-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>trasheddt.industrialisation</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Ind/Stuff/Concrete</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <texPath>Ind/Stuff/Concrete</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Ind_Concrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--UN-Colony (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.UNColony</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SadjuukConcrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Simple Concrete-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dninemfive.simpleconcrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Resource/concrete</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <texPath>Resource/concrete</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="D9Concrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[RF] Concrete (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Concrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>RFFConcrete</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <texPath>RFFConcrete</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Add FF trade tags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
+                    <value>
+                        <li>TerraformingResources</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RFFConcrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Change stuffProps category-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/stuffProps/categories</xpath>
+                    <value>
+                        <li>VMEu_ConcreteStuffCategory</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_Concrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--
+        Universal Concrete Replacements
+        -->
+    <!--SadjuukConcrete = UN-Colony (Continued)-->
+    <!--Ind_Concrete = Industrialisation-->
+    <!--D9Concrete = Simple Concrete-->
+    <!--RFFConcrete = [RF] Concrete (Continued)-->
+    <!--VMEu_Concrete = Expanded Materials - Metals-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"]</xpath>
+        <value>
+            <thingDef>DZ_Concrete</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete] 
+            | /Defs/ThingDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete] 
+            | /Defs/RecipeDef/products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete]
+            | /Defs/TerrainDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete]
+        </xpath>
+        <name>DZ_Concrete</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"]
+        </xpath>
+        <value>
+            <li>DZ_Concrete</li>
+        </value>
+    </Operation>
+
+</Patch>

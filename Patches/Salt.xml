@@ -1,0 +1,343 @@
+<Patch>
+
+    <!--==========
+    Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Vanilla Cooking Expanded}
+    ==========-->
+
+    <!--DUR Salt, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.RealWorldFood2</li>
+            <li>tikubonn.RimSeasoning</li>
+            <li>Mlie.Apothecary</li>
+            <li>dismarzero.VGP.VGPGardenGourmet</li>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Salt" ParentName="RoughPlantBase">
+                            <defName>DZ_Salt</defName>
+                            <label>Salt</label>
+                            <description>Salt: Enhances flavors in cooking and preserves organics.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <MarketValue>1.76</MarketValue>
+                                <Nutrition>1</Nutrition>
+                                <Flammability>1.3</Flammability>
+                            </statBases>
+                            <deepCommonality>1.25</deepCommonality>
+                            <deepCountPerPortion>10</deepCountPerPortion>
+                            <deepLumpSizeRange>2~5</deepLumpSizeRange>
+                            <thingCategories />
+                            <ingestible>
+                                <preferability>NeverForNutrition</preferability>
+                            </ingestible>
+                            <tradeTags />
+                            <comps />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Real World Food 2 (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.RealWorldFood2</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Food_In/Salt/RWF_Salt</texPath>
+                                <drawSize>0.9</drawSize>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Food_In/Salt/RWF_Salt</texPath>
+                            <drawSize>0.9</drawSize>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
+                    <value>
+                        <li>CookComponents</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RWF_Salt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimSeasoning-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>tikubonn.RimSeasoning</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Salt/Salt</texPath>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <texPath>Salt/Salt</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
+                    <value>
+                        <li>RimSeasoning_Seasoning</li>
+                    </value>
+                </li>
+                <!--Use hediff comp-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/comps</xpath>
+                    <value>
+                        <li Class="RimSeasoning.CompProperties_Seasoning">
+                            <compClass>RimSeasoning.CompSeasoning</compClass>
+                            <consumedThought>RimSeasoning_AteWithSalt</consumedThought>
+                        </li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RimSeasoning_Salt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Apothecary (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Apothecary</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
+                    <value>
+                        <li>AYProducts</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AYSalt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[KYD] Rebalanced - Apothecary-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KYD.RebalancedApothecary</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/RecipeDef[defName="RefineAYSalt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--VGP Garden Gourmet-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dismarzero.VGP.VGPGardenGourmet</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Salt</texPath>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Salt</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
+                    <value>
+                        <li>ResourcesRaw</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="ChunkSalt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Cooking Expanded-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Items/Condiments/VCE_Salt</texPath>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Items/Condiments/VCE_Salt</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
+                    <value>
+                        <li>VCE_Condiments</li>
+                    </value>
+                </li>
+                <!--Use/replace specialThoughtAsIngredient-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible/specialThoughtAsIngredient</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible/specialThoughtAsIngredient</xpath>
+                        <value>
+                            <specialThoughtAsIngredient>VCE_ConsumedSalt</specialThoughtAsIngredient>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible</xpath>
+                        <value>
+                            <specialThoughtAsIngredient>VCE_ConsumedSalt</specialThoughtAsIngredient>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_Salt"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--
+        Universal Salt Replacements
+        -->
+    <!--VCE_Salt = Vanilla Cooking Expanded-->
+    <!--AYSalt = Apothecary (Continued)-->
+    <!--RWF_Salt = Real World Food 2 (Continued)-->
+    <!--RimSeasoning_Salt = RimSeasoning-->
+    <!--ChunkSalt = VGP Garden Gourmet-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]</xpath>
+        <value>
+            <thingDef>DZ_Salt</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]</xpath>
+        <value>
+            <mineableThing>DZ_Salt</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::VCE_Salt or self::AYSalt or self::RWF_Salt or self::RimSeasoning_Salt or self::ChunkSalt] 
+            | /Defs/ThingDef/costList/*[self::VCE_Salt or self::AYSalt or self::RWF_Salt or self::RimSeasoning_Salt or self::ChunkSalt] 
+            | /Defs/RecipeDef/products/*[self::VCE_Salt or self::AYSalt or self::RWF_Salt or self::RimSeasoning_Salt or self::ChunkSalt]
+            | /Defs/TerrainDef/costList/*[self::VCE_Salt or self::AYSalt or self::RWF_Salt or self::RimSeasoning_Salt or self::ChunkSalt]
+        </xpath>
+        <name>DZ_Salt</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]
+        </xpath>
+        <value>
+            <li>DZ_Salt</li>
+        </value>
+    </Operation>
+
+</Patch>

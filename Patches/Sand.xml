@@ -1,0 +1,189 @@
+<Patch>
+
+    <!--==========
+    Sand {Combat Extended, Ceramics, Fertile Fields, [RF] Concrete (Continued)}
+    ==========-->
+
+    <!--DUR Sand, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>n7huntsman.ceramics</li>
+            <li>jamaicancastle.RF.fertilefields</li>
+            <li>Mlie.Concrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Sand" ParentName="ResourceBase">
+                            <defName>DZ_Sand</defName>
+                            <label>Sand</label>
+                            <description>Sand: coarse, rough, irritating, and gets everywhere.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                            <soundInteract>Standard_Pickup</soundInteract>
+                            <soundDrop>Standard_Pickup</soundDrop>
+                            <stackLimit>25</stackLimit>
+                            <statBases>
+                                <MarketValue>1.0</MarketValue>
+                                <Mass>5.0</Mass>
+                                <Beauty>-5</Beauty>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <tradeTags />
+                        </ThingDef>
+                    </value>
+                </li>
+                <!--Combat Extended, taken from Ceramics-->
+                <li Class="D9Framework.PatchOperationFindPackage">
+                    <packageIds>
+                        <li>CETeam.CombatExtended</li>
+                    </packageIds>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/statBases</xpath>
+                        <value>
+                            <Bulk>0.03</Bulk>
+                        </value>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Ceramics-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>n7huntsman.ceramics</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                        <value>
+                            <texPath>Things/Item/Sand</texPath>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Sand</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="N7_Sand"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Fertile Fields-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>jamaicancastle.RF.fertilefields</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <!--<success>Always</success>-->
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                        <value>
+                            <texPath>SandPile</texPath>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
+                        <value>
+                            <texPath>SandPile</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Add FF trade tags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
+                    <value>
+                        <li>TerraformingResources</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SandPile"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[RF] Concrete (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Concrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData/texPath</xpath>
+                        <value>
+                            <texPath>SandPile</texPath>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
+                        <value>
+                            <texPath>SandPile</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SandPile"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--
+        Universal Sand Replacements
+        -->
+    <!--SandPile = Fertile Fields-->
+    <!--N7_Sand = Ceramics-->
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::SandPile or self::N7_Sand] 
+        | /Defs/ThingDef/costList/*[self::SandPile or self::N7_Sand] 
+        | /Defs/RecipeDef/products/*[self::SandPile or self::N7_Sand]
+        | /Defs/TerrainDef/costList/*[self::SandPile or self::N7_Sand]
+        </xpath>
+        <name>DZ_Sand</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="SandPile" or text()="N7_Sand"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="SandPile" or text()="N7_Sand"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="SandPile" or text()="N7_Sand"]
+        </xpath>
+        <value>
+            <li>DZ_Sand</li>
+        </value>
+    </Operation>
+
+</Patch>

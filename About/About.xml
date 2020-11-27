@@ -2,7 +2,7 @@
 
 	<name>DocUniversalResources</name>
 	<author>Dr_Zhivago</author>
-	<url>_________</url>
+	<url>https://github.com/DrZhivago1/DocUniversalResources/releases</url>
 	<supportedVersions>
 		<li>1.2</li>
 	</supportedVersions>
@@ -22,10 +22,12 @@ This mod allows users to combine multiple similar resource types. Any of the sup
 	</modDependencies>
 
 	<loadBefore>
-		<li>drzhivago.docworld</li>	
+		<li>drzhivago.docworld</li>
 	</loadBefore>
 
 	<loadAfter>
+            <li>Mantrasong.SurvAdd.1</li>
+		<li>chance2000w.clockworkandsteam</li>
 		<li>neceros.coalexpanded</li>
 		<li>vindar.medievaltimes</li>
 		<li>Wemd.SimpleCoal</li>

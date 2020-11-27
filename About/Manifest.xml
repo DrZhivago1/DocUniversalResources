@@ -1,8 +1,8 @@
 <Manifest>
 
-  <version>1.2.1.0</version>
+  <version>1.2.1.1</version>
   <showCrossPromotions>true</showCrossPromotions>
-  <manifestUri>________________</manifestUri>
-  <downloadUri>________________</downloadUri>
+  <manifestUri>https://raw.githubusercontent.com/DrZhivago1/DocUniversalResources/main/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/DrZhivago1/DocUniversalResources/releases</downloadUri>
 
 </Manifest>

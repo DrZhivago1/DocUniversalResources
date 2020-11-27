@@ -1,0 +1,214 @@
+<Patch>
+    <!--This file will contain all standardized resources for use in replacing modded recipes, unifying supported mods.-->
+
+    <!--==========
+    Clay {Combat Extended, Ceramics, Fertile Fields}
+    ==========-->
+
+    <!--DUR Clay, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>n7huntsman.ceramics</li>
+            <li>jamaicancastle.RF.fertilefields</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Clay" ParentName="ResourceBase">
+                            <defName>DZ_Clay</defName>
+                            <label>Clay</label>
+                            <description>Clay: can be molded, folded, and/or fired to create bricks.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                            <soundInteract>Standard_Pickup</soundInteract>
+                            <soundDrop>Standard_Pickup</soundDrop>
+                            <stackLimit>25</stackLimit>
+                            <statBases>
+                                <MarketValue>1.0</MarketValue>
+                                <Mass>5.0</Mass>
+                                <Beauty>-5</Beauty>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <tradeTags />
+                        </ThingDef>
+                    </value>
+                </li>
+                <!--Combat Extended, taken from Ceramics-->
+                <li Class="D9Framework.PatchOperationFindPackage">
+                    <packageIds>
+                        <li>CETeam.CombatExtended</li>
+                    </packageIds>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/statBases</xpath>
+                        <value>
+                            <Bulk>0.05</Bulk>
+                        </value>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Ceramics-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>n7huntsman.ceramics</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
+                        <value>
+                            <texPath>Things/Item/Clay</texPath>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Clay</texPath>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Add StuffProps to ThingDef-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/stuffProps</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/stuffProps</xpath>
+                        <value>
+                            <stuffProps>
+                                <categories Inherit="false">
+                                    <li>Clay</li>
+                                </categories>
+                                <color>(128,70,27)</color>
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <stuffAdjective>clay</stuffAdjective>
+                                <statFactors>
+                                    <MarketValue>0.6</MarketValue>
+                                    <Flammability>0</Flammability>
+                                    <Beauty>0.7</Beauty>
+                                </statFactors>
+                            </stuffProps>
+                            <smeltable>false</smeltable>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
+                        <value>
+                            <stuffProps>
+                                <categories Inherit="false">
+                                    <li>Clay</li>
+                                </categories>
+                                <color>(128,70,27)</color>
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <stuffAdjective>clay</stuffAdjective>
+                                <statFactors>
+                                    <MarketValue>0.6</MarketValue>
+                                    <Flammability>0</Flammability>
+                                    <Beauty>0.7</Beauty>
+                                </statFactors>
+                            </stuffProps>
+                            <smeltable>false</smeltable>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="N7_RawClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Fertile Fields-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>jamaicancastle.RF.fertilefields</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
+                        <value>
+                            <texPath>Clay</texPath>
+                            <color>(132,115,82)</color>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                        <value>
+                            <texPath>Clay</texPath>
+                            <color>(132,115,82)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Add FF trade tags to ThingDef-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/tradeTags</xpath>
+                    <value>
+                        <li>TerraformingResources</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RFFClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--
+        Universal Clay Replacements
+        -->
+    <!--RFFClay = Fertile Fields-->
+    <!--N7_RawClay = Ceramics-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="RFFClay" or text()="N7_RawClay"]</xpath>
+        <value>
+            <mineableThing>DZ_Clay</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::RFFClay or self::N7_RawClay] 
+            | /Defs/ThingDef/costList/*[self::RFFClay or self::N7_RawClay] 
+            | /Defs/RecipeDef/products/*[self::RFFClay or self::N7_RawClay]
+            | /Defs/TerrainDef/costList/*[self::RFFClay or self::N7_RawClay]
+        </xpath>
+        <name>DZ_Clay</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"]
+        </xpath>
+        <value>
+            <li>DZ_Clay</li>
+        </value>
+    </Operation>
+    
+</Patch>
