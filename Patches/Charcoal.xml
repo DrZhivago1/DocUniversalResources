@@ -79,6 +79,20 @@
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SRV_Charcoal"]</xpath>
                 </li>
+                <!--Add blank Def, not sure of the use cases, possibly broke something-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="ResourceBase">
+                            <defName>SRV_Charcoal</defName>
+                            <label>charcoal</label>
+                            <description>Removed from game. Report to Dr_Zhivago if found.</description>
+                            <statBases>
+                                <Mass>0.1</Mass>
+                            </statBases>
+                        </ThingDef>
+                    </value>
+                </li>
             </operations>
         </match>
     </Operation>
@@ -200,7 +214,9 @@
     <!--AYCharcoal = Coal Expanded-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal"]</xpath>
+        <xpath>/Defs/ThingDef/comps/*//processes/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal"]
+            | /Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal"]
+        </xpath>
         <value>
             <thingDef>DZ_Charcoal</thingDef>
         </value>
@@ -211,6 +227,14 @@
         <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal"]</xpath>
         <value>
             <mineableThing>DZ_Charcoal</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal"]</xpath>
+        <value>
+            <harvestedThingDef>DZ_Charcoal</harvestedThingDef>
         </value>
     </Operation>
 

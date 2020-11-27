@@ -317,6 +317,9 @@
         -->
     <!--WDCoal = [WD] Simple Coal-->
     <!--VMEu_Coal = Expanded Materials - Metals-->
+    <!--MedTimes_Resource_Coal = Medieval Times Unofficial Update-->
+    <!--Coal = Coal Expanded-->
+    <!--CaS_Coal = Clockwork And Steam-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
         <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal"]</xpath>
