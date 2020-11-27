@@ -1,0 +1,47 @@
+<ModMetaData>
+
+	<name>DocUniversalResources</name>
+	<author>Dr_Zhivago</author>
+	<url>_________</url>
+	<supportedVersions>
+		<li>1.2</li>
+	</supportedVersions>
+	<packageId>drzhivago.docuniversalresources</packageId>
+	<description>
+This mod allows users to combine multiple similar resource types. Any of the supported mods will have their similar resources combined into one type, usable throughout the entire mod.
+    
+	</description>
+
+	<modDependencies>
+		<li>
+			<packageId>dninemfive.d9framework</packageId>
+			<displayName>D9 Framework</displayName>
+			<downloadUrl>https://github.com/dninemfive/d9framework/releases</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2037445541</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+
+	<loadAfter>
+		<li>neceros.coalexpanded</li>
+		<li>vindar.medievaltimes</li>
+		<li>Wemd.SimpleCoal</li>
+		<li>dismarzero.VGP.VGPGardenGourmet</li>
+		<li>Cozarkian.RimSeasoning.VCookE</li>
+		<li>tikubonn.RimSeasoning</li>
+		<li>Mlie.RealWorldFood2</li>
+		<li>Mlie.MedicalSupplements</li>
+		<li>KYD.RebalancedApothecary</li>
+		<li>Mlie.Apothecary</li>
+		<li>Argon.SaltedMeat</li>
+		<li>VanillaExpanded.VCookE</li>
+		<li>Argon.VMEu</li>
+		<li>Mlie.UNColony</li>
+		<li>dninemfive.simpleconcrete</li>
+		<li>Mlie.Concrete</li>
+		<li>jamaicancastle.RF.fertilefields</li>
+		<li>n7huntsman.ceramics</li>
+		<li>CETeam.CombatExtended</li>
+		<li>JPT.FertileFieldsMakeover</li>
+	</loadAfter>
+
+</ModMetaData>
