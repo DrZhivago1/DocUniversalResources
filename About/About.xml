@@ -26,29 +26,25 @@ This mod allows users to combine multiple similar resource types. Any of the sup
 	</loadBefore>
 
 	<loadAfter>
-            <li>Yuno.SimpleOresTest</li>
-		<li>Mantrasong.SurvAdd.1</li>
-		<li>chance2000w.clockworkandsteam</li>
-		<li>neceros.coalexpanded</li>
-		<li>vindar.medievaltimes</li>
-		<li>Wemd.SimpleCoal</li>
-		<li>dismarzero.VGP.VGPGardenGourmet</li>
-		<li>Cozarkian.RimSeasoning.VCookE</li>
-		<li>tikubonn.RimSeasoning</li>
-		<li>Mlie.RealWorldFood2</li>
-		<li>Mlie.MedicalSupplements</li>
-		<li>KYD.RebalancedApothecary</li>
-		<li>Mlie.Apothecary</li>
-		<li>Argon.SaltedMeat</li>
-		<li>VanillaExpanded.VCookE</li>
 		<li>Argon.VMEu</li>
-		<li>Mlie.UNColony</li>
-		<li>dninemfive.simpleconcrete</li>
+		<li>KYD.RebalancedApothecary</li>
+		<li>Mantrasong.SurvAdd.1</li>
+		<li>Mlie.Apothecary</li>
 		<li>Mlie.Concrete</li>
+		<li>Mlie.RealWorldFood2</li>
+		<li>Mlie.UNColony</li>
+		<li>VanillaExpanded.VCookE</li>
+		<li>Wemd.SimpleCoal</li>
+		<li>Yuno.SimpleOresTest</li>
+		<li>chance2000w.clockworkandsteam</li>
+		<li>dismarzero.VGP.VGPGardenGourmet</li>
+		<li>dninemfive.simpleconcrete</li>
 		<li>jamaicancastle.RF.fertilefields</li>
 		<li>n7huntsman.ceramics</li>
-		<li>CETeam.CombatExtended</li>
-		<li>JPT.FertileFieldsMakeover</li>
+		<li>neceros.coalexpanded</li>
+		<li>tikubonn.RimSeasoning</li>
+		<li>trasheddt.industrialisation</li>
+		<li>vindar.medievaltimes</li>
 	</loadAfter>
 
 </ModMetaData>

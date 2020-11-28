@@ -172,7 +172,7 @@
                         </value>
                     </nomatch>
                 </li>
-                <!--Use stuffProps -->
+                <!--Use stuffProps 
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/stuffProps</xpath>
                     <value>
@@ -196,7 +196,7 @@
                             </statFactors>
                         </stuffProps>
                     </value>
-                </li>
+                </li>-->
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_Coal"]</xpath>

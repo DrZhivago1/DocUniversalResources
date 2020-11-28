@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Sand {Combat Extended, Ceramics, Fertile Fields, [RF] Concrete (Continued)}
+    Sand {Ceramics, Fertile Fields, [RF] Concrete (Continued)}
     ==========-->
 
     <!--DUR Sand, with whitelist-->
@@ -41,7 +41,7 @@
                         </ThingDef>
                     </value>
                 </li>
-                <!--Combat Extended, taken from Ceramics-->
+                <!--Combat Extended, taken from Ceramics (Discontinued support b/c I don't know what I'm doing. Some CE nerd plz help.)
                 <li Class="D9Framework.PatchOperationFindPackage">
                     <packageIds>
                         <li>CETeam.CombatExtended</li>
@@ -52,7 +52,7 @@
                             <Bulk>0.03</Bulk>
                         </value>
                     </match>
-                </li>
+                </li>-->
             </operations>
         </match>
     </Operation>

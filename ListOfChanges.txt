@@ -7,7 +7,7 @@ An example template of each file documentation is setup below.
 ***
 ***
     Clay
-        {Combat Extended, Ceramics, Fertile Fields}
+        {Ceramics, Fertile Fields}
     Charcoal
         {Survivalist's Additions, Coal Expanded, Apothecary (Continued), Expanded Materials - Metals}
     Coal
@@ -17,7 +17,7 @@ An example template of each file documentation is setup below.
     Salt
         {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Vanilla Cooking Expanded}
     Sand
-        {Combat Extended, Ceramics, Fertile Fields, [RF] Concrete (Continued)}
+        {Ceramics, Fertile Fields, [RF] Concrete (Continued)}
 
 *******
 # Supported Mods in RimWorld 1.2
