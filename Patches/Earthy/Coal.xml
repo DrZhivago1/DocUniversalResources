@@ -47,6 +47,14 @@
                         </ThingDef>
                     </value>
                 </li>
+                <!--Universal Fuel-->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable" and fuelFilter/thingDefs/li[text()="WoodLog"]]/fuelFilter/thingDefs</xpath>
+                    <value>
+                        <li>DZ_Coal</li>
+                    </value>
+                </li>
             </operations>
         </match>
     </Operation>
