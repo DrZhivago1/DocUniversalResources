@@ -21,7 +21,7 @@
                         <ThingDef Name="DZ_Glass" ParentName="ResourceBase">
                             <defName>DZ_Glass</defName>
                             <label>Glass</label>
-                            <description>Glass: Rapidly cooled molten material, often translucent.</description>
+                            <description>Glass: Rapidly cooled molten material, often transparent.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>Metal_Drop</soundInteract>
@@ -185,7 +185,7 @@
         Universal Glass Replacements
         -->
     <!--SadjuukGlass = UN-Colony (Continued)-->
-    <!--Glass = "Glass+Lights" or "Just Glass"-->
+    <!--Glass = Glass+Lights, Just Glass-->
     <!--GlassPane = Dubs Skylights-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
