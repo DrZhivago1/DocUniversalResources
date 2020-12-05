@@ -62,7 +62,7 @@
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
-                            <deepCommonality>0.25</deepCommonality>                            <!--Gold = 0.5-->
+                            <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
