@@ -30,6 +30,8 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Oblitus.Carbon</li>
+		<li>kikohi.jewelry</li>
 		<li>zylle.Gemstones</li>
 		<li>Mlie.Gems</li>
 		<li>Kura.ExtraGems</li>

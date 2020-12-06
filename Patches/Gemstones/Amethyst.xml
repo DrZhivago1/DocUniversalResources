@@ -26,9 +26,9 @@
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>50</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
-                                <Mass>0.25</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.015</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <Mass>0.15</Mass>                                <!--Steel = 0.5-->
+                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -51,7 +51,7 @@
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>10</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
@@ -66,7 +66,7 @@
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
-                            <smeltable>true</smeltable>
+                            <smeltable>false</smeltable>
                             <thingCategories>
                                 <li>ResourcesRaw</li>
                             </thingCategories>
@@ -202,6 +202,13 @@
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
+                <!--Add TradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/tradeTags</xpath>
+                    <value>
+                        <li>Z_Gemstones_SemiPrecious</li>
+                    </value>
+                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Z_Amethyst"]</xpath>
@@ -245,7 +252,8 @@
         <success>Always</success>
         <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
             | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Amethyst" or text()="Z_Amethyst"]
         </xpath>
         <value>
             <li>DZ_Amethyst</li>

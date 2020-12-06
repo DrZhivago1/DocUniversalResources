@@ -1,13 +1,12 @@
 <Patch>
 
     <!--==========
-    Emerald {Gems (Continued), Kura's Extra Gems, Gemstones}
+    Garnet {Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Emerald, with whitelist-->
+    <!--DUR Garnet, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Mlie.Gems</li>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
         </packageIds>
@@ -17,18 +16,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Emerald" ParentName="ResourceBase">
-                            <defName>DZ_Emerald</defName>
-                            <label>Emerald</label>
-                            <description>Emerald: A translucent and green variety of beryl.</description>
+                        <ThingDef Name="DZ_Garnet" ParentName="ResourceBase">
+                            <defName>DZ_Garnet</defName>
+                            <label>Garnet</label>
+                            <description>Garnet: A translucent and colored variety of silicate minerals.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>50</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.045</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -44,25 +43,25 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.02</commonality>                                <!--Gold = 0.02-->
-                                <color>(43,135,26)</color>
+                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
+                                <color>(98,25,18)</color>
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>20</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>3</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.5</MaxHitPoints>
-                                    <WorkToBuild>5</WorkToBuild>
+                                    <WorkToBuild>3</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
-                            <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
+                            <deepCommonality>0.25</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
@@ -79,49 +78,6 @@
         </match>
     </Operation>
 
-    <!--Gems (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>Mlie.Gems</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Emerald</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Emerald</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Emerald"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-
     <!--Kura's Extra Gems-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -132,34 +88,34 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Emerald</texPath>
+                                <texPath>Garnet</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
-                            <texPath>Emerald</texPath>
+                            <texPath>Garnet</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
                     <value>
                         <li>KGems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Emerald"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Garnet"]</xpath>
                 </li>
             </operations>
         </match>
@@ -175,102 +131,88 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/PreciousGem</texPath>
+                                <texPath>Things/Item/Resource/Gemstone</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
-                                <shaderType>CutoutComplex</shaderType>
-                                <color>(43,135,26)</color>
-                                <colorTwo>(0,120,90)</colorTwo>
+                                <color>(56,7,28)</color>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/PreciousGem</texPath>
+                            <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(43,135,26)</color>
-                            <colorTwo>(0,120,90)</colorTwo>
+                            <color>(56,7,28)</color>
                         </value>
                     </nomatch>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
                     <value>
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/tradeTags</xpath>
                     <value>
-                        <li>Z_Gemstones_Precious</li>
-                    </value>
-                </li>
-                <!--Add Comps-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
-                    <value>
-                        <li Class="CompProperties_Glower">
-                            <glowRadius>1</glowRadius>
-                            <glowColor>(33,33,33,0)</glowColor>
-                        </li>
+                        <li>Z_Gemstones_SemiPrecious</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Emerald"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_Garnet"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
     <!--
-        Universal Emerald Replacements
+        Universal Garnet Replacements
         -->
-    <!--Emerald = Gems (Continued), Kura's Extra Gems-->
-    <!--Z_Emerald = Gemstones-->
+    <!--Garnet = Kura's Extra Gems-->
+    <!--Z_Garnet = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Emerald" or text()="Z_Emerald"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Garnet" or text()="Z_Garnet"]</xpath>
         <value>
-            <thingDef>DZ_Emerald</thingDef>
+            <thingDef>DZ_Garnet</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Emerald" or text()="Z_Emerald"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Garnet" or text()="Z_Garnet"]</xpath>
         <value>
-            <mineableThing>DZ_Emerald</mineableThing>
+            <mineableThing>DZ_Garnet</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Emerald or self::Z_Emerald] 
-            | /Defs/ThingDef/costList/*[self::Emerald or self::Z_Emerald] 
-            | /Defs/RecipeDef/products/*[self::Emerald or self::Z_Emerald]
-            | /Defs/TerrainDef/costList/*[self::Emerald or self::Z_Emerald]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Garnet or self::Z_Garnet] 
+            | /Defs/ThingDef/costList/*[self::Garnet or self::Z_Garnet] 
+            | /Defs/RecipeDef/products/*[self::Garnet or self::Z_Garnet]
+            | /Defs/TerrainDef/costList/*[self::Garnet or self::Z_Garnet]
         </xpath>
-        <name>DZ_Emerald</name>
+        <name>DZ_Garnet</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Emerald" or text()="Z_Emerald"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Emerald" or text()="Z_Emerald"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Emerald" or text()="Z_Emerald"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Emerald" or text()="Z_Emerald"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Garnet" or text()="Z_Garnet"]
         </xpath>
         <value>
-            <li>DZ_Emerald</li>
+            <li>DZ_Garnet</li>
         </value>
     </Operation>
 
