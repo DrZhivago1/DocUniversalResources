@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Vanilla Cooking Expanded}
+    Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Salted Meat, Vanilla Cooking Expanded}
     ==========-->
 
     <!--DUR Salt, with whitelist-->
@@ -19,7 +19,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Salt" ParentName="RoughPlantBase">
+                        <ThingDef Name="DZ_Salt" ParentName="DZ_EarthyBase">
                             <defName>DZ_Salt</defName>
                             <label>Salt</label>
                             <description>Salt: Enhances flavors in cooking and preserves organics.</description>
@@ -29,12 +29,17 @@
                                 <MarketValue>1.76</MarketValue>
                                 <Nutrition>1</Nutrition>
                                 <Flammability>1.3</Flammability>
+                                <MaxHitPoints>60</MaxHitPoints>
+                                <Mass>0.03</Mass>
+                                <DeteriorationRate>3</DeteriorationRate>
                             </statBases>
+                            <healthAffectsPrice>false</healthAffectsPrice>
                             <deepCommonality>1.25</deepCommonality>
                             <deepCountPerPortion>10</deepCountPerPortion>
                             <deepLumpSizeRange>2~5</deepLumpSizeRange>
                             <thingCategories />
                             <ingestible>
+                                <foodType>Plant</foodType>
                                 <preferability>NeverForNutrition</preferability>
                             </ingestible>
                             <tradeTags />
@@ -45,6 +50,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Real World Food 2 (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -239,6 +248,7 @@
     </Operation>
 
     <!--Vanilla Cooking Expanded-->
+    <!--Salted Meat(Only requires a loadAfter rule)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>VanillaExpanded.VCookE</li>
@@ -295,9 +305,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Salt Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--VCE_Salt = Vanilla Cooking Expanded-->
     <!--AYSalt = Apothecary (Continued)-->
     <!--RWF_Salt = Real World Food 2 (Continued)-->

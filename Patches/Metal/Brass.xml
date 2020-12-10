@@ -1,0 +1,254 @@
+<Patch>
+
+    <!--==========
+    Brass {Clockwork And Steam, Cupro's Alloys (Continued)}
+    ==========-->
+
+    <!--DUR Brass, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>chance2000w.clockworkandsteam</li>
+            <li>Mlie.CuprosAlloys</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Brass" ParentName="DZ_MetalBase">
+                            <defName>DZ_Brass</defName>
+                            <label>Brass</label>
+                            <description>Brass: An alloy of copper and zinc.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <soundDrop>Metal_Drop</soundDrop>
+                            <statBases>
+                                <MarketValue>2</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <Mass>0.2</Mass>                                <!--Steel = 0.5-->
+                                <StuffPower_Armor_Sharp>0.6</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.5</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>0.4</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                                <SharpDamageMultiplier>0.87</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>0.87</BluntDamageMultiplier>
+                            </statBases>
+                            <useHitPoints>false</useHitPoints>
+                            <healthAffectsPrice>false</healthAffectsPrice>
+                            <stuffProps>
+                                <categories>
+                                    <li>Metallic</li>
+                                </categories>
+                                <commonality>0.90</commonality>                                <!--Gold = 0.02, Steel = 1-->
+                                <color />
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                <statOffsets>
+                                    <Beauty>2</Beauty>
+                                </statOffsets>
+                                <statFactors>
+                                    <MaxHitPoints>0.8</MaxHitPoints>
+                                    <WorkToMake>0.8</WorkToMake>
+                                    <WorkToBuild>0.8</WorkToBuild>
+                                    <Beauty>1.5</Beauty>
+                                    <Cleanliness>1.1</Cleanliness>
+                                    <DoorOpenSpeed>1.1</DoorOpenSpeed>
+                                    <Flammability>0.2</Flammability>                                    <!--Steel = 0.4-->
+                                </statFactors>
+                            </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                            <burnableByRecipe>false</burnableByRecipe>
+                            <smeltable>true</smeltable>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <!--<deepCommonality>3</deepCommonality>                            Gold = 0.5, Steel = 4-->
+                            <!--<deepCountPerPortion>45</deepCountPerPortion>                            Steel = 45-->
+                            <!--<deepLumpSizeRange>15~30</deepLumpSizeRange>                            Steel = 20~30-->
+                            <tradeTags />
+                            <comps />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Clockwork And Steam-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>chance2000w.clockworkandsteam</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(255,200,70)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(255,200,70)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Brass"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(255,200,70)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CaS_Brass"]</xpath>
+                </li>
+                <!--Replace resource-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef/comps/li[@Class="Clockwork.CompProperties_ClockworkMachine"]/machineInput[text()="CaS_Brass"]</xpath>
+                    <value>
+                        <machineInput>DZ_Brass</machineInput>
+                    </value>
+                </li>
+                <!--Removal causes issues for now. Need to discover why.-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="DZ_Brass">
+                            <defName>CaS_Brass</defName>
+                            <label>Removed Clockwork Brass</label>
+                            <description>Removed from game in DocUniversalResources. Contact Dr_Zhivago if found.</description>
+                            <stuffProps Inherit="False" />
+                            <thingCategories Inherit="False" />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Cupro's Alloys (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.CuprosAlloys</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Cupro/Item/Material/Ingot_Shiny</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(244, 205, 125)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
+                        <value>
+                            <texPath>Cupro/Item/Material/Ingot_Shiny</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(244, 205, 125)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Brass"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(244, 205, 125)</color>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/thingCategories</xpath>
+                    <value>
+                        <li>CAL_Metals</li>
+                    </value>
+                </li>
+                <!--Use tradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/tradeTags</xpath>
+                    <value>
+                        <li>Exotic</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CAL_Brass"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--CaS_Brass = Clockwork And Steam-->
+    <!--CAL_Brass = Cupro's Alloys (Continued)-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
+        <value>
+            <thingDef>DZ_Brass</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
+        <value>
+            <mineableThing>DZ_Brass</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::CaS_Brass or self::CAL_Brass] 
+            | /Defs/ThingDef/costList/*[self::CaS_Brass or self::CAL_Brass] 
+            | /Defs/RecipeDef/products/*[self::CaS_Brass or self::CAL_Brass]
+            | /Defs/TerrainDef/costList/*[self::CaS_Brass or self::CAL_Brass]
+        </xpath>
+        <name>DZ_Brass</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"]
+        </xpath>
+        <value>
+            <li>DZ_Brass</li>
+        </value>
+    </Operation>
+
+</Patch>

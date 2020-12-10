@@ -1,0 +1,34 @@
+<Defs>
+    <!--These bases can be a target used in xpath to mass-patch new DUR resources. A loadAfter rule in the About.xml will need to be added for any mod doing this.-->
+
+    <ThingDef Name="DZ_EarthyBase" ParentName="ResourceBase" Abstract="True">
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="DZ_FruitVeggieBase" ParentName="PlantFoodRawBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_GemstoneBase" ParentName="ResourceBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_MetalBase" ParentName="ResourceBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_StoneBlocksBase" ParentName="StoneBlocksBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_StoneOreBase" ParentName="RockBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_StoneRockBase" ParentName="RockBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_ChunkRockBase" ParentName="ChunkRockBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_SyntheticBase" ParentName="ResourceBase" Abstract="True">
+    </ThingDef>
+
+</Defs>

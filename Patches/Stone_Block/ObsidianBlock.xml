@@ -1,0 +1,204 @@
+<Patch>
+
+    <!--==========
+    Obsidian Block {[K]Extra Stone, Alpha Biomes, [K]Extra Stone(w/ Cupro's Textures)}
+    ==========-->
+
+    <!--DUR Obsidian Block, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStone</li>
+            <li>sarg.alphabiomes</li>
+            <li>Kura.ExtraStoneCupro</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+
+                        <ThingDef Name="DZ_BlocksObsidian" ParentName="DZ_StoneBlocksBase">
+                            <defName>DZ_BlocksObsidian</defName>
+                            <label>Obsidian blocks</label>
+                            <description>Blocks of solid obsidian.</description>
+                            <graphicData />
+                            <statBases>
+                                <MarketValue>0.9</MarketValue>
+                                <Mass>1</Mass>
+                                <SharpDamageMultiplier>1.0</SharpDamageMultiplier>
+                            </statBases>
+                            <tradeability />
+                            <stuffProps>
+                                <stuffAdjective>obsidian</stuffAdjective>
+                                <commonality>0</commonality>
+                                <color />
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <appearance />
+                                <statFactors>
+                                    <Beauty>1.1</Beauty>
+                                    <MarketValue>0.4</MarketValue>
+                                    <MaxHitPoints>1.5</MaxHitPoints>
+                                    <WorkToBuild>5.0</WorkToBuild>
+                                    <WorkToMake>1.5</WorkToMake>
+                                </statFactors>
+                            </stuffProps>
+                        </ThingDef>
+
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--[K]Extra Stone-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStone</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(35,35,35)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(35,35,35)</color>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="BlocksObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Alpha Biomes-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>sarg.alphabiomes</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(50,50,50)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(50,50,50)</color>
+                    </value>
+                </li>
+                <!--Replace tradeability-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/tradeability</xpath>
+                    <value>
+                        <tradeability>Sellable</tradeability>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AB_BlocksObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[K]Extra Stone(w/ Cupro's Textures)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStoneCupro</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(30,30,30)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(30,30,30)</color>
+                    </value>
+                </li>
+                <!--Replace stuffProps appearance-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/appearance</xpath>
+                    <value>
+                        <appearance>SmoothStone</appearance>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="BlocksObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--BlocksObsidian = [K]Extra Stone-->
+    <!--AB_BlocksObsidian = Alpha Biomes-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
+        <value>
+            <thingDef>DZ_BlocksObsidian</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::AB_BlocksObsidian or self::BlocksObsidian]
+            | /Defs/ThingDef/costList/*[self::AB_BlocksObsidian or self::BlocksObsidian]
+            | /Defs/RecipeDef/products/*[self::AB_BlocksObsidian or self::BlocksObsidian]
+            | /Defs/TerrainDef/costList/*[self::AB_BlocksObsidian or self::BlocksObsidian]
+        </xpath>
+        <name>DZ_BlocksObsidian</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
+        </xpath>
+        <value>
+            <li>DZ_BlocksObsidian</li>
+        </value>
+    </Operation>
+
+</Patch>

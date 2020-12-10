@@ -19,7 +19,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Charcoal" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Charcoal" ParentName="DZ_EarthyBase">
                             <defName>DZ_Charcoal</defName>
                             <label>Charcoal</label>
                             <description>Charcoal: A carbon based organic product that underwent pyrolysis.</description>
@@ -38,7 +38,6 @@
                                 <li>ResourcesRaw</li>
                             </thingCategories>
                             <tradeTags />
-                            <stuffProps />
                         </ThingDef>
                     </value>
                 </li>
@@ -52,6 +51,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Coal Expanded-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -249,9 +252,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Charcoal Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--Charcoal = Coal Expanded-->
     <!--VMEu_Charcoal = Expanded Materials - Metals-->
     <!--SRV_Charcoal = Coal Expanded-->

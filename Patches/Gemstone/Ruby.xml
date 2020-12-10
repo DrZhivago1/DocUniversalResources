@@ -1,10 +1,10 @@
 <Patch>
 
     <!--==========
-    Sapphire {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Gemstones, Jewelry}
+    Ruby {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Gemstones, Jewelry}
     ==========-->
 
-    <!--DUR Sapphire, with whitelist-->
+    <!--DUR Ruby, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>
@@ -19,18 +19,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Sapphire" ParentName="ResourceBase">
-                            <defName>DZ_Sapphire</defName>
-                            <label>Sapphire</label>
-                            <description>Sapphire: A translucent and blue variety of corundum.</description>
+                        <ThingDef Name="DZ_Ruby" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_Ruby</defName>
+                            <label>Ruby</label>
+                            <description>Ruby: A transparent and red variety of corundum.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>50</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.045</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -46,25 +46,26 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
-                                <color>(1, 58, 227)</color>
+                                <commonality>0.02</commonality>                                <!--Gold = 0.02-->
+                                <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>20</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>3</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.7</MaxHitPoints>
-                                    <WorkToBuild>3</WorkToBuild>
+                                    <WorkToBuild>5</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
-                            <deepCommonality>0.25</deepCommonality>                            <!--Gold = 0.5-->
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                            <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
@@ -81,6 +82,10 @@
         </match>
     </Operation>
 
+    <!--==========
+    Mods
+    ==========-->
+
     <!--Gems (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -91,34 +96,42 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/Sapphire</texPath>
+                                <texPath>Things/Item/Resource/Ruby</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/Sapphire</texPath>
+                            <texPath>Things/Item/Resource/Ruby</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(221,28,26)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
                     <value>
                         <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Ruby"]</xpath>
                 </li>
             </operations>
         </match>
@@ -134,41 +147,49 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/CaS_Sapphire</texPath>
+                                <texPath>Things/Item/Resource/CaS_Ruby</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                                 <drawSize>0.5</drawSize>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/CaS_Sapphire</texPath>
+                            <texPath>Things/Item/Resource/CaS_Ruby</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <drawSize>0.5</drawSize>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(180,0,0)</color>
+                    </value>
+                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="CaS_Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="CaS_Ruby"]</xpath>
                 </li>
                 <!--Replace comps-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef/comps/li[@Class="Clockwork.CompProperties_ClockworkMachine"]/machineInput[text()="CaS_Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef/comps/li[@Class="Clockwork.CompProperties_ClockworkMachine"]/machineInput[text()="CaS_Ruby"]</xpath>
                     <value>
-                        <machineInput>DZ_Sapphire</machineInput>
+                        <machineInput>DZ_Ruby</machineInput>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Spawner"]/thingToSpawn[text()="CaS_Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Spawner"]/thingToSpawn[text()="CaS_Ruby"]</xpath>
                     <value>
-                        <thingToSpawn>DZ_Sapphire</thingToSpawn>
+                        <thingToSpawn>DZ_Ruby</thingToSpawn>
                     </value>
                 </li>
             </operations>
@@ -185,34 +206,42 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Sapphire</texPath>
+                                <texPath>Ruby</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
-                            <texPath>Sapphire</texPath>
+                            <texPath>Ruby</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(169,46,42)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
                     <value>
                         <li>KGems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Ruby"]</xpath>
                 </li>
             </operations>
         </match>
@@ -228,47 +257,55 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Things/Item/Resource/PreciousGem</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
                                 <shaderType>CutoutComplex</shaderType>
-                                <color>(1,58,227)</color>
-                                <colorTwo>(0,42,184)</colorTwo>
+                                <color>(224, 16, 30)</color>
+                                <colorTwo>(150,3,15)</colorTwo>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <texPath>Things/Item/Resource/PreciousGem</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
-                            <color>(1,58,227)</color>
-                            <colorTwo>(0,42,184)</colorTwo>
+                            <color>(224, 16, 30)</color>
+                            <colorTwo>(150,3,15)</colorTwo>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(224, 16, 30)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
                     <value>
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/tradeTags</xpath>
                     <value>
                         <li>Z_Gemstones_Precious</li>
                     </value>
                 </li>
                 <!--Add Comps-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
                     <value>
                         <li Class="CompProperties_Glower">
                             <glowRadius>1</glowRadius>
@@ -278,7 +315,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_Ruby"]</xpath>
                 </li>
             </operations>
         </match>
@@ -294,87 +331,95 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Items/Resource/Sapphire</texPath>
+                                <texPath>Items/Resource/Ruby</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
                         <value>
-                            <texPath>Items/Resource/Sapphire</texPath>
+                            <texPath>Items/Resource/Ruby</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(125,38,37)</color>
+                    </value>
+                </li>
                 <!--Use stuffProps categories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/stuffProps/categories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/stuffProps/categories</xpath>
                     <value>
                         <li>Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/tradeTags</xpath>
                     <value>
                         <li>Gemstones</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Ruby"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--
-        Universal Sapphire Replacements
-        -->
-    <!--Sapphire = Gems (Continued), Kura's Extra Gems, Jewelry-->
-    <!--Z_Sapphire = Gemstones-->
-    <!--CaS_Sapphire = Clockwork And Steam-->
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Ruby = Gems (Continued), Kura's Extra Gems, Jewelry-->
+    <!--Z_Ruby = Gemstones-->
+    <!--CaS_Ruby = Clockwork And Steam-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"]</xpath>
         <value>
-            <thingDef>DZ_Sapphire</thingDef>
+            <thingDef>DZ_Ruby</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"]</xpath>
         <value>
-            <mineableThing>DZ_Sapphire</mineableThing>
+            <mineableThing>DZ_Ruby</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire] 
-            | /Defs/ThingDef/costList/*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire] 
-            | /Defs/RecipeDef/products/*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire]
-            | /Defs/TerrainDef/costList/*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Ruby or self::Z_Ruby or self::CaS_Ruby] 
+            | /Defs/ThingDef/costList/*[self::Ruby or self::Z_Ruby or self::CaS_Ruby] 
+            | /Defs/RecipeDef/products/*[self::Ruby or self::Z_Ruby or self::CaS_Ruby]
+            | /Defs/TerrainDef/costList/*[self::Ruby or self::Z_Ruby or self::CaS_Ruby]
         </xpath>
-        <name>DZ_Sapphire</name>
+        <name>DZ_Ruby</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"]
         </xpath>
         <value>
-            <li>DZ_Sapphire</li>
+            <li>DZ_Ruby</li>
         </value>
     </Operation>
 

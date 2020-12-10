@@ -1,5 +1,4 @@
 <Patch>
-    <!--This file will contain all standardized resources for use in replacing modded recipes, unifying supported mods.-->
 
     <!--==========
     Clay {Ceramics, Fertile Fields}
@@ -17,10 +16,10 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Clay" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Clay" ParentName="DZ_EarthyBase">
                             <defName>DZ_Clay</defName>
                             <label>Clay</label>
-                            <description>Clay: can be molded, folded, and/or fired to create bricks.</description>
+                            <description>Clay: Can be molded, folded, and/or fired to create bricks.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData>
                                 <graphicClass>Graphic_StackCount</graphicClass>
@@ -38,6 +37,8 @@
                                 <li>ResourcesRaw</li>
                             </thingCategories>
                             <tradeTags />
+                            <stuffProps />
+                            <smeltable>false</smeltable>
                         </ThingDef>
                     </value>
                 </li>
@@ -56,6 +57,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Ceramics-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -82,50 +87,25 @@
                     </nomatch>
                 </li>
                 <!--Add StuffProps to ThingDef-->
-                <li Class="PatchOperationConditional">
+                <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/stuffProps</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/stuffProps</xpath>
-                        <value>
-                            <stuffProps>
-                                <categories Inherit="false">
-                                    <li>Clay</li>
-                                </categories>
-                                <color>(128,70,27)</color>
-                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <stuffAdjective>clay</stuffAdjective>
-                                <statFactors>
-                                    <MarketValue>0.6</MarketValue>
-                                    <Flammability>0</Flammability>
-                                    <Beauty>0.7</Beauty>
-                                </statFactors>
-                            </stuffProps>
-                            <smeltable>false</smeltable>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
-                        <value>
-                            <stuffProps>
-                                <categories Inherit="false">
-                                    <li>Clay</li>
-                                </categories>
-                                <color>(128,70,27)</color>
-                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <stuffAdjective>clay</stuffAdjective>
-                                <statFactors>
-                                    <MarketValue>0.6</MarketValue>
-                                    <Flammability>0</Flammability>
-                                    <Beauty>0.7</Beauty>
-                                </statFactors>
-                            </stuffProps>
-                            <smeltable>false</smeltable>
-                        </value>
-                    </nomatch>
+                    <value>
+                        <stuffProps>
+                            <categories Inherit="false">
+                                <li>Clay</li>
+                            </categories>
+                            <color>(128,70,27)</color>
+                            <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                            <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                            <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                            <stuffAdjective>clay</stuffAdjective>
+                            <statFactors>
+                                <MarketValue>0.6</MarketValue>
+                                <Flammability>0</Flammability>
+                                <Beauty>0.7</Beauty>
+                            </statFactors>
+                        </stuffProps>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -176,12 +156,11 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Clay Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--RFFClay = Fertile Fields-->
     <!--N7_RawClay = Ceramics-->
-
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
         <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="RFFClay" or text()="N7_RawClay"]</xpath>
@@ -210,5 +189,5 @@
             <li>DZ_Clay</li>
         </value>
     </Operation>
-    
+
 </Patch>

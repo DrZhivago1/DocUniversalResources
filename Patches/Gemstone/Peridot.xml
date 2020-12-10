@@ -1,14 +1,14 @@
 <Patch>
 
     <!--==========
-    Turquoise {Gems (Continued), Gemstones}
+    Peridot {Gems (Continued), Kura's Extra Gems}
     ==========-->
 
-    <!--DUR Turquoise, with whitelist-->
+    <!--DUR Peridot, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>
-            <li>zylle.Gemstones</li>
+            <li>Kura.ExtraGems</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -16,18 +16,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Turquoise" ParentName="ResourceBase">
-                            <defName>DZ_Turquoise</defName>
-                            <label>Turquoise</label>
-                            <description>Turquoise: An opaque and blue-green mineral.</description>
+                        <ThingDef Name="DZ_Peridot" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_Peridot</defName>
+                            <label>Peridot</label>
+                            <description>Peridot: A translucent and green variety of olivine.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>15</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.025</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -43,24 +43,25 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.05</commonality>                                <!--Gold = 0.02-->
-                                <color>(87, 231, 221)</color>
+                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
+                                <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>10</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>1.5</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.5</MaxHitPoints>
                                     <WorkToBuild>3</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                             <deepCommonality>0.25</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
@@ -78,6 +79,10 @@
         </match>
     </Operation>
 
+    <!--==========
+    Mods
+    ==========-->
+
     <!--Gems (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -88,131 +93,137 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/Turquoise</texPath>
+                                <texPath>Things/Item/Resource/Peridot</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/Turquoise</texPath>
+                            <texPath>Things/Item/Resource/Peridot</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Peridot"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(176,255,146)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/thingCategories</xpath>
                     <value>
                         <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Turquoise"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Peridot"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--Gemstones-->
+    <!--Kura's Extra Gems-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>zylle.Gemstones</li>
+            <li>Kura.ExtraGems</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/Gemstone</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(87, 231, 221)</color>
+                                <texPath>Peridot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/Gemstone</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(87, 231, 221)</color>
+                            <texPath>Peridot</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/thingCategories</xpath>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Peridot"]/stuffProps/color</xpath>
                     <value>
-                        <li>Z_Gemstones</li>
+                        <color>(160,190,60)</color>
                     </value>
                 </li>
-                <!--Add TradeTags-->
+                <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/thingCategories</xpath>
                     <value>
-                        <li>Z_Gemstones_SemiPrecious</li>
+                        <li>KGems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Turquoise"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Peridot"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--
-        Universal Turquoise Replacements
-        -->
-    <!--Turquoise = Gems (Continued)-->
-    <!--Z_Turquoise = Gemstones-->
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Peridot = Gems (Continued), Kura's Extra Gems-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Turquoise" or text()="Z_Turquoise"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Peridot"]</xpath>
         <value>
-            <thingDef>DZ_Turquoise</thingDef>
+            <thingDef>DZ_Peridot</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Turquoise" or text()="Z_Turquoise"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Peridot"]</xpath>
         <value>
-            <mineableThing>DZ_Turquoise</mineableThing>
+            <mineableThing>DZ_Peridot</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Turquoise or self::Z_Turquoise] 
-            | /Defs/ThingDef/costList/*[self::Turquoise or self::Z_Turquoise] 
-            | /Defs/RecipeDef/products/*[self::Turquoise or self::Z_Turquoise]
-            | /Defs/TerrainDef/costList/*[self::Turquoise or self::Z_Turquoise]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Peridot] 
+            | /Defs/ThingDef/costList/*[self::Peridot] 
+            | /Defs/RecipeDef/products/*[self::Peridot]
+            | /Defs/TerrainDef/costList/*[self::Peridot]
         </xpath>
-        <name>DZ_Turquoise</name>
+        <name>DZ_Peridot</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Turquoise" or text()="Z_Turquoise"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Turquoise" or text()="Z_Turquoise"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Turquoise" or text()="Z_Turquoise"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Turquoise" or text()="Z_Turquoise"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Peridot"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Peridot"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Peridot"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Peridot"]
         </xpath>
         <value>
-            <li>DZ_Turquoise</li>
+            <li>DZ_Peridot</li>
         </value>
     </Operation>
 

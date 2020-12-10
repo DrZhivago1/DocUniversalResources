@@ -16,7 +16,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Adobe" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Adobe" ParentName="DZ_EarthyBase">
                             <defName>DZ_Adobe</defName>
                             <label>Adobe</label>
                             <description>Adobe: Organics combined with clay to produce moldable material.</description>
@@ -42,6 +42,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Simple Mining Extension-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -140,9 +144,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Adobe Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--AdobeRaw = Simple Mining Extension-->
     <!--N7_RawMudbrick = Ceramics-->
     <Operation Class="PatchOperationReplace">

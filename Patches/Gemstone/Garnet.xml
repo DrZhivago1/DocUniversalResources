@@ -1,14 +1,14 @@
 <Patch>
 
     <!--==========
-    Peridot {Gems (Continued), Kura's Extra Gems}
+    Garnet {Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Peridot, with whitelist-->
+    <!--DUR Garnet, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Mlie.Gems</li>
             <li>Kura.ExtraGems</li>
+            <li>zylle.Gemstones</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -16,10 +16,10 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Peridot" ParentName="ResourceBase">
-                            <defName>DZ_Peridot</defName>
-                            <label>Peridot</label>
-                            <description>Peridot: A translucent and green variety of olivine.</description>
+                        <ThingDef Name="DZ_Garnet" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_Garnet</defName>
+                            <label>Garnet</label>
+                            <description>Garnet: A translucent and colored variety of silicate minerals.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
@@ -44,7 +44,7 @@
                                     <li>Stony</li>
                                 </categories>
                                 <commonality>0.03</commonality>                                <!--Gold = 0.02-->
-                                <color>(160,190,60)</color>
+                                <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
@@ -61,6 +61,7 @@
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                             <deepCommonality>0.25</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
@@ -78,48 +79,9 @@
         </match>
     </Operation>
 
-    <!--Gems (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>Mlie.Gems</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Peridot</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Peridot</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Peridot"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Kura's Extra Gems-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -131,78 +93,147 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Peridot</texPath>
+                                <texPath>Garnet</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
                         <value>
-                            <texPath>Peridot</texPath>
+                            <texPath>Garnet</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(98,25,18)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
                     <value>
                         <li>KGems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Peridot"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Garnet"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--
-        Universal Peridot Replacements
-        -->
-    <!--Peridot = Gems (Continued), Kura's Extra Gems-->
+    <!--Gemstones-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>zylle.Gemstones</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Gemstone</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(56,7,28)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/Gemstone</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(56,7,28)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(56,7,28)</color>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
+                    <value>
+                        <li>Z_Gemstones</li>
+                    </value>
+                </li>
+                <!--Add TradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/tradeTags</xpath>
+                    <value>
+                        <li>Z_Gemstones_SemiPrecious</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Z_Garnet"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Garnet = Kura's Extra Gems-->
+    <!--Z_Garnet = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Peridot"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Garnet" or text()="Z_Garnet"]</xpath>
         <value>
-            <thingDef>DZ_Peridot</thingDef>
+            <thingDef>DZ_Garnet</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Peridot"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Garnet" or text()="Z_Garnet"]</xpath>
         <value>
-            <mineableThing>DZ_Peridot</mineableThing>
+            <mineableThing>DZ_Garnet</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Peridot] 
-            | /Defs/ThingDef/costList/*[self::Peridot] 
-            | /Defs/RecipeDef/products/*[self::Peridot]
-            | /Defs/TerrainDef/costList/*[self::Peridot]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Garnet or self::Z_Garnet] 
+            | /Defs/ThingDef/costList/*[self::Garnet or self::Z_Garnet] 
+            | /Defs/RecipeDef/products/*[self::Garnet or self::Z_Garnet]
+            | /Defs/TerrainDef/costList/*[self::Garnet or self::Z_Garnet]
         </xpath>
-        <name>DZ_Peridot</name>
+        <name>DZ_Garnet</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Peridot"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Peridot"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Peridot"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Peridot"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Garnet" or text()="Z_Garnet"]
         </xpath>
         <value>
-            <li>DZ_Peridot</li>
+            <li>DZ_Garnet</li>
         </value>
     </Operation>
 

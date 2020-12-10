@@ -18,7 +18,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Glass" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Glass" ParentName="DZ_SyntheticBase">
                             <defName>DZ_Glass</defName>
                             <label>Glass</label>
                             <description>Glass: Rapidly cooled molten material, often transparent.</description>
@@ -45,6 +45,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Dubs Skylights-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -181,9 +185,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Glass Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--SadjuukGlass = UN-Colony (Continued)-->
     <!--Glass = Glass+Lights, Just Glass-->
     <!--GlassPane = Dubs Skylights-->

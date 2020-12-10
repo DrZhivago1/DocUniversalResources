@@ -1,0 +1,276 @@
+<Patch>
+
+    <!--==========
+    Obsidian Rock {[K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures), Alpha Biomes}
+    ==========-->
+
+    <!--DUR Obsidian Rock, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStone</li>
+            <li>sarg.alphabiomes</li>
+            <li>Kura.ExtraStoneCupro</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+
+                        <!--=====Stone=====-->
+                        <ThingDef Name="DZ_ObsidianStone" ParentName="DZ_StoneRockBase">
+                            <defName>DZ_ObsidianStone</defName>
+                            <label>Obsidian</label>
+                            <description>Obsidian is a naturally occurring volcanic glass formed as an extrusive igneous rock.</description>
+                            <graphicData />
+                            <statBases>
+                                <MaxHitPoints>1000</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <mineableThing>DZ_ChunkObsidian</mineableThing>
+                                <mineableDropChance>0.25</mineableDropChance>
+                                <mineableYieldWasteable>false</mineableYieldWasteable>
+                                <smoothedThing>DZ_SmoothedObsidianStone</smoothedThing>
+                            </building>
+                            <generateCommonality />
+                        </ThingDef>
+
+                        <!--=====SmoothedStone=====-->
+                        <ThingDef Name="DZ_SmoothedObsidianStone" ParentName="DZ_ObsidianStone">
+                            <defName>DZ_SmoothedObsidianStone</defName>
+                            <label>Smoothed obsidian</label>
+                            <description>Obsidian is a naturally occurring volcanic glass formed as an extrusive igneous rock.</description>
+                            <graphicData />
+                            <statBases>
+                                <Beauty>1</Beauty>
+                                <MarketValue>18</MarketValue>
+                            </statBases>
+                            <building>
+                                <isNaturalRock>false</isNaturalRock>
+                                <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                                <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                                <smoothedThing />
+                            </building>
+                            <saveCompressible>false</saveCompressible>
+                            <repairEffect>Repair</repairEffect>
+                        </ThingDef>
+
+                        <!--=====Chunk=====-->
+                        <ThingDef Name="DZ_ChunkObsidian" ParentName="DZ_ChunkRockBase">
+                            <defName>DZ_ChunkObsidian</defName>
+                            <label>Obsidian chunk</label>
+                            <graphicData />
+                            <statBases>
+                                <Mass>20</Mass>
+                            </statBases>
+                            <soundDrop>ChunkRock_Drop</soundDrop>
+                            <butcherProducts>
+                                <DZ_BlocksObsidian>20</DZ_BlocksObsidian>
+                            </butcherProducts>
+                        </ThingDef>
+
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--[K]Extra Stone-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStone</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <!--<success>Always</success>-->
+            <operations>
+                <!--=====
+                Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(35,35,35)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--=====
+                Smoothed Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SmoothedObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                            <color>(35,35,35)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--=====
+                Chunk
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ChunkObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(35,35,35)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Obsidian" or defName="SmoothedObsidian" or defName="ChunkObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[K]Extra Stone(w/ Cupro's Textures)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraStoneCupro</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--=====
+                Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Cupro/Object/Structure/RockSmooth_Atlas</texPath>
+                            <color>(30,30,30)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--=====
+                Smoothed Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SmoothedObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Cupro/Object/Structure/RockSmoothed_Atlas</texPath>
+                            <color>(30,30,30)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--=====
+                Chunk
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ChunkObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(30,30,30)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Obsidian" or defName="SmoothedObsidian" or defName="ChunkObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Alpha Biomes-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>sarg.alphabiomes</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--=====
+                Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/AB_Cragstone</texPath>
+                            <graphicClass>Graphic_Random</graphicClass>
+                            <linkType>None</linkType>
+                            <color>(50,50,50)</color>
+                            <drawSize>(3,3)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Use commonality-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ObsidianStone"]/generateCommonality</xpath>
+                    <value>
+                        <generateCommonality>0</generateCommonality>
+                    </value>
+                </li>
+                <!--=====
+                Smoothed Stone
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SmoothedObsidianStone"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <linkType>CornerFiller</linkType>
+                            <linkFlags>
+                                <li>Rock</li>
+                                <li>MapEdge</li>
+                            </linkFlags>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--=====
+                Chunk
+                =====-->
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ChunkObsidian"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <color>(50,50,50)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resources-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AB_Obsidianstone" or defName="AB_SmoothedObsidian" or defName="AB_ChunkObsidian"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--AB_ChunkObsidian = Alpha Biomes-->
+    <!--ChunkObsidian = [K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures)-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="AB_ChunkObsidian" or text()="ChunkObsidian"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="AB_ChunkObsidian" or text()="ChunkObsidian"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="AB_ChunkObsidian" or text()="ChunkObsidian"]
+        </xpath>
+        <value>
+            <li>DZ_ChunkObsidian</li>
+        </value>
+    </Operation>
+
+</Patch>

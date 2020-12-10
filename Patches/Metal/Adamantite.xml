@@ -1,0 +1,214 @@
+<Patch>
+
+    <!--==========
+    Adamantite {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
+    ==========-->
+
+    <!--DUR Adamantite, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mercurydoll.fantasymetals</li>
+            <li>Ryflamer.Rimcraft.Metals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Adamantite" ParentName="DZ_MetalBase">
+                            <defName>DZ_Adamantite</defName>
+                            <label>Adamantite</label>
+                            <description>Adamantite: A strong and magically attuned metal.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <soundDrop>Metal_Drop</soundDrop>
+                            <statBases>
+                                <MarketValue>9</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <Mass>0.5</Mass>                                <!--Steel = 0.5-->
+                                <Flammability>0</Flammability>
+                                <StuffPower_Armor_Sharp>1.26</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.63</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>1.08</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                                <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>1.05</BluntDamageMultiplier>
+                            </statBases>
+                            <useHitPoints>false</useHitPoints>
+                            <healthAffectsPrice>false</healthAffectsPrice>
+                            <stuffProps>
+                                <categories>
+                                    <li>Metallic</li>
+                                </categories>
+                                <commonality>0.05</commonality>                                <!--Gold = 0.02-->
+                                <color />
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                <statFactors>
+                                    <MaxHitPoints>10</MaxHitPoints>
+                                    <Beauty>1</Beauty>
+                                    <Flammability>0.2</Flammability>
+                                </statFactors>
+                            </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                            <burnableByRecipe>false</burnableByRecipe>
+                            <smeltable>true</smeltable>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <tradeTags />
+                            <comps />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Fantasy Metals Reforged-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mercurydoll.fantasymetals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Adamantite</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/Adamantite</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(78,11,19)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Adamantite"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[Ry]Rimcraft Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Ryflamer.Rimcraft.Metals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Metal/Adamantite_Ingot</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Metal/Adamantite_Ingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(73,149,193)</color>
+                    </value>
+                </li>
+                <!--Use tradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/tradeTags</xpath>
+                    <value>
+                        <li>Exotic</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="WoW_adamantite"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Adamantite = Fantasy Metals Reforged-->
+    <!--WoW_adamantite = [Ry]Rimcraft Metals-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
+        <value>
+            <thingDef>DZ_Adamantite</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
+        <value>
+            <mineableThing>DZ_Adamantite</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Adamantite or self::WoW_adamantite] 
+            | /Defs/ThingDef/costList/*[self::Adamantite or self::WoW_adamantite] 
+            | /Defs/RecipeDef/products/*[self::Adamantite or self::WoW_adamantite]
+            | /Defs/TerrainDef/costList/*[self::Adamantite or self::WoW_adamantite]
+        </xpath>
+        <name>DZ_Adamantite</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Adamantite" or text()="WoW_adamantite"]
+        </xpath>
+        <value>
+            <li>DZ_Adamantite</li>
+        </value>
+    </Operation>
+
+</Patch>

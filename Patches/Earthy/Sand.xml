@@ -17,10 +17,10 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Sand" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Sand" ParentName="DZ_EarthyBase">
                             <defName>DZ_Sand</defName>
                             <label>Sand</label>
-                            <description>Sand: coarse, rough, irritating, and gets everywhere.</description>
+                            <description>Sand: Coarse, rough, irritating, and gets everywhere.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData>
                                 <graphicClass>Graphic_StackCount</graphicClass>
@@ -56,6 +56,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Ceramics-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -160,9 +164,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Sand Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--SandPile = Fertile Fields-->
     <!--N7_Sand = Ceramics-->
     <Operation Class="PatchOperationSetName">

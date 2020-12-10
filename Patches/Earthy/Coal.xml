@@ -21,7 +21,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Coal" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Coal" ParentName="DZ_EarthyBase">
                             <defName>DZ_Coal</defName>
                             <label>Coal</label>
                             <description>Coal: A carbon based sedimentary rock that can be burned for fuel.</description>
@@ -43,7 +43,6 @@
                             <deepCountPerPortion>25</deepCountPerPortion>
                             <deepLumpSizeRange>15~25</deepLumpSizeRange>
                             <tradeTags />
-                            <stuffProps />
                         </ThingDef>
                     </value>
                 </li>
@@ -58,6 +57,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Medieval Times Unofficial Update-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -89,7 +92,7 @@
                         </value>
                     </nomatch>
                 </li>
-                <!--Use stuffProps -->
+                <!--Use stuffProps 
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/stuffProps</xpath>
                     <value>
@@ -107,7 +110,7 @@
                             <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
                         </stuffProps>
                     </value>
-                </li>
+                </li>-->
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MedTimes_Resource_Coal"]</xpath>
@@ -357,9 +360,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Coal Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--WDCoal = [WD] Simple Coal-->
     <!--VMEu_Coal = Expanded Materials - Metals-->
     <!--MedTimes_Resource_Coal = Medieval Times Unofficial Update-->
@@ -370,14 +373,6 @@
         <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]</xpath>
         <value>
             <thingDef>DZ_Coal</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]</xpath>
-        <value>
-            <mineableThing>DZ_Coal</mineableThing>
         </value>
     </Operation>
 

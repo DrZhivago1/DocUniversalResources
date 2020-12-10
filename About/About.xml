@@ -30,6 +30,17 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Crustypeanut.RC2.Core</li>
+		<li>dismarzero.VGP.VGPVegetableGarden</li>
+		<li>VanillaExpanded.VPlantsE</li>
+		<li>Kura.ExtraStone</li>
+		<li>sarg.alphabiomes</li>
+		<li>Kura.ExtraStoneCupro</li>
+		<li>Kyrrisayo.MetalsPlus</li>
+		<li>Mlie.CuprosAlloys</li>
+		<li>mercurydoll.fantasymetals</li>
+		<li>Ryflamer.Rimcraft.Metals</li>
+		<li>Argon.SaltedMeat</li>
 		<li>Oblitus.Carbon</li>
 		<li>kikohi.jewelry</li>
 		<li>zylle.Gemstones</li>

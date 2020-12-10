@@ -1,0 +1,322 @@
+<Patch>
+
+    <!--==========
+    Bronze {Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Expanded Materials - Metals}
+    ==========-->
+
+    <!--DUR Bronze, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>chance2000w.clockworkandsteam</li>
+            <li>Kyrrisayo.MetalsPlus</li>
+            <li>Mlie.CuprosAlloys</li>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Bronze" ParentName="DZ_MetalBase">
+                            <defName>DZ_Bronze</defName>
+                            <label>Bronze</label>
+                            <description>Bronze: An alloy of copper and tin.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <soundDrop>Metal_Drop</soundDrop>
+                            <statBases>
+                                <MarketValue>2</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <Mass>0.5</Mass>                                <!--Steel = 0.5-->
+                                <StuffPower_Armor_Sharp>0.78</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.55</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>0.52</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                                <SharpDamageMultiplier>0.9</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
+                            </statBases>
+                            <useHitPoints>false</useHitPoints>
+                            <healthAffectsPrice>false</healthAffectsPrice>
+                            <stuffProps>
+                                <categories>
+                                    <li>Metallic</li>
+                                </categories>
+                                <commonality>1</commonality>                                <!--Gold = 0.02, Steel = 1-->
+                                <color />
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                <!--<statOffsets>
+                                    <Beauty>2</Beauty>
+                                </statOffsets>-->
+                                <statFactors>
+                                    <MaxHitPoints>0.87</MaxHitPoints>
+                                    <Beauty>1.68</Beauty>
+                                    <Flammability>0.3</Flammability>                                    <!--Steel = 0.4-->
+                                </statFactors>
+                            </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                            <burnableByRecipe>false</burnableByRecipe>
+                            <smeltable>true</smeltable>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <!--<deepCommonality>3</deepCommonality>                            Gold = 0.5, Steel = 4-->
+                            <!--<deepCountPerPortion>45</deepCountPerPortion>                            Steel = 45-->
+                            <!--<deepLumpSizeRange>15~30</deepLumpSizeRange>                            Steel = 20~30-->
+                            <tradeTags />
+                            <comps />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Clockwork And Steam-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>chance2000w.clockworkandsteam</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(150,120,20)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(150,120,20)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Bronze"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(150,120,20)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CaS_Bronze"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Metals+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kyrrisayo.MetalsPlus</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Bronze</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/Bronze</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Bronze"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(195,160,34)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Bronze"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Cupro's Alloys (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.CuprosAlloys</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Cupro/Item/Material/Ingot_Dull</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(87,69,34)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <texPath>Cupro/Item/Material/Ingot_Dull</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(87,69,34)</color>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Bronze"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(87,69,34)</color>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/thingCategories</xpath>
+                    <value>
+                        <li>CAL_Metals</li>
+                    </value>
+                </li>
+                <!--Use tradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/tradeTags</xpath>
+                    <value>
+                        <li>Exotic</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CAL_Bronze"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/VMEu_Bronze</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/VMEu_Bronze</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </value>
+                    </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Bronze"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(229, 174, 108)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_Bronze"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Bronze = Metals+-->
+    <!--CaS_Bronze = Clockwork And Steam-->
+    <!--CAL_Bronze = Cupro's Alloys (Continued)-->
+    <!--VMEu_Bronze = Expanded Materials - Metals-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]</xpath>
+        <value>
+            <thingDef>DZ_Bronze</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]</xpath>
+        <value>
+            <mineableThing>DZ_Bronze</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Bronze or self::CaS_Bronze or self::CAL_Bronze or self::VMEu_Bronze]
+            | /Defs/ThingDef/costList/*[self::Bronze or self::CaS_Bronze or self::CAL_Bronze or self::VMEu_Bronze]
+            | /Defs/RecipeDef/products/*[self::Bronze or self::CaS_Bronze or self::CAL_Bronze or self::VMEu_Bronze]
+            | /Defs/TerrainDef/costList/*[self::Bronze or self::CaS_Bronze or self::CAL_Bronze or self::VMEu_Bronze]
+        </xpath>
+        <name>DZ_Bronze</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Bronze" or text()="CaS_Bronze" or text()="CAL_Bronze" or text()="VMEu_Bronze"]
+        </xpath>
+        <value>
+            <li>DZ_Bronze</li>
+        </value>
+    </Operation>
+
+</Patch>

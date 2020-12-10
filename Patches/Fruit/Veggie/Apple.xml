@@ -1,0 +1,192 @@
+<Patch>
+
+    <!--==========
+    Apple {[1.0, 1.1] RimCuisine 2 Core, VGP Vegetable Garden, Vanilla Cooking Expanded}
+    ==========-->
+
+    <!--DUR Apple, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+            <li>dismarzero.VGP.VGPVegetableGarden</li>
+            <li>VanillaExpanded.VPlantsE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+
+                        <ThingDef Name="DZ_RawApple" ParentName="DZ_FruitVeggieBase">
+                            <defName>DZ_RawApple</defName>
+                            <label>apples</label>
+                            <description>Apples: Edible fruit produced by an apple tree.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <thingCategories />
+                            <statBases>
+                                <MarketValue>1.2</MarketValue>
+                            </statBases>
+                            <ingestible>
+                                <preferability>RawTasty</preferability>
+                                <tasteThought/>
+                                <foodType>VegetableOrFruit</foodType>
+                            </ingestible>
+                            <comps>
+                                <li Class="CompProperties_Rottable">
+                                    <daysToRotStart>15</daysToRotStart>
+                                    <rotDestroys>true</rotDestroys>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>RC2_Things/RC2_Veg/Apples</texPath>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
+                    <value>
+                        <li>RC2_FruitsRaw</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RC2_RawApples"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--VGP Vegetable Garden-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dismarzero.VGP.VGPVegetableGarden</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Fruits/apple</texPath>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
+                    <value>
+                        <li>FruitFoodRaw</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Rawapple"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Plants Expanded-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>VanillaExpanded.VPlantsE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Raw/VCE_Apples</texPath>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Use thingCategories-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
+                    <value>
+                        <li>VCE_Fruit</li>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_RawApple"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--RC2_RawApples = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--Rawapple = VGP Vegetable Garden-->
+    <!--VCE_RawApple = Vanilla Plants Expanded-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]</xpath>
+        <value>
+            <thingDef>DZ_RawApple</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]</xpath>
+        <value>
+            <harvestedThingDef>DZ_RawApple</harvestedThingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Rawapple or self::RC2_RawApples or self::VCE_RawApple]
+            | /Defs/ThingDef/costList/*[self::Rawapple or self::RC2_RawApples or self::VCE_RawApple]
+            | /Defs/RecipeDef/products/*[self::Rawapple or self::RC2_RawApples or self::VCE_RawApple]
+        </xpath>
+        <name>DZ_RawApple</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]
+        </xpath>
+        <value>
+            <li>DZ_RawApple</li>
+        </value>
+    </Operation>
+
+</Patch>

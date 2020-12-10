@@ -19,7 +19,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Diamond" ParentName="ResourceBase">
+                        <ThingDef Name="DZ_Diamond" ParentName="DZ_GemstoneBase">
                             <defName>DZ_Diamond</defName>
                             <label>Diamond</label>
                             <description>Diamond: A transparent and whitish form of the element carbon.</description>
@@ -47,7 +47,7 @@
                                     <li>Stony</li>
                                 </categories>
                                 <commonality>0.02</commonality>                                <!--Gold = 0.02-->
-                                <color>(191, 245, 255)</color>
+                                <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
@@ -64,6 +64,7 @@
                                     <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
                                 </statFactors>
                             </stuffProps>
+                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                             <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
                             <deepCountPerPortion>5</deepCountPerPortion>
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
@@ -80,6 +81,10 @@
             </operations>
         </match>
     </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
 
     <!--Gems (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -108,6 +113,14 @@
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(184,225,225)</color>
+                    </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
@@ -152,6 +165,14 @@
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(193,230,255)</color>
+                    </value>
+                </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef[@Name="DZ_Diamond"][not(tradeability)]</xpath>
@@ -194,6 +215,14 @@
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(240,240,240)</color>
+                    </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
@@ -243,6 +272,14 @@
                             <colorTwo>(240, 250, 255)</colorTwo>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(255, 255, 255)</color>
+                    </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
@@ -304,6 +341,14 @@
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(78,177,190)</color>
+                    </value>
+                </li>
                 <!--Use stuffProps categories-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/stuffProps/categories</xpath>
@@ -326,9 +371,9 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Diamond Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--Diamond = Gems (Continued), Carbon, Kura's Extra Gems, Jewelry-->
     <!--Z_Diamond = Gemstones-->
     <Operation Class="PatchOperationReplace">

@@ -1,10 +1,10 @@
 <Patch>
 
     <!--==========
-    Concrete {Industrialisation, UN-Colony (Continued), Simple Concrete, [RF] Concrete (Continued), Expanded Materials - Metals}
+    Concrete Block {Industrialisation, UN-Colony (Continued), Simple Concrete, [RF] Concrete (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Concrete, with whitelist-->
+    <!--DUR Concrete Block, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.UNColony</li>
@@ -19,8 +19,8 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Concrete" ParentName="ResourceBase">
-                            <defName>DZ_Concrete</defName>
+                        <ThingDef Name="DZ_BlocksConcrete" ParentName="DZ_StoneBlocksBase">
+                            <defName>DZ_BlocksConcrete</defName>
                             <label>Concrete</label>
                             <description>Concrete: A hard, resilient, stony material.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
@@ -31,7 +31,7 @@
                             <statBases>
                                 <MarketValue>2.0</MarketValue>
                                 <Mass>2.5</Mass>
-                                <Beauty>-5</Beauty>
+                                <Beauty>-3</Beauty>
                                 <Flammability>0</Flammability>
                                 <SharpDamageMultiplier>0.8</SharpDamageMultiplier>
                                 <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
@@ -46,7 +46,7 @@
                                 </categories>
                                 <commonality>0.16</commonality>
                                 <constructEffect>ConstructMetal</constructEffect>
-                                <color>(107,109,107)</color>
+                                <color />
                                 <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
@@ -66,6 +66,10 @@
         </match>
     </Operation>
 
+    <!--==========
+    Mods
+    ==========-->
+
     <!--Industrialisation-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -76,9 +80,9 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Ind/Stuff/Concrete</texPath>
@@ -87,12 +91,20 @@
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <texPath>Ind/Stuff/Concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(122,122,120)</color>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -112,9 +124,9 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
@@ -123,12 +135,20 @@
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match, stuffProps node not originally in the mod-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(107,109,107)</color>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -148,9 +168,9 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Resource/concrete</texPath>
@@ -159,12 +179,20 @@
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <texPath>Resource/concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(107,109,107)</color>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -184,34 +212,44 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>RFFConcrete</texPath>
+                                <texPath>Things/Item/Resource/StoneBlocks</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(192,192,192)</color>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
-                            <texPath>RFFConcrete</texPath>
+                            <texPath>Things/Item/Resource/StoneBlocks</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(192,192,192)</color>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(192,192,192)</color>
+                    </value>
+                </li>
                 <!--Add FF trade tags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
                     <value>
                         <li>TerraformingResources</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RFFConcrete"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RFFBlocksConcrete"]</xpath>
                 </li>
             </operations>
         </match>
@@ -227,9 +265,9 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
@@ -238,16 +276,24 @@
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
                         <value>
                             <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
                 </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(107,110,102)</color>
+                    </value>
+                </li>
                 <!--Change stuffProps category-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Concrete"]/stuffProps/categories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/stuffProps/categories</xpath>
                     <value>
                         <li>VMEu_ConcreteStuffCategory</li>
                     </value>
@@ -260,40 +306,42 @@
         </match>
     </Operation>
 
-    <!--
-        Universal Concrete Replacements
-        -->
+    <!--==========
+    Universal Replacements
+    ==========-->
     <!--SadjuukConcrete = UN-Colony (Continued)-->
     <!--Ind_Concrete = Industrialisation-->
     <!--D9Concrete = Simple Concrete-->
-    <!--RFFConcrete = [RF] Concrete (Continued)-->
+    <!--RFFBlocksConcrete = [RF] Concrete (Continued)-->
     <!--VMEu_Concrete = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"]</xpath>
         <value>
-            <thingDef>DZ_Concrete</thingDef>
+            <thingDef>DZ_BlocksConcrete</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete] 
-            | /Defs/ThingDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete] 
-            | /Defs/RecipeDef/products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete]
-            | /Defs/TerrainDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFConcrete or self::VMEu_Concrete]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFBlocksConcrete or self::VMEu_Concrete] 
+            | /Defs/ThingDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFBlocksConcrete or self::VMEu_Concrete] 
+            | /Defs/RecipeDef/products/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFBlocksConcrete or self::VMEu_Concrete]
+            | /Defs/TerrainDef/costList/*[self::SadjuukConcrete or self::Ind_Concrete or self::D9Concrete or self::RFFBlocksConcrete or self::VMEu_Concrete]
         </xpath>
-        <name>DZ_Concrete</name>
+        <name>DZ_BlocksConcrete</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFConcrete" or text()="VMEu_Concrete"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"]
+            | /Defs/RecipeDef/fixedIngredientFilter/disallowedThingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/disallowedThingDefs/li[text()="SadjuukConcrete" or text()="Ind_Concrete" or text()="D9Concrete" or text()="RFFBlocksConcrete" or text()="VMEu_Concrete"]
         </xpath>
         <value>
-            <li>DZ_Concrete</li>
+            <li>DZ_BlocksConcrete</li>
         </value>
     </Operation>
 
