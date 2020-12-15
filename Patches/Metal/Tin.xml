@@ -1,40 +1,38 @@
 <Patch>
 
     <!--==========
-    Copper {Industrialisation, Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
+    Tin {Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Copper, with whitelist-->
+    <!--DUR Tin, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>trasheddt.industrialisation</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
-            <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Copper" ParentName="DZ_MetalBase">
-                    <defName>DZ_Copper</defName>
-                    <label>Copper</label>
-                    <description>Copper: A soft, malleable, and ductile metal with very high thermal and electrical conductivity.</description>
+                <ThingDef Name="DZ_Tin" ParentName="DZ_MetalBase">
+                    <defName>DZ_Tin</defName>
+                    <label>Tin</label>
+                    <description>Tin: A soft, malleable, and ductile metal with very high thermal and electrical conductivity.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>4</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <MarketValue>2</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
                         <Mass>0.2</Mass>                        <!--Steel = 0.5-->
-                        <StuffPower_Armor_Sharp>0.42</StuffPower_Armor_Sharp>
-                        <StuffPower_Armor_Blunt>0.28</StuffPower_Armor_Blunt>
-                        <StuffPower_Armor_Heat>0.19</StuffPower_Armor_Heat>
-                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Armor_Sharp>0.22</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.18</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.15</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
                         <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                        <SharpDamageMultiplier>0.55</SharpDamageMultiplier>
-                        <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
+                        <SharpDamageMultiplier>0.44</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>0.8</BluntDamageMultiplier>
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
@@ -42,7 +40,7 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.12</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <commonality>0.05</commonality>                        <!--Gold = 0.02, Steel = 1-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
@@ -52,9 +50,9 @@
                             <Beauty>0</Beauty>
                         </statOffsets>
                         <statFactors>
-                            <MaxHitPoints>0.5</MaxHitPoints>
+                            <MaxHitPoints>0.3</MaxHitPoints>
                             <Beauty>1</Beauty>
-                            <Flammability>0.5</Flammability>                            <!--Steel = 0.4-->
+                            <Flammability>0.25</Flammability>                            <!--Steel = 0.4-->
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -79,40 +77,6 @@
     Mods
     ==========-->
 
-    <!--Industrialisation-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>trasheddt.industrialisation</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Ind/Stuff/Copper</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(128,170,150)</color>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Ind_Copper"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-
     <!--Clockwork And Steam-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -123,26 +87,26 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Item/Resource/CaS_Ingot</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(230,150,0)</color>
+                            <color>(210,210,210)</color>
                         </graphicData>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/stuffProps/color</xpath>
                     <value>
-                        <color>(230,150,0)</color>
+                        <color>(210,210,210)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="CaS_Copper"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="CaS_Tin"]</xpath>
                 </li>
             </operations>
         </match>
@@ -158,10 +122,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/Copper</texPath>
+                            <texPath>Things/Item/Resource/Tin</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
@@ -169,14 +133,14 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/stuffProps/color</xpath>
                     <value>
-                        <color>(236,146,121)</color>
+                        <color>(205,195,183)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Copper"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Tin"]</xpath>
                 </li>
             </operations>
         </match>
@@ -192,10 +156,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Cupro/Item/Material/Copper</texPath>
+                            <texPath>Cupro/Item/Material/Tin</texPath>
                             <graphicClass>Graphic_Random</graphicClass>
                         </graphicData>
                     </value>
@@ -203,69 +167,28 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/stuffProps/color</xpath>
                     <value>
-                        <color>(184,115,51)</color>
+                        <color>(116,101,96)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/thingCategories</xpath>
                     <value>
-                        <li>CAL_Conducting</li>
-                    </value>
-                </li>
-                <!--Use stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>Conducting</li>
+                        <li>CAL_Metals</li>
                     </value>
                 </li>
                 <!--Use tradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/tradeTags</xpath>
                     <value>
                         <li>Exotic</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="CAL_Copper"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-
-    <!--Project RimFactory - Materials-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>PRF.Materials</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_CopperOre</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(175, 73, 27)</color>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="PRF_Copper"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="CAL_Tin"]</xpath>
                 </li>
             </operations>
         </match>
@@ -281,10 +204,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Copper</texPath>
+                            <texPath>Things/Item/Resource/VMEu_Tin</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
@@ -292,15 +215,15 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/stuffProps/color</xpath>
                     <value>
-                        <color>(175, 73, 27)</color>
+                        <color>(218, 220, 227)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/thingCategories</xpath>
                     <value>
                         <li>VMEu_SpecialMetals</li>
                     </value>
@@ -308,7 +231,7 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/statBases/Mass</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/statBases/Mass</xpath>
                     <value>
                         <Mass>0.008</Mass>
                     </value>
@@ -316,7 +239,7 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundInteract</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/soundInteract</xpath>
                     <value>
                         <soundInteract>Silver_Drop</soundInteract>
                     </value>
@@ -324,7 +247,7 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundDrop</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/soundDrop</xpath>
                     <value>
                         <soundDrop>Silver_Drop</soundDrop>
                     </value>
@@ -332,7 +255,7 @@
                 <!--Add stackLimit-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stackLimit</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/stackLimit</xpath>
                     <value>
                         <stackLimit>500</stackLimit>
                     </value>
@@ -340,14 +263,14 @@
                 <!--Add smallVolume-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/smallVolume</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tin"]/smallVolume</xpath>
                     <value>
                         <smallVolume>true</smallVolume>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_Copper"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="VMEu_Tin"]</xpath>
                 </li>
             </operations>
         </match>
@@ -356,48 +279,46 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Copper = Metals+-->
-    <!--CaS_Copper = Clockwork And Steam-->
-    <!--Ind_Copper = Industrialisation-->
-    <!--CAL_Copper = Cupro's Alloys (Continued)-->
-    <!--PRF_Copper = Project RimFactory - Materials-->
-    <!--VMEu_Copper = Expanded Materials - Metals-->
+    <!--Tin = Metals+-->
+    <!--CaS_Tin = Clockwork And Steam-->
+    <!--CAL_Tin = Cupro's Alloys (Continued)-->
+    <!--VMEu_Tin = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
+            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
         <value>
-            <thingDef>DZ_Copper</thingDef>
+            <thingDef>DZ_Tin</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
         <value>
-            <mineableThing>DZ_Copper</mineableThing>
+            <mineableThing>DZ_Tin</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]
-            | /Defs/ThingDef/costList/*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]
-            | /Defs/RecipeDef/products/*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]
-            | /Defs/TerrainDef/costList/*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
+            | /Defs/ThingDef/costList/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
+            | /Defs/RecipeDef/products/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
+            | /Defs/TerrainDef/costList/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
         </xpath>
-        <name>DZ_Copper</name>
+        <name>DZ_Tin</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
         </xpath>
         <value>
-            <li>DZ_Copper</li>
+            <li>DZ_Tin</li>
         </value>
     </Operation>
 

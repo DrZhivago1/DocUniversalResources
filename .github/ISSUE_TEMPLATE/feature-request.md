@@ -7,12 +7,18 @@ assignees: ''
 
 ---
 
-### Replace_text_with_category
+### [Mod_Name](Mod_Link) Mod_packageID
 _________________________________________________________________
 _Resource_
-- [ ] [Mod_Name](Mod_Link) Mod_packageID
-- [ ] [Mod_Name](Mod_Link) Mod_packageID
+- [ ] Resource_defName
+
+
+
+
+Copy/paste the above template ad infinitum.
+All text should be replace with the appropriate info. EG:
+
+### [DocUniversalResources](https://github.com/DrZhivago1/DocUniversalResources) drzhivago.docuniversalresources
 _________________________________________________________________
-
-Copy/paste the above templates ad infinitum.
-
+_Bronze_
+- [ ] DZ_Bronze

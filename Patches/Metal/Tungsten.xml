@@ -1,0 +1,191 @@
+<Patch>
+
+    <!--==========
+    Tungsten {Tungsten, Expanded Materials - Metals}
+    ==========-->
+
+    <!--DUR Tungsten, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Hol.Tungsten</li>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Tungsten" ParentName="DZ_MetalBase">
+                    <defName>DZ_Tungsten</defName>
+                    <label>Tungsten</label>
+                    <description>Tungsten: A very heavy and hard metal.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Metal_Drop</soundInteract>
+                    <soundDrop>Metal_Drop</soundDrop>
+                    <statBases>
+                        <MarketValue>4</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>1</Mass>                        <!--Steel = 0.5-->
+                        <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.6</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>1.5</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>1</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>1.2</BluntDamageMultiplier>
+                    </statBases>
+                    <useHitPoints>false</useHitPoints>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <stuffProps>
+                        <categories>
+                            <li>Metallic</li>
+                        </categories>
+                        <commonality>0.05</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <color />
+                        <constructEffect>ConstructMetal</constructEffect>
+                        <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                        <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                        <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                        <statOffsets>
+                            <Beauty>0</Beauty>
+                        </statOffsets>
+                        <statFactors>
+                            <WorkToMake>2</WorkToMake>
+                            <WorkToBuild>2</WorkToBuild>
+                            <MaxHitPoints>1.5</MaxHitPoints>
+                            <Beauty>1</Beauty>
+                            <DoorOpenSpeed>0.85</DoorOpenSpeed>
+                            <Flammability>0.2</Flammability>                            <!--Steel = 0.4-->
+                        </statFactors>
+                    </stuffProps>
+                    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>true</smeltable>
+                    <thingCategories>
+                        <li>ResourcesRaw</li>
+                    </thingCategories>
+                    <deepCommonality>1.5</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>15</deepCountPerPortion>                    <!--Steel = 45-->
+                    <deepLumpSizeRange>6~12</deepLumpSizeRange>                    <!--Steel = 20~30-->
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Tungsten-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Hol.Tungsten</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/Tungsten</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(214,214,214)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Tungsten"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/VMEu_Tungsten</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(68,82,63)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_Tungsten"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Tungsten = Metals+-->
+    <!--VMEu_Tungsten = Expanded Materials - Metals-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Tungsten" or text()="VMEu_Tungsten"]
+            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Tungsten" or text()="VMEu_Tungsten"]</xpath>
+        <value>
+            <thingDef>DZ_Tungsten</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Tungsten" or text()="VMEu_Tungsten"]</xpath>
+        <value>
+            <mineableThing>DZ_Tungsten</mineableThing>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Tungsten or self::VMEu_Tungsten]
+            | /Defs/ThingDef/costList/*[self::Tungsten or self::VMEu_Tungsten]
+            | /Defs/RecipeDef/products/*[self::Tungsten or self::VMEu_Tungsten]
+            | /Defs/TerrainDef/costList/*[self::Tungsten or self::VMEu_Tungsten]
+        </xpath>
+        <name>DZ_Tungsten</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
+        </xpath>
+        <value>
+            <li>DZ_Tungsten</li>
+        </value>
+    </Operation>
+
+</Patch>

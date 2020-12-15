@@ -30,44 +30,48 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Hol.Tungsten</li>
+		<li>Argon.SaltedMeat</li>
+		<li>Argon.VMEu</li>
+		<li>BJR1984.DubsSkylights.addon</li>
 		<li>Crustypeanut.RC2.Core</li>
-		<li>dismarzero.VGP.VGPVegetableGarden</li>
-		<li>VanillaExpanded.VPlantsE</li>
+		<li>Dubwise.DubsSkylights</li>
+		<li>KYD.RebalancedApothecary</li>
+		<li>Kura.ExtraGems</li>
 		<li>Kura.ExtraStone</li>
-		<li>sarg.alphabiomes</li>
 		<li>Kura.ExtraStoneCupro</li>
 		<li>Kyrrisayo.MetalsPlus</li>
-		<li>Mlie.CuprosAlloys</li>
-		<li>mercurydoll.fantasymetals</li>
-		<li>Ryflamer.Rimcraft.Metals</li>
-		<li>Argon.SaltedMeat</li>
-		<li>Oblitus.Carbon</li>
-		<li>kikohi.jewelry</li>
-		<li>zylle.Gemstones</li>
-		<li>Mlie.Gems</li>
-		<li>Kura.ExtraGems</li>
-		<li>BJR1984.DubsSkylights.addon</li>
-		<li>Dubwise.DubsSkylights</li>
-		<li>NanoCE.GlassLights</li>
-		<li>Argon.VMEu</li>
-		<li>KYD.RebalancedApothecary</li>
 		<li>Mantrasong.SurvAdd.1</li>
 		<li>Mlie.Apothecary</li>
 		<li>Mlie.Concrete</li>
+		<li>Mlie.CuprosAlloys</li>
+		<li>Mlie.Gems</li>
 		<li>Mlie.RealWorldFood2</li>
 		<li>Mlie.UNColony</li>
+		<li>NanoCE.GlassLights</li>
+		<li>Oblitus.Carbon</li>
+		<li>Owlchemist.SimpleChains.Steel</li>
+		<li>PRF.Materials</li>
+		<li>Ryflamer.Rimcraft.Metals</li>
 		<li>VanillaExpanded.VCookE</li>
+		<li>VanillaExpanded.VPlantsE</li>
 		<li>Wemd.SimpleCoal</li>
 		<li>Yuno.SimpleOresTest</li>
 		<li>chance2000w.clockworkandsteam</li>
 		<li>dismarzero.VGP.VGPGardenGourmet</li>
+		<li>dismarzero.VGP.VGPVegetableGarden</li>
 		<li>dninemfive.simpleconcrete</li>
 		<li>jamaicancastle.RF.fertilefields</li>
+		<li>kikohi.jewelry</li>
+		<li>mercurydoll.fantasymetals</li>
 		<li>n7huntsman.ceramics</li>
 		<li>neceros.coalexpanded</li>
+		<li>neceros.vanillaironandsteel</li>
+		<li>sarg.alphabiomes</li>
 		<li>tikubonn.RimSeasoning</li>
 		<li>trasheddt.industrialisation</li>
 		<li>vindar.medievaltimes</li>
+		<li>zylle.Gemstones</li>
 	</loadAfter>
 
 </ModMetaData>

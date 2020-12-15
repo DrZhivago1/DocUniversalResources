@@ -8,8 +8,8 @@
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kura.ExtraStone</li>
-            <li>sarg.alphabiomes</li>
             <li>Kura.ExtraStoneCupro</li>
+            <li>sarg.alphabiomes</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>

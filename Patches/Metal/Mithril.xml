@@ -1,10 +1,10 @@
 <Patch>
 
     <!--==========
-    Adamantite {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
+    Mithril {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <!--DUR Adamantite, with whitelist-->
+    <!--DUR Mithril, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>mercurydoll.fantasymetals</li>
@@ -13,24 +13,24 @@
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Adamantite" ParentName="DZ_MetalBase">
-                    <defName>DZ_Adamantite</defName>
-                    <label>Adamantite</label>
-                    <description>Adamantite: A very strong and magical metal.</description>
+                <ThingDef Name="DZ_Mithril" ParentName="DZ_MetalBase">
+                    <defName>DZ_Mithril</defName>
+                    <label>Mithril</label>
+                    <description>Mithril: A lightweight and very magically attuned metal.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>9</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
-                        <Mass>0.5</Mass>                        <!--Steel = 0.5-->
-                        <StuffPower_Armor_Sharp>1.26</StuffPower_Armor_Sharp>
-                        <StuffPower_Armor_Blunt>0.63</StuffPower_Armor_Blunt>
-                        <StuffPower_Armor_Heat>1.08</StuffPower_Armor_Heat>
+                        <MarketValue>5</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.3</Mass>                        <!--Steel = 0.5-->
+                        <StuffPower_Armor_Sharp>1</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.76</StuffPower_Armor_Heat>
                         <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
                         <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
                         <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
-                        <BluntDamageMultiplier>1.05</BluntDamageMultiplier>
+                        <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
@@ -38,15 +38,15 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.05</commonality>                        <!--Gold = 0.02-->
+                        <commonality>0.25</commonality>                        <!--Gold = 0.02-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                         <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
                         <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
                         <statFactors>
-                            <MaxHitPoints>10</MaxHitPoints>
-                            <Beauty>1</Beauty>
+                            <MaxHitPoints>2</MaxHitPoints>
+                            <Beauty>3</Beauty>
                             <Flammability>0.2</Flammability>
                         </statFactors>
                     </stuffProps>
@@ -77,10 +77,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/Adamantite</texPath>
+                            <texPath>Things/Item/Resource/Mithril</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </graphicData>
                     </value>
@@ -88,14 +88,14 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
                     <value>
-                        <color>(78,11,19)</color>
+                        <color>(255,255,255)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Adamantite"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Mithril"]</xpath>
                 </li>
             </operations>
         </match>
@@ -111,10 +111,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Metal/Adamantite_Ingot</texPath>
+                            <texPath>Things/Item/Metal/Mithril_Ingot</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
@@ -122,9 +122,9 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
                     <value>
-                        <color>(73,149,193)</color>
+                        <color>(200,216,75)</color>
                     </value>
                 </li>
                 <!--Use stuffProps categories-->
@@ -137,14 +137,14 @@
                 </li>
                 <!--Use tradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/tradeTags</xpath>
                     <value>
                         <li>Exotic</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="WoW_adamantite"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="WoW_mithril"]</xpath>
                 </li>
             </operations>
         </match>
@@ -153,44 +153,44 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Adamantite = Fantasy Metals Reforged-->
-    <!--WoW_adamantite = [Ry]Rimcraft Metals-->
+    <!--Mithril = Fantasy Metals Reforged-->
+    <!--WoW_mithril = [Ry]Rimcraft Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Adamantite" or text()="WoW_adamantite"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Mithril" or text()="WoW_mithril"]
+            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Mithril" or text()="WoW_mithril"]</xpath>
         <value>
-            <thingDef>DZ_Adamantite</thingDef>
+            <thingDef>DZ_Mithril</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
+        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Mithril" or text()="WoW_mithril"]</xpath>
         <value>
-            <mineableThing>DZ_Adamantite</mineableThing>
+            <mineableThing>DZ_Mithril</mineableThing>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Adamantite or self::WoW_adamantite] 
-            | /Defs/ThingDef/costList/*[self::Adamantite or self::WoW_adamantite] 
-            | /Defs/RecipeDef/products/*[self::Adamantite or self::WoW_adamantite]
-            | /Defs/TerrainDef/costList/*[self::Adamantite or self::WoW_adamantite]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Mithril or self::WoW_mithril] 
+            | /Defs/ThingDef/costList/*[self::Mithril or self::WoW_mithril] 
+            | /Defs/RecipeDef/products/*[self::Mithril or self::WoW_mithril]
+            | /Defs/TerrainDef/costList/*[self::Mithril or self::WoW_mithril]
         </xpath>
-        <name>DZ_Adamantite</name>
+        <name>DZ_Mithril</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Adamantite" or text()="WoW_adamantite"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Adamantite" or text()="WoW_adamantite"]
+        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
+            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Mithril" or text()="WoW_mithril"]
         </xpath>
         <value>
-            <li>DZ_Adamantite</li>
+            <li>DZ_Mithril</li>
         </value>
     </Operation>
 
