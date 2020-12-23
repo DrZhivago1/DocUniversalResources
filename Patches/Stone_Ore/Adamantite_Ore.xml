@@ -1,0 +1,119 @@
+<Patch>
+
+    <!--==========
+    Adamantite Ore {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
+    ==========-->
+
+    <!--DUR Adamantite Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mercurydoll.fantasymetals</li>
+            <li>Ryflamer.Rimcraft.Metals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_AdamantiteOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_AdamantiteOre</defName>
+                            <label>Adamantite ore</label>
+                            <description>Rock containing bits of adamantite.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <Beauty>1</Beauty>
+                                <MaxHitPoints>3000</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <isResourceRock>true</isResourceRock>
+                                <mineableThing>DZ_Adamantite</mineableThing>
+                                <mineableYield>40</mineableYield>
+                                <mineableScatterCommonality>0.05</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>5~12</mineableScatterLumpSizeRange>
+                            </building>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Fantasy Metals Reforged-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mercurydoll.fantasymetals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AdamantiteOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(78,11,19)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableAdamantite"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[Ry]Rimcraft Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Ryflamer.Rimcraft.Metals</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AdamantiteOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Object/Structure/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(93,117,121)</color>
+                            <colorTwo>(55,154,194)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="WoW_adamantite_deposit"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--MineableAdamantite = Fantasy Metals Reforged-->
+    <!--WoW_adamantite_deposit = [Ry]Rimcraft Metals-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableAdamantite" or text()="WoW_adamantite_deposit"]</xpath>
+        <value>
+            <li>DZ_AdamantiteOre</li>
+        </value>
+    </Operation>
+
+</Patch>

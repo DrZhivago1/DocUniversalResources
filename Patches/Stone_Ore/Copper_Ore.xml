@@ -1,0 +1,242 @@
+<Patch>
+
+    <!--==========
+    Copper Ore {Industrialisation, Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
+    ==========-->
+
+    <!--DUR Copper Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>trasheddt.industrialisation</li>
+            <li>chance2000w.clockworkandsteam</li>
+            <li>Kyrrisayo.MetalsPlus</li>
+            <li>Mlie.CuprosAlloys</li>
+            <li>PRF.Materials</li>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_CopperOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_CopperOre</defName>
+                            <label>Copper ore</label>
+                            <description>Rock containing bits of copper.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <MaxHitPoints>1500</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <isResourceRock>true</isResourceRock>
+                                <mineableThing>DZ_Copper</mineableThing>
+                                <mineableYield>50</mineableYield>
+                                <mineableScatterCommonality>0.4</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>15~20</mineableScatterLumpSizeRange>
+                            </building>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Industrialisation-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>trasheddt.industrialisation</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(90,130,110)</color>
+                            <colorTwo>(160,115,45)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Ind_MineableCopper"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Clockwork And Steam-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>chance2000w.clockworkandsteam</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(100,100,50)</color>
+                            <colorTwo>(230,150,0)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CaS_MineableCopper"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Metals+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kyrrisayo.MetalsPlus</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(98,110,89)</color>
+                            <colorTwo>(127,189,165)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableCopper"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Cupro's Alloys (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.CuprosAlloys</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(114,92,83)</color>
+                            <colorTwo>(75,75,80)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CAL_MineableMalachite"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <colorTwo>(115,170,152)</colorTwo>
+                            <color>(126,114,80)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_MineableCopper"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Metals-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <colorTwo>(175,73,27)</colorTwo>
+                            <color>(87,40,19)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_MineableCopper"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Ind_MineableCopper = Industrialisation-->
+    <!--CaS_MineableCopper = Clockwork And Steam-->
+    <!--MineableCopper = Metals+-->
+    <!--CAL_MineableMalachite = Cupro's Alloys (Continued)-->
+    <!--PRF_MineableCopper = Project RimFactory - Materials-->
+    <!--VMEu_MineableCopper = Expanded Materials - Metals-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="Ind_MineableCopper" or text()="CaS_MineableCopper" or text()="MineableCopper" or text()="CAL_MineableMalachite" or text()="PRF_MineableCopper" or text()="VMEu_MineableCopper"]</xpath>
+        <value>
+            <li>DZ_CopperOre</li>
+        </value>
+    </Operation>
+
+</Patch>

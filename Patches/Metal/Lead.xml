@@ -173,14 +173,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="CAL_Lead" or text()="VMEu_Lead"]</xpath>
-        <value>
-            <mineableThing>DZ_Lead</mineableThing>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
         <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::CAL_Lead or self::VMEu_Lead]

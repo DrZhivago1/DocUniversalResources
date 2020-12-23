@@ -164,14 +164,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
-        <value>
-            <mineableThing>DZ_Adamantite</mineableThing>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
         <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Adamantite or self::WoW_adamantite] 

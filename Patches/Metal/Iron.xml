@@ -263,14 +263,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]</xpath>
-        <value>
-            <mineableThing>DZ_Iron</mineableThing>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
         <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Iron or self::NECIron or self::Owl_Iron or self::PRF_Iron or self::VMEu_Iron]

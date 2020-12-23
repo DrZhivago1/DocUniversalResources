@@ -30,6 +30,8 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>sickboywi.theendtimes.theendtimes</li>
+		<li>PrimitiveProduction.velcroboy333</li>
 		<li>Hol.Tungsten</li>
 		<li>Argon.SaltedMeat</li>
 		<li>Argon.VMEu</li>

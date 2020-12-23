@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Expanded Materials - Metals}
+    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
     <!--DUR Coal, with whitelist-->
@@ -12,7 +12,8 @@
             <li>chance2000w.clockworkandsteam</li>
             <li>Wemd.SimpleCoal</li>
             <li>neceros.coalexpanded</li>
-            <!--<li>spdskatr.projectrimfactory</li>-->
+            <li>sickboywi.theendtimes.theendtimes</li>
+            <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -46,14 +47,14 @@
                         </ThingDef>
                     </value>
                 </li>
-                <!--Universal Fuel-->
+                <!--Universal Fuel
                 <li Class="PatchOperationAdd">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable" and fuelFilter/thingDefs/li[text()="WoodLog"]]/fuelFilter/thingDefs</xpath>
                     <value>
                         <li>DZ_Coal</li>
                     </value>
-                </li>
+                </li>-->
             </operations>
         </match>
     </Operation>
@@ -71,26 +72,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Coal/MedTimes_Coal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <drawSize>(0.8,0.8)</drawSize>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Coal/MedTimes_Coal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <drawSize>(0.8,0.8)</drawSize>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Use stuffProps 
                 <li Class="PatchOperationReplace">
@@ -128,24 +118,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>resources/coal</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>resources/coal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -164,24 +144,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/CaS_Coal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/CaS_Coal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Use stuffProps 
                 <li Class="PatchOperationReplace">
@@ -225,24 +195,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/WDCoal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/WDCoal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -261,24 +221,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Coal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Coal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -288,41 +238,57 @@
         </match>
     </Operation>
 
-    <!--Project RimFactory Revived
+    <!--Rimhammer - The End Times-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>spdskatr.projectrimfactory</li>
+            <li>sickboywi.theendtimes.theendtimes</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!Use/replace graphics to ThingDef>
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/WDCoal</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/WDCoal</texPath>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/Coal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
-                <!Remove resource>
+                <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="WDCoal"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RH_TET_Coal"]</xpath>
                 </li>
             </operations>
         </match>
-    </Operation>-->
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_Coal</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_Coal"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
 
     <!--Expanded Materials - Metals-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -333,24 +299,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/VMEu_Coal</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/VMEu_Coal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -368,9 +324,11 @@
     <!--MedTimes_Resource_Coal = Medieval Times Unofficial Update-->
     <!--Coal = Coal Expanded-->
     <!--CaS_Coal = Clockwork And Steam-->
+    <!--PRF_Coal = Project RimFactory - Materials-->
+    <!--RH_TET_Coal = Rimhammer - The End Times-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]</xpath>
+        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
         <value>
             <thingDef>DZ_Coal</thingDef>
         </value>
@@ -378,20 +336,20 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre] 
-            | /Defs/ThingDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre]
-            | /Defs/RecipeDef/products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre]
-            | /Defs/TerrainDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre]
+        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal] 
+            | /Defs/ThingDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
+            | /Defs/RecipeDef/products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
+            | /Defs/TerrainDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
         </xpath>
         <name>DZ_Coal</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"] 
-            | /Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre"]
+        <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"] 
+            | /Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
+            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
+            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
         </xpath>
         <value>
             <li>DZ_Coal</li>

@@ -86,7 +86,7 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Item/Resource/CaS_Ingot</texPath>
@@ -98,7 +98,7 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Zinc"]/stuffProps/color</xpath>
                     <value>
                         <color>(250,250,250)</color>
                     </value>
@@ -146,7 +146,7 @@
                 </li>
                 <!--Use tradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/tradeTags</xpath>
                     <value>
                         <li>Exotic</li>
                     </value>
@@ -170,14 +170,6 @@
             | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
         <value>
             <thingDef>DZ_Zinc</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
-        <value>
-            <mineableThing>DZ_Zinc</mineableThing>
         </value>
     </Operation>
 

@@ -292,14 +292,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
-        <value>
-            <mineableThing>DZ_Tin</mineableThing>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
         <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]

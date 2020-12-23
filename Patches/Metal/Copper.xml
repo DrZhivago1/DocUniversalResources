@@ -371,14 +371,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase" or @ParentName="Ind_RockBase"]/building/mineableThing[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]</xpath>
-        <value>
-            <mineableThing>DZ_Copper</mineableThing>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
         <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]
