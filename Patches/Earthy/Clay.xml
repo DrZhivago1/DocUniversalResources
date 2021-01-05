@@ -163,7 +163,7 @@
     <!--N7_RawClay = Ceramics-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="RFFClay" or text()="N7_RawClay"]</xpath>
+        <xpath>/Defs/*//thingDef[@ParentName="RockBase"]/building/mineableThing[text()="RFFClay" or text()="N7_RawClay"]</xpath>
         <value>
             <mineableThing>DZ_Clay</mineableThing>
         </value>
@@ -171,20 +171,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::RFFClay or self::N7_RawClay] 
-            | /Defs/ThingDef/costList/*[self::RFFClay or self::N7_RawClay] 
-            | /Defs/RecipeDef/products/*[self::RFFClay or self::N7_RawClay]
-            | /Defs/TerrainDef/costList/*[self::RFFClay or self::N7_RawClay]
-        </xpath>
+        <xpath>/Defs//*[self::RFFClay or self::N7_RawClay]</xpath>
         <name>DZ_Clay</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="RFFClay" or text()="N7_RawClay"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="RFFClay" or text()="N7_RawClay"]</xpath>
         <value>
             <li>DZ_Clay</li>
         </value>

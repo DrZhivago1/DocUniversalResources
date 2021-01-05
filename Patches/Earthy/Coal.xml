@@ -328,7 +328,7 @@
     <!--RH_TET_Coal = Rimhammer - The End Times-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
         <value>
             <thingDef>DZ_Coal</thingDef>
         </value>
@@ -336,20 +336,14 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal] 
-            | /Defs/ThingDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
-            | /Defs/RecipeDef/products/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
-            | /Defs/TerrainDef/costList/*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
+        <xpath>/Defs//*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
         </xpath>
         <name>DZ_Coal</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"] 
-            | /Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
+        <xpath>/Defs/*//li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
         </xpath>
         <value>
             <li>DZ_Coal</li>

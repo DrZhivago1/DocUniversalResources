@@ -257,53 +257,36 @@
     ==========-->
     <!--Charcoal = Coal Expanded-->
     <!--VMEu_Charcoal = Expanded Materials - Metals-->
-    <!--SRV_Charcoal = Coal Expanded-->
-    <!--AYCharcoal = Coal Expanded-->
+    <!--SRV_Charcoal = Survivalist's Additions-->
+    <!--AYCharcoal = Apothecary (Continued)-->
+    <!--CharCoalOre = Simple Mining Extension-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/comps/*//processes/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]
-            | /Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]
-        </xpath>
+        <xpath>/Defs/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
         <value>
             <thingDef>DZ_Charcoal</thingDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
-        <value>
-            <mineableThing>DZ_Charcoal</mineableThing>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
-        <value>
-            <harvestedThingDef>DZ_Charcoal</harvestedThingDef>
-        </value>
-    </Operation>
-
     <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre] 
-            | /Defs/ThingDef/costList/*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre]
-            | /Defs/RecipeDef/products/*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre]
-            | /Defs/TerrainDef/costList/*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre]
-        </xpath>
+        <success>Always</success>
+        <xpath>/Defs//*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre]</xpath>
         <name>DZ_Charcoal</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"] 
-            | /Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
         <value>
             <li>DZ_Charcoal</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//harvestedThingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
+        <value>
+            <harvestedThingDef>DZ_Charcoal</harvestedThingDef>
         </value>
     </Operation>
 

@@ -1,0 +1,59 @@
+<Patch>
+
+    <!--==========
+    Apothecary (Continued)
+    ==========-->
+
+    <!--Replace duplicate research defName with unique-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Apothecary</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ResearchProjectDef>
+                            <defName>DZ_AYCharcoal</defName>
+                            <label>Charcoal</label>
+                            <description>Grants the ability to make charcoal and associated products.</description>
+                            <baseCost>350</baseCost>
+                            <techLevel>Medieval</techLevel>
+                            <researchViewX>1</researchViewX>
+                            <researchViewY>0</researchViewY>
+                            <prerequisites>
+                                <li>Stonecutting</li>
+                                <li>AYTallow</li>
+                            </prerequisites>
+                            <tab>AYApothecaryTab</tab>
+                        </ResearchProjectDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef/researchPrerequisites/li[text()="AYCharcoal"]</xpath>
+                    <value>
+                        <li>DZ_AYCharcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef/recipeMaker/researchPrerequisite[text()="AYCharcoal"]</xpath>
+                    <value>
+                        <researchPrerequisite>DZ_AYCharcoal</researchPrerequisite>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/RecipeDef/researchPrerequisite[text()="AYCharcoal"]</xpath>
+                    <value>
+                        <researchPrerequisite>DZ_AYCharcoal</researchPrerequisite>
+                    </value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ResearchProjectDef[defName="AYCharcoal"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

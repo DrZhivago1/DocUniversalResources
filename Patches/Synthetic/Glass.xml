@@ -201,10 +201,9 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::SadjuukGlass or self::Glass or self::GlassPane] 
-            | /Defs/ThingDef/costList/*[self::SadjuukGlass or self::Glass or self::GlassPane]
-            | /Defs/RecipeDef/products/*[self::SadjuukGlass or self::Glass or self::GlassPane]
-            | /Defs/TerrainDef/costList/*[self::SadjuukGlass or self::Glass or self::GlassPane]
+        <xpath>/Defs/ThingDef//*[self::SadjuukGlass or self::Glass or self::GlassPane] 
+            | /Defs/RecipeDef//*[self::SadjuukGlass or self::Glass or self::GlassPane]
+            | /Defs/TerrainDef//*[self::SadjuukGlass or self::Glass or self::GlassPane]
         </xpath>
         <name>DZ_Glass</name>
     </Operation>
