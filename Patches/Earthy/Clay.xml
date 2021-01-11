@@ -1,13 +1,15 @@
 <Patch>
 
     <!--==========
-    Clay {Ceramics, Fertile Fields}
+    Clay {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields}
     ==========-->
 
     <!--DUR Clay, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
+            <li>PRF.Materials</li>
             <li>jamaicancastle.RF.fertilefields</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -21,16 +23,13 @@
                             <label>Clay</label>
                             <description>Clay: Can be molded, folded, and/or fired to create bricks.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
+                            <graphicData />
                             <soundInteract>Standard_Pickup</soundInteract>
                             <soundDrop>Standard_Pickup</soundDrop>
                             <stackLimit>75</stackLimit>
                             <statBases>
-                                <MarketValue>1.0</MarketValue>
-                                <Mass>5.0</Mass>
-                                <Beauty>-5</Beauty>
+                                <MarketValue>0.1</MarketValue>
+                                <Mass>0.15</Mass>
                                 <Flammability>0</Flammability>
                             </statBases>
                             <thingCategories>
@@ -62,6 +61,32 @@
     Mods
     ==========-->
 
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_Clay</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_RawClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Ceramics-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -71,20 +96,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Clay</texPath>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Clay</texPath>
-                        </value>
-                    </nomatch>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Add StuffProps to ThingDef-->
                 <li Class="PatchOperationReplace">
@@ -115,6 +134,32 @@
         </match>
     </Operation>
 
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_Clay</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_RawClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Fertile Fields-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -124,22 +169,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData/texPath</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Clay</texPath>
                             <color>(132,115,82)</color>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                        <value>
-                            <texPath>Clay</texPath>
-                            <color>(132,115,82)</color>
-                        </value>
-                    </nomatch>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Add FF trade tags to ThingDef-->
                 <li Class="PatchOperationAdd">
@@ -161,23 +199,25 @@
     ==========-->
     <!--RFFClay = Fertile Fields-->
     <!--N7_RawClay = Ceramics-->
+    <!--AM_RawClay = Materials+-->
+    <!--PRF_RawClay = Project RimFactory - Materials-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[@ParentName="RockBase"]/building/mineableThing[text()="RFFClay" or text()="N7_RawClay"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="RFFClay" or text()="N7_RawClay" or text()="AM_RawClay" or text()="PRF_RawClay"]</xpath>
         <value>
-            <mineableThing>DZ_Clay</mineableThing>
+            <thingDef>DZ_Clay</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
-        <xpath>/Defs//*[self::RFFClay or self::N7_RawClay]</xpath>
+        <xpath>/Defs//*[self::RFFClay or self::N7_RawClay or self::AM_RawClay or self::PRF_RawClay]</xpath>
         <name>DZ_Clay</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="RFFClay" or text()="N7_RawClay"]</xpath>
+        <xpath>/Defs/*//li[text()="RFFClay" or text()="N7_RawClay" or text()="AM_RawClay" or text()="PRF_RawClay"]</xpath>
         <value>
             <li>DZ_Clay</li>
         </value>

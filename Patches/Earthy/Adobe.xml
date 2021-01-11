@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Adobe {Simple Mining Extension, Primitive Workbenches, Ceramics}
+    Adobe {Simple Mining Extension, Primitive Workbenches, Materials+, Ceramics}
     ==========-->
 
     <!--DUR Adobe, with whitelist-->
@@ -9,6 +9,7 @@
         <packageIds>
             <li>Yuno.SimpleOresTest</li>
             <li>PrimitiveProduction.velcroboy333</li>
+            <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -118,6 +119,32 @@
         </match>
     </Operation>
 
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_Mud</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_RawMud"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Ceramics-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -156,11 +183,12 @@
     ==========-->
     <!--AdobeRaw = Simple Mining Extension-->
     <!--VBY_ClayPaste = Primitive Workbenches-->
+    <!--AM_RawMud = Materials+-->
     <!--N7_RawMudbrick = Ceramics-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick" or text()="AM_RawMud"]</xpath>
         <value>
             <thingDef>DZ_Adobe</thingDef>
         </value>
@@ -168,13 +196,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::AdobeRaw or self::VBY_ClayPaste or self::N7_RawMudbrick]</xpath>
+        <xpath>/Defs//*[self::AdobeRaw or self::VBY_ClayPaste or self::N7_RawMudbrick or self::AM_RawMud]</xpath>
         <name>DZ_Adobe</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick"]</xpath>
+        <xpath>/Defs/*//li[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick" or text()="AM_RawMud"]</xpath>
         <value>
             <li>DZ_Adobe</li>
         </value>

@@ -1,0 +1,114 @@
+<Patch>
+
+    <!--==========
+    Clay Ore {Materials+, Ceramics}
+    ==========-->
+
+    <!--DUR Clay Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+            <li>n7huntsman.ceramics</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_ClayOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_ClayOre</defName>
+                            <label>Compacted clay</label>
+                            <description>A source of densely compacted clay.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <MaxHitPoints>500</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <isResourceRock>true</isResourceRock>
+                                <mineableThing>DZ_Clay</mineableThing>
+                                <mineableYield>25</mineableYield>
+                                <mineableScatterCommonality>0.6</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>12~25</mineableScatterLumpSizeRange>
+                            </building>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/Rock_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(98,61,51)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_MineableClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Ceramics-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>n7huntsman.ceramics</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/Rock_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(128,70,27)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableClay"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--AM_MineableClay = Materials+-->
+    <!--MineableClay = Ceramics-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="AM_MineableClay" or text()="MineableClay"]</xpath>
+        <value>
+            <li>DZ_ClayOre</li>
+        </value>
+    </Operation>
+
+</Patch>

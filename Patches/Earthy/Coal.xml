@@ -9,6 +9,7 @@
         <packageIds>
             <li>vindar.medievaltimes</li>
             <li>Yuno.SimpleOresTest</li>
+            <li>Atlas.MaterialsPlus.AT</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Wemd.SimpleCoal</li>
             <li>neceros.coalexpanded</li>
@@ -131,6 +132,32 @@
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CoalOre"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_Coal</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_Coal"]</xpath>
                 </li>
             </operations>
         </match>
@@ -355,9 +382,10 @@
     <!--SB_coal_ore = RimBound-->
     <!--PRF_Coal = Project RimFactory - Materials-->
     <!--RH_TET_Coal = Rimhammer - The End Times-->
+    <!--AM_Coal = Materials+-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="AM_Coal" or text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
         <value>
             <thingDef>DZ_Coal</thingDef>
         </value>
@@ -365,14 +393,14 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs//*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::SB_coal_ore or self::PRF_Coal or self::RH_TET_Coal]
+        <xpath>/Defs//*[self::AM_Coal or self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::SB_coal_ore or self::PRF_Coal or self::RH_TET_Coal]
         </xpath>
         <name>DZ_Coal</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]
+        <xpath>/Defs/*//li[text()="AM_Coal" or text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]
         </xpath>
         <value>
             <li>DZ_Coal</li>

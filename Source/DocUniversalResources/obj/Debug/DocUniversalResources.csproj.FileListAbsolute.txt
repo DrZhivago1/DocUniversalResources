@@ -1,0 +1,5 @@
+D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\bin\Debug\DocUniversalResources.dll
+D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\bin\Debug\DocUniversalResources.pdb
+D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.csprojAssemblyReference.cache
+D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.dll
+D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.pdb

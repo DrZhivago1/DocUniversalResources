@@ -30,6 +30,8 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>JPT.FertileFieldsMakeover</li>
+		<li>Atlas.MaterialsPlus.AT</li>
 		<li>KBraid.Rimbound</li>
 		<li>sickboywi.theendtimes.theendtimes</li>
 		<li>PrimitiveProduction.velcroboy333</li>
