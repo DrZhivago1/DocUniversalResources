@@ -1,0 +1,98 @@
+<Patch>
+
+    <!--==========
+    Titanium Ore {RimBound}
+    ==========-->
+
+    <!--DUR Titanium Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Titanium_UnrefinedOre" ParentName="DZ_MetalOreBase">
+                    <defName>DZ_Titanium_UnrefinedOre</defName>
+                    <label>Titanium ore</label>
+                    <description>Titanium ore: A commonly utilized, silver-white, and magnetic metal. Requires refining.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Stone_Drop</soundInteract>
+                    <soundDrop>Stone_Drop</soundDrop>
+                    <statBases>
+                        <MarketValue>0.5</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.2</Mass>                        <!--Steel = 0.5-->
+                    </statBases>
+                    <useHitPoints>false</useHitPoints>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <thingCategories>
+                        <li>ResourcesRaw</li>
+                    </thingCategories>
+                    <deepCommonality>4</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
+                    <deepLumpSizeRange>20~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium_UnrefinedOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Resource/SBoretitanium</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SB_titanium_ore"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--SB_titanium_ore = RimBound-->
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="SB_titanium_ore"]</xpath>
+        <value>
+            <thingDef>DZ_Titanium_UnrefinedOre</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::SB_titanium_ore]</xpath>
+        <name>DZ_Titanium_UnrefinedOre</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="SB_titanium_ore"]</xpath>
+        <value>
+            <li>DZ_Titanium_UnrefinedOre</li>
+        </value>
+    </Operation>
+
+</Patch>

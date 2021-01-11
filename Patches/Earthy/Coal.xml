@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, Project RimFactory - Materials, Expanded Materials - Metals}
+    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
     <!--DUR Coal, with whitelist-->
@@ -13,6 +13,7 @@
             <li>Wemd.SimpleCoal</li>
             <li>neceros.coalexpanded</li>
             <li>sickboywi.theendtimes.theendtimes</li>
+            <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </packageIds>
@@ -264,6 +265,33 @@
         </match>
     </Operation>
 
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Resource/SBoreclump</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(72,80,100)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SB_coal_ore"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Project RimFactory - Materials-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -324,11 +352,12 @@
     <!--MedTimes_Resource_Coal = Medieval Times Unofficial Update-->
     <!--Coal = Coal Expanded-->
     <!--CaS_Coal = Clockwork And Steam-->
+    <!--SB_coal_ore = RimBound-->
     <!--PRF_Coal = Project RimFactory - Materials-->
     <!--RH_TET_Coal = Rimhammer - The End Times-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]</xpath>
         <value>
             <thingDef>DZ_Coal</thingDef>
         </value>
@@ -336,14 +365,14 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs//*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::PRF_Coal or self::RH_TET_Coal]
+        <xpath>/Defs//*[self::WDCoal or self::VMEu_Coal or self::MedTimes_Resource_Coal or self::Coal or self::CaS_Coal or self::CoalOre or self::SB_coal_ore or self::PRF_Coal or self::RH_TET_Coal]
         </xpath>
         <name>DZ_Coal</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="PRF_Coal" or text()="RH_TET_Coal"]
+        <xpath>/Defs/*//li[text()="WDCoal" or text()="VMEu_Coal" or text()="MedTimes_Resource_Coal" or text()="Coal" or text()="CaS_Coal" or text()="CoalOre" or text()="SB_coal_ore" or text()="PRF_Coal" or text()="RH_TET_Coal"]
         </xpath>
         <value>
             <li>DZ_Coal</li>

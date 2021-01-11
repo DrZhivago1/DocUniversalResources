@@ -174,7 +174,7 @@
     <!--AB_BlocksObsidian = Alpha Biomes-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
         <value>
             <thingDef>DZ_BlocksObsidian</thingDef>
         </value>
@@ -182,20 +182,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::AB_BlocksObsidian or self::BlocksObsidian]
-            | /Defs/ThingDef/costList/*[self::AB_BlocksObsidian or self::BlocksObsidian]
-            | /Defs/RecipeDef/products/*[self::AB_BlocksObsidian or self::BlocksObsidian]
-            | /Defs/TerrainDef/costList/*[self::AB_BlocksObsidian or self::BlocksObsidian]
-        </xpath>
+        <xpath>/Defs//*[self::AB_BlocksObsidian or self::BlocksObsidian]</xpath>
         <name>DZ_BlocksObsidian</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
         <value>
             <li>DZ_BlocksObsidian</li>
         </value>

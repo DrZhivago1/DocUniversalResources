@@ -15,7 +15,7 @@
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Tin" ParentName="DZ_MetalBase">
+                <ThingDef Name="DZ_Tin" ParentName="DZ_MetalIngotBase">
                     <defName>DZ_Tin</defName>
                     <label>Tin</label>
                     <description>Tin: A soft, malleable, and ductile metal with very high thermal and electrical conductivity.</description>
@@ -285,8 +285,7 @@
     <!--VMEu_Tin = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
         <value>
             <thingDef>DZ_Tin</thingDef>
         </value>
@@ -294,21 +293,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
-            | /Defs/ThingDef/costList/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
-            | /Defs/RecipeDef/products/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
-            | /Defs/TerrainDef/costList/*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]
-        </xpath>
+        <xpath>/Defs//*[self::Tin or self::CaS_Tin or self::CAL_Tin or self::VMEu_Tin]</xpath>
         <name>DZ_Tin</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Tin" or text()="CaS_Tin" or text()="CAL_Tin" or text()="VMEu_Tin"]</xpath>
         <value>
             <li>DZ_Tin</li>
         </value>

@@ -1,14 +1,13 @@
 <Patch>
 
     <!--==========
-    Quartz {Gems (Continued), Project RimFactory - Materials, Kura's Extra Gems, Gemstones}
+    Amethyst {Gems (Continued), Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Emerald, with whitelist-->
+    <!--DUR Amethyst, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>
-            <li>PRF.Materials</li>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
         </packageIds>
@@ -18,18 +17,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Quartz" ParentName="DZ_GemstoneBase">
-                            <defName>DZ_Quartz</defName>
-                            <label>Quartz</label>
-                            <description>Quartz: A transparent and colorless variety of quartz.</description>
+                        <ThingDef Name="DZ_Amethyst" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_Amethyst</defName>
+                            <label>Amethyst</label>
+                            <description>Amethyst: A transparent and violet variety of quartz.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>15</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.025</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -45,18 +44,18 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.05</commonality>                                <!--Gold = 0.02-->
+                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
                                 <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>10</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>1.5</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.5</MaxHitPoints>
                                     <WorkToBuild>3</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
@@ -94,86 +93,43 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Quartz</texPath>
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Amethyst</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
+                            <texPath>Things/Item/Resource/Amethyst</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+                        </value>
+                    </nomatch>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
-                        <color>(255,219,208)</color>
+                        <color>(148,72,188)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
                     <value>
                         <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Quartz"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-
-    <!--Project RimFactory - Materials-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>PRF.Materials</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_CrystalOre</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(175,238,238)</color>
-                    </value>
-                </li>
-                <!--Add stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>PRF_Glassy</li>
-                    </value>
-                </li>
-                <!--Add comps-->
-                <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/comps</xpath>
-                    <value>
-                        <li Class="CompProperties_Glower">
-                            <glowRadius>5</glowRadius>
-                            <glowColor>(175,198,233,86)</glowColor>
-                        </li>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="PRF_quartz"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Amethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -188,33 +144,43 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Quartz</texPath>
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Amethyst</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
+                            <texPath>Amethyst</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+                        </value>
+                    </nomatch>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
-                        <color>(230,230,230)</color>
+                        <color>(78,44,104)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
                     <value>
                         <li>KGems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Quartz"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Amethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -229,41 +195,52 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/Gemstone</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                                <color>(162, 118, 174)</color>
+                            </graphicData>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <value>
                             <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(231, 212, 212)</color>
-                        </graphicData>
-                    </value>
+                            <color>(162, 118, 174)</color>
+                        </value>
+                    </nomatch>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Quartz"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
-                        <color>(231, 212, 212)</color>
+                        <color>(162, 118, 174)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
                     <value>
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Quartz"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/tradeTags</xpath>
                     <value>
                         <li>Z_Gemstones_SemiPrecious</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Quartz"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_Amethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -272,44 +249,27 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Quartz = Gems (Continued), Kura's Extra Gems-->
-    <!--Z_Quartz = Gemstones-->
-    <!--PRF_quartz = Project RimFactory - Materials-->
+    <!--Amethyst = Gems (Continued), Kura's Extra Gems-->
+    <!--Z_Amethyst = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
         <value>
-            <thingDef>DZ_Quartz</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"]</xpath>
-        <value>
-            <mineableThing>DZ_Quartz</mineableThing>
+            <thingDef>DZ_Amethyst</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Quartz or self::Z_Quartz or self::PRF_quartz]
-            | /Defs/ThingDef/costList/*[self::Quartz or self::Z_Quartz or self::PRF_quartz]
-            | /Defs/RecipeDef/products/*[self::Quartz or self::Z_Quartz or self::PRF_quartz]
-            | /Defs/TerrainDef/costList/*[self::Quartz or self::Z_Quartz or self::PRF_quartz]
-        </xpath>
-        <name>DZ_Quartz</name>
+        <xpath>/Defs//*[self::Amethyst or self::Z_Amethyst]</xpath>
+        <name>DZ_Amethyst</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Quartz" or text()="Z_Quartz" or text()="PRF_quartz"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
         <value>
-            <li>DZ_Quartz</li>
+            <li>DZ_Amethyst</li>
         </value>
     </Operation>
 

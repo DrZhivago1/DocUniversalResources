@@ -1,36 +1,36 @@
 <Patch>
 
     <!--==========
-    Mithril {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
+    Zinc {Clockwork And Steam, Cupro's Alloys (Continued)}
     ==========-->
 
-    <!--DUR Mithril, with whitelist-->
+    <!--DUR Zinc, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>mercurydoll.fantasymetals</li>
-            <li>Ryflamer.Rimcraft.Metals</li>
+            <li>chance2000w.clockworkandsteam</li>
+            <li>Mlie.CuprosAlloys</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Mithril" ParentName="DZ_MetalBase">
-                    <defName>DZ_Mithril</defName>
-                    <label>Mithril</label>
-                    <description>Mithril: A lightweight and very magically attuned metal.</description>
+                <ThingDef Name="DZ_Zinc" ParentName="DZ_MetalIngotBase">
+                    <defName>DZ_Zinc</defName>
+                    <label>Zinc</label>
+                    <description>Zinc: A hard and brittle metal often alloyed to improve its durability.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>5</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <MarketValue>2</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
                         <Mass>0.3</Mass>                        <!--Steel = 0.5-->
-                        <StuffPower_Armor_Sharp>1</StuffPower_Armor_Sharp>
-                        <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
-                        <StuffPower_Armor_Heat>0.76</StuffPower_Armor_Heat>
-                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Armor_Sharp>0.3</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.2</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.2</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
                         <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                        <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
-                        <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
+                        <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>0.6</BluntDamageMultiplier>
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
@@ -38,16 +38,21 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.25</commonality>                        <!--Gold = 0.02-->
+                        <commonality>0.25</commonality>                        <!--Gold = 0.02, Steel = 1-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                         <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
                         <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                        <statOffsets>
+                            <Beauty>0</Beauty>
+                        </statOffsets>
                         <statFactors>
-                            <MaxHitPoints>2</MaxHitPoints>
-                            <Beauty>3</Beauty>
-                            <Flammability>0.2</Flammability>
+                            <WorkToMake>0.75</WorkToMake>
+                            <WorkToBuild>0.75</WorkToBuild>
+                            <MaxHitPoints>0.5</MaxHitPoints>
+                            <Beauty>0</Beauty>
+                            <Flammability>0.2</Flammability>                            <!--Steel = 0.4-->
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -56,6 +61,9 @@
                     <thingCategories>
                         <li>ResourcesRaw</li>
                     </thingCategories>
+                    <deepCommonality>1</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>30</deepCountPerPortion>                    <!--Steel = 45-->
+                    <deepLumpSizeRange>10~20</deepLumpSizeRange>                    <!--Steel = 20~30-->
                     <tradeTags />
                     <comps />
                 </ThingDef>
@@ -67,84 +75,85 @@
     Mods
     ==========-->
 
-    <!--Fantasy Metals Reforged-->
+
+    <!--Clockwork And Steam-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>mercurydoll.fantasymetals</li>
+            <li>chance2000w.clockworkandsteam</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/Mithril</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
+                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(250,250,250)</color>
                         </graphicData>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Zinc"]/stuffProps/color</xpath>
                     <value>
-                        <color>(255,255,255)</color>
+                        <color>(250,250,250)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Mithril"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="CaS_Zinc"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--[Ry]Rimcraft Metals-->
+    <!--Cupro's Alloys (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Ryflamer.Rimcraft.Metals</li>
+            <li>Mlie.CuprosAlloys</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Metal/Mithril_Ingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <texPath>Cupro/Item/Material/Zinc</texPath>
+                            <graphicClass>Graphic_Random</graphicClass>
                         </graphicData>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Zinc"]/stuffProps/color</xpath>
                     <value>
-                        <color>(200,216,75)</color>
+                        <color>(165,182,199)</color>
                     </value>
                 </li>
-                <!--Use stuffProps categories-->
+                <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/categories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/thingCategories</xpath>
                     <value>
-                        <li>Magical</li>
+                        <li>CAL_Metals</li>
                     </value>
                 </li>
                 <!--Use tradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/tradeTags</xpath>
                     <value>
                         <li>Exotic</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="WoW_mithril"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="CAL_Zinc"]</xpath>
                 </li>
             </operations>
         </match>
@@ -153,36 +162,27 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Mithril = Fantasy Metals Reforged-->
-    <!--WoW_mithril = [Ry]Rimcraft Metals-->
+    <!--CAL_Zinc = Cupro's Alloys (Continued)-->
+    <!--CaS_Zinc = Clockwork And Steam-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Mithril" or text()="WoW_mithril"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Mithril" or text()="WoW_mithril"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
         <value>
-            <thingDef>DZ_Mithril</thingDef>
+            <thingDef>DZ_Zinc</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Mithril or self::WoW_mithril] 
-            | /Defs/ThingDef/costList/*[self::Mithril or self::WoW_mithril] 
-            | /Defs/RecipeDef/products/*[self::Mithril or self::WoW_mithril]
-            | /Defs/TerrainDef/costList/*[self::Mithril or self::WoW_mithril]
-        </xpath>
-        <name>DZ_Mithril</name>
+        <xpath>/Defs//*[self::CAL_Zinc or self::CaS_Zinc]</xpath>
+        <name>DZ_Zinc</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Mithril" or text()="WoW_mithril"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Mithril" or text()="WoW_mithril"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
         <value>
-            <li>DZ_Mithril</li>
+            <li>DZ_Zinc</li>
         </value>
     </Operation>
 

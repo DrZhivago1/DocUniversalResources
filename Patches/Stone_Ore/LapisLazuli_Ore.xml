@@ -1,0 +1,118 @@
+<Patch>
+
+    <!--==========
+    Lapis Lazuli Ore {Gems (Continued), Gemstones}
+    ==========-->
+
+    <!--DUR Lapis Lazuli Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Gems</li>
+            <li>zylle.Gemstones</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_LapisLazuliOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_LapisLazuliOre</defName>
+                            <label>Lapis Lazuli ore</label>
+                            <description>Rock containing bits of lapis lazuli.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <MaxHitPoints>1500</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <isResourceRock>true</isResourceRock>
+                                <mineableThing>DZ_LapisLazuli</mineableThing>
+                                <mineableYield>25</mineableYield>
+                                <mineableScatterCommonality>0.05</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>8~12</mineableScatterLumpSizeRange>
+                            </building>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Gems (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Gems</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuliOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(57,160,237)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableLapis"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Gemstones-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>zylle.Gemstones</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuliOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(58,60,70)</color>
+                            <colorTwo>(30, 45, 112)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Z_MineableLapis"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--MineableLapis = Gems (Continued)-->
+    <!--Z_MineableLapis = Gemstones-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableLapis" or text()="Z_MineableLapis"]</xpath>
+        <value>
+            <li>DZ_LapisLazuliOre</li>
+        </value>
+    </Operation>
+
+</Patch>

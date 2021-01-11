@@ -189,7 +189,7 @@
     <!--N7_DriedMudbrick = Ceramics-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="BlocksAdobe" or text()="N7_DriedMudbrick"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="BlocksAdobe" or text()="N7_DriedMudbrick"]</xpath>
         <value>
             <thingDef>DZ_BlocksAdobe</thingDef>
         </value>
@@ -197,20 +197,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::BlocksAdobe or self::N7_DriedMudbrick] 
-            | /Defs/ThingDef/costList/*[self::BlocksAdobe or self::N7_DriedMudbrick] 
-            | /Defs/RecipeDef/products/*[self::BlocksAdobe or self::N7_DriedMudbrick]
-            | /Defs/TerrainDef/costList/*[self::BlocksAdobe or self::N7_DriedMudbrick]
-        </xpath>
+        <xpath>/Defs//*[self::BlocksAdobe or self::N7_DriedMudbrick]</xpath>
         <name>DZ_BlocksAdobe</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="BlocksAdobe" or text()="N7_DriedMudbrick"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="BlocksAdobe" or text()="N7_DriedMudbrick"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="BlocksAdobe" or text()="N7_DriedMudbrick"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="BlocksAdobe" or text()="N7_DriedMudbrick"]</xpath>
         <value>
             <li>DZ_BlocksAdobe</li>
         </value>

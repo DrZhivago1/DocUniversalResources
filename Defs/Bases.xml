@@ -13,7 +13,10 @@
     <ThingDef Name="DZ_GemstoneBase" ParentName="ResourceBase" Abstract="True">
     </ThingDef>
 
-    <ThingDef Name="DZ_MetalBase" ParentName="ResourceBase" Abstract="True">
+    <ThingDef Name="DZ_MetalIngotBase" ParentName="ResourceBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_MetalOreBase" ParentName="ResourceBase" Abstract="True">
     </ThingDef>
 
     <ThingDef Name="DZ_StoneBlocksBase" ParentName="StoneBlocksBase" Abstract="True">

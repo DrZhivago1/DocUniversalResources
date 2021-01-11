@@ -1,0 +1,117 @@
+<Patch>
+
+    <!--==========
+    Peridot Ore {Gems (Continued), Kura's Extra Gems}
+    ==========-->
+
+    <!--DUR Peridot Ore, with whitelist-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Gems</li>
+            <li>Kura.ExtraGems</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_PeridotOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_PeridotOre</defName>
+                            <label>Peridot ore</label>
+                            <description>Rock containing bits of peridot.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <MaxHitPoints>1500</MaxHitPoints>
+                            </statBases>
+                            <building>
+                                <isResourceRock>true</isResourceRock>
+                                <mineableThing>DZ_Peridot</mineableThing>
+                                <mineableYield>25</mineableYield>
+                                <mineableScatterCommonality>0.05</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>8~12</mineableScatterLumpSizeRange>
+                            </building>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Gems (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Gems</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_PeridotOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(176,255,146)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineablePeridot"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Kura's Extra Gems-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraGems</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_PeridotOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(160,190,60)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineablePeridot"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--MineablePeridot = Gems (Continued), Kura's Extra Gems-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineablePeridot"]</xpath>
+        <value>
+            <li>DZ_PeridotOre</li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -13,7 +13,7 @@
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Brass" ParentName="DZ_MetalBase">
+                <ThingDef Name="DZ_Brass" ParentName="DZ_MetalIngotBase">
                     <defName>DZ_Brass</defName>
                     <label>Brass</label>
                     <description>Brass: An alloy of copper and zinc.</description>
@@ -188,8 +188,7 @@
     <!--CAL_Brass = Cupro's Alloys (Continued)-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="CaS_Brass" or text()="CAL_Brass"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
         <value>
             <thingDef>DZ_Brass</thingDef>
         </value>
@@ -197,21 +196,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::CaS_Brass or self::CAL_Brass] 
-            | /Defs/ThingDef/costList/*[self::CaS_Brass or self::CAL_Brass] 
-            | /Defs/RecipeDef/products/*[self::CaS_Brass or self::CAL_Brass]
-            | /Defs/TerrainDef/costList/*[self::CaS_Brass or self::CAL_Brass]
-        </xpath>
+        <xpath>/Defs//*[self::CaS_Brass or self::CAL_Brass]</xpath>
         <name>DZ_Brass</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="CaS_Brass" or text()="CAL_Brass"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
         <value>
             <li>DZ_Brass</li>
         </value>

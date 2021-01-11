@@ -2,12 +2,14 @@
 
     <!--==========
     Iron Ore {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, Project RimFactory - Materials, Expanded Materials - Metals}
+    Iron Ore Production Chain {Simple Mining Extension, RimBound}
     ==========-->
 
     <!--DUR Iron Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kyrrisayo.MetalsPlus</li>
+            <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </packageIds>
@@ -62,6 +64,35 @@
                             <shaderType>CutoutComplex</shaderType>
                             <color>(118,102,96)</color>
                             <colorTwo>(206,187,187)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableIron"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(105,111,103)</color>
+                            <colorTwo>(160,99,75)</colorTwo>
                         </graphicData>
                     </value>
                 </li>
@@ -136,7 +167,7 @@
     ==========-->
     <!--Owl_Iron = Simple Chains: Steel-->
     <!--NECIron = Vanilla Iron and Steel-->
-    <!--MineableIron = Metals+-->
+    <!--MineableIron = Metals+, RimBound-->
     <!--PRF_MineableIron = Project RimFactory - Materials-->
     <!--VMEu_MineableIron = Expanded Materials - Metals-->
 
@@ -155,6 +186,24 @@
         <value>
             <mineableThing>DZ_Iron</mineableThing>
         </value>
+    </Operation>
+
+    <!--==========
+    Iron Ore Production Chain
+    ==========-->
+    <!--Only add mineableThing defNames if original mod does not add a new Stone_Ore-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Yuno.SimpleOresTest</li>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DZ_Iron" or text()="ChunkIronOre"]</xpath>
+            <value>
+                <mineableThing>DZ_Iron_UnrefinedOre</mineableThing>
+            </value>
+        </match>
     </Operation>
 
 </Patch>

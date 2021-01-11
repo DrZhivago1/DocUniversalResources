@@ -2,12 +2,14 @@
 
     <!--==========
     Tungsten Ore {Tungsten, Expanded Materials - Metals}
+    Tungsten Ore Production Chain {RimBound}
     ==========-->
 
     <!--DUR Tungsten Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
+            <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -47,6 +49,7 @@
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
+            <li>KBraid.Rimbound</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -61,6 +64,35 @@
                             <shaderType>CutoutComplex</shaderType>
                             <color>(116,116,116)</color>
                             <colorTwo>(212,212,212)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableTungsten"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(215,217,219)</color>
+                            <colorTwo>(185,187,190)</colorTwo>
                         </graphicData>
                     </value>
                 </li>
@@ -104,7 +136,7 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableTungsten = Tungsten-->
+    <!--MineableTungsten = Tungsten, RimBound-->
     <!--VMEu_Titanium = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperationReplace">
@@ -113,6 +145,23 @@
         <value>
             <li>DZ_TungstenOre</li>
         </value>
+    </Operation>
+
+    <!--==========
+    Tungsten Ore Production Chain
+    ==========-->
+    <!--Only add mineableThing defNames if original mod does not add a new Stone_Ore-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DZ_Tungsten"]</xpath>
+            <value>
+                <mineableThing>DZ_Tungsten_UnrefinedOre</mineableThing>
+            </value>
+        </match>
     </Operation>
 
 </Patch>

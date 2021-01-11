@@ -1,7 +1,7 @@
 <Patch>
 
     <!--==========
-    Iron {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, Project RimFactory - Materials, Expanded Materials - Metals}
+    Iron {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
     <!--DUR Iron, with whitelist-->
@@ -10,13 +10,14 @@
             <li>Owlchemist.SimpleChains.Steel</li>
             <li>neceros.vanillaironandsteel</li>
             <li>Kyrrisayo.MetalsPlus</li>
+            <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Iron" ParentName="DZ_MetalBase">
+                <ThingDef Name="DZ_Iron" ParentName="DZ_MetalIngotBase">
                     <defName>DZ_Iron</defName>
                     <label>Iron</label>
                     <description>Iron: A commonly utilized, silver-white, and magnetic metal.</description>
@@ -178,6 +179,41 @@
         </match>
     </Operation>
 
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Resource/SBingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(173,161,151)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Iron"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(176,176,176)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SB_iron_bar"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Project RimFactory - Materials-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -252,12 +288,12 @@
     <!--Iron = Metals+-->
     <!--Owl_Iron = Simple Chains: Steel-->
     <!--NECIron = Vanilla Iron and Steel-->
+    <!--SB_iron_bar = RimBound-->
     <!--PRF_Iron = Project RimFactory - Materials-->
     <!--VMEu_Iron = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="SB_iron_bar" or text()="PRF_Iron" or text()="VMEu_Iron"]</xpath>
         <value>
             <thingDef>DZ_Iron</thingDef>
         </value>
@@ -265,21 +301,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Iron or self::NECIron or self::Owl_Iron or self::PRF_Iron or self::VMEu_Iron]
-            | /Defs/ThingDef/costList/*[self::Iron or self::NECIron or self::Owl_Iron or self::PRF_Iron or self::VMEu_Iron]
-            | /Defs/RecipeDef/products/*[self::Iron or self::NECIron or self::Owl_Iron or self::PRF_Iron or self::VMEu_Iron]
-            | /Defs/TerrainDef/costList/*[self::Iron or self::NECIron or self::Owl_Iron or self::PRF_Iron or self::VMEu_Iron]
-        </xpath>
+        <xpath>/Defs//*[self::Iron or self::NECIron or self::Owl_Iron or self::SB_iron_bar or self::PRF_Iron or self::VMEu_Iron]</xpath>
         <name>DZ_Iron</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="PRF_Iron" or text()="VMEu_Iron"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="SB_iron_bar" or text()="PRF_Iron" or text()="VMEu_Iron"]</xpath>
         <value>
             <li>DZ_Iron</li>
         </value>

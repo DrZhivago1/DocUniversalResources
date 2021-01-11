@@ -1,36 +1,36 @@
 <Patch>
 
     <!--==========
-    Titanium {Metals+, Expanded Materials - Metals}
+    Adamantite {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <!--DUR Titanium, with whitelist-->
+    <!--DUR Adamantite, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kyrrisayo.MetalsPlus</li>
-            <li>Argon.VMEu</li>
+            <li>mercurydoll.fantasymetals</li>
+            <li>Ryflamer.Rimcraft.Metals</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Titanium" ParentName="DZ_MetalBase">
-                    <defName>DZ_Titanium</defName>
-                    <label>Titanium</label>
-                    <description>Titanium: A silver colored, low density, and high strength metal.</description>
+                <ThingDef Name="DZ_Adamantite" ParentName="DZ_MetalIngotBase">
+                    <defName>DZ_Adamantite</defName>
+                    <label>Adamantite</label>
+                    <description>Adamantite: A very strong and magical metal.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>6.9</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
-                        <Mass>0.4</Mass>                        <!--Steel = 0.5-->
-                        <StuffPower_Armor_Sharp>1.15</StuffPower_Armor_Sharp>
-                        <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
-                        <StuffPower_Armor_Heat>0.8</StuffPower_Armor_Heat>
+                        <MarketValue>9</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.5</Mass>                        <!--Steel = 0.5-->
+                        <StuffPower_Armor_Sharp>1.26</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.63</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>1.08</StuffPower_Armor_Heat>
                         <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-                        <StuffPower_Insulation_Heat>1</StuffPower_Insulation_Heat>
+                        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
                         <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
-                        <BluntDamageMultiplier>1.2</BluntDamageMultiplier>
+                        <BluntDamageMultiplier>1.05</BluntDamageMultiplier>
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
@@ -38,21 +38,16 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.25</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <commonality>0.05</commonality>                        <!--Gold = 0.02-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                         <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
                         <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-                        <statOffsets>
-                            <Beauty>0</Beauty>
-                        </statOffsets>
                         <statFactors>
-                            <WorkToMake>2.2</WorkToMake>
-                            <WorkToBuild>2.2</WorkToBuild>
-                            <MaxHitPoints>2.5</MaxHitPoints>
+                            <MaxHitPoints>10</MaxHitPoints>
                             <Beauty>1</Beauty>
-                            <Flammability>0</Flammability>                            <!--Steel = 0.4-->
+                            <Flammability>0.2</Flammability>
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -61,9 +56,6 @@
                     <thingCategories>
                         <li>ResourcesRaw</li>
                     </thingCategories>
-                    <deepCommonality>1.5</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
-                    <deepCountPerPortion>15</deepCountPerPortion>                    <!--Steel = 45-->
-                    <deepLumpSizeRange>6~12</deepLumpSizeRange>                    <!--Steel = 20~30-->
                     <tradeTags />
                     <comps />
                 </ThingDef>
@@ -75,54 +67,54 @@
     Mods
     ==========-->
 
-    <!--Metals+-->
+    <!--Fantasy Metals Reforged-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kyrrisayo.MetalsPlus</li>
+            <li>mercurydoll.fantasymetals</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/Titanium</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <texPath>Things/Item/Resource/Adamantite</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
                         </graphicData>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
                     <value>
-                        <color>(223,230,236)</color>
+                        <color>(78,11,19)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Titanium"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Adamantite"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--Expanded Materials - Metals-->
+    <!--[Ry]Rimcraft Metals-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Argon.VMEu</li>
+            <li>Ryflamer.Rimcraft.Metals</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Titanium</texPath>
+                            <texPath>Things/Item/Metal/Adamantite_Ingot</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
@@ -130,14 +122,29 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Adamantite"]/stuffProps/color</xpath>
                     <value>
-                        <color>(58,58,58)</color>
+                        <color>(73,149,193)</color>
+                    </value>
+                </li>
+                <!--Use stuffProps categories-->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/categories</xpath>
+                    <value>
+                        <li>Magical</li>
+                    </value>
+                </li>
+                <!--Use tradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]/tradeTags</xpath>
+                    <value>
+                        <li>Exotic</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_Titanium"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="WoW_adamantite"]</xpath>
                 </li>
             </operations>
         </match>
@@ -146,36 +153,27 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Titanium = Metals+-->
-    <!--VMEu_Titanium = Expanded Materials - Metals-->
+    <!--Adamantite = Fantasy Metals Reforged-->
+    <!--WoW_adamantite = [Ry]Rimcraft Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Titanium" or text()="VMEu_Titanium"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Titanium" or text()="VMEu_Titanium"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
         <value>
-            <thingDef>DZ_Titanium</thingDef>
+            <thingDef>DZ_Adamantite</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Titanium or self::VMEu_Titanium]
-            | /Defs/ThingDef/costList/*[self::Titanium or self::VMEu_Titanium]
-            | /Defs/RecipeDef/products/*[self::Titanium or self::VMEu_Titanium]
-            | /Defs/TerrainDef/costList/*[self::Titanium or self::VMEu_Titanium]
-        </xpath>
-        <name>DZ_Titanium</name>
+        <xpath>/Defs//*[self::Adamantite or self::WoW_adamantite]</xpath>
+        <name>DZ_Adamantite</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Titanium" or text()="VMEu_Titanium"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Titanium" or text()="VMEu_Titanium"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Titanium" or text()="VMEu_Titanium"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Titanium" or text()="VMEu_Titanium"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Adamantite" or text()="WoW_adamantite"]</xpath>
         <value>
-            <li>DZ_Titanium</li>
+            <li>DZ_Adamantite</li>
         </value>
     </Operation>
 

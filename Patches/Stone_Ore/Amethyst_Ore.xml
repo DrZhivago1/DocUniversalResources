@@ -1,15 +1,15 @@
 <Patch>
 
     <!--==========
-    Titanium Ore {Metals+, Expanded Materials - Metals}
-    Titanium Ore Production Chain {RimBound}
+    Amethyst Ore {Gems (Continued), Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Titanium Ore, with whitelist-->
+    <!--DUR Amethyst Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kyrrisayo.MetalsPlus</li>
-            <li>Argon.VMEu</li>
+            <li>Mlie.Gems</li>
+            <li>Kura.ExtraGems</li>
+            <li>zylle.Gemstones</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -17,21 +17,21 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_TitaniumOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_TitaniumOre</defName>
-                            <label>Titanium ore</label>
-                            <description>Rock containing bits of titanium.</description>
+                        <ThingDef Name="DZ_AmethystOre" ParentName="DZ_StoneOreBase">
+                            <defName>DZ_AmethystOre</defName>
+                            <label>Amethyst ore</label>
+                            <description>Rock containing bits of amethyst.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <statBases>
-                                <MaxHitPoints>4000</MaxHitPoints>
+                                <MaxHitPoints>2000</MaxHitPoints>
                             </statBases>
                             <building>
                                 <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Titanium</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>0.2</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>6~12</mineableScatterLumpSizeRange>
+                                <mineableThing>DZ_Amethyst</mineableThing>
+                                <mineableYield>15</mineableYield>
+                                <mineableScatterCommonality>0.05</mineableScatterCommonality>
+                                <mineableScatterLumpSizeRange>5~8</mineableScatterLumpSizeRange>
                             </building>
                         </ThingDef>
                     </value>
@@ -44,88 +44,88 @@
     Mods
     ==========-->
 
-    <!--Metals+-->
+    <!--Gems (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kyrrisayo.MetalsPlus</li>
+            <li>Mlie.Gems</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_AmethystOre"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
-                            <color>(120,113,122)</color>
-                            <colorTwo>(194,202,214)</colorTwo>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(148,72,188)</colorTwo>
                         </graphicData>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableTitanium"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="MineableAmethyst"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--RimBound-->
+    <!--Kura's Extra Gems-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>KBraid.Rimbound</li>
+            <li>Kura.ExtraGems</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_AmethystOre"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
-                            <color>(218,216,237)</color>
-                            <colorTwo>(104,93,161)</colorTwo>
+                            <color>(114,114,114)</color>
+                            <colorTwo>(78,44,104)</colorTwo>
                         </graphicData>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableTitanium"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="MineableAmethyst"]</xpath>
                 </li>
             </operations>
         </match>
     </Operation>
 
-    <!--Expanded Materials - Metals-->
+    <!--Gemstones-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Argon.VMEu</li>
+            <li>zylle.Gemstones</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_AmethystOre"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(199,199,199)</colorTwo>
-                            <color>(56,56,56)</color>
+                            <color>(78,70,80)</color>
+                            <colorTwo>(162, 118, 174)</colorTwo>
                         </graphicData>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_MineableTitanium"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_MineableAmethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -134,32 +134,15 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableTitanium = Metals+, RimBound-->
-    <!--VMEu_Titanium = Expanded Materials - Metals-->
+    <!--MineableAmethyst = Gems (Continued), Kura's Extra Gems-->
+    <!--Z_MineableAmethyst = Gemstones-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableTitanium" or text()="VMEu_MineableTitanium"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableAmethyst" or text()="Z_MineableAmethyst"]</xpath>
         <value>
-            <li>DZ_TitaniumOre</li>
+            <li>DZ_AmethystOre</li>
         </value>
-    </Operation>
-
-    <!--==========
-    Titanium Ore Production Chain
-    ==========-->
-    <!--Only add mineablThing defNames if original mod does not add a new Stone_Ore-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>KBraid.Rimbound</li>
-        </packageIds>
-        <match Class="PatchOperationReplace">
-            <success>Always</success>
-            <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DZ_Titanium"]</xpath>
-            <value>
-                <mineableThing>DZ_Titanium_UnrefinedOre</mineableThing>
-            </value>
-        </match>
     </Operation>
 
 </Patch>

@@ -1,14 +1,13 @@
 <Patch>
 
     <!--==========
-    Amethyst {Gems (Continued), Kura's Extra Gems, Gemstones}
+    Lapis Lazuli {Gems (Continued), Gemstones}
     ==========-->
 
-    <!--DUR Amethyst, with whitelist-->
+    <!--DUR Lapis Lazuli, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>
-            <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -17,18 +16,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Amethyst" ParentName="DZ_GemstoneBase">
-                            <defName>DZ_Amethyst</defName>
-                            <label>Amethyst</label>
-                            <description>Amethyst: A transparent and violet variety of quartz.</description>
+                        <ThingDef Name="DZ_LapisLazuli" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_LapisLazuli</defName>
+                            <label>Lapis Lazuli</label>
+                            <description>Lapis Lazuli: An opaque and deep-blue metamorphic rock.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>15</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.025</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -44,18 +43,18 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
+                                <commonality>0.05</commonality>                                <!--Gold = 0.02-->
                                 <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>10</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>1.5</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.5</MaxHitPoints>
                                     <WorkToBuild>3</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
@@ -94,20 +93,20 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Things/Item/Resource/Amethyst</texPath>
+                                <texPath>Things/Item/Resource/LapisLazuli</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
                         <value>
-                            <texPath>Things/Item/Resource/Amethyst</texPath>
+                            <texPath>Things/Item/Resource/LapisLazuli</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
@@ -115,72 +114,21 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_LapisLazuli"]/stuffProps/color</xpath>
                     <value>
-                        <color>(148,72,188)</color>
+                        <color>(57,160,237)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/thingCategories</xpath>
                     <value>
                         <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Amethyst"]</xpath>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-
-    <!--Kura's Extra Gems-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
-            <li>Kura.ExtraGems</li>
-        </packageIds>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Amethyst</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <texPath>Amethyst</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(78,44,104)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Amethyst"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="LapisLazuli"]</xpath>
                 </li>
             </operations>
         </match>
@@ -196,51 +144,51 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Things/Item/Resource/Gemstone</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(162, 118, 174)</color>
+                                <color>(30, 45, 112)</color>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
                         <value>
                             <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(162, 118, 174)</color>
+                            <color>(30, 45, 112)</color>
                         </value>
                     </nomatch>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_LapisLazuli"]/stuffProps/color</xpath>
                     <value>
-                        <color>(162, 118, 174)</color>
+                        <color>(30, 45, 112)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/thingCategories</xpath>
                     <value>
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/tradeTags</xpath>
                     <value>
                         <li>Z_Gemstones_SemiPrecious</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Amethyst"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_Lapis"]</xpath>
                 </li>
             </operations>
         </match>
@@ -249,43 +197,27 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Amethyst = Gems (Continued), Kura's Extra Gems-->
-    <!--Z_Amethyst = Gemstones-->
+    <!--LapisLazuli = Gems (Continued)-->
+    <!--Z_Lapis = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="LapisLazuli" or text()="Z_Lapis"]</xpath>
         <value>
-            <thingDef>DZ_Amethyst</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
-        <value>
-            <mineableThing>DZ_Amethyst</mineableThing>
+            <thingDef>DZ_LapisLazuli</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Amethyst or self::Z_Amethyst] 
-            | /Defs/ThingDef/costList/*[self::Amethyst or self::Z_Amethyst] 
-            | /Defs/RecipeDef/products/*[self::Amethyst or self::Z_Amethyst]
-            | /Defs/TerrainDef/costList/*[self::Amethyst or self::Z_Amethyst]
-        </xpath>
-        <name>DZ_Amethyst</name>
+        <xpath>/Defs//*[self::LapisLazuli or self::Z_Lapis]</xpath>
+        <name>DZ_LapisLazuli</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Amethyst" or text()="Z_Amethyst"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Amethyst" or text()="Z_Amethyst"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="LapisLazuli" or text()="Z_Lapis"]</xpath>
         <value>
-            <li>DZ_Amethyst</li>
+            <li>DZ_LapisLazuli</li>
         </value>
     </Operation>
 

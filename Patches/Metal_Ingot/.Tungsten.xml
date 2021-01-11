@@ -1,19 +1,20 @@
 <Patch>
 
     <!--==========
-    Tungsten {Tungsten, Expanded Materials - Metals}
+    Tungsten {Tungsten, RimBound, Expanded Materials - Metals}
     ==========-->
 
     <!--DUR Tungsten, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
+            <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Tungsten" ParentName="DZ_MetalBase">
+                <ThingDef Name="DZ_Tungsten" ParentName="DZ_MetalIngotBase">
                     <defName>DZ_Tungsten</defName>
                     <label>Tungsten</label>
                     <description>Tungsten: A very heavy and hard metal.</description>
@@ -110,6 +111,41 @@
         </match>
     </Operation>
 
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Resource/SBingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(184,186,189)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(184,186,189)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SB_tungsten_bar"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--Expanded Materials - Metals-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -148,11 +184,11 @@
     Universal Replacements
     ==========-->
     <!--Tungsten = Metals+-->
+    <!--SB_tungsten_bar = RimBound-->
     <!--VMEu_Tungsten = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Tungsten" or text()="VMEu_Tungsten"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="Tungsten" or text()="VMEu_Tungsten"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten"]</xpath>
         <value>
             <thingDef>DZ_Tungsten</thingDef>
         </value>
@@ -160,21 +196,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Tungsten or self::VMEu_Tungsten]
-            | /Defs/ThingDef/costList/*[self::Tungsten or self::VMEu_Tungsten]
-            | /Defs/RecipeDef/products/*[self::Tungsten or self::VMEu_Tungsten]
-            | /Defs/TerrainDef/costList/*[self::Tungsten or self::VMEu_Tungsten]
-        </xpath>
+        <xpath>/Defs//*[self::Tungsten or self::SB_tungsten_bar or self::VMEu_Tungsten]</xpath>
         <name>DZ_Tungsten</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Tungsten" or text()="VMEu_Tungsten"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten"]</xpath>
         <value>
             <li>DZ_Tungsten</li>
         </value>

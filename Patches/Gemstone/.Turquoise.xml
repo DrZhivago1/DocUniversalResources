@@ -1,13 +1,13 @@
 <Patch>
 
     <!--==========
-    Garnet {Kura's Extra Gems, Gemstones}
+    Turquoise {Gems (Continued), Gemstones}
     ==========-->
 
-    <!--DUR Garnet, with whitelist-->
+    <!--DUR Turquoise, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kura.ExtraGems</li>
+            <li>Mlie.Gems</li>
             <li>zylle.Gemstones</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -16,18 +16,18 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="DZ_Garnet" ParentName="DZ_GemstoneBase">
-                            <defName>DZ_Garnet</defName>
-                            <label>Garnet</label>
-                            <description>Garnet: A translucent and colored variety of silicate minerals.</description>
+                        <ThingDef Name="DZ_Turquoise" ParentName="DZ_GemstoneBase">
+                            <defName>DZ_Turquoise</defName>
+                            <label>Turquoise</label>
+                            <description>Turquoise: An opaque and blue-green mineral.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
                             <soundInteract>ChunkRock_Drop</soundInteract>
                             <soundDrop>ChunkRock_Drop</soundDrop>
                             <statBases>
-                                <MarketValue>30</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
+                                <MarketValue>15</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
                                 <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.03</RoyalFavorValue>                                <!--Gold = 0.015-->
+                                <RoyalFavorValue>0.025</RoyalFavorValue>                                <!--Gold = 0.015-->
                                 <Flammability>0</Flammability>
                                 <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
                                 <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
@@ -43,18 +43,18 @@
                                 <categories>
                                     <li>Stony</li>
                                 </categories>
-                                <commonality>0.03</commonality>                                <!--Gold = 0.02-->
+                                <commonality>0.05</commonality>                                <!--Gold = 0.02-->
                                 <color />
                                 <constructEffect>ConstructMetal</constructEffect>
                                 <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
                                 <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
                                 <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
                                 <statOffsets>
-                                    <Beauty>15</Beauty>                                    <!--Gold = 20-->
+                                    <Beauty>10</Beauty>                                    <!--Gold = 20-->
                                 </statOffsets>
                                 <statFactors>
                                     <Flammability>0</Flammability>
-                                    <Beauty>2</Beauty>                                    <!--Gold = 4-->
+                                    <Beauty>1.5</Beauty>                                    <!--Gold = 4-->
                                     <MaxHitPoints>0.5</MaxHitPoints>
                                     <WorkToBuild>3</WorkToBuild>
                                     <WorkToMake>3</WorkToMake>
@@ -83,30 +83,30 @@
     Mods
     ==========-->
 
-    <!--Kura's Extra Gems-->
+    <!--Gems (Continued)-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Kura.ExtraGems</li>
+            <li>Mlie.Gems</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
                         <value>
                             <graphicData>
-                                <texPath>Garnet</texPath>
+                                <texPath>Things/Item/Resource/Turquoise</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
                         <value>
-                            <texPath>Garnet</texPath>
+                            <texPath>Things/Item/Resource/Turquoise</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </value>
                     </nomatch>
@@ -114,21 +114,21 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Turquoise"]/stuffProps/color</xpath>
                     <value>
-                        <color>(98,25,18)</color>
+                        <color>(144,252,249)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/thingCategories</xpath>
                     <value>
-                        <li>KGems</li>
+                        <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Garnet"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Turquoise"]</xpath>
                 </li>
             </operations>
         </match>
@@ -144,51 +144,51 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData/texPath</xpath>
                     <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
                         <value>
                             <graphicData>
                                 <texPath>Things/Item/Resource/Gemstone</texPath>
                                 <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(56,7,28)</color>
+                                <color>(87, 231, 221)</color>
                             </graphicData>
                         </value>
                     </match>
                     <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                        <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/graphicData</xpath>
                         <value>
                             <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(56,7,28)</color>
+                            <color>(87, 231, 221)</color>
                         </value>
                     </nomatch>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Turquoise"]/stuffProps/color</xpath>
                     <value>
-                        <color>(56,7,28)</color>
+                        <color>(87, 231, 221)</color>
                     </value>
                 </li>
                 <!--Use thingCategories-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/thingCategories</xpath>
                     <value>
                         <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/tradeTags</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Turquoise"]/tradeTags</xpath>
                     <value>
                         <li>Z_Gemstones_SemiPrecious</li>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Z_Garnet"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Z_Turquoise"]</xpath>
                 </li>
             </operations>
         </match>
@@ -197,43 +197,27 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Garnet = Kura's Extra Gems-->
-    <!--Z_Garnet = Gemstones-->
+    <!--Turquoise = Gems (Continued)-->
+    <!--Z_Turquoise = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="Garnet" or text()="Z_Garnet"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Turquoise" or text()="Z_Turquoise"]</xpath>
         <value>
-            <thingDef>DZ_Garnet</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Garnet" or text()="Z_Garnet"]</xpath>
-        <value>
-            <mineableThing>DZ_Garnet</mineableThing>
+            <thingDef>DZ_Turquoise</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::Garnet or self::Z_Garnet] 
-            | /Defs/ThingDef/costList/*[self::Garnet or self::Z_Garnet] 
-            | /Defs/RecipeDef/products/*[self::Garnet or self::Z_Garnet]
-            | /Defs/TerrainDef/costList/*[self::Garnet or self::Z_Garnet]
-        </xpath>
-        <name>DZ_Garnet</name>
+        <xpath>/Defs//*[self::Turquoise or self::Z_Turquoise]</xpath>
+        <name>DZ_Turquoise</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="Garnet" or text()="Z_Garnet"] 
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="Garnet" or text()="Z_Garnet"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Turquoise" or text()="Z_Turquoise"]</xpath>
         <value>
-            <li>DZ_Garnet</li>
+            <li>DZ_Turquoise</li>
         </value>
     </Operation>
 

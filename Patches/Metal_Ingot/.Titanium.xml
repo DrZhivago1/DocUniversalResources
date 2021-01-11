@@ -1,36 +1,37 @@
 <Patch>
 
     <!--==========
-    Lead {Cupro's Alloys (Continued), Expanded Materials - Metals}
+    Titanium {Metals+, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Lead, with whitelist-->
+    <!--DUR Titanium, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Mlie.CuprosAlloys</li>
+            <li>Kyrrisayo.MetalsPlus</li>
+            <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Lead" ParentName="DZ_MetalBase">
-                    <defName>DZ_Lead</defName>
-                    <label>Lead</label>
-                    <description>Lead: A soft, heavy metal, often used in weaponry.</description>
+                <ThingDef Name="DZ_Titanium" ParentName="DZ_MetalIngotBase">
+                    <defName>DZ_Titanium</defName>
+                    <label>Titanium</label>
+                    <description>Titanium: A silver colored, low density, and high strength metal.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>1</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
-                        <Mass>1</Mass>                        <!--Steel = 0.5-->
-                        <StuffPower_Armor_Sharp>0.33</StuffPower_Armor_Sharp>
-                        <StuffPower_Armor_Blunt>0.25</StuffPower_Armor_Blunt>
-                        <StuffPower_Armor_Heat>0.25</StuffPower_Armor_Heat>
+                        <MarketValue>6.9</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.4</Mass>                        <!--Steel = 0.5-->
+                        <StuffPower_Armor_Sharp>1.15</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.8</StuffPower_Armor_Heat>
                         <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-                        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                        <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
-                        <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
+                        <StuffPower_Insulation_Heat>1</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>1.1</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>1.2</BluntDamageMultiplier>
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
@@ -38,7 +39,7 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.1</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <commonality>0.25</commonality>                        <!--Gold = 0.02, Steel = 1-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
@@ -48,13 +49,11 @@
                             <Beauty>0</Beauty>
                         </statOffsets>
                         <statFactors>
-                            <MaxHitPoints>0.8</MaxHitPoints>
+                            <WorkToMake>2.2</WorkToMake>
+                            <WorkToBuild>2.2</WorkToBuild>
+                            <MaxHitPoints>2.5</MaxHitPoints>
                             <Beauty>1</Beauty>
-                            <Flammability>0.5</Flammability>                            <!--Steel = 0.4-->
-                            <MeleeWeapon_CooldownMultiplier>1.15</MeleeWeapon_CooldownMultiplier>
-                            <WorkToMake>0.8</WorkToMake>
-                            <WorkToBuild>0.75</WorkToBuild>
-                            <ImmunityGainSpeedFactor>0.75</ImmunityGainSpeedFactor>
+                            <Flammability>0</Flammability>                            <!--Steel = 0.4-->
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -63,9 +62,9 @@
                     <thingCategories>
                         <li>ResourcesRaw</li>
                     </thingCategories>
-                    <deepCommonality>2</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
-                    <deepCountPerPortion>25</deepCountPerPortion>                    <!--Steel = 45-->
-                    <deepLumpSizeRange>10~20</deepLumpSizeRange>                    <!--Steel = 20~30-->
+                    <deepCommonality>1.5</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>15</deepCountPerPortion>                    <!--Steel = 45-->
+                    <deepLumpSizeRange>6~12</deepLumpSizeRange>                    <!--Steel = 20~30-->
                     <tradeTags />
                     <comps />
                 </ThingDef>
@@ -77,49 +76,70 @@
     Mods
     ==========-->
 
-    <!--Cupro's Alloys (Continued)-->
+    <!--Metals+-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Mlie.CuprosAlloys</li>
+            <li>Kyrrisayo.MetalsPlus</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Lead"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Cupro/Item/Material/Lead</texPath>
-                            <graphicClass>Graphic_Random</graphicClass>
+                            <texPath>Things/Item/Resource/Titanium</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Lead"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
                     <value>
-                        <color>(97,95,103)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/thingCategories</xpath>
-                    <value>
-                        <li>CAL_Metals</li>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Lead"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
+                        <color>(223,230,236)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="CAL_Lead"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Titanium"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimBound-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>KBraid.Rimbound</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Resource/SBingot</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(235,232,255)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(231,231,231)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SB_titanium_bar"]</xpath>
                 </li>
             </operations>
         </match>
@@ -135,10 +155,10 @@
             <operations>
                 <!--Use/replace graphics-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Lead"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
                     <value>
                         <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Lead</texPath>
+                            <texPath>Things/Item/Resource/VMEu_Titanium</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
                     </value>
@@ -146,14 +166,14 @@
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Lead"]/stuffProps/color</xpath>
+                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
                     <value>
-                        <color>(126,136,148)</color>
+                        <color>(58,58,58)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_Lead"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="VMEu_Titanium"]</xpath>
                 </li>
             </operations>
         </match>
@@ -162,37 +182,28 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--CAL_Lead = Cupro's Alloys (Continued)-->
-    <!--VMEu_Lead = Expanded Materials - Metals-->
+    <!--Titanium = Metals+-->
+    <!--SB_titanium_bar = RimBound-->
+    <!--VMEu_Titanium = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/TraderKindDef/stockGenerators/*//thingDef[text()="CAL_Lead" or text()="VMEu_Lead"]
-            | /Defs/ScenarioDef/scenario/parts/*//thingDef[text()="CAL_Lead" or text()="VMEu_Lead"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Titanium" or text()="SB_titanium_bar" or text()="VMEu_Titanium"]</xpath>
         <value>
-            <thingDef>DZ_Lead</thingDef>
+            <thingDef>DZ_Titanium</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs/ThingDef/modExtensions/*//products/*[self::CAL_Lead or self::VMEu_Lead]
-            | /Defs/ThingDef/costList/*[self::CAL_Lead or self::VMEu_Lead]
-            | /Defs/RecipeDef/products/*[self::CAL_Lead or self::VMEu_Lead]
-            | /Defs/TerrainDef/costList/*[self::CAL_Lead or self::VMEu_Lead]
-        </xpath>
-        <name>DZ_Lead</name>
+        <xpath>/Defs//*[self::Titanium or self::SB_titanium_bar or self::VMEu_Titanium]</xpath>
+        <name>DZ_Titanium</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/RecipeDef/ingredients/*//filter/thingDefs/li[text()="CAL_Lead" or text()="VMEu_Lead"]
-            | /Defs/RecipeDef/fixedIngredientFilter/thingDefs/li[text()="CAL_Lead" or text()="VMEu_Lead"]
-            | /Defs/RecipeDef/defaultIngredientFilter/thingDefs/li[text()="CAL_Lead" or text()="VMEu_Lead"]
-            | /Defs/ThingDef/recipeMaker/defaultIngredientFilter/disallowedThingDefs/li[text()="CAL_Lead" or text()="VMEu_Lead"]
-            | /Defs/ThingDef/comps/li/fuelFilter/thingDefs/li[text()="CAL_Lead" or text()="VMEu_Lead"]
-        </xpath>
+        <xpath>/Defs/*//li[text()="Titanium" or text()="SB_titanium_bar" or text()="VMEu_Titanium"]</xpath>
         <value>
-            <li>DZ_Lead</li>
+            <li>DZ_Titanium</li>
         </value>
     </Operation>
 

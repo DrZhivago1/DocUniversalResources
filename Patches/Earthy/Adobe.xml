@@ -79,7 +79,7 @@
                     <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/comps</xpath>
                     <value>
                         <li Class="OreProcessing.CompProperties_Dryable">
-                            <defDriesTo>DZ_AdobeBrick</defDriesTo>
+                            <defDriesTo>DZ_BlocksAdobe</defDriesTo>
                         </li>
                     </value>
                 </li>
