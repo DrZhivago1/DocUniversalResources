@@ -4,7 +4,6 @@
     Apple {[1.0, 1.1] RimCuisine 2 Core, VGP Vegetable Garden, Vanilla Cooking Expanded}
     ==========-->
 
-    <!--DUR Apple, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Crustypeanut.RC2.Core</li>

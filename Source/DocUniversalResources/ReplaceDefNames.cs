@@ -174,7 +174,7 @@ namespace DocUniversalResources
                     //  ==================
                     //      Synthetic
                     //  ==================
-                    if (defName == "SadjuukGlass" || defName == "Glass" || defName == "GlassPane")
+                    if (defName == "SadjuukGlass" || defName == "Glass" || defName == "GlassPane" || defName == "PRF_Glass" || defName == "AM_Glass")
                     {
                         newName = "DZ_Glass";
                     }

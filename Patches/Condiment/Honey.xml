@@ -1,0 +1,352 @@
+<Patch>
+
+    <!--==========
+    Honey {Misc. Bees'n'Honey, [1.0, 1.1] RimCuisine 2 Core, VGP Vegetable Garden, Vanilla Factions Expanded - Vikings, RimBees}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Haplo.Miscellaneous.BeesNHoney</li>
+            <li>dismarzero.VGP.VGPVegetableGarden</li>
+            <li>Crustypeanut.RC2.Core</li>
+            <li>sarg.rimbees</li>
+            <!--<li>OskarPotocki.VFE.Vikings</li>-->
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Honey" ParentName="DZ_CondimentBase">
+                            <defName>DZ_Honey</defName>
+                            <label>Honey</label>
+                            <description>Honey: Harvested from honeycomb.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <stackLimit>75</stackLimit>
+                            <socialPropernessMatters>true</socialPropernessMatters>
+                            <statBases>
+                                <MarketValue>4.2</MarketValue>
+                                <Mass>0.015</Mass>
+                                <Nutrition>0.05</Nutrition>
+                                <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+                                <Beauty>0</Beauty>
+                            </statBases>
+                            <thingCategories />
+                            <ingestible />
+                            <comps />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Misc. Bees'n'Honey-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Haplo.Miscellaneous.BeesNHoney</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Honey</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
+                    <value>
+                        <li>AnimalProductRaw</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <tasteThought>AteHoney</tasteThought>
+                            <preferability>DesperateOnly</preferability>
+                            <foodType>AnimalProduct</foodType>
+                            <baseIngestTicks>100</baseIngestTicks>
+                            <chairSearchRadius>5</chairSearchRadius>
+                            <joy>0.15</joy>
+                            <joyKind>Gluttonous</joyKind>
+                            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+                            <ingestEffect>EatVegetarian</ingestEffect>
+                            <ingestSound>Meal_Eat</ingestSound>
+                            <nurseable>true</nurseable>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Special Replacements-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef/comps/li[@Class="BeeAndHoney.CompProperties_BeeHive"]/resources/resourceDef</xpath>
+                    <value>
+                        <resourceDef>DZ_Honey</resourceDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef/comps/li[@Class="BeeAndHoney.CompProperties_TimedRespawn"]/changeDef</xpath>
+                    <value>
+                        <changeDef>DZ_Honey</changeDef>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Honey"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--VGP Vegetable Garden-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dismarzero.VGP.VGPVegetableGarden</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Honey</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
+                    <value>
+                        <li>CookingSupplies</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <preferability>DesperateOnly</preferability>
+                            <foodType>Processed</foodType>
+                            <joy>0.10</joy>
+                            <joyKind>Gluttonous</joyKind>
+                            <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+                            <ingestSound>Meal_Eat</ingestSound>
+                            <specialThoughtDirect>VP_AteHoney</specialThoughtDirect>
+                            <specialThoughtAsIngredient>SRV_FoodMadeWithHoney</specialThoughtAsIngredient>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Honey"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>RC2_Things/RC2_Food/Honey</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
+                    <value>
+                        <li>RC2_SweetsRaw</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <preferability>DesperateOnly</preferability>
+                            <foodType>Processed, Fluid</foodType>
+                            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+                            <ingestSound>Meal_Eat</ingestSound>
+                            <specialThoughtAsIngredient>AteRareAsIngredient</specialThoughtAsIngredient>
+                            <tasteThought>RC2_AteSweetener</tasteThought>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RC2_Honey"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Factions Expanded - Vikings-->
+    <!--Special considerations b/c of unique fermenting barrel
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>OskarPotocki.VFE.Vikings</li>
+        </packageIds>
+        <match Class="D9Framework.PatchOperationFindPackage">
+            <packageIds>
+                <li>syrchalis.universalfermenter</li>
+            </packageIds>
+            <match Class="PatchOperationSequence">
+                <success>Always</success>
+                <operations>-->
+                    <!--Use/replace graphics
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
+                        <value>
+                            <graphicData>
+                                <texPath>Things/Item/Resource/AnimalProductRaw/Honey</texPath>
+                                <graphicClass>Graphic_StackCount</graphicClass>
+                            </graphicData>
+                        </value>
+                    </li>-->
+                    <!--Add thingCategory
+                    <li Class="PatchOperationConditional">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories/li[text()="AnimalProductRaw"]</xpath>
+                        <nomatch Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
+                            <value>
+                                <li>AnimalProductRaw</li>
+                            </value>
+                        </nomatch>
+                    </li>-->
+                    <!--Use ingestible data
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
+                        <value>
+                            <ingestible>
+                                <foodType>AnimalProduct</foodType>
+                                <preferability>RawTasty</preferability>
+                                <joy>0.10</joy>
+                                <joyKind>Gluttonous</joyKind>
+                                <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+                                <ingestSound>Meal_Eat</ingestSound>
+                            </ingestible>
+                        </value>
+                    </li>-->
+                    <!--Remove resource
+                    <li Class="PatchOperationRemove">
+                        <xpath>/Defs/ThingDef[defName="VFEV_Honey"]</xpath>
+                    </li>
+                </operations>
+            </match>
+        </match>
+    </Operation>-->
+
+    <!--RimBees-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>sarg.rimbees</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Product/RB_HoneyJar</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(255,199,2)</color>
+                            <shaderType>CutoutComplex</shaderType>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
+                    <value>
+                        <li>RB_Honeys</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <foodType>AnimalProduct</foodType>
+                            <preferability>RawTasty</preferability>
+                            <ingestEffect>EatVegetarian</ingestEffect>
+                            <ingestSound>Meal_Eat</ingestSound>
+                            <optimalityOffsetHumanlikes>6</optimalityOffsetHumanlikes>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RB_BaseHoney"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Honey = Misc. Bees'n'Honey, VGP Vegetable Garden-->
+    <!--RC2_Honey = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--RB_BaseHoney = RimBees-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="Honey" or text()="RC2_Honey" or text()="RB_BaseHoney"]</xpath>
+        <value>
+            <thingDef>DZ_Honey</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::Honey or self::RC2_Honey or self::RB_BaseHoney]</xpath>
+        <name>DZ_Honey</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="Honey" or text()="RC2_Honey" or text()="RB_BaseHoney"]</xpath>
+        <value>
+            <li>DZ_Honey</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="Honey" or text()="RC2_Honey" or text()="RB_BaseHoney"]</xpath>
+        <value>
+            <harvestedThingDef>DZ_Honey</harvestedThingDef>
+        </value>
+    </Operation>
+
+</Patch>

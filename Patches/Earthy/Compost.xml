@@ -1,0 +1,101 @@
+<Patch>
+
+    <!--==========
+    Compost {Fertile Fields [1.1]}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <!--<li>jamaicancastle.RF.fertilefields</li> Fertile Fields' compost requires C# patches for electric composter-->
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Compost" ParentName="DZ_EarthyBase">
+                            <defName>DZ_Compost</defName>
+                            <label>Compost</label>
+                            <description>Compost: A mix of organic waste.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Standard_Pickup</soundInteract>
+                            <soundDrop>Standard_Pickup</soundDrop>
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <DeteriorationRate>2</DeteriorationRate>
+                                <MarketValue>1.0</MarketValue>
+                                <Mass>0.5</Mass>
+                                <Flammability>1</Flammability>
+                            </statBases>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <tradeTags />
+                            <stuffProps />
+                            <smeltable>false</smeltable>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Fertile Fields [1.1]
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>jamaicancastle.RF.fertilefields</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <-Use/replace graphics to ThingDef->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Compost</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <-Remove resource->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RawCompost"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>-->
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--RawCompost = Fertile Fields [1.1]
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="RawCompost"]</xpath>
+        <value>
+            <thingDef>DZ_Compost</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::RawCompost]</xpath>
+        <name>DZ_Compost</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="RawCompost"]</xpath>
+        <value>
+            <li>DZ_Compost</li>
+        </value>
+    </Operation>-->
+
+</Patch>

@@ -1,16 +1,17 @@
 <Patch>
 
     <!--==========
-    Concrete Block {Industrialisation, UN-Colony (Continued), Simple Concrete, [RF] Concrete (Continued), Expanded Materials - Metals}
+    Concrete Block {Industrialisation, UN-Colony (Continued), UN-Colony [1.2], Simple Concrete, [RF] Concrete (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Concrete Block, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
-            <li>Mlie.UNColony</li>
             <li>trasheddt.industrialisation</li>
+            <li>Mlie.UNColony</li>
+            <li>Sadjuuk.UNColony</li>
             <li>dninemfive.simpleconcrete</li>
             <li>Mlie.Concrete</li>
+            <li>malkav73.concrete</li>
             <li>Argon.VMEu</li>
         </packageIds>
         <match Class="PatchOperationSequence">
@@ -79,24 +80,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Ind/Stuff/Concrete</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Ind/Stuff/Concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -123,24 +114,48 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>SadjuukUN-Building/SadjuukConcrete</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match, stuffProps node not originally in the mod-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(107,109,107)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SadjuukConcrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--UN-Colony [1.2]-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Sadjuuk.UNColony</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>SadjuukItem/SadjuukConcrete</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match, stuffProps node not originally in the mod-->
                 <li Class="PatchOperationReplace">
@@ -167,24 +182,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Resource/concrete</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Resource/concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -203,34 +208,25 @@
     </Operation>
 
     <!--[RF] Concrete (Continued)-->
+    <!--Concrete for Fertile Fields-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Concrete</li>
+            <li>malkav73.concrete</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/StoneBlocks</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(192,192,192)</color>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/StoneBlocks</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <color>(192,192,192)</color>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -240,16 +236,16 @@
                         <color>(192,192,192)</color>
                     </value>
                 </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RFFBlocksConcrete"]</xpath>
+                </li>
                 <!--Add FF trade tags-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
                     <value>
                         <li>TerraformingResources</li>
                     </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RFFBlocksConcrete"]</xpath>
                 </li>
             </operations>
         </match>
@@ -264,24 +260,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/VMEu_Concrete</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -309,10 +295,10 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--SadjuukConcrete = UN-Colony (Continued)-->
+    <!--SadjuukConcrete = UN-Colony (Continued), UN-Colony [1.2]-->
     <!--Ind_Concrete = Industrialisation-->
     <!--D9Concrete = Simple Concrete-->
-    <!--RFFBlocksConcrete = [RF] Concrete (Continued)-->
+    <!--RFFBlocksConcrete = [RF] Concrete (Continued), Concrete for Fertile Fields-->
     <!--VMEu_Concrete = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>

@@ -4,7 +4,6 @@
     Peridot {Gems (Continued), Kura's Extra Gems}
     ==========-->
 
-    <!--DUR Peridot, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

@@ -4,7 +4,6 @@
     Diamond {Gems (Continued), Carbon, Project RimFactory - Materials, Kura's Extra Gems, Gemstones, Jewelry}
     ==========-->
 
-    <!--DUR Diamond, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

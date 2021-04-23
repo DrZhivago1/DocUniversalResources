@@ -1,6 +1,12 @@
 <Defs>
     <!--These bases can be a target used in xpath to mass-patch new DUR resources. A loadAfter rule in the About.xml will need to be added for any mod doing this.-->
 
+    <ThingDef Name="DZ_CondimentBase" ParentName="OrganicProductBase" Abstract="True">
+    </ThingDef>
+
+    <ThingDef Name="DZ_ChunkRockBase" ParentName="ChunkRockBase" Abstract="True">
+    </ThingDef>
+
     <ThingDef Name="DZ_EarthyBase" ParentName="ResourceBase" Abstract="True">
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
@@ -26,9 +32,6 @@
     </ThingDef>
 
     <ThingDef Name="DZ_StoneRockBase" ParentName="RockBase" Abstract="True">
-    </ThingDef>
-
-    <ThingDef Name="DZ_ChunkRockBase" ParentName="ChunkRockBase" Abstract="True">
     </ThingDef>
 
     <ThingDef Name="DZ_SyntheticBase" ParentName="ResourceBase" Abstract="True">

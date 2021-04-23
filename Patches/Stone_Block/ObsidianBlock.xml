@@ -4,7 +4,6 @@
     Obsidian Block {[K]Extra Stone, Alpha Biomes, [K]Extra Stone(w/ Cupro's Textures)}
     ==========-->
 
-    <!--DUR Obsidian Block, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kura.ExtraStone</li>

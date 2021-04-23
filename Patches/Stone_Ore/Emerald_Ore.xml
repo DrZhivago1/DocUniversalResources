@@ -4,7 +4,6 @@
     Emerald Ore {Gems (Continued), Kura's Extra Gems}
     ==========-->
 
-    <!--DUR Emerald Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

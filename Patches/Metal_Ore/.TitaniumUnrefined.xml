@@ -4,7 +4,6 @@
     Titanium Ore {RimBound}
     ==========-->
 
-    <!--DUR Titanium Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>KBraid.Rimbound</li>

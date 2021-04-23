@@ -5,7 +5,6 @@
     Iron Ore Production Chain {Simple Mining Extension, RimBound}
     ==========-->
 
-    <!--DUR Iron Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kyrrisayo.MetalsPlus</li>

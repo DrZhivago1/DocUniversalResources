@@ -4,7 +4,6 @@
     Amethyst Ore {Gems (Continued), Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Amethyst Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

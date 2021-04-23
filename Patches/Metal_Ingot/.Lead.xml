@@ -4,7 +4,6 @@
     Lead {Cupro's Alloys (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Lead, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.CuprosAlloys</li>

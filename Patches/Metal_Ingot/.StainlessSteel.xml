@@ -4,7 +4,6 @@
     Stainless Steel {Industrialisation, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Stainless Steel, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>trasheddt.industrialisation</li>

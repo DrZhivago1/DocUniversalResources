@@ -4,7 +4,6 @@
     Sapphire {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Gemstones, Jewelry}
     ==========-->
 
-    <!--DUR Sapphire, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

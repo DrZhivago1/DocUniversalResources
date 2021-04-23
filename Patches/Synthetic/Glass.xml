@@ -1,14 +1,16 @@
 <Patch>
 
     <!--==========
-    Glass {Dubs Skylights, UN-Colony (Continued), Just Glass, Glass+Lights}
+    Glass {Dubs Skylights, UN-Colony (Continued), UN-Colony [1.2], Materials+, Project RimFactory - Materials, Just Glass, Glass+Lights}
     ==========-->
 
-    <!--DUR Glass, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Dubwise.DubsSkylights</li>
             <li>Mlie.UNColony</li>
+            <li>Sadjuuk.UNColony</li>
+            <li>Atlas.MaterialsPlus.AT</li>
+            <li>PRF.Materials</li>
             <li>spoden.JustGlass</li>
             <li>NanoCE.GlassLights</li>
         </packageIds>
@@ -59,26 +61,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/GlassPane</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <shaderType>Transparent</shaderType>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/GlassPane</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <shaderType>Transparent</shaderType>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -97,28 +88,149 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>SadjuukUN-Building/SadjuukGlass</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>SadjuukUN-Building/SadjuukGlass</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SadjuukGlass"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--UN-Colony [1.2]-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Sadjuuk.UNColony</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>SadjuukItem/SadjuukGlass</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SadjuukGlass"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_Glass</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!-- Replace StuffProps-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/stuffProps</xpath>
+                    <value>
+                        <stuffProps>
+                            <categories>
+                                <li>AM_Glassy</li>
+                            </categories>
+                            <commonality>0</commonality>
+                            <constructEffect>ConstructMetal</constructEffect>
+                            <color>(230,245,236)</color>
+                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                            <stuffAdjective>glass</stuffAdjective>
+                            <appearance>GlassAM</appearance>
+                            <statFactors>
+                                <MaxHitPoints>0.60</MaxHitPoints>
+                                <Beauty>1.75</Beauty>
+                                <Flammability>0</Flammability>
+                                <WorkToMake>1.25</WorkToMake>
+                                <WorkToBuild>1.25</WorkToBuild>
+                            </statFactors>
+                        </stuffProps>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_Glass"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_Glass</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <drawSize>(0.8,0.8)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!-- Replace StuffProps-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/stuffProps</xpath>
+                    <value>
+                        <stuffProps>
+                            <categories>
+                                <li>PRF_Glassy</li>
+                            </categories>
+                            <commonality>0</commonality>
+                            <constructEffect>ConstructMetal</constructEffect>
+                            <color>(230,245,236)</color>
+                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                            <stuffAdjective>glass</stuffAdjective>
+                            <appearance>GlassAM</appearance>
+                            <statFactors>
+                                <MaxHitPoints>0.60</MaxHitPoints>
+                                <Beauty>1.75</Beauty>
+                                <Flammability>0</Flammability>
+                                <WorkToMake>1.25</WorkToMake>
+                                <WorkToBuild>1.25</WorkToBuild>
+                            </statFactors>
+                        </stuffProps>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_Glass"]</xpath>
                 </li>
             </operations>
         </match>
@@ -135,24 +247,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Glass</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Glass"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Glass</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!-- Replace StuffProps-->
                 <li Class="PatchOperationReplace">
@@ -188,26 +290,29 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--SadjuukGlass = UN-Colony (Continued)-->
+    <!--SadjuukGlass = UN-Colony (Continued), UN-Colony [1.2]-->
     <!--Glass = Glass+Lights, Just Glass-->
     <!--GlassPane = Dubs Skylights-->
+    <!--PRF_Glass = Project RimFactory - Materials-->
+    <!--AM_Glass = Materials+-->
+
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="SadjuukGlass" or text()="Glass" or text()="GlassPane"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="SadjuukGlass" or text()="Glass" or text()="GlassPane" or text()="PRF_Glass" or text()="AM_Glass"]</xpath>
         <value>
             <thingDef>DZ_Glass</thingDef>
         </value>
     </Operation>
 
     <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs//*[self::SadjuukGlass or self::Glass or self::GlassPane]</xpath>
+        <success>Always</success>
+        <xpath>/Defs//*[self::SadjuukGlass or self::Glass or self::GlassPane or self::PRF_Glass or self::AM_Glass]</xpath>
         <name>DZ_Glass</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="SadjuukGlass" or text()="Glass" or text()="GlassPane"]</xpath>
+        <xpath>/Defs/*//li[text()="SadjuukGlass" or text()="Glass" or text()="GlassPane" or text()="PRF_Glass" or text()="AM_Glass"]</xpath>
         <value>
             <li>DZ_Glass</li>
         </value>

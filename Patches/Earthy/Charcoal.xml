@@ -4,7 +4,6 @@
     Charcoal {Coal Expanded, Simple Mining Extension, Survivalist's Additions, Apothecary (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Coal, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>neceros.coalexpanded</li>
@@ -65,24 +64,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Charcoal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Charcoal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -101,24 +90,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>resources/charcoal</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>resources/charcoal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -137,26 +116,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Cupro/Item/Material/Charcoal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Cupro/Item/Material/Charcoal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -189,24 +157,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Misc/AYCharcoal/AYCharcoal</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Misc/AYCharcoal/AYCharcoal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -225,24 +183,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/VMEu_Charcoal</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/VMEu_Charcoal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">

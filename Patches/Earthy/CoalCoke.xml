@@ -4,7 +4,6 @@
     Coal Coke {Materials+, Project RimFactory - Materials}
     ==========-->
 
-    <!--DUR Coal Coke, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Atlas.MaterialsPlus.AT</li>
@@ -57,7 +56,7 @@
             <operations>
                 <!--Use/replace graphics to ThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coke"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Things/Resources/AM_Coke</texPath>
@@ -83,7 +82,7 @@
             <operations>
                 <!--Use/replace graphics to ThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Coke"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]/graphicData</xpath>
                     <value>
                         <graphicData>
                             <texPath>Resources/PRF_Coke</texPath>

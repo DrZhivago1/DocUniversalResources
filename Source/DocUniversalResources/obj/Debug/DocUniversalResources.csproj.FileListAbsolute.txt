@@ -3,3 +3,8 @@ D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources
 D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.csprojAssemblyReference.cache
 D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.dll
 D:\Games\RimWorld\RimWorld_ModStuff\Projects\Visual Studio\DocUniversalResources\DocUniversalResources\obj\Debug\DocUniversalResources.pdb
+D:\Games\Steam\steamapps\common\RimWorld\Mods\DocUniversalResources\Source\DocUniversalResources\bin\Debug\DocUniversalResources.dll
+D:\Games\Steam\steamapps\common\RimWorld\Mods\DocUniversalResources\Source\DocUniversalResources\bin\Debug\DocUniversalResources.pdb
+D:\Games\Steam\steamapps\common\RimWorld\Mods\DocUniversalResources\Source\DocUniversalResources\obj\Debug\DocUniversalResources.csprojAssemblyReference.cache
+D:\Games\Steam\steamapps\common\RimWorld\Mods\DocUniversalResources\Source\DocUniversalResources\obj\Debug\DocUniversalResources.dll
+D:\Games\Steam\steamapps\common\RimWorld\Mods\DocUniversalResources\Source\DocUniversalResources\obj\Debug\DocUniversalResources.pdb

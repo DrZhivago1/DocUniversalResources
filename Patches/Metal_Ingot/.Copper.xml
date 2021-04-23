@@ -4,7 +4,6 @@
     Copper {Industrialisation, Clockwork And Steam, Metals+, RimBound, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Copper, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>trasheddt.industrialisation</li>

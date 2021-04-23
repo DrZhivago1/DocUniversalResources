@@ -1,10 +1,9 @@
 <Patch>
 
     <!--==========
-    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
+    Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, Rimhammer - The End Times - WITH GUNS!!, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Coal, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>vindar.medievaltimes</li>
@@ -14,6 +13,7 @@
             <li>Wemd.SimpleCoal</li>
             <li>neceros.coalexpanded</li>
             <li>sickboywi.theendtimes.theendtimes</li>
+            <li>SickBoyWi.TheEndTimes.WithGuns</li>
             <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
@@ -267,9 +267,11 @@
     </Operation>
 
     <!--Rimhammer - The End Times-->
+    <!--Rimhammer - The End Times - WITH GUNS!!-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>sickboywi.theendtimes.theendtimes</li>
+            <li>SickBoyWi.TheEndTimes.WithGuns</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -381,7 +383,7 @@
     <!--CaS_Coal = Clockwork And Steam-->
     <!--SB_coal_ore = RimBound-->
     <!--PRF_Coal = Project RimFactory - Materials-->
-    <!--RH_TET_Coal = Rimhammer - The End Times-->
+    <!--RH_TET_Coal = Rimhammer - The End Times, Rimhammer - The End Times - WITH GUNS!!-->
     <!--AM_Coal = Materials+-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>

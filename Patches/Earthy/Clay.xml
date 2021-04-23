@@ -4,7 +4,6 @@
     Clay {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields}
     ==========-->
 
-    <!--DUR Clay, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Atlas.MaterialsPlus.AT</li>

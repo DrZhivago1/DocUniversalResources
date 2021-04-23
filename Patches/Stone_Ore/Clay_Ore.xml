@@ -4,7 +4,6 @@
     Clay Ore {Materials+, Ceramics}
     ==========-->
 
-    <!--DUR Clay Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Atlas.MaterialsPlus.AT</li>

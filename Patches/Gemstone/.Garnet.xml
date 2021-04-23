@@ -4,7 +4,6 @@
     Garnet {Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <!--DUR Garnet, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kura.ExtraGems</li>

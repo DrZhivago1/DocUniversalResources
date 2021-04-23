@@ -4,7 +4,6 @@
     Lapis Lazuli Ore {Gems (Continued), Gemstones}
     ==========-->
 
-    <!--DUR Lapis Lazuli Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

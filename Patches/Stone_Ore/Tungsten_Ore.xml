@@ -5,7 +5,6 @@
     Tungsten Ore Production Chain {RimBound}
     ==========-->
 
-    <!--DUR Tungsten Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>

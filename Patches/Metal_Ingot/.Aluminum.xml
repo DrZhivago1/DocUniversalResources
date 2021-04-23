@@ -4,7 +4,6 @@
     Aluminum {Industrialisation, Cupro's Alloys (Continued)}
     ==========-->
 
-    <!--DUR Aluminum, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>trasheddt.industrialisation</li>

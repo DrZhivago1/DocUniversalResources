@@ -4,7 +4,6 @@
     Chromium Ore {Cupro's Alloys (Continued)}
     ==========-->
 
-    <!--DUR Chromium Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.CuprosAlloys</li>

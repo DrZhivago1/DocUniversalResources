@@ -4,7 +4,6 @@
     Turquoise {Gems (Continued), Gemstones}
     ==========-->
 
-    <!--DUR Turquoise, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.Gems</li>

@@ -4,7 +4,6 @@
     Adobe {Simple Mining Extension, Primitive Workbenches, Materials+, Ceramics}
     ==========-->
 
-    <!--DUR Adobe, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Yuno.SimpleOresTest</li>

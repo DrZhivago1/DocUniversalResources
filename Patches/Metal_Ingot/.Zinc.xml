@@ -4,7 +4,6 @@
     Zinc {Clockwork And Steam, Cupro's Alloys (Continued)}
     ==========-->
 
-    <!--DUR Zinc, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>chance2000w.clockworkandsteam</li>

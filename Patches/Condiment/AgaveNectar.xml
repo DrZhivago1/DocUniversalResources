@@ -1,0 +1,170 @@
+<Patch>
+
+    <!--==========
+    Agave Nectar {[1.0, 1.1] RimCuisine 2 Core, Vanilla Cooking Expanded}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_AgaveNectar" ParentName="DZ_CondimentBase">
+                            <defName>DZ_AgaveNectar</defName>
+                            <label>Agave nectar</label>
+                            <description>Agave Nectar: A processed sweetener made from the agave plant.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <MarketValue>1.32</MarketValue>
+                                <Nutrition>0.5</Nutrition>
+                                <Flammability>1</Flammability>
+                                <Beauty>0</Beauty>
+                            </statBases>
+                            <thingCategories />
+                            <ingestible />
+                            <comps>
+                                <li Class="CompProperties_Rottable">
+                                    <daysToRotStart>120</daysToRotStart>
+                                    <rotDestroys>true</rotDestroys>
+                                </li>
+                            </comps>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>RC2_Things/RC2_Food/AgaveNectar</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/thingCategories</xpath>
+                    <value>
+                        <li>RC2_SweetsProcessed</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <preferability>DesperateOnly</preferability>
+                            <foodType>Processed, Fluid</foodType>
+                            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+                            <ingestSound>Meal_Eat</ingestSound>
+                            <specialThoughtAsIngredient>AteRareAsIngredient</specialThoughtAsIngredient>
+                            <tasteThought>RC2_AteSweetener</tasteThought>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RC2_AgaveNectar"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Cooking Expanded-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Condiments/VCE_AgaveSyrup</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/thingCategories</xpath>
+                    <value>
+                        <li>VCE_Condiments</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <foodType>Plant</foodType>
+                            <preferability>NeverForNutrition</preferability>
+                            <specialThoughtAsIngredient>VCE_ConsumedAgave</specialThoughtAsIngredient>
+                            <optimalityOffsetFeedingAnimals>-50</optimalityOffsetFeedingAnimals>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_AgaveNectar"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--RC2_AgaveNectar = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--VCE_AgaveNectar = Vanilla Cooking Expanded-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="VCE_AgaveNectar" or text()="RC2_AgaveNectar"]</xpath>
+        <value>
+            <thingDef>DZ_AgaveNectar</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::VCE_AgaveNectar or self::RC2_AgaveNectar]</xpath>
+        <name>DZ_AgaveNectar</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="VCE_AgaveNectar" or text()="RC2_AgaveNectar"]</xpath>
+        <value>
+            <li>DZ_AgaveNectar</li>
+        </value>
+    </Operation>
+
+</Patch>

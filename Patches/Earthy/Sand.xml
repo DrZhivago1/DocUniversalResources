@@ -4,7 +4,6 @@
     Sand {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields, [RF] Concrete (Continued)}
     ==========-->
 
-    <!--DUR Sand, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Atlas.MaterialsPlus.AT</li>

@@ -25,11 +25,20 @@ This mod needs to load below all supported content mods, and all mods that patch
 		</li>
 	</modDependencies>
 
+	<incompatibleWith>
+	</incompatibleWith>
+
 	<loadBefore>
 		<li>drzhivago.docworld</li>
 	</loadBefore>
 
 	<loadAfter>
+		<li>Sadjuuk.UNColony</li>
+		<li>malkav73.concrete</li>
+		<li>LWM.DeepStorage</li>
+		<li>sarg.rimbees</li>
+		<li>Haplo.Miscellaneous.BeesNHoney</li>
+		<li>OskarPotocki.VFE.Vikings</li>
 		<li>JPT.FertileFieldsMakeover</li>
 		<li>Atlas.MaterialsPlus.AT</li>
 		<li>KBraid.Rimbound</li>

@@ -4,7 +4,6 @@
     Salt Ore {Real World Food 2 (Continued), RimSeasoning, VGP Garden Gourmet, Salted Meat}
     ==========-->
 
-    <!--DUR Salt Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.RealWorldFood2</li>

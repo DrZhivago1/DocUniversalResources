@@ -4,7 +4,6 @@
     Tin {Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Tin, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>chance2000w.clockworkandsteam</li>

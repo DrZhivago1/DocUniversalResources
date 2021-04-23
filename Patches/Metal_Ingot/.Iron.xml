@@ -4,7 +4,6 @@
     Iron {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Iron, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Owlchemist.SimpleChains.Steel</li>

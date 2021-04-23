@@ -4,7 +4,6 @@
     Adobe Block {Simple Mining Extension, Ceramics}
     ==========-->
 
-    <!--DUR Adobe Block, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Yuno.SimpleOresTest</li>

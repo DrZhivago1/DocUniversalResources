@@ -4,7 +4,6 @@
     Tungsten Ore {RimBound}
     ==========-->
 
-    <!--DUR Tungsten Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>KBraid.Rimbound</li>

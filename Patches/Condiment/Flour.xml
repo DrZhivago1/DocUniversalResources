@@ -1,0 +1,217 @@
+<Patch>
+
+    <!--==========
+    Flour {[1.0, 1.1] RimCuisine 2 Core, VGP Garden Gourmet, Vanilla Cooking Expanded}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+            <li>dismarzero.VGP.VGPGardenGourmet</li>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Flour" ParentName="DZ_CondimentBase">
+                            <defName>DZ_Flour</defName>
+                            <label>Flour</label>
+                            <description>Flour: Wheat flour, used in baking.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <MarketValue>1.32</MarketValue>
+                                <Nutrition>0.05</Nutrition>
+                                <Flammability>1</Flammability>
+                                <Beauty>0</Beauty>
+                            </statBases>
+                            <thingCategories />
+                            <ingestible />
+                            <comps>
+                                <li Class="CompProperties_Rottable">
+                                    <daysToRotStart>100</daysToRotStart>
+                                    <rotDestroys>true</rotDestroys>
+                                </li>
+                            </comps>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>RC2_Things/RC2_Food/Flour</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
+                    <value>
+                        <li>RC2_GrainsProcessed</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <foodType>Processed</foodType>
+                            <preferability>DesperateOnly</preferability>
+                            <tasteThought>RC2_AteFlour</tasteThought>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RC2_Flour"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--VGP Garden Gourmet-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dismarzero.VGP.VGPGardenGourmet</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/flour</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
+                    <value>
+                        <li>CookingSupplies</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <foodType>Plant</foodType>
+                            <preferability>NeverForNutrition</preferability>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Flour"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Cooking Expanded-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Items/Raw/VCE_Flour</texPath>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Add thingCategory-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
+                    <value>
+                        <li>PlantMatter</li>
+                    </value>
+                </li>
+                <!--Use ingestible data-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/ingestible</xpath>
+                    <value>
+                        <ingestible>
+                            <foodType>Plant</foodType>
+                            <preferability>NeverForNutrition</preferability>
+                        </ingestible>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_Flour"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Flour = VGP Garden Gourmet-->
+    <!--RC2_Flour = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--VCE_Flour = Vanilla Cooking Expanded-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="Flour" or text()="VCE_Flour" or text()="RC2_Flour"]</xpath>
+        <value>
+            <thingDef>DZ_Flour</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::Flour or self::VCE_Flour or self::RC2_Flour]</xpath>
+        <name>DZ_Flour</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="Flour" or text()="VCE_Flour" or text()="RC2_Flour"]</xpath>
+        <value>
+            <li>DZ_Flour</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="Flour" or text()="VCE_Flour" or text()="RC2_Flour"]</xpath>
+        <value>
+            <harvestedThingDef>DZ_Flour</harvestedThingDef>
+        </value>
+    </Operation>
+
+</Patch>

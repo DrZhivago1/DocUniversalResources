@@ -4,7 +4,6 @@
     Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Salted Meat, Vanilla Cooking Expanded}
     ==========-->
 
-    <!--DUR Salt, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Mlie.RealWorldFood2</li>

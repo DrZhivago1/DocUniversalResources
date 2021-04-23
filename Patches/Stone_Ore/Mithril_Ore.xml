@@ -4,7 +4,6 @@
     Mithril Ore {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <!--DUR Mithril Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>mercurydoll.fantasymetals</li>

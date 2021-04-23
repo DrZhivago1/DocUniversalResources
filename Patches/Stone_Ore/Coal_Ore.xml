@@ -4,7 +4,6 @@
     Coal Ore {Simple Mining Extension, [WD] Simple Coal, RimBound, Clockwork And Steam, Coal Expanded, Rimhammer - The End Times, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Coal Ore, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Yuno.SimpleOresTest</li>

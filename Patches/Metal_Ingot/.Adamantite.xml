@@ -4,7 +4,6 @@
     Adamantite {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <!--DUR Adamantite, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>mercurydoll.fantasymetals</li>

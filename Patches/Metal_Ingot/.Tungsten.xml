@@ -4,7 +4,6 @@
     Tungsten {Tungsten, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Tungsten, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>

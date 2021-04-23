@@ -4,7 +4,6 @@
     Titanium {Metals+, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <!--DUR Titanium, with whitelist-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Kyrrisayo.MetalsPlus</li>
