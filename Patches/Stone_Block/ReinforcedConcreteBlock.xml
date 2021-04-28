@@ -1,0 +1,169 @@
+<Patch>
+
+    <!--==========
+    Reinforced Concrete Blocks {Materials+, Project RimFactory - Materials}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_BlocksReinforcedConcrete" ParentName="DZ_StoneBlocksBase">
+                            <defName>DZ_BlocksReinforcedConcrete</defName>
+                            <label>Reinforced concrete</label>
+                            <description>Reinforced Concrete: Concrete, but better.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Stone_Drop</soundInteract>
+                            <soundDrop>Stone_Drop</soundDrop>
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <MarketValue>2.5</MarketValue>
+                                <Mass>3</Mass>
+                                <Beauty>-3</Beauty>
+                                <Flammability>0</Flammability>
+                                <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+                            </statBases>
+                            <thingCategories>
+                                <li>Manufactured</li>
+                            </thingCategories>
+                            <stuffProps>
+                                <stuffAdjective>reinforced concrete</stuffAdjective>
+                                <categories>
+                                    <li>Stony</li>
+                                </categories>
+                                <color />
+                                <commonality>0.10</commonality>
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <statFactors>
+                                    <MarketValue>0.5</MarketValue>
+                                    <Flammability>0</Flammability>
+                                    <BedRestEffectiveness>0.1</BedRestEffectiveness>
+                                    <MeleeWeapon_CooldownMultiplier>1.4</MeleeWeapon_CooldownMultiplier>
+                                    <Beauty>0.5</Beauty>
+                                    <MaxHitPoints>2</MaxHitPoints>
+                                    <WorkToBuild>4</WorkToBuild>
+                                    <WorkToMake>1.5</WorkToMake>
+                                </statFactors>
+                            </stuffProps>
+                            <tradeTags />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksReinforcedConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_RConcrete</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksReinforcedConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(140,140,160)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Stuff_RefConcreteAM"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksReinforcedConcrete"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_RConcrete</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <drawSize>(0.8,0.8)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_BlocksReinforcedConcrete"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(140,140,160)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_RefConcrete"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--Stuff_RefConcreteAM = Materials+-->
+    <!--PRF_RefConcrete = Project RimFactory - Materials-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="PRF_RefConcrete" or text()="Stuff_RefConcreteAM"]</xpath>
+        <value>
+            <thingDef>DZ_BlocksReinforcedConcrete</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::PRF_RefConcrete or self::Stuff_RefConcreteAM]</xpath>
+        <name>DZ_BlocksReinforcedConcrete</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="PRF_RefConcrete" or text()="Stuff_RefConcreteAM"]</xpath>
+        <value>
+            <li>DZ_BlocksReinforcedConcrete</li>
+        </value>
+    </Operation>
+
+</Patch>

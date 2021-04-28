@@ -77,7 +77,7 @@ namespace DocUniversalResources
                         newName = "DZ_Lead";
                     }
 
-                    if (defName == "Mithril" || defName == "WoW_mithril")
+                    if (defName == "Mithril" || defName == "WoW_mithril" || defName == "LotR_Mithril")
                     {
                         newName = "DZ_Mithril";
                     }

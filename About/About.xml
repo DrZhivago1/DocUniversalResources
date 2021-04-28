@@ -33,6 +33,7 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Wemd.SimpleConcrete</li>
 		<li>Sadjuuk.UNColony</li>
 		<li>malkav73.concrete</li>
 		<li>LWM.DeepStorage</li>

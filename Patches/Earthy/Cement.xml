@@ -1,0 +1,190 @@
+<Patch>
+
+    <!--==========
+    Cement {Simple Concrete, [RF] Concrete (Continued), Concrete for Fertile Fields, Project RimFactory - Materials}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dninemfive.simpleconcrete</li>
+            <li>Mlie.Concrete</li>
+            <li>malkav73.concrete</li>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Cement" ParentName="DZ_StoneBlocksBase">
+                            <defName>DZ_Cement</defName>
+                            <label>Cement</label>
+                            <description>Cement: A binding material that is often used to create concrete.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Stone_Drop</soundInteract>
+                            <soundDrop>Stone_Drop</soundDrop>
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <MarketValue>0.5</MarketValue>
+                                <Mass>1.5</Mass>
+                                <Beauty>-2</Beauty>
+                                <Flammability>0</Flammability>
+                                <SharpDamageMultiplier>0.75</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>1</BluntDamageMultiplier>
+                            </statBases>
+                            <thingCategories>
+                                <li>ResourcesRaw</li>
+                            </thingCategories>
+                            <!--<stuffProps>
+                                <stuffAdjective>concrete</stuffAdjective>
+                                <categories>
+                                    <li>Stony</li>
+                                </categories>
+                                <color />
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                <statFactors>
+                                    <MarketValue>0.1</MarketValue>
+                                    <Flammability>0</Flammability>
+                                    <BedRestEffectiveness>0.2</BedRestEffectiveness>
+                                    <MeleeWeapon_CooldownMultiplier>1.15</MeleeWeapon_CooldownMultiplier>
+                                    <Beauty>0.5</Beauty>
+                                    <MaxHitPoints>1.75</MaxHitPoints>
+                                    <WorkToBuild>2</WorkToBuild>
+                                    <WorkToMake>0.85</WorkToMake>
+                                </statFactors>
+                            </stuffProps>-->
+                            <tradeTags />
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Simple Concrete-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dninemfive.simpleconcrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Cement"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resource/cement</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="D9Cement"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--[RF] Concrete (Continued)-->
+    <!--Concrete for Fertile Fields-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.Concrete</li>
+            <li>malkav73.concrete</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Cement"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>RFFCement</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RFFCement"]</xpath>
+                </li>
+                <!--Add to tradeTags-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Cement"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
+                    <value>
+                        <li>TerraformingResources</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Cement"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_Cement</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(0.9,0.9)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_Cement"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--D9Cement = Simple Concrete-->
+    <!--RFFCement = [RF] Concrete (Continued), Concrete for Fertile Fields-->
+    <!--PRF_Cement = Project RimFactory - Materials-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="PRF_Cement" or text()="D9Cement" or text()="RFFCement"]</xpath>
+        <value>
+            <thingDef>DZ_Cement</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::PRF_Cement or self::D9Cement or self::RFFCement]</xpath>
+        <name>DZ_Cement</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="PRF_Cement" or text()="D9Cement" or text()="RFFCement"]</xpath>
+        <value>
+            <li>DZ_Cement</li>
+        </value>
+    </Operation>
+
+</Patch>

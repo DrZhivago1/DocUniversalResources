@@ -1,12 +1,13 @@
 <Patch>
 
     <!--==========
-    Iron Ore {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, Project RimFactory - Materials, Expanded Materials - Metals}
+    Iron Ore {Simple Chains: Steel, Vanilla Iron and Steel, Lord of the Rims - The Third Age (Continued), Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     Iron Ore Production Chain {Simple Mining Extension, RimBound}
     ==========-->
 
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
+            <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
@@ -44,6 +45,35 @@
     <!--==========
     Mods
     ==========-->
+
+    <!--Lord of the Rims - The Third Age (Continued)
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.LordoftheRimsTheThirdAge</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>-->
+                <!--Use/replace graphics to ThingDef
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(116,65,62)</color>
+                            <colorTwo>(203,205,205)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>-->
+                <!--Remove resource
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="LotR_MineableIron"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>-->
 
     <!--Metals+-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -169,6 +199,7 @@
     <!--MineableIron = Metals+, RimBound-->
     <!--PRF_MineableIron = Project RimFactory - Materials-->
     <!--VMEu_MineableIron = Expanded Materials - Metals-->
+    <!--LotR_MineableIron = Lord of the Rims - The Third Age (Continued)-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>

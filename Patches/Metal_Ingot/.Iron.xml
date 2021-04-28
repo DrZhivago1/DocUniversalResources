@@ -1,13 +1,14 @@
 <Patch>
 
     <!--==========
-    Iron {Simple Chains: Steel, Vanilla Iron and Steel, Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
+    Iron {Simple Chains: Steel, Vanilla Iron and Steel, Lord of the Rims - The Third Age (Continued), Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Owlchemist.SimpleChains.Steel</li>
             <li>neceros.vanillaironandsteel</li>
+            <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
@@ -143,6 +144,32 @@
             </operations>
         </match>
     </Operation>
+
+    <!--Lord of the Rims - The Third Age (Continued)
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.LordoftheRimsTheThirdAge</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>-->
+                <!--Use/replace graphics to ThingDef
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/edmundWulfgarthIron</texPath>
+                            <graphicClass>Graphic_Random</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>-->
+                <!--Remove resource
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="LotR_Iron"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>-->
 
     <!--Metals+-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
@@ -290,6 +317,7 @@
     <!--SB_iron_bar = RimBound-->
     <!--PRF_Iron = Project RimFactory - Materials-->
     <!--VMEu_Iron = Expanded Materials - Metals-->
+    <!--LotR_Iron = Lord of the Rims - The Third Age (Continued)-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
         <xpath>/Defs/*//thingDef[text()="Iron" or text()="NECIron" or text()="Owl_Iron" or text()="SB_iron_bar" or text()="PRF_Iron" or text()="VMEu_Iron"]</xpath>
