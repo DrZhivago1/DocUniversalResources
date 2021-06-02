@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingCategoryDef>
+        <defName>DZ_CondimentCategory</defName>
+        <label>condiments</label>
+        <parent>Foods</parent>
+        <iconPath>UI/Icons/ThingCategories/Foods</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>DZ_EarthyCategory</defName>
+        <label>earthy resources</label>
+        <parent>ResourcesRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/ResourcesRaw</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>DZ_GemstoneCategory</defName>
+        <label>gemstones</label>
+        <parent>ResourcesRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/ResourcesRaw</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>DZ_MetalIngotCategory</defName>
+        <label>metals</label>
+        <parent>ResourcesRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/ResourcesRaw</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>DZ_MetalOreCategory</defName>
+        <label>ores</label>
+        <parent>ResourcesRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/ResourcesRaw</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>DZ_SyntheticCategory</defName>
+        <label>synthetics</label>
+        <parent>Manufactured</parent>
+        <iconPath>UI/Icons/ThingCategories/ResourcesRaw</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+</Defs>

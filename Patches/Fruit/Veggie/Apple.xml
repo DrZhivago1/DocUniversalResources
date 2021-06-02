@@ -23,7 +23,6 @@
                             <description>Apples: Edible fruit produced by an apple tree.</description>
                             <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                             <graphicData />
-                            <thingCategories />
                             <statBases>
                                 <MarketValue>1.2</MarketValue>
                             </statBases>
@@ -67,13 +66,6 @@
                         </graphicData>
                     </value>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
-                    <value>
-                        <li>RC2_FruitsRaw</li>
-                    </value>
-                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RC2_RawApples"]</xpath>
@@ -99,13 +91,6 @@
                         </graphicData>
                     </value>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
-                    <value>
-                        <li>FruitFoodRaw</li>
-                    </value>
-                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Rawapple"]</xpath>
@@ -129,13 +114,6 @@
                         <graphicData>
                             <texPath>Things/Items/Raw/VCE_Apples</texPath>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/thingCategories</xpath>
-                    <value>
-                        <li>VCE_Fruit</li>
                     </value>
                 </li>
                 <!--Remove resource-->

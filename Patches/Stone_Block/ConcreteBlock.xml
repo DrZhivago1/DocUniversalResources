@@ -40,9 +40,6 @@
                                 <SharpDamageMultiplier>0.8</SharpDamageMultiplier>
                                 <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
                             </statBases>
-                            <thingCategories>
-                                <li>Manufactured</li>
-                            </thingCategories>
                             <stuffProps>
                                 <stuffAdjective>concrete</stuffAdjective>
                                 <categories>

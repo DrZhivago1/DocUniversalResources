@@ -67,7 +67,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableDiamond"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineableDiamond"]</xpath>
                 </li>
             </operations>
         </match>
@@ -125,7 +125,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableDiamond"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineableDiamond"]</xpath>
                 </li>
             </operations>
         </match>
@@ -163,12 +163,13 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableDiamond = Gems (Continued), Kura's Extra Gems, Jewelry-->
+    <!--MineableDiamond = Gems (Continued), Jewelry-->
     <!--PRF_MineableDiamond = Project RimFactory - Materials-->
+    <!--KMineableDiamond = Kura's Extra Gems-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableDiamond" or text()="PRF_MineableDiamond"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableDiamond" or text()="PRF_MineableDiamond" or text()="KMineableDiamond"]</xpath>
         <value>
             <li>DZ_DiamondOre</li>
         </value>

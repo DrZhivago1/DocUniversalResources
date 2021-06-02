@@ -36,9 +36,6 @@
                                 <DeteriorationRate>0</DeteriorationRate>
                             </statBases>
                             <intricate>true</intricate>
-                            <thingCategories>
-                                <li>Manufactured</li>
-                            </thingCategories>
                             <tradeTags />
                             <stuffProps />
                         </ThingDef>

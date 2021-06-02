@@ -66,9 +66,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -91,43 +88,27 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Garnet</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                        <value>
-                            <texPath>Garnet</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(108,35,28)</color>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
                     <value>
-                        <color>(98,25,18)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
+                        <color>(108,35,28)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Garnet"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KGarnet"]</xpath>
                 </li>
             </operations>
         </match>
@@ -142,26 +123,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Gemstone</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(56,7,28)</color>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <color>(56,7,28)</color>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -169,13 +139,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
                     <value>
                         <color>(56,7,28)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
@@ -196,11 +159,11 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Garnet = Kura's Extra Gems-->
+    <!--KGarnet = Kura's Extra Gems-->
     <!--Z_Garnet = Gemstones-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Garnet" or text()="Z_Garnet"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="KGarnet" or text()="Z_Garnet"]</xpath>
         <value>
             <thingDef>DZ_Garnet</thingDef>
         </value>
@@ -208,13 +171,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Garnet or self::Z_Garnet]</xpath>
+        <xpath>/Defs//*[self::KGarnet or self::Z_Garnet]</xpath>
         <name>DZ_Garnet</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Garnet" or text()="Z_Garnet"]</xpath>
+        <xpath>/Defs/*//li[text()="KGarnet" or text()="Z_Garnet"]</xpath>
         <value>
             <li>DZ_Garnet</li>
         </value>

@@ -51,9 +51,6 @@
                                 </statFactors>
                             </stuffProps>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>

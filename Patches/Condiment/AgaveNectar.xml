@@ -28,7 +28,6 @@
                                 <Flammability>1</Flammability>
                                 <Beauty>0</Beauty>
                             </statBases>
-                            <thingCategories />
                             <ingestible />
                             <comps>
                                 <li Class="CompProperties_Rottable">
@@ -63,13 +62,6 @@
                             <texPath>RC2_Things/RC2_Food/AgaveNectar</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/thingCategories</xpath>
-                    <value>
-                        <li>RC2_SweetsProcessed</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->
@@ -110,13 +102,6 @@
                             <texPath>Things/Items/Condiments/VCE_AgaveSyrup</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_AgaveNectar"]/thingCategories</xpath>
-                    <value>
-                        <li>VCE_Condiments</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->

@@ -67,9 +67,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -92,24 +89,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Emerald</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Emerald</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -117,13 +104,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
                     <value>
                         <color>(54,241,205)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
@@ -143,43 +123,27 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Emerald</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <texPath>Emerald</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(43,139,128)</color>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
                     <value>
-                        <color>(43,135,26)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
+                        <color>(43,139,128)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Emerald"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KEmerald"]</xpath>
                 </li>
             </operations>
         </match>
@@ -194,30 +158,17 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/PreciousGem</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <shaderType>CutoutComplex</shaderType>
-                                <color>(0, 174, 127)</color>
-                                <colorTwo>(0,120,90)</colorTwo>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/PreciousGem</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
                             <color>(0, 174, 127)</color>
                             <colorTwo>(0,120,90)</colorTwo>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -225,13 +176,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
                     <value>
                         <color>(0, 174, 127)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
@@ -262,11 +206,12 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Emerald = Gems (Continued), Kura's Extra Gems-->
+    <!--Emerald = Gems (Continued)-->
     <!--Z_Emerald = Gemstones-->
+    <!--KEmerald = Kura's Extra Gems-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Emerald" or text()="Z_Emerald"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Emerald" or text()="Z_Emerald" or text()="KEmerald"]</xpath>
         <value>
             <thingDef>DZ_Emerald</thingDef>
         </value>
@@ -274,13 +219,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Emerald or self::Z_Emerald]</xpath>
+        <xpath>/Defs//*[self::Emerald or self::Z_Emerald or self::KEmerald]</xpath>
         <name>DZ_Emerald</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Emerald" or text()="Z_Emerald"]</xpath>
+        <xpath>/Defs/*//li[text()="Emerald" or text()="Z_Emerald" or text()="KEmerald"]</xpath>
         <value>
             <li>DZ_Emerald</li>
         </value>

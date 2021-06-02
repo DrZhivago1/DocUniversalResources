@@ -1,0 +1,151 @@
+<Patch>
+    <!--Unify storage categories where appropriate. Get rid of the fuckin' menu clutter!-->
+
+    <!--==========
+    Vanilla
+    ==========-->
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationReplace">                <!--Earthy-->
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="WoodLog"]/thingCategories</xpath>
+                <value>
+                    <thingCategories>
+                        <li>DZ_EarthyCategory</li>
+                    </thingCategories>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">                <!--Gemstone-->
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="Jade"]/thingCategories</xpath>
+                <value>
+                    <thingCategories>
+                        <li>DZ_GemstoneCategory</li>
+                    </thingCategories>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">                <!--Metals-->
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="Gold" or defName="Plasteel" or defName="Silver" or defName="Steel" or defName="Uranium"]/thingCategories</xpath>
+                <value>
+                    <thingCategories>
+                        <li>DZ_MetalIngotCategory</li>
+                    </thingCategories>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--==========
+    Condiment {[1.0, 1.1] RimCuisine 2 Core, Vanilla Cooking Expanded}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Crustypeanut.RC2.Core</li>
+            <li>VanillaExpanded.VCookE</li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()="RC2_SweetsProcessed" or text()="VCE_Condiments"]</xpath>
+            <value>
+                <li>DZ_CondimentCategory</li>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Earthy {}
+    ==========
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li></li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()=""]</xpath>
+            <value>
+                <li>DZ_EarthyCategory</li>
+            </value>
+        </match>
+    </Operation>-->
+
+
+    <!--==========
+    Gemstones {Kura's Extra Gems}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Kura.ExtraGems</li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()="KGems"]</xpath>
+            <value>
+                <li>DZ_GemstoneCategory</li>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Metal_Ingot {Expanded Materials - Metals}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Argon.VMEu</li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()="VMEu_SpecialMetals"]</xpath>
+            <value>
+                <li>DZ_MetalIngotCategory</li>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Metal_Ore {}
+    ==========
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li></li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()=""]</xpath>
+            <value>
+                <li>DZ_MetalOreCategory</li>
+            </value>
+        </match>
+    </Operation>-->
+
+    <!--==========
+    Synthetic {}
+    ==========
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li></li>
+        </packageIds>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef/thingCategories/li[text()=""]</xpath>
+            <value>
+                <li>DZ_SyntheticCategory</li>
+            </value>
+        </match>
+    </Operation>-->
+
+
+
+</Patch>

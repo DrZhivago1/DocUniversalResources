@@ -33,9 +33,6 @@
                                 <Beauty>-5</Beauty>
                                 <Flammability>0</Flammability>
                             </statBases>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                         </ThingDef>
                     </value>

@@ -66,9 +66,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -118,13 +115,6 @@
                         <color>(57,160,237)</color>
                     </value>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
-                    </value>
-                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="LapisLazuli"]</xpath>
@@ -169,13 +159,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_LapisLazuli"]/stuffProps/color</xpath>
                     <value>
                         <color>(30, 45, 112)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->

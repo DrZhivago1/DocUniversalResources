@@ -69,9 +69,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -119,13 +116,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
                     <value>
                         <color>(221,28,26)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
@@ -204,43 +194,27 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Ruby</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
-                            <texPath>Ruby</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(179,56,52)</color>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
                     <value>
-                        <color>(169,46,42)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
+                        <color>(179,56,52)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Ruby"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KRuby"]</xpath>
                 </li>
             </operations>
         </match>
@@ -255,30 +229,17 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/PreciousGem</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <shaderType>CutoutComplex</shaderType>
-                                <color>(224, 16, 30)</color>
-                                <colorTwo>(150,3,15)</colorTwo>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/PreciousGem</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
                             <color>(224, 16, 30)</color>
                             <colorTwo>(150,3,15)</colorTwo>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -286,13 +247,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Ruby"]/stuffProps/color</xpath>
                     <value>
                         <color>(224, 16, 30)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
@@ -329,24 +283,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Items/Resource/Ruby</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Ruby"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Items/Resource/Ruby</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -381,12 +325,13 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Ruby = Gems (Continued), Kura's Extra Gems, Jewelry-->
+    <!--Ruby = Gems (Continued), Jewelry-->
     <!--Z_Ruby = Gemstones-->
     <!--CaS_Ruby = Clockwork And Steam-->
+    <!--KRuby = Kura's Extra Gems-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby" or text()="KRuby"]</xpath>
         <value>
             <thingDef>DZ_Ruby</thingDef>
         </value>
@@ -394,13 +339,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Ruby or self::Z_Ruby or self::CaS_Ruby]</xpath>
+        <xpath>/Defs//*[self::Ruby or self::Z_Ruby or self::CaS_Ruby or self::KRuby]</xpath>
         <name>DZ_Ruby</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby"]</xpath>
+        <xpath>/Defs/*//li[text()="Ruby" or text()="Z_Ruby" or text()="CaS_Ruby" or text()="KRuby"]</xpath>
         <value>
             <li>DZ_Ruby</li>
         </value>

@@ -36,7 +36,6 @@
                             <deepCommonality>1.25</deepCommonality>
                             <deepCountPerPortion>10</deepCountPerPortion>
                             <deepLumpSizeRange>2~5</deepLumpSizeRange>
-                            <thingCategories />
                             <ingestible>
                                 <foodType>Plant</foodType>
                                 <preferability>NeverForNutrition</preferability>
@@ -82,13 +81,6 @@
                         </value>
                     </nomatch>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
-                    <value>
-                        <li>CookComponents</li>
-                    </value>
-                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RWF_Salt"]</xpath>
@@ -122,13 +114,6 @@
                             <texPath>Salt/Salt</texPath>
                         </value>
                     </nomatch>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
-                    <value>
-                        <li>RimSeasoning_Seasoning</li>
-                    </value>
                 </li>
                 <!--Use hediff comp-->
                 <li Class="PatchOperationAdd">
@@ -173,13 +158,6 @@
                             <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
                         </value>
                     </nomatch>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
-                    <value>
-                        <li>AYProducts</li>
-                    </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
@@ -231,13 +209,6 @@
                         </value>
                     </nomatch>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
-                    <value>
-                        <li>ResourcesRaw</li>
-                    </value>
-                </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="ChunkSalt"]</xpath>
@@ -272,13 +243,6 @@
                             <texPath>Things/Items/Condiments/VCE_Salt</texPath>
                         </value>
                     </nomatch>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/thingCategories</xpath>
-                    <value>
-                        <li>VCE_Condiments</li>
-                    </value>
                 </li>
                 <!--Use/replace specialThoughtAsIngredient-->
                 <li Class="PatchOperationConditional">

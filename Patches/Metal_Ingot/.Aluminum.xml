@@ -59,9 +59,6 @@
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <thingCategories>
-                        <li>ResourcesRaw</li>
-                    </thingCategories>
                     <deepCommonality>3</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
                     <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
                     <deepLumpSizeRange>15~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
@@ -134,13 +131,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Aluminum"]/stuffProps/color</xpath>
                     <value>
                         <color>(183,184,179)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/thingCategories</xpath>
-                    <value>
-                        <li>CAL_Conducting</li>
                     </value>
                 </li>
                 <!--Use stuffProps categories-->

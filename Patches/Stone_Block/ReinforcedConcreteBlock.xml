@@ -32,9 +32,6 @@
                                 <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
                                 <BluntDamageMultiplier>1.5</BluntDamageMultiplier>
                             </statBases>
-                            <thingCategories>
-                                <li>Manufactured</li>
-                            </thingCategories>
                             <stuffProps>
                                 <stuffAdjective>reinforced concrete</stuffAdjective>
                                 <categories>

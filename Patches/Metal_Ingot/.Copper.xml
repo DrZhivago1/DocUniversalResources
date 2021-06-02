@@ -60,9 +60,6 @@
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <thingCategories>
-                        <li>ResourcesRaw</li>
-                    </thingCategories>
                     <deepCommonality>1</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
                     <deepCountPerPortion>55</deepCountPerPortion>                    <!--Steel = 45-->
                     <deepLumpSizeRange>10~20</deepLumpSizeRange>                    <!--Steel = 20~30-->
@@ -290,13 +287,6 @@
                         <color>(184,115,51)</color>
                     </value>
                 </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/thingCategories</xpath>
-                    <value>
-                        <li>CAL_Conducting</li>
-                    </value>
-                </li>
                 <!--Use stuffProps categories-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/stuffProps/categories</xpath>
@@ -377,14 +367,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
                     <value>
                         <color>(175, 73, 27)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/thingCategories</xpath>
-                    <value>
-                        <li>VMEu_SpecialMetals</li>
                     </value>
                 </li>
                 <!--Replace stuffProps color to match-->

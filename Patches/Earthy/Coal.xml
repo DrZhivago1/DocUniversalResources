@@ -39,9 +39,6 @@
                                 <Flammability>1.0</Flammability>
                                 <Mass>0.5</Mass>
                             </statBases>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <deepCommonality>1.25</deepCommonality>
                             <deepCountPerPortion>25</deepCountPerPortion>
                             <deepLumpSizeRange>15~25</deepLumpSizeRange>

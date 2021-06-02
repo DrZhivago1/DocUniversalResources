@@ -95,7 +95,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableAmethyst"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineableAmethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -133,12 +133,13 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableAmethyst = Gems (Continued), Kura's Extra Gems-->
+    <!--MineableAmethyst = Gems (Continued)-->
     <!--Z_MineableAmethyst = Gemstones-->
+    <!--KMineableAmethyst = Kura's Extra Gems-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableAmethyst" or text()="Z_MineableAmethyst"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableAmethyst" or text()="Z_MineableAmethyst" or text()="KMineableAmethyst"]</xpath>
         <value>
             <li>DZ_AmethystOre</li>
         </value>

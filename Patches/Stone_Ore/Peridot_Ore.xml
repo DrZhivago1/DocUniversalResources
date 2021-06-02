@@ -94,7 +94,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineablePeridot"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineablePeridot"]</xpath>
                 </li>
             </operations>
         </match>
@@ -103,11 +103,12 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineablePeridot = Gems (Continued), Kura's Extra Gems-->
+    <!--MineablePeridot = Gems (Continued)-->
+    <!--KMineablePeridot = Kura's Extra Gems-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineablePeridot"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineablePeridot" or text()="KMineablePeridot"]</xpath>
         <value>
             <li>DZ_PeridotOre</li>
         </value>

@@ -2,6 +2,9 @@
     <!--These bases can be a target used in xpath to mass-patch new DUR resources. A loadAfter rule in the About.xml will need to be added for any mod doing this.-->
 
     <ThingDef Name="DZ_CondimentBase" ParentName="OrganicProductBase" Abstract="True">
+        <thingCategories>
+            <li>DZ_CondimentCategory</li>
+        </thingCategories>
     </ThingDef>
 
     <ThingDef Name="DZ_ChunkRockBase" ParentName="ChunkRockBase" Abstract="True">
@@ -11,18 +14,30 @@
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <thingCategories>
+            <li>DZ_EarthyCategory</li>
+        </thingCategories>
     </ThingDef>
 
     <ThingDef Name="DZ_FruitVeggieBase" ParentName="PlantFoodRawBase" Abstract="True">
     </ThingDef>
 
     <ThingDef Name="DZ_GemstoneBase" ParentName="ResourceBase" Abstract="True">
+        <thingCategories>
+            <li>DZ_GemstoneCategory</li>
+        </thingCategories>
     </ThingDef>
 
     <ThingDef Name="DZ_MetalIngotBase" ParentName="ResourceBase" Abstract="True">
+        <thingCategories>
+            <li>DZ_MetalIngotCategory</li>
+        </thingCategories>
     </ThingDef>
 
     <ThingDef Name="DZ_MetalOreBase" ParentName="ResourceBase" Abstract="True">
+        <thingCategories>
+            <li>DZ_MetalOreCategory</li>
+        </thingCategories>
     </ThingDef>
 
     <ThingDef Name="DZ_StoneBlocksBase" ParentName="StoneBlocksBase" Abstract="True">
@@ -35,6 +50,9 @@
     </ThingDef>
 
     <ThingDef Name="DZ_SyntheticBase" ParentName="ResourceBase" Abstract="True">
+        <thingCategories>
+            <li>DZ_SyntheticCategory</li>
+        </thingCategories>
     </ThingDef>
 
 </Defs>

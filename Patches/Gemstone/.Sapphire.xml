@@ -69,9 +69,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -94,24 +91,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Sapphire</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Sapphire</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -119,13 +106,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Sapphire"]/stuffProps/color</xpath>
                     <value>
                         <color>(37,73,255)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
@@ -145,26 +125,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/CaS_Sapphire</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <drawSize>0.5</drawSize>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/CaS_Sapphire</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                             <drawSize>0.5</drawSize>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -204,43 +173,27 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Sapphire</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <texPath>Sapphire</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(224,149,143)</color>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef[defName="DZ_Sapphire"]/stuffProps/color</xpath>
                     <value>
-                        <color>(37,85,170)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
+                        <color>(224,149,143)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Sapphire"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KSapphire"]</xpath>
                 </li>
             </operations>
         </match>
@@ -255,30 +208,17 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/PreciousGem</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <shaderType>CutoutComplex</shaderType>
-                                <color>(1,58,227)</color>
-                                <colorTwo>(0,42,184)</colorTwo>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/PreciousGem</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <shaderType>CutoutComplex</shaderType>
                             <color>(1,58,227)</color>
                             <colorTwo>(0,42,184)</colorTwo>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -286,13 +226,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Sapphire"]/stuffProps/color</xpath>
                     <value>
                         <color>(1,58,227)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
@@ -329,24 +262,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Items/Resource/Sapphire</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sapphire"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Items/Resource/Sapphire</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -381,12 +304,13 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Sapphire = Gems (Continued), Kura's Extra Gems, Jewelry-->
+    <!--Sapphire = Gems (Continued), Jewelry-->
     <!--Z_Sapphire = Gemstones-->
     <!--CaS_Sapphire = Clockwork And Steam-->
+    <!--KSapphire = Kura's Extra Gems-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire" or text()="KSapphire"]</xpath>
         <value>
             <thingDef>DZ_Sapphire</thingDef>
         </value>
@@ -394,13 +318,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire]</xpath>
+        <xpath>/Defs//*[self::Sapphire or self::Z_Sapphire or self::CaS_Sapphire or self::KSapphire]</xpath>
         <name>DZ_Sapphire</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire"]</xpath>
+        <xpath>/Defs/*//li[text()="Sapphire" or text()="Z_Sapphire" or text()="CaS_Sapphire" or text()="KSapphire"]</xpath>
         <value>
             <li>DZ_Sapphire</li>
         </value>

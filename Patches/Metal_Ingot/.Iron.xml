@@ -60,9 +60,6 @@
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <thingCategories>
-                        <li>ResourcesRaw</li>
-                    </thingCategories>
                     <deepCommonality>4</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
                     <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
                     <deepLumpSizeRange>20~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
@@ -152,8 +149,8 @@
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
-            <operations>-->
-                <!--Use/replace graphics to ThingDef
+            <operations>
+                <!Use/replace graphics to ThingDef>
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Iron"]/graphicData</xpath>
                     <value>
@@ -162,8 +159,8 @@
                             <graphicClass>Graphic_Random</graphicClass>
                         </graphicData>
                     </value>
-                </li>-->
-                <!--Remove resource
+                </li>
+                <!Remove resource>
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="LotR_Iron"]</xpath>
                 </li>

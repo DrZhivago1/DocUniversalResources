@@ -29,7 +29,9 @@
                                 <Flammability>1</Flammability>
                                 <Beauty>0</Beauty>
                             </statBases>
-                            <thingCategories />
+                            <thingCategories Inherit="False">
+                                <li>PlantFoodRaw</li>
+                            </thingCategories>
                             <ingestible />
                             <comps>
                                 <li Class="CompProperties_Rottable">
@@ -64,13 +66,6 @@
                             <texPath>RC2_Things/RC2_Food/Flour</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
-                    <value>
-                        <li>RC2_GrainsProcessed</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->
@@ -110,13 +105,6 @@
                         </graphicData>
                     </value>
                 </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
-                    <value>
-                        <li>CookingSupplies</li>
-                    </value>
-                </li>
                 <!--Use ingestible data-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/ingestible</xpath>
@@ -150,13 +138,6 @@
                         <graphicData>
                             <texPath>Things/Items/Raw/VCE_Flour</texPath>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]/thingCategories</xpath>
-                    <value>
-                        <li>PlantMatter</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->

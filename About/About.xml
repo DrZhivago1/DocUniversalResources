@@ -33,6 +33,13 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Mlie.LordoftheRimsTheThirdAge</li>
+		<li>dismarzero.VGP.VGPGardenTools</li>
+		<li>Storm.RimworldFarming</li>
+		<li>Gasch.AdvancedCultivation</li>
+		<li>tosenbo.ricecultivatingcivilization</li>
+		<li>RimWorldsoudanzyo.ResourcePackCore</li>
+		<li>gamingtesh.emp</li>
 		<li>Wemd.SimpleConcrete</li>
 		<li>Sadjuuk.UNColony</li>
 		<li>malkav73.concrete</li>

@@ -59,9 +59,6 @@
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <thingCategories>
-                        <li>ResourcesRaw</li>
-                    </thingCategories>
                     <!--<deepCommonality>3</deepCommonality>                            Gold = 0.5, Steel = 4-->
                     <!--<deepCountPerPortion>45</deepCountPerPortion>                            Steel = 45-->
                     <!--<deepLumpSizeRange>15~30</deepLumpSizeRange>                            Steel = 20~30-->
@@ -156,13 +153,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Brass"]/stuffProps/color</xpath>
                     <value>
                         <color>(244, 205, 125)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/thingCategories</xpath>
-                    <value>
-                        <li>CAL_Metals</li>
                     </value>
                 </li>
                 <!--Use tradeTags-->

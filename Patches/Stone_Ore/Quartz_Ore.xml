@@ -125,7 +125,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableQuartz"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineableQuartz"]</xpath>
                 </li>
             </operations>
         </match>
@@ -163,13 +163,14 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableQuartz = Gems (Continued), Kura's Extra Gems-->
+    <!--MineableQuartz = Gems (Continued)-->
     <!--PRF_MineableQuartz = Project RimFactory - Materials-->
     <!--Z_MineableQuartz = Gemstones-->
+    <!--KMineableQuartz = Kura's Extra Gems-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableQuartz" or text()="PRF_MineableQuartz" or text()="Z_MineableQuartz"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableQuartz" or text()="PRF_MineableQuartz" or text()="Z_MineableQuartz" or text()="KMineableQuartz"]</xpath>
         <value>
             <li>DZ_QuartzOre</li>
         </value>

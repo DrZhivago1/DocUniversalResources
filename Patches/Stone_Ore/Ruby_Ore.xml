@@ -125,7 +125,7 @@
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableRuby"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KMineableRuby"]</xpath>
                 </li>
             </operations>
         </match>
@@ -163,12 +163,13 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--MineableRuby = Gems (Continued), Kura's Extra Gems, Jewelry-->
+    <!--MineableRuby = Gems (Continued), Jewelry-->
     <!--CaS_MineableRuby = Clockwork And Steam-->
+    <!--KMineableRuby = Kura's Extra Gems-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableRuby" or text()="CaS_MineableRuby"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableRuby" or text()="CaS_MineableRuby" or text()="KMineableRuby"]</xpath>
         <value>
             <li>DZ_RubyOre</li>
         </value>

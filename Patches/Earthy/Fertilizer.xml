@@ -1,0 +1,162 @@
+<Patch>
+
+    <!--==========
+    Fertilizer {Advanced Cultivation, VGP Garden Tools, Fertile Fields [1.1]}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Gasch.AdvancedCultivation</li>
+            <li>dismarzero.VGP.VGPGardenTools</li>
+            <!--<li>jamaicancastle.RF.fertilefields</li>-->
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Fertilizer" ParentName="DZ_EarthyBase">
+                            <defName>DZ_Fertilizer</defName>
+                            <label>Fertilizer</label>
+                            <description>Fertilizer: Organic material processed into a nutrient rich plant supplement.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Standard_Pickup</soundInteract>
+                            <soundDrop>Standard_Pickup</soundDrop>
+                            <stackLimit>75</stackLimit>
+                            <statBases>
+                                <DeteriorationRate>2</DeteriorationRate>
+                                <MarketValue>6.0</MarketValue>
+                                <Mass>2</Mass>
+                                <Flammability>2</Flammability>
+                            </statBases>
+                            <tradeTags />
+                            <stuffProps />
+                            <smeltable>false</smeltable>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Advanced Cultivation-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Gasch.AdvancedCultivation</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Fertilizer</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AC_Fertilizer"]</xpath>
+                </li>
+                <!--Replace thingCategories (uses a duplicate defName)-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="AC_FertilizerBase"]/thingCategories/li[text()="AC_Fertilizer"]</xpath>
+                    <value>
+                        <li>DZ_EarthyCategory</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--VGP Garden Tools-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>dismarzero.VGP.VGPGardenTools</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Fertilizer</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RawFertilizer"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Fertile Fields [1.1]
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>jamaicancastle.RF.fertilefields</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!Use/replace graphics to ThingDef>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Fertilizer</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!Remove resource>
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Fertilizer"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>-->
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--AC_Fertilizer = Advanced Cultivation-->
+    <!--RawFertilizer = VGP Garden Tools-->
+    <!--Fertilizer = Fertile Fields [1.1]-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="AC_Fertilizer" or text()="RawFertilizer"]</xpath>
+        <value>
+            <thingDef>DZ_Fertilizer</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::AC_Fertilizer or self::RawFertilizer]</xpath>
+        <name>DZ_Fertilizer</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="AC_Fertilizer" or text()="RawFertilizer"]</xpath>
+        <value>
+            <li>DZ_Fertilizer</li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -29,9 +29,6 @@
                                 <Mass>0.15</Mass>
                                 <Flammability>1</Flammability>
                             </statBases>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <stuffProps />
                             <smeltable>false</smeltable>

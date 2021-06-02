@@ -67,9 +67,6 @@
                             <deepLumpSizeRange>3~10</deepLumpSizeRange>
                             <burnableByRecipe>false</burnableByRecipe>
                             <smeltable>false</smeltable>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>
@@ -92,24 +89,14 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Amethyst</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Amethyst</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -117,13 +104,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
                         <color>(148,72,188)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
-                    <value>
-                        <li>Gems</li>
                     </value>
                 </li>
                 <!--Remove resource-->
@@ -143,43 +123,27 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Amethyst</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <texPath>Amethyst</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(88,54,114)</color>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
-                        <color>(78,44,104)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
-                    <value>
-                        <li>KGems</li>
+                        <color>(88,54,114)</color>
                     </value>
                 </li>
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Amethyst"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="KAmethyst"]</xpath>
                 </li>
             </operations>
         </match>
@@ -194,26 +158,15 @@
             <success>Always</success>
             <operations>
                 <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Gemstone</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                                <color>(162, 118, 174)</color>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
-                        <value>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
                             <texPath>Things/Item/Resource/Gemstone</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <color>(162, 118, 174)</color>
-                        </value>
-                    </nomatch>
+                        </graphicData>
+                    </value>
                 </li>
                 <!--Replace stuffProps color to match-->
                 <li Class="PatchOperationReplace">
@@ -221,13 +174,6 @@
                     <xpath>/Defs/ThingDef[defName="DZ_Amethyst"]/stuffProps/color</xpath>
                     <value>
                         <color>(162, 118, 174)</color>
-                    </value>
-                </li>
-                <!--Use thingCategories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Amethyst"]/thingCategories</xpath>
-                    <value>
-                        <li>Z_Gemstones</li>
                     </value>
                 </li>
                 <!--Add TradeTags-->
@@ -248,11 +194,12 @@
     <!--==========
     Universal Replacements
     ==========-->
-    <!--Amethyst = Gems (Continued), Kura's Extra Gems-->
+    <!--Amethyst = Gems (Continued)-->
     <!--Z_Amethyst = Gemstones-->
+    <!--KAmethyst = Kura's Extra Gems-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Amethyst" or text()="Z_Amethyst" or text()="KAmethyst"]</xpath>
         <value>
             <thingDef>DZ_Amethyst</thingDef>
         </value>
@@ -260,13 +207,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Amethyst or self::Z_Amethyst]</xpath>
+        <xpath>/Defs//*[self::Amethyst or self::Z_Amethyst or self::KAmethyst]</xpath>
         <name>DZ_Amethyst</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Amethyst" or text()="Z_Amethyst"]</xpath>
+        <xpath>/Defs/*//li[text()="Amethyst" or text()="Z_Amethyst" or text()="KAmethyst"]</xpath>
         <value>
             <li>DZ_Amethyst</li>
         </value>

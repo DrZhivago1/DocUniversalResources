@@ -52,9 +52,6 @@
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <thingCategories>
-                        <li>ResourcesRaw</li>
-                    </thingCategories>
                     <tradeTags />
                     <comps />
                 </ThingDef>

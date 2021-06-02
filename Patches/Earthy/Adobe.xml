@@ -32,9 +32,6 @@
                                 <Flammability>0.1</Flammability>
                             </statBases>
                             <tickerType />
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                             <comps />
                         </ThingDef>

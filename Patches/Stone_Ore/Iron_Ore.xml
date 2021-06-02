@@ -53,8 +53,8 @@
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
-            <operations>-->
-                <!--Use/replace graphics to ThingDef
+            <operations>
+                <!Use/replace graphics to ThingDef>
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Iron"]/graphicData</xpath>
                     <value>
@@ -66,8 +66,8 @@
                             <colorTwo>(203,205,205)</colorTwo>
                         </graphicData>
                     </value>
-                </li>-->
-                <!--Remove resource
+                </li>
+                <!Remove resource>
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="LotR_MineableIron"]</xpath>
                 </li>

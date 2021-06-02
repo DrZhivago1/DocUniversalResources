@@ -34,9 +34,6 @@
                                 <SharpDamageMultiplier>0.75</SharpDamageMultiplier>
                                 <BluntDamageMultiplier>1</BluntDamageMultiplier>
                             </statBases>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <!--<stuffProps>
                                 <stuffAdjective>concrete</stuffAdjective>
                                 <categories>

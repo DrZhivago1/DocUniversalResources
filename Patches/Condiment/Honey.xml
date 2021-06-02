@@ -33,7 +33,6 @@
                                 <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
                                 <Beauty>0</Beauty>
                             </statBases>
-                            <thingCategories />
                             <ingestible />
                             <comps />
                         </ThingDef>
@@ -63,13 +62,6 @@
                             <texPath>Things/Item/Honey</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
-                    <value>
-                        <li>AnimalProductRaw</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->
@@ -130,13 +122,6 @@
                         </graphicData>
                     </value>
                 </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
-                    <value>
-                        <li>CookingSupplies</li>
-                    </value>
-                </li>
                 <!--Use ingestible data-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
@@ -177,13 +162,6 @@
                             <texPath>RC2_Things/RC2_Food/Honey</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
-                    <value>
-                        <li>RC2_SweetsRaw</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->
@@ -231,16 +209,6 @@
                             </graphicData>
                         </value>
                     </li>-->
-                    <!--Add thingCategory
-                    <li Class="PatchOperationConditional">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories/li[text()="AnimalProductRaw"]</xpath>
-                        <nomatch Class="PatchOperationAdd">
-                            <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
-                            <value>
-                                <li>AnimalProductRaw</li>
-                            </value>
-                        </nomatch>
-                    </li>-->
                     <!--Use ingestible data
                     <li Class="PatchOperationReplace">
                         <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
@@ -282,13 +250,6 @@
                             <color>(255,199,2)</color>
                             <shaderType>CutoutComplex</shaderType>
                         </graphicData>
-                    </value>
-                </li>
-                <!--Add thingCategory-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/thingCategories</xpath>
-                    <value>
-                        <li>RB_Honeys</li>
                     </value>
                 </li>
                 <!--Use ingestible data-->

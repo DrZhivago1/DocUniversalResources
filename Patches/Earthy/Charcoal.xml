@@ -33,9 +33,6 @@
                                 <Flammability>1.0</Flammability>
                                 <Mass>0.3</Mass>
                             </statBases>
-                            <thingCategories>
-                                <li>ResourcesRaw</li>
-                            </thingCategories>
                             <tradeTags />
                         </ThingDef>
                     </value>
