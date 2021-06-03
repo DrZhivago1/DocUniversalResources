@@ -1,0 +1,256 @@
+<Patch>
+
+    <!--==========
+    Plastic {Materials+, RimPlas (Continued), Rimefeller, Project RimFactory - Materials}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+            <li>Mlie.RimPlas</li>
+            <li>Dubwise.Rimefeller</li>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Plastic" ParentName="DZ_SyntheticBase">
+                            <defName>DZ_Plastic</defName>
+                            <label>Plastic</label>
+                            <description>Plastic: A synthetic building material.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <soundDrop>Metal_Drop</soundDrop>
+                            <statBases>
+                                <MaxHitPoints>80</MaxHitPoints>
+                                <MarketValue>4.5</MarketValue>
+                                <Mass>0.020</Mass>
+                                <Flammability>1.2</Flammability>
+                                <StuffPower_Armor_Sharp>0.44</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.44</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>0.25</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>4</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+                                <SharpDamageMultiplier>0.35</SharpDamageMultiplier>
+                                <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
+                            </statBases>
+                            <smeltable>true</smeltable>
+                            <stuffProps>
+                                <categories>
+                                    <li>Woody</li>
+                                </categories>
+                                <commonality>0.001</commonality>
+                                <constructEffect>ConstructMetal</constructEffect>
+                                <color/>
+                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                <stuffAdjective>plastic</stuffAdjective>
+                                <appearance>Smooth</appearance>
+                                <statFactors>
+                                    <MaxHitPoints>0.65</MaxHitPoints>
+                                    <Beauty>1</Beauty>
+                                    <Flammability>1</Flammability>
+                                    <WorkToMake>0.6</WorkToMake>
+                                    <WorkToBuild>0.6</WorkToBuild>
+                                    <DoorOpenSpeed>1.3</DoorOpenSpeed>
+                                </statFactors>
+                            </stuffProps>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_GeneralPlastic</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(180,180,180)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_MixedPlastic"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimPlas (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.RimPlas</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/RimPlas_RimPlas</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RimPlas"]</xpath>
+                </li>
+                <!--Add category so mod quits bitching-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ResearchProjectDef>
+                            <defName>DZ_Plastic</defName>
+                            <label>Plastic</label>
+                            <description>Grants the ability to use new materials.</description>
+                            <baseCost>500</baseCost>
+                            <techLevel>Industrial</techLevel>
+                            <prerequisites>
+                                <li>ComplexFurniture</li>
+                                <li>BiofuelRefining</li>
+                                <li>SterileMaterials</li>
+                            </prerequisites>
+                            <tab>RimPlas</tab>
+                        </ResearchProjectDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Rimefeller-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Dubwise.Rimefeller</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Rimefeller/Things/Resource/synthylene</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Change production resource-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="SynthyleneRefiner"]/comps/li[@Class="Rimefeller.CompProperties_Refinery"]/Product</xpath>
+                    <value>
+                        <Product>DZ_Plastic</Product>
+                    </value>
+                </li>
+                <!--Use attribute on ThingDef-->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>Rimefeller.Synthylene</value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="Synthylene"]</xpath>
+                </li>
+                <!--Add category so mod quits bitching-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingCategoryDef>
+                            <defName>DZ_Plastic</defName>
+                            <label>Plastic</label>
+                            <parent>ResourcesRaw</parent>
+                            <iconPath>Rimefeller/Things/Resource/synthylene</iconPath>
+                            <resourceReadoutRoot>false</resourceReadoutRoot>
+                        </ThingCategoryDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_GeneralPlastic</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(180,180,180)</color>
+                            <drawSize>(1.2,1.2)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_MixedPlastic"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--AM_MixedPlastic = Materials+-->
+    <!--RimPlas = RimPlas (Continued)-->
+    <!--Synthylene = Rimefeller-->
+    <!--PRF_MixedPlastic = Project RimFactory - Materials-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="AM_MixedPlastic" or text()="RimPlas" or text()="Synthylene" or text()="PRF_MixedPlastic"]</xpath>
+        <value>
+            <thingDef>DZ_Plastic</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::AM_MixedPlastic or self::RimPlas or self::Synthylene or self::PRF_MixedPlastic]</xpath>
+        <name>DZ_Plastic</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="AM_MixedPlastic" or text()="RimPlas" or text()="Synthylene" or text()="PRF_MixedPlastic"]</xpath>
+        <value>
+            <li>DZ_Plastic</li>
+        </value>
+    </Operation>
+
+</Patch>

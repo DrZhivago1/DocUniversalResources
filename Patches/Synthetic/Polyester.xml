@@ -1,0 +1,172 @@
+<Patch>
+
+    <!--==========
+    Polyester {RimPlas (Continued), Materials+, Project RimFactory - Materials}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mlie.rimplas</li>
+            <li>Atlas.MaterialsPlus.AT</li>
+            <li>prf.materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_Polyester" ParentName="DZ_SyntheticBase">
+                            <defName>DZ_Polyester</defName>
+                            <label>Polyester</label>
+                            <description>Polyester: A synthetic polymer fibre.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <statBases>
+                                <StuffPower_Armor_Sharp>0.41</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.1</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>0.22</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+                                <MaxHitPoints>85</MaxHitPoints>
+                                <MarketValue>3.5</MarketValue>
+                                <Mass>0.020</Mass>
+                                <Flammability>10.0</Flammability>
+                                <DeteriorationRate>2</DeteriorationRate>
+                            </statBases>
+                            <stuffProps>
+                                <statFactors>
+                                    <Flammability>1.2</Flammability>
+                                </statFactors>
+                                <categories>
+                                    <li>Fabric</li>
+                                </categories>
+                                <color/>
+                                <commonality>0.05</commonality>
+                                <allowColorGenerators>true</allowColorGenerators>
+                            </stuffProps>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <techLevel>Industrial</techLevel>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--RimPlas (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>mlie.rimplas</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/RimPoly/RimPoly</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(188,203,181)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RimPoly"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Materials+-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Atlas.MaterialsPlus.AT</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Resources/AM_SyntheticTextile</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(152,152,172)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AM_Polyester"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>prf.materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_SyntheticTextile</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <color>(152,152,172)</color>
+                            <drawSize>(0.8,0.8)</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_Polyester"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--RimPoly = RimPlas (Continued)-->
+    <!--AM_Polyester = Materials+-->
+    <!--PRF_Polyester = Project RimFactory - Materials-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="AM_Polyester" or text()="RimPoly" or text()="PRF_Polyester"]</xpath>
+        <value>
+            <thingDef>DZ_Polyester</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::AM_Polyester or self::RimPoly or self::PRF_Polyester]</xpath>
+        <name>DZ_Polyester</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="AM_Polyester" or text()="RimPoly" or text()="PRF_Polyester"]</xpath>
+        <value>
+            <li>DZ_Polyester</li>
+        </value>
+    </Operation>
+
+</Patch>

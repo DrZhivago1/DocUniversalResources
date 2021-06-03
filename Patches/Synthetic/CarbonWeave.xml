@@ -1,0 +1,182 @@
+<Patch>
+
+    <!--==========
+    Carbon Weave {Carbon, RimPlas (Continued), Project RimFactory - Materials}
+    ==========-->
+
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Oblitus.Carbon</li>
+            <li>Mlie.RimPlas</li>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="DZ_CarbonWeave" ParentName="DZ_SyntheticBase">
+                            <defName>DZ_CarbonWeave</defName>
+                            <label>Carbon weave</label>
+                            <description>Carbon Weave: A cloth-like material made of fine carbon fibers.</description>
+                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                            <graphicData />
+                            <soundInteract>Wood_Drop</soundInteract>
+                            <soundDrop>Wood_Drop</soundDrop>
+                            <useHitPoints>true</useHitPoints>
+                            <statBases>
+                                <MaxHitPoints>190</MaxHitPoints>
+                                <MarketValue>8</MarketValue>
+                                <Mass>0.033</Mass>
+                                <Flammability>0.2</Flammability>
+                                <DeteriorationRate>0.01</DeteriorationRate>
+                                <StuffPower_Armor_Sharp>2.05</StuffPower_Armor_Sharp>
+                                <StuffPower_Armor_Blunt>0.50</StuffPower_Armor_Blunt>
+                                <StuffPower_Armor_Heat>2.60</StuffPower_Armor_Heat>
+                                <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
+                                <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+                            </statBases>
+                            <tradeability>All</tradeability>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <smeltable>false</smeltable>
+                            <stuffProps>
+                                <stuffAdjective>carbon kevlar</stuffAdjective>
+                                <categories>
+                                    <li>Fabric</li>
+                                </categories>
+                                <commonality>0.3</commonality>
+                                <constructEffect>ConstructWood</constructEffect>
+                                <color/>
+                                <soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+                                <soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
+                                <soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
+                                <statOffsets>
+                                    <Cleanliness>0.4</Cleanliness>
+                                </statOffsets>
+                                <statFactors>
+                                    <Flammability>0.5</Flammability>
+                                    <MaxHitPoints>2.3</MaxHitPoints>
+                                    <Beauty>5.9</Beauty>
+                                </statFactors>
+                            </stuffProps>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Carbon-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Oblitus.Carbon</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/Cloth</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <color>(35,35,35)</color>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CarbonWeave"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimPlas (Continued)-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>Mlie.RimPlas</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Item/CarboSynth</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CarboSynth"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Project RimFactory - Materials-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>PRF.Materials</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Resources/PRF_CarbonMix</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_CarbonKevlarComposite"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--==========
+    Universal Replacements
+    ==========-->
+    <!--CarbonWeave = Carbon-->
+    <!--CarboSynth = RimPlas (Continued)-->
+    <!--PRF_CarbonKevlarComposite = Project RimFactory - Materials-->
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//thingDef[text()="PRF_CarbonKevlarComposite" or text()="CarbonWeave" or text()="CarboSynth"]</xpath>
+        <value>
+            <thingDef>DZ_CarbonWeave</thingDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSetName">
+        <success>Always</success>
+        <xpath>/Defs//*[self::PRF_CarbonKevlarComposite or self::CarbonWeave or self::CarboSynth]</xpath>
+        <name>DZ_CarbonWeave</name>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <success>Always</success>
+        <xpath>/Defs/*//li[text()="PRF_CarbonKevlarComposite" or text()="CarbonWeave" or text()="CarboSynth"]</xpath>
+        <value>
+            <li>DZ_CarbonWeave</li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -33,6 +33,9 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>Mlie.RimPlas</li>
+		<li>Dubwise.Rimefeller</li>
+		<li>NeziTheAvali.RimVali</li>
 		<li>Mlie.LordoftheRimsTheThirdAge</li>
 		<li>dismarzero.VGP.VGPGardenTools</li>
 		<li>Storm.RimworldFarming</li>

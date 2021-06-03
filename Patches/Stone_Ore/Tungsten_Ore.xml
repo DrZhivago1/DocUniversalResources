@@ -2,12 +2,13 @@
 
     <!--==========
     Tungsten Ore {Tungsten, Expanded Materials - Metals}
-    Tungsten Ore Production Chain {RimBound}
+    Tungsten Ore Production Chain {RimVali: Far From Avalon, RimBound}
     ==========-->
 
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
+            <li>NeziTheAvali.RimVali</li>
             <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </packageIds>
@@ -48,7 +49,6 @@
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
-            <li>KBraid.Rimbound</li>
         </packageIds>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -69,6 +69,35 @@
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableTungsten"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimVali: Far From Avalon-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>NeziTheAvali.RimVali</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics to ThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <color>(166,143,141)</color>
+                            <colorTwo>(214,106,47)</colorTwo>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="TungstenOre"]</xpath>
                 </li>
             </operations>
         </match>
@@ -136,11 +165,12 @@
     Universal Replacements
     ==========-->
     <!--MineableTungsten = Tungsten, RimBound-->
+    <!--TungstenOre = RimVali: Far From Avalon-->
     <!--VMEu_Titanium = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableTungsten" or text()="VMEu_MineableTungsten"]</xpath>
+        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableTungsten" or text()="VMEu_MineableTungsten" or text()="TungstenOre"]</xpath>
         <value>
             <li>DZ_TungstenOre</li>
         </value>
@@ -149,9 +179,9 @@
     <!--==========
     Tungsten Ore Production Chain
     ==========-->
-    <!--Only add mineableThing defNames if original mod does not add a new Stone_Ore-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
+            <li>NeziTheAvali.RimVali</li>
             <li>KBraid.Rimbound</li>
         </packageIds>
         <match Class="PatchOperationReplace">

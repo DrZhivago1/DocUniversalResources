@@ -1,12 +1,13 @@
 <Patch>
 
     <!--==========
-    Tungsten {Tungsten, RimBound, Expanded Materials - Metals}
+    Tungsten {Tungsten, RimVali: Far From Avalon, RimBound, Expanded Materials - Metals}
     ==========-->
 
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Hol.Tungsten</li>
+            <li>NeziTheAvali.RimVali</li>
             <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </packageIds>
@@ -107,6 +108,41 @@
         </match>
     </Operation>
 
+    <!--RimVali: Far From Avalon-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>NeziTheAvali.RimVali</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>avali/Things/Tungsten/TungstenPowder</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <drawSize>0.85</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Replace stuffProps color to match-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
+                    <value>
+                        <color>(176,176,176)</color>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AvaliTungstenPowder"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--RimBound-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -180,11 +216,12 @@
     Universal Replacements
     ==========-->
     <!--Tungsten = Metals+-->
+    <!--AvaliTungstenPowder = RimVali: Far From Avalon-->
     <!--SB_tungsten_bar = RimBound-->
     <!--VMEu_Tungsten = Expanded Materials - Metals-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten" or text()="AvaliTungstenPowder"]</xpath>
         <value>
             <thingDef>DZ_Tungsten</thingDef>
         </value>
@@ -192,13 +229,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::Tungsten or self::SB_tungsten_bar or self::VMEu_Tungsten]</xpath>
+        <xpath>/Defs//*[self::Tungsten or self::SB_tungsten_bar or self::VMEu_Tungsten or self::AvaliTungstenPowder]</xpath>
         <name>DZ_Tungsten</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten"]</xpath>
+        <xpath>/Defs/*//li[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten" or text()="AvaliTungstenPowder"]</xpath>
         <value>
             <li>DZ_Tungsten</li>
         </value>

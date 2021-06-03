@@ -26,7 +26,7 @@
                     </thingCategories>
                 </value>
             </li>
-            <li Class="PatchOperationReplace">                <!--Metals-->
+            <li Class="PatchOperationReplace">                <!--Metal_Ingot-->
                 <success>Always</success>
                 <xpath>/Defs/ThingDef[defName="Gold" or defName="Plasteel" or defName="Silver" or defName="Steel" or defName="Uranium"]/thingCategories</xpath>
                 <value>

@@ -147,7 +147,6 @@
     <!--==========
     Titanium Ore Production Chain
     ==========-->
-    <!--Only add mineablThing defNames if original mod does not add a new Stone_Ore-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>KBraid.Rimbound</li>

@@ -1,11 +1,12 @@
 <Patch>
 
     <!--==========
-    Tungsten Ore {RimBound}
+    Tungsten Ore {RimVali: Far From Avalon, RimBound}
     ==========-->
 
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
+            <li>NeziTheAvali.RimVali</li>
             <li>KBraid.Rimbound</li>
         </packageIds>
         <match Class="PatchOperationAdd">
@@ -39,6 +40,33 @@
     Mods
     ==========-->
 
+    <!--RimVali: Far From Avalon-->
+    <Operation Class="D9Framework.PatchOperationFindPackage">
+        <packageIds>
+            <li>NeziTheAvali.RimVali</li>
+        </packageIds>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!--Use/replace graphics-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten_UnrefinedOre"]/graphicData</xpath>
+                    <value>
+                        <graphicData>
+                            <texPath>avali/Things/Tungsten/TungstenOre</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                            <drawSize>0.85</drawSize>
+                        </graphicData>
+                    </value>
+                </li>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AvaliTungsten"]</xpath>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
     <!--RimBound-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
@@ -68,10 +96,11 @@
     <!--==========
     Universal Replacements
     ==========-->
+    <!--AvaliTungsten = RimVali: Far From Avalon-->
     <!--SB_tungsten_ore = RimBound-->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="SB_tungsten_ore"]</xpath>
+        <xpath>/Defs/*//thingDef[text()="SB_tungsten_ore" or text()="AvaliTungsten"]</xpath>
         <value>
             <thingDef>DZ_Tungsten_UnrefinedOre</thingDef>
         </value>
@@ -79,13 +108,13 @@
 
     <Operation Class="PatchOperationSetName">
         <success>Always</success>
-        <xpath>/Defs//*[self::SB_tungsten_ore]</xpath>
+        <xpath>/Defs//*[self::SB_tungsten_ore or self::AvaliTungsten]</xpath>
         <name>DZ_Tungsten_UnrefinedOre</name>
     </Operation>
 
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>/Defs/*//li[text()="SB_tungsten_ore"]</xpath>
+        <xpath>/Defs/*//li[text()="SB_tungsten_ore" or text()="AvaliTungsten"]</xpath>
         <value>
             <li>DZ_Tungsten_UnrefinedOre</li>
         </value>

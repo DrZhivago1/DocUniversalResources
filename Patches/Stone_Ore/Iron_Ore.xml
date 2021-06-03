@@ -221,7 +221,6 @@
     <!--==========
     Iron Ore Production Chain
     ==========-->
-    <!--Only add mineableThing defNames if original mod does not add a new Stone_Ore-->
     <Operation Class="D9Framework.PatchOperationFindPackage">
         <packageIds>
             <li>Yuno.SimpleOresTest</li>

@@ -280,6 +280,16 @@
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Glass"]</xpath>
                 </li>
+                <!--Add category so mod quits bitching-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <StuffCategoryDef>
+                            <defName>DZ_Glass</defName>
+                            <label>glass</label>
+                        </StuffCategoryDef>
+                    </value>
+                </li>
             </operations>
         </match>
     </Operation>
