@@ -4,14 +4,14 @@
     Sapphire {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Gemstones, Jewelry}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Gems</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
             <li>kikohi.jewelry</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -83,10 +83,10 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Gems</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -117,10 +117,10 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -165,10 +165,10 @@
     </Operation>
 
     <!--Kura's Extra Gems-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kura.ExtraGems</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -200,10 +200,10 @@
     </Operation>
 
     <!--Gemstones-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>zylle.Gemstones</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -254,10 +254,10 @@
     </Operation>
 
     <!--Jewelry-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>kikohi.jewelry</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

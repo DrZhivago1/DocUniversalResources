@@ -4,14 +4,14 @@
     Charcoal {Coal Expanded, Simple Mining Extension, Survivalist's Additions, Apothecary (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>neceros.coalexpanded</li>
             <li>Yuno.SimpleOresTest</li>
             <li>Mantrasong.SurvAdd.1</li>
             <li>Mlie.Apothecary</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -53,10 +53,10 @@
     ==========-->
 
     <!--Coal Expanded-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>neceros.coalexpanded</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -79,10 +79,10 @@
     </Operation>
 
     <!--Simple Mining Extension-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -105,10 +105,10 @@
     </Operation>
 
     <!--Survivalist's Additions-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mantrasong.SurvAdd.1</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -146,10 +146,10 @@
     </Operation>
 
     <!--Apothecary (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Apothecary</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -172,10 +172,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

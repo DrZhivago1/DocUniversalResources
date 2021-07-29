@@ -4,12 +4,12 @@
     Amethyst {Gems (Continued), Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Gems</li>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -81,10 +81,10 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Gems</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -115,10 +115,10 @@
     </Operation>
 
     <!--Kura's Extra Gems-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kura.ExtraGems</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -150,10 +150,10 @@
     </Operation>
 
     <!--Gemstones-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>zylle.Gemstones</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

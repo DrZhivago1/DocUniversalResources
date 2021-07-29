@@ -4,12 +4,12 @@
     Obsidian Rock {[K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures), Alpha Biomes}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kura.ExtraStone</li>
             <li>Kura.ExtraStoneCupro</li>
             <li>sarg.alphabiomes</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -80,10 +80,10 @@
     ==========-->
 
     <!--[K]Extra Stone-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kura.ExtraStone</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <!--<success>Always</success>-->
             <operations>
@@ -133,10 +133,10 @@
     </Operation>
 
     <!--[K]Extra Stone(w/ Cupro's Textures)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kura.ExtraStoneCupro</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -187,10 +187,10 @@
     </Operation>
 
     <!--Alpha Biomes-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>sarg.alphabiomes</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

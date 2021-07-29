@@ -4,10 +4,10 @@
     Titanium Ore {RimBound}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
@@ -40,10 +40,10 @@
     ==========-->
 
     <!--RimBound-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

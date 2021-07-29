@@ -1,0 +1,210 @@
+<Patch>
+
+    <!--==========
+    Smokeleaf Butter
+    Universal Replacements
+    ==========-->
+    <!--VCE_SmokeleafButter = Vanilla Cooking Expanded-->
+    <!--SmokeleafButter = Smokeleaf Industry Reborn-->
+
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
+            <li>VanillaExpanded.VCookE</li>
+            <li>ogliss.bishop.smokeleafindustryreborn</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_SmokeleafButter" ParentName="DZ_CondimentBase">
+                    <defName>DZ_SmokeleafButter</defName>
+                    <label>Smokeleaf butter</label>
+                    <description>Smokeleaf Butter: Butter made from simmering smokeleaf buds with milk.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>7</MarketValue>
+                        <Nutrition>1</Nutrition>
+                        <Flammability>1.3</Flammability>
+                    </statBases>
+                    <ingestible />
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>10</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
+                </ThingDef>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Vanilla Cooking Expanded-->
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
+            <li>VanillaExpanded.VCookE</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SmokeleafButter"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Condiments/VCE_SmokeleafButter</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <foodType>Processed</foodType>
+                                    <preferability>NeverForNutrition</preferability>
+                                    <specialThoughtAsIngredient>VCE_SmokeleafButterHigh</specialThoughtAsIngredient>
+                                    <optimalityOffsetFeedingAnimals>-50</optimalityOffsetFeedingAnimals>
+                                </ingestible>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_SmokeleafButter"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VCE_SmokeleafButter"]</xpath>
+                    <value>
+                        <thingDef>DZ_SmokeleafButter</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VCE_SmokeleafButter"]</xpath>
+                    <value>
+                        <li>DZ_SmokeleafButter</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VCE_SmokeleafButter</xpath>
+                    <name>DZ_SmokeleafButter</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Smokeleaf Industry Reborn-->
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
+            <li>ogliss.bishop.smokeleafindustryreborn</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SmokeleafButter"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/MSI_butter</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <preferability>NeverForNutrition</preferability>
+                                    <joy>0.05</joy>
+                                    <joyKind>Gluttonous</joyKind>
+                                    <tasteThought>IngestSmokeleafButter</tasteThought>
+                                    <foodType>Processed</foodType>
+                                    <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+                                    <useEatingSpeedStat>true</useEatingSpeedStat>
+                                    <baseIngestTicks>120</baseIngestTicks>
+                                    <drugCategory>Social</drugCategory>
+                                    <outcomeDoers>
+                                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                            <hediffDef>SLI_SmokeleafHigh</hediffDef>
+                                            <severity>0.50</severity>
+                                            <toleranceChemical>SLI_Smokeleaf</toleranceChemical>
+                                        </li>
+                                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                            <hediffDef>SLI_SmokeleafTolerance</hediffDef>
+                                            <severity>0.03</severity>
+                                            <divideByBodySize>true</divideByBodySize>
+                                        </li>
+                                    </outcomeDoers>
+                                </ingestible>
+                            </value>
+                        </li>
+                        <!--Use/replace comps to ThingDef-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps</xpath>
+                            <value>
+                                <li Class="CompProperties_Drug">
+                                    <chemical>SLI_Smokeleaf</chemical>
+                                    <addictiveness>0.015</addictiveness>
+                                    <minToleranceToAddict>0.15</minToleranceToAddict>
+                                    <existingAddictionSeverityOffset>0.06</existingAddictionSeverityOffset>
+                                    <needLevelOffset>1</needLevelOffset>
+                                    <listOrder>100</listOrder>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="SmokeleafButter"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SmokeleafButter"]</xpath>
+                    <value>
+                        <thingDef>DZ_SmokeleafButter</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SmokeleafButter"]</xpath>
+                    <value>
+                        <li>DZ_SmokeleafButter</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SmokeleafButter</xpath>
+                    <name>DZ_SmokeleafButter</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

@@ -4,13 +4,13 @@
     Adobe Blocks {Simple Mining Extension, Medieval Times Unofficial Update, Materials+, Ceramics}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>vindar.medievaltimes</li>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -65,10 +65,10 @@
     ==========-->
 
     <!--Simple Mining Extension-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -111,10 +111,10 @@
     </Operation>
 
     <!--Medieval Times Unofficial Update-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>vindar.medievaltimes</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -146,10 +146,10 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Atlas.MaterialsPlus.AT</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -179,10 +179,10 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>n7huntsman.ceramics</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

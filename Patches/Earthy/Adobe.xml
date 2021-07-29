@@ -4,13 +4,13 @@
     Adobe {Simple Mining Extension, Primitive Workbenches, Materials+, Ceramics}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>PrimitiveProduction.velcroboy333</li>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -46,10 +46,10 @@
     ==========-->
 
     <!--Simple Mining Extension-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -89,10 +89,10 @@
     </Operation>
 
     <!--Primitive Workbenches-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>PrimitiveProduction.velcroboy333</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -116,10 +116,10 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Atlas.MaterialsPlus.AT</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -142,10 +142,10 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>n7huntsman.ceramics</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

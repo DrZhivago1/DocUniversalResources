@@ -4,11 +4,11 @@
     Zinc Ore {Clockwork And Steam, Cupro's Alloys (Continued)}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
             <li>Mlie.CuprosAlloys</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -43,10 +43,10 @@
     ==========-->
 
     <!--Clockwork And Steam-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -72,10 +72,10 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.CuprosAlloys</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

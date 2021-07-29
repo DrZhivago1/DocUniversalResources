@@ -4,8 +4,8 @@
     Coal {Medieval Times Unofficial Update, Simple Mining Extension, Clockwork And Steam, [WD] Simple Coal, Coal Expanded, Rimhammer - The End Times, Rimhammer - The End Times - WITH GUNS!!, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>vindar.medievaltimes</li>
             <li>Yuno.SimpleOresTest</li>
             <li>Atlas.MaterialsPlus.AT</li>
@@ -17,7 +17,7 @@
             <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -63,10 +63,10 @@
     ==========-->
 
     <!--Medieval Times Unofficial Update-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>vindar.medievaltimes</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -109,10 +109,10 @@
     </Operation>
 
     <!--Simple Mining Extension-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -135,10 +135,10 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Atlas.MaterialsPlus.AT</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -161,10 +161,10 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -212,10 +212,10 @@
     </Operation>
 
     <!--[WD] Simple Coal-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Wemd.SimpleCoal</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -238,10 +238,10 @@
     </Operation>
 
     <!--Coal Expanded-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>neceros.coalexpanded</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -265,11 +265,11 @@
 
     <!--Rimhammer - The End Times-->
     <!--Rimhammer - The End Times - WITH GUNS!!-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>sickboywi.theendtimes.theendtimes</li>
             <li>SickBoyWi.TheEndTimes.WithGuns</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -292,10 +292,10 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -319,10 +319,10 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>PRF.Materials</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -345,10 +345,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

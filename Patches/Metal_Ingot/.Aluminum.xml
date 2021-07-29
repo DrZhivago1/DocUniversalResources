@@ -4,11 +4,11 @@
     Aluminum {Industrialisation, Cupro's Alloys (Continued)}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>trasheddt.industrialisation</li>
             <li>Mlie.CuprosAlloys</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
@@ -74,10 +74,10 @@
     ==========-->
 
     <!--Industrialisation-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>trasheddt.industrialisation</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -108,10 +108,10 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.CuprosAlloys</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

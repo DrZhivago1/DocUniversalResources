@@ -4,12 +4,12 @@
     Titanium {Metals+, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
@@ -73,10 +73,10 @@
     ==========-->
 
     <!--Metals+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -107,10 +107,10 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -142,10 +142,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

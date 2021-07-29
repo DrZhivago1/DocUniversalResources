@@ -1,45 +1,40 @@
 <Patch>
 
     <!--==========
-    Flour 
+    Sugar
     Universal Replacements
     ==========-->
-    <!--RC2_Flour = [1.0, 1.1] RimCuisine 2 Core-->
-    <!--Flour = VGP Garden Gourmet-->
-    <!--VCE_Flour = Vanilla Cooking Expanded-->
+    <!--RC2_Sugar = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--Sugar = VGP Garden Gourmet-->
+    <!--VCE_RawSugar = Vanilla Cooking Expanded-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li>
-            <li>dismarzero.VGP.VGPGardenGourmet</li>
-            <li>VanillaExpanded.VCookE</li>
+            <li>crustypeanut.rc2.core</li>
+            <li>dismarzero.vgp.vgpgardengourmet</li>
+            <li>vanillaexpanded.vcooke</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Flour" ParentName="DZ_CondimentBase">
-                    <defName>DZ_Flour</defName>
-                    <label>Flour</label>
-                    <description>Flour: Wheat flour, used in baking.</description>
+                <ThingDef Name="DZ_Sugar" ParentName="DZ_CondimentBase">
+                    <defName>DZ_Sugar</defName>
+                    <label>Sugar</label>
+                    <description>Sugar: Simple crystalline sugar, adds a much desired sweetness.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
-                    <stackLimit>75</stackLimit>
                     <statBases>
-                        <MarketValue>1.32</MarketValue>
-                        <Nutrition>0.05</Nutrition>
-                        <Flammability>1</Flammability>
-                        <Beauty>0</Beauty>
+                        <MarketValue>12.1</MarketValue>
+                        <Nutrition>1</Nutrition>
+                        <Flammability>1.3</Flammability>
                     </statBases>
-                    <thingCategories Inherit="False">
-                        <li>PlantFoodRaw</li>
-                    </thingCategories>
-                    <ingestible />
                     <comps>
                         <li Class="CompProperties_Rottable">
-                            <daysToRotStart>100</daysToRotStart>
+                            <daysToRotStart>120</daysToRotStart>
                             <rotDestroys>true</rotDestroys>
                         </li>
                     </comps>
+                    <ingestible />
                 </ThingDef>
             </value>
         </match>
@@ -52,21 +47,21 @@
     <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li>
+            <li>crustypeanut.rc2.core</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation_DZ.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sugar"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>RC2_Things/RC2_Food/Flour</texPath>
+                                    <texPath>RC2_Things/RC2_Food/Sugar</texPath>
                                     <graphicClass>Graphic_StackCount</graphicClass>
                                 </graphicData>
                             </value>
@@ -76,9 +71,11 @@
                             <xpath>/ThingDef/ingestible</xpath>
                             <value>
                                 <ingestible>
-                                    <foodType>Processed</foodType>
                                     <preferability>DesperateOnly</preferability>
-                                    <tasteThought>RC2_AteFlour</tasteThought>
+                                    <foodType>Processed</foodType>
+                                    <tasteThought>RC2_AteSweetener</tasteThought>
+                                    <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+                                    <ingestSound>Meal_Eat</ingestSound>
                                 </ingestible>
                             </value>
                         </li>
@@ -87,28 +84,28 @@
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RC2_Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RC2_Sugar"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="RC2_Flour"]</xpath>
+                    <xpath>//thingDef[.="RC2_Sugar"]</xpath>
                     <value>
-                        <thingDef>DZ_Flour</thingDef>
+                        <thingDef>DZ_Sugar</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="RC2_Flour"]</xpath>
+                    <xpath>//li[.="RC2_Sugar"]</xpath>
                     <value>
-                        <li>DZ_Flour</li>
+                        <li>DZ_Sugar</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//RC2_Flour</xpath>
-                    <name>DZ_Flour</name>
+                    <xpath>//RC2_Sugar</xpath>
+                    <name>DZ_Sugar</name>
                 </li>
 
             </operations>
@@ -118,22 +115,21 @@
     <!--VGP Garden Gourmet-->
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
-            <li>dismarzero.VGP.VGPGardenGourmet</li>
+            <li>dismarzero.vgp.vgpgardengourmet</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation_DZ.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sugar"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Item/flour</texPath>
-                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <texPath>Things/Item/sugar</texPath>
                                 </graphicData>
                             </value>
                         </li>
@@ -142,8 +138,9 @@
                             <xpath>/ThingDef/ingestible</xpath>
                             <value>
                                 <ingestible>
-                                    <foodType>Plant</foodType>
-                                    <preferability>NeverForNutrition</preferability>
+                                    <foodType>Seed</foodType>
+                                    <preferability>DesperateOnlyForHumanlikes</preferability>
+                                    <tasteThought>AteRawFood</tasteThought>
                                 </ingestible>
                             </value>
                         </li>
@@ -152,28 +149,28 @@
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Sugar"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="Flour"]</xpath>
+                    <xpath>//thingDef[.="Sugar"]</xpath>
                     <value>
-                        <thingDef>DZ_Flour</thingDef>
+                        <thingDef>DZ_Sugar</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="Flour"]</xpath>
+                    <xpath>//li[.="Sugar"]</xpath>
                     <value>
-                        <li>DZ_Flour</li>
+                        <li>DZ_Sugar</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//Flour</xpath>
-                    <name>DZ_Flour</name>
+                    <xpath>//Sugar</xpath>
+                    <name>DZ_Sugar</name>
                 </li>
 
             </operations>
@@ -183,21 +180,21 @@
     <!--Vanilla Cooking Expanded-->
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
-            <li>VanillaExpanded.VCookE</li>
+            <li>vanillaexpanded.vcooke</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation_DZ.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sugar"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Items/Raw/VCE_Flour</texPath>
+                                    <texPath>Things/Items/Condiments/VCE_Sugar</texPath>
                                 </graphicData>
                             </value>
                         </li>
@@ -206,46 +203,48 @@
                             <xpath>/ThingDef/ingestible</xpath>
                             <value>
                                 <ingestible>
-                                    <foodType>Plant</foodType>
+                                    <foodType>Processed</foodType>
                                     <preferability>NeverForNutrition</preferability>
+                                    <specialThoughtAsIngredient>VCE_ConsumedSugar</specialThoughtAsIngredient>
+                                    <optimalityOffsetFeedingAnimals>-50</optimalityOffsetFeedingAnimals>
                                 </ingestible>
                             </value>
                         </li>
                     </operations>
                 </li>
+
                 <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="VCE_Wheat"]/plant/harvestedThingDef</xpath>
+                    <xpath>/Defs/ThingDef[defName="VCE_Sugarcane"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <harvestedThingDef>DZ_Flour</harvestedThingDef>
+                        <harvestedThingDef>DZ_Sugar</harvestedThingDef>
                     </value>
                 </li>
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VCE_Flour"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="VCE_RawSugar"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="VCE_Flour"]</xpath>
+                    <xpath>//thingDef[.="VCE_RawSugar"]</xpath>
                     <value>
-                        <thingDef>DZ_Flour</thingDef>
+                        <thingDef>DZ_Sugar</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="VCE_Flour"]</xpath>
+                    <xpath>//li[.="VCE_RawSugar"]</xpath>
                     <value>
-                        <li>DZ_Flour</li>
+                        <li>DZ_Sugar</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//VCE_Flour</xpath>
-                    <name>DZ_Flour</name>
+                    <xpath>//VCE_RawSugar</xpath>
+                    <name>DZ_Sugar</name>
                 </li>
 
             </operations>

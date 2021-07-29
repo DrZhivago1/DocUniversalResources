@@ -4,13 +4,13 @@
     Tin Ore {Clockwork And Steam, Metals+, Cupro's Alloys (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -45,10 +45,10 @@
     ==========-->
 
     <!--Clockwork And Steam-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>chance2000w.clockworkandsteam</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -74,10 +74,10 @@
     </Operation>
 
     <!--Metals+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -103,10 +103,10 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.CuprosAlloys</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -132,10 +132,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

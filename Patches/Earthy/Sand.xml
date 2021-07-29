@@ -4,14 +4,14 @@
     Sand {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields, [RF] Concrete (Continued)}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
             <li>PRF.Materials</li>
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -38,10 +38,10 @@
                     </value>
                 </li>
                 <!--Combat Extended, taken from Ceramics (Discontinued support b/c I don't know what I'm doing. Some CE nerd plz help.)
-                <li Class="D9Framework.PatchOperationFindPackage">
-                    <packageIds>
+                <li Class="PatchOperation_DZ.FindModByID">
+                    <mods>
                         <li>CETeam.CombatExtended</li>
-                    </packageIds>
+                    </mods>
                     <match Class="PatchOperationAdd">
                         <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/statBases</xpath>
                         <value>
@@ -58,10 +58,10 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Atlas.MaterialsPlus.AT</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -84,10 +84,10 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>n7huntsman.ceramics</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -110,10 +110,10 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>PRF.Materials</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -137,10 +137,10 @@
     </Operation>
 
     <!--Fertile Fields-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>jamaicancastle.RF.fertilefields</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <!--<success>Always</success>-->
             <operations>
@@ -170,10 +170,10 @@
     </Operation>
 
     <!--[RF] Concrete (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Concrete</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

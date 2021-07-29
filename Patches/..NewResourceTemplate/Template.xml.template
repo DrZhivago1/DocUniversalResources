@@ -1,13 +1,15 @@
 <Patch>
 
     <!--==========
-    Resource_Name {Mod_Name}
+    Resource_Name 
+    Universal Replacements
     ==========-->
+    <!--mod_item_defname = Mod_Name-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>packageID</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -32,54 +34,54 @@
     ==========-->
 
     <!--Mod_Name-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>packageID</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_item"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_item"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Mod_defName"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="mod_item_defname"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="mod_item_defname"]</xpath>
+                    <value>
+                        <thingDef>DZ_item</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="mod_item_defname"]</xpath>
+                    <value>
+                        <li>DZ_item</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//mod_item_defname</xpath>
+                    <name>DZ_item</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Mod_defName = Mod_Name-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Mod_defName"]</xpath>
-        <value>
-            <thingDef>DZ_item</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Mod_defName]</xpath>
-        <name>DZ_item</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Mod_defName"]</xpath>
-        <value>
-            <li>DZ_item</li>
-        </value>
     </Operation>
 
 </Patch>

@@ -4,26 +4,12 @@
 	<author>Dr_Zhivago</author>
 	<url>https://github.com/DrZhivago1/DocUniversalResources/releases</url>
 	<supportedVersions>
-		<li>1.2</li>
+		<li>1.3</li>
 	</supportedVersions>
 	<packageId>drzhivago.docuniversalresources</packageId>
 	<description>
-DUR catches duplicate resources and replaces them with one defName. This happens behind the scenes and Users will "hopefully" not notice. Duplicate items across all supported mods will be usable across all installed mods where they normally would be. This allows increased effectiveness in patching, as well as apply patches to a wider variety of mods. The goal of this change is to supply mod makers/users an enhanced game-play experience, with fewer conflicts, and more cross-compatibility.
-
-Example: You had 3 types of coal. Now 1 type. If any mod author allows one type of supported coal to be used in their mod, they get patched into the entire database of supported coal mods. Mod author no longer needs to patch for every coal type. Now use this example for every supported resource type.
-
-This mod needs to load below all supported content mods, and all mods that patch supported content. Easiest to simply load last/low in load list.
-    
+DUR catches duplicate resources and replaces them with one defName.    
 	</description>
-
-	<modDependencies>
-		<li>
-			<packageId>dninemfive.d9framework</packageId>
-			<displayName>D9 Framework</displayName>
-			<downloadUrl>https://github.com/dninemfive/d9framework/releases</downloadUrl>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2037445541</steamWorkshopUrl>
-		</li>
-	</modDependencies>
 
 	<incompatibleWith>
 	</incompatibleWith>
@@ -33,6 +19,7 @@ This mod needs to load below all supported content mods, and all mods that patch
 	</loadBefore>
 
 	<loadAfter>
+		<li>ogliss.bishop.smokeleafindustryreborn</li>
 		<li>Mlie.RimPlas</li>
 		<li>Dubwise.Rimefeller</li>
 		<li>NeziTheAvali.RimVali</li>
@@ -78,13 +65,13 @@ This mod needs to load below all supported content mods, and all mods that patch
 		<li>Owlchemist.SimpleChains.Steel</li>
 		<li>PRF.Materials</li>
 		<li>Ryflamer.Rimcraft.Metals</li>
-		<li>VanillaExpanded.VCookE</li>
+		<li>vanillaexpanded.vcooke</li>
 		<li>VanillaExpanded.VPlantsE</li>
 		<li>Wemd.SimpleCoal</li>
 		<li>Yuno.SimpleOresTest</li>
 		<li>chance2000w.clockworkandsteam</li>
-		<li>dismarzero.VGP.VGPGardenGourmet</li>
-		<li>dismarzero.VGP.VGPVegetableGarden</li>
+		<li>dismarzero.vgp.vgpgardengourmet</li>
+		<li>dismarzero.vgp.vgpvegetablegarden</li>
 		<li>dninemfive.simpleconcrete</li>
 		<li>jamaicancastle.RF.fertilefields</li>
 		<li>kikohi.jewelry</li>

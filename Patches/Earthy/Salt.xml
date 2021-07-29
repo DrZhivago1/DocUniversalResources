@@ -4,14 +4,14 @@
     Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Salted Meat, Vanilla Cooking Expanded}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.RealWorldFood2</li>
             <li>tikubonn.RimSeasoning</li>
             <li>Mlie.Apothecary</li>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
             <li>VanillaExpanded.VCookE</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -54,10 +54,10 @@
     ==========-->
 
     <!--Real World Food 2 (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.RealWorldFood2</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -90,10 +90,10 @@
     </Operation>
 
     <!--RimSeasoning-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>tikubonn.RimSeasoning</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -134,10 +134,10 @@
     </Operation>
 
     <!--Apothecary (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.Apothecary</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -168,10 +168,10 @@
     </Operation>
 
     <!--[KYD] Rebalanced - Apothecary-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KYD.RebalancedApothecary</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -184,10 +184,10 @@
     </Operation>
 
     <!--VGP Garden Gourmet-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -219,10 +219,10 @@
 
     <!--Vanilla Cooking Expanded-->
     <!--Salted Meat(Only requires a loadAfter rule)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>VanillaExpanded.VCookE</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

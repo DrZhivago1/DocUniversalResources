@@ -4,13 +4,13 @@
     Salt Ore {Real World Food 2 (Continued), RimSeasoning, VGP Garden Gourmet, Salted Meat}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.RealWorldFood2</li>
             <li>tikubonn.RimSeasoning</li>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
             <li>Argon.SaltedMeat</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -45,10 +45,10 @@
     ==========-->
 
     <!--Real World Food 2 (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.RealWorldFood2</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -74,10 +74,10 @@
     </Operation>
 
     <!--RimSeasoning-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>tikubonn.RimSeasoning</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -103,10 +103,10 @@
     </Operation>
 
     <!--VGP Garden Gourmet-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -132,10 +132,10 @@
     </Operation>
 
     <!--Salted Meat-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.SaltedMeat</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

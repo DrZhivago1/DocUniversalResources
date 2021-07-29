@@ -5,11 +5,11 @@
     Titanium Ore Production Chain {RimBound}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -44,10 +44,10 @@
     ==========-->
 
     <!--Metals+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -73,10 +73,10 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -102,10 +102,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -147,10 +147,10 @@
     <!--==========
     Titanium Ore Production Chain
     ==========-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
             <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DZ_Titanium"]</xpath>

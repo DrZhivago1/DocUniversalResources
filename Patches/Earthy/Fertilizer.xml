@@ -4,12 +4,12 @@
     Fertilizer {Advanced Cultivation, VGP Garden Tools, Fertile Fields [1.1]}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Gasch.AdvancedCultivation</li>
             <li>dismarzero.VGP.VGPGardenTools</li>
             <!--<li>jamaicancastle.RF.fertilefields</li>-->
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -46,10 +46,10 @@
     ==========-->
 
     <!--Advanced Cultivation-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Gasch.AdvancedCultivation</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -79,10 +79,10 @@
     </Operation>
 
     <!--VGP Garden Tools-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>dismarzero.VGP.VGPGardenTools</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -105,10 +105,10 @@
     </Operation>
 
     <!--Fertile Fields [1.1]
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>jamaicancastle.RF.fertilefields</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

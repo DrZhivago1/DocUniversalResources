@@ -4,12 +4,12 @@
     Mithril {Lord of the Rims - The Third Age (Continued), Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
             <li>mercurydoll.fantasymetals</li>
             <li>Ryflamer.Rimcraft.Metals</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
@@ -65,10 +65,10 @@
     ==========-->
 
     <!--Lord of the Rims - The Third Age (Continued)-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -99,10 +99,10 @@
     </Operation>
 
     <!--Fantasy Metals Reforged-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>mercurydoll.fantasymetals</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -133,10 +133,10 @@
     </Operation>
 
     <!--[Ry]Rimcraft Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Ryflamer.Rimcraft.Metals</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>

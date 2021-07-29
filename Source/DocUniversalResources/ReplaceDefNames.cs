@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RimWorld;
 using Verse;
 using HarmonyLib;
 using System.Reflection;
@@ -34,6 +29,33 @@ namespace DocUniversalResources
 
                 if (defType == typeof(ThingDef))
                 {
+                    //  ==================
+                    //      Condiments
+                    //  ==================
+                    if (defName == "RC2_AgaveNectar" || defName == "VCE_AgaveNectar")
+                    {
+                        newName = "DZ_AgaveNectar";
+                    }
+                    if (defName == "RC2_Flour" || defName == "Flour" || defName == "VCE_Flour")
+                    {
+                        newName = "DZ_Flour";
+                    }
+                    if (defName == "Honey" || defName == "RC2_Honey" || defName == "RB_BaseHoney")
+                    {
+                        newName = "DZ_Honey";
+                    }
+                    if (defName == "VCE_SmokeleafButter" || defName == "VCE_SmokeleafButter")
+                    {
+                        newName = "DZ_SmokeleafButter";
+                    }
+                    if (defName == "RC2_Sugar" || defName == "Sugar" || defName == "VCE_RawSugar")
+                    {
+                        newName = "DZ_Sugar";
+                    }
+                    if (defName == "RC2_Tofu" || defName == "Rawtofu")
+                    {
+                        newName = "DZ_Tofu";
+                    }
                     //  ==================
                     //      Metal
                     //  ==================

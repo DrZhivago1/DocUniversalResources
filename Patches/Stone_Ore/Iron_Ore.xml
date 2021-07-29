@@ -5,14 +5,14 @@
     Iron Ore Production Chain {Simple Mining Extension, RimBound}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -47,10 +47,10 @@
     ==========-->
 
     <!--Lord of the Rims - The Third Age (Continued)
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -76,10 +76,10 @@
     </Operation>-->
 
     <!--Metals+-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Kyrrisayo.MetalsPlus</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -105,10 +105,10 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -134,10 +134,10 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>PRF.Materials</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -163,10 +163,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Argon.VMEu</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -221,11 +221,11 @@
     <!--==========
     Iron Ore Production Chain
     ==========-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>KBraid.Rimbound</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
             <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DZ_Iron" or text()="ChunkIronOre"]</xpath>

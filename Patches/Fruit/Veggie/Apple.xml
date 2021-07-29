@@ -4,12 +4,12 @@
     Apple {[1.0, 1.1] RimCuisine 2 Core, VGP Vegetable Garden, Vanilla Cooking Expanded}
     ==========-->
 
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Crustypeanut.RC2.Core</li>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
             <li>VanillaExpanded.VPlantsE</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -50,10 +50,10 @@
     ==========-->
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>Crustypeanut.RC2.Core</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -75,10 +75,10 @@
     </Operation>
 
     <!--VGP Vegetable Garden-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -100,10 +100,10 @@
     </Operation>
 
     <!--Vanilla Plants Expanded-->
-    <Operation Class="D9Framework.PatchOperationFindPackage">
-        <packageIds>
+    <Operation Class="PatchOperation_DZ.FindModByID">
+        <mods>
             <li>VanillaExpanded.VPlantsE</li>
-        </packageIds>
+        </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
