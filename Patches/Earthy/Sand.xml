@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Sand {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields, [RF] Concrete (Continued)}
+    Sand
+    Universal Replacements
     ==========-->
+    <!--AM_RawSand = Materials+-->
+    <!--N7_Sand = Ceramics-->
+    <!--PRF_RawSand = Project RimFactory - Materials-->
+    <!--SandPile = Fertile Fields, [RF] Concrete (Continued)-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -12,44 +17,27 @@
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Sand" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Sand</defName>
-                            <label>Sand</label>
-                            <description>Sand: Coarse, rough, irritating, and gets everywhere.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Standard_Pickup</soundInteract>
-                            <soundDrop>Standard_Pickup</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <MarketValue>1.0</MarketValue>
-                                <Mass>5.0</Mass>
-                                <Beauty>-5</Beauty>
-                                <Flammability>0</Flammability>
-                            </statBases>
-                            <tradeTags />
-                        </ThingDef>
-                    </value>
-                </li>
-                <!--Combat Extended, taken from Ceramics (Discontinued support b/c I don't know what I'm doing. Some CE nerd plz help.)
-                <li Class="PatchOperation_DZ.FindModByID">
-                    <mods>
-                        <li>CETeam.CombatExtended</li>
-                    </mods>
-                    <match Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/statBases</xpath>
-                        <value>
-                            <Bulk>0.03</Bulk>
-                        </value>
-                    </match>
-                </li>-->
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Sand" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Sand</defName>
+                    <label>Sand</label>
+                    <description>Sand: Coarse, rough, irritating, and gets everywhere.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Standard_Pickup</soundInteract>
+                    <soundDrop>Standard_Pickup</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <MarketValue>1.0</MarketValue>
+                        <Mass>5.0</Mass>
+                        <Beauty>-5</Beauty>
+                        <Flammability>0</Flammability>
+                    </statBases>
+                    <tradeTags />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -65,20 +53,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_Sand</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_Sand</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_RawSand"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_RawSand"]</xpath>
+                    <value>
+                        <thingDef>DZ_Sand</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_RawSand"]</xpath>
+                    <value>
+                        <li>DZ_Sand</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_RawSand</xpath>
+                    <name>DZ_Sand</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -91,20 +108,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Sand</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Sand</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="N7_Sand"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="N7_Sand"]</xpath>
+                    <value>
+                        <thingDef>DZ_Sand</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="N7_Sand"]</xpath>
+                    <value>
+                        <li>DZ_Sand</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//N7_Sand</xpath>
+                    <name>DZ_Sand</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -117,21 +163,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Sand</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <drawSize>(0.9,0.9)</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Sand</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <drawSize>(0.9,0.9)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_RawSand"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_RawSand"]</xpath>
+                    <value>
+                        <thingDef>DZ_Sand</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_RawSand"]</xpath>
+                    <value>
+                        <li>DZ_Sand</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_RawSand</xpath>
+                    <name>DZ_Sand</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -142,29 +217,58 @@
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
         <match Class="PatchOperationSequence">
-            <!--<success>Always</success>-->
+            <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>SandPile</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>SandPile</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Add FF trade tags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>TerraformingResources</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Add FF trade tags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/tradeTags[not(child::li[text()="TerraformingResources"])]</xpath>
-                    <value>
-                        <li>TerraformingResources</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SandPile"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SandPile"]</xpath>
+                    <value>
+                        <thingDef>DZ_Sand</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SandPile"]</xpath>
+                    <value>
+                        <li>DZ_Sand</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SandPile</xpath>
+                    <name>DZ_Sand</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -177,51 +281,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>SandPile</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>SandPile</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SandPile"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SandPile"]</xpath>
+                    <value>
+                        <thingDef>DZ_Sand</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SandPile"]</xpath>
+                    <value>
+                        <li>DZ_Sand</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SandPile</xpath>
+                    <name>DZ_Sand</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--SandPile = Fertile Fields, [RF] Concrete (Continued)-->
-    <!--N7_Sand = Ceramics-->
-    <!--AM_RawSand = Materials+-->
-    <!--PRF_RawSand = Project RimFactory - Materials-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="SandPile" or text()="N7_Sand" or text()="AM_RawSand" or text()="PRF_RawSand"]</xpath>
-        <value>
-            <thingDef>DZ_Sand</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::SandPile or self::N7_Sand or self::AM_RawSand or self::PRF_RawSand]</xpath>
-        <name>DZ_Sand</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="SandPile" or text()="N7_Sand" or text()="AM_RawSand" or text()="PRF_RawSand"]</xpath>
-        <value>
-            <li>DZ_Sand</li>
-        </value>
     </Operation>
 
 </Patch>

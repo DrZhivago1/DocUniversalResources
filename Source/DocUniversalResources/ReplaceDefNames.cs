@@ -57,6 +57,61 @@ namespace DocUniversalResources
                         newName = "DZ_Tofu";
                     }
                     //  ==================
+                    //      Earthy
+                    //  ==================
+                    if (defName == "AdobeRaw" || defName == "VBY_ClayPaste" || defName == "AM_RawMud" || defName == "N7_RawMudbrick")
+                    {
+                        newName = "DZ_Adobe";
+                    }
+                    if (defName == "D9Cement" || defName == "RFFCement" || defName == "PRF_Cement")
+                    {
+                        newName = "DZ_Cement";
+                    }
+                    if (defName == "Charcoal" || defName == "CharCoalOre" || defName == "SRV_Charcoal" || defName == "AYCharcoal" || defName == "VMEu_Charcoal")
+                    {
+                        newName = "DZ_Charcoal";
+                    }
+                    if (defName == "AM_RawClay" || defName == "N7_RawClay" || defName == "PRF_RawClay" || defName == "RFFClay")
+                    {
+                        newName = "DZ_Clay";
+                    }
+                    if (defName == "MedTimes_Resource_Coal" || defName == "CoalOre" || defName == "AM_Coal" || defName == "CaS_Coal" || defName == "WDCoal" || defName == "Coal" || defName == "RH_TET_Coal" || defName == "SB_coal_ore" || defName == "PRF_Coal" || defName == "VMEu_Coal")
+                    {
+                        newName = "DZ_Coal";
+                    }
+                    if (defName == "AM_CokeCoal" || defName == "PRF_Coke")
+                    {
+                        newName = "DZ_CoalCoke";
+                    }
+                    if (defName == "AC_RawCompost" || defName == "RF_Compost" || defName == "RPC_Compost" || defName == "AYCompost" || defName == "VG_Compost" || defName == "RawCompost")
+                    {
+                        newName = "DZ_Compost";
+                    }
+                    if (defName == "CrushedRocks" || defName == "VMEu_RockPowder")
+                    {
+                        newName = "DZ_CrushedRock";
+                    }
+                    if (defName == "AC_Fertilizer" || defName == "RawFertilizer" || defName == "Fertilizer")
+                    {
+                        newName = "DZ_Fertilizer";
+                    }
+                    if (defName == "PRF_Fossil" || defName == "VMEu_Fossil")
+                    {
+                        newName = "DZ_Fossil";
+                    }
+                    if (defName == "AM_CrudeOil" || defName == "OilBarrel" || defName == "PRF_Oil" || defName == "VMEu_DarkOil")
+                    {
+                        newName = "DZ_Oil";
+                    }
+                    if (defName == "RWF_Salt" || defName == "RimSeasoning_Salt" || defName == "AYSalt" || defName == "ChunkSalt" || defName == "VCE_Salt")
+                    {
+                        newName = "DZ_Salt";
+                    }
+                    if (defName == "AM_RawSand" || defName == "N7_Sand" || defName == "PRF_RawSand" || defName == "SandPile")
+                    {
+                        newName = "DZ_Sand";
+                    }
+                    //  ==================
                     //      Metal
                     //  ==================
                     if (defName == "Adamantite" || defName == "WoW_adamantite")

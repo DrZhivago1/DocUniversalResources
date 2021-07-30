@@ -1,8 +1,15 @@
 <Patch>
 
     <!--==========
-    Compost {Advanced Cultivation, Rimworld Farming, ResourcePackCore, Apothecary (Continued), VGP Garden Tools, Fertile Fields [1.1]}
+    Compost
+    Universal Replacements
     ==========-->
+    <!--AC_RawCompost = Advanced Cultivation-->
+    <!--RF_Compost = Rimworld Farming-->
+    <!--RPC_Compost = ResourcePackCore-->
+    <!--AYCompost = Apothecary (Continued)-->
+    <!--VG_Compost = VGP Garden Tools-->
+    <!--RawCompost = Fertile Fields [1.1]-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -13,34 +20,29 @@
             <li>dismarzero.VGP.VGPGardenTools</li>
             <!--<li>jamaicancastle.RF.fertilefields</li>-->
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Compost" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Compost</defName>
-                            <label>Compost</label>
-                            <description>Compost: A mix of organic waste.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Standard_Pickup</soundInteract>
-                            <soundDrop>Standard_Pickup</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <DeteriorationRate>2</DeteriorationRate>
-                                <MarketValue>1.0</MarketValue>
-                                <Mass>0.5</Mass>
-                                <Flammability>1</Flammability>
-                            </statBases>
-                            <tradeTags />
-                            <stuffProps />
-                            <smeltable>false</smeltable>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Compost" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Compost</defName>
+                    <label>Compost</label>
+                    <description>Compost: A mix of organic waste.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Standard_Pickup</soundInteract>
+                    <soundDrop>Standard_Pickup</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <DeteriorationRate>2</DeteriorationRate>
+                        <MarketValue>1.0</MarketValue>
+                        <Mass>0.5</Mass>
+                        <Flammability>1</Flammability>
+                    </statBases>
+                    <tradeTags />
+                    <stuffProps />
+                    <smeltable>false</smeltable>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -56,20 +58,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!Use/replace graphics to ThingDef>
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>RawCompost</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!Use/replace graphics
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>RawCompost</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!Remove resource>
+
+                <!Remove resource
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AC_RawCompost"]</xpath>
                 </li>
+
+                <!Replace References
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AC_RawCompost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AC_RawCompost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AC_RawCompost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>-->
@@ -82,20 +113,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>RFCompost</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>RFCompost</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RF_Compost"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RF_Compost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RF_Compost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RF_Compost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -108,20 +168,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/RPC_Compost/RPC_Compost</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/RPC_Compost/RPC_Compost</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RPC_Compost"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RPC_Compost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RPC_Compost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RPC_Compost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -134,20 +223,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Misc/AYCompost/AYCompost</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Misc/AYCompost/AYCompost</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AYCompost"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AYCompost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AYCompost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AYCompost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -160,20 +278,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Compoststart</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Compoststart</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VG_Compost"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VG_Compost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VG_Compost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VG_Compost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -186,53 +333,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <-Use/replace graphics to ThingDef->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Compost</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
+                    <operations>
+                        <!Use/replace graphics>
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Compost</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <-Remove resource->
+
+                <!Remove resource>
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RawCompost"]</xpath>
                 </li>
+
+                <!Replace References>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RawCompost"]</xpath>
+                    <value>
+                        <thingDef>DZ_Compost</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RawCompost"]</xpath>
+                    <value>
+                        <li>DZ_Compost</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RawCompost</xpath>
+                    <name>DZ_Compost</name>
+                </li>
+
             </operations>
         </match>
     </Operation>-->
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AC_RawCompost = Advanced Cultivation-->
-    <!--RF_Compost = Rimworld Farming-->
-    <!--RPC_Compost = ResourcePackCore-->
-    <!--AYCompost = Apothecary (Continued)-->
-    <!--VG_Compost = VGP Garden Tools-->
-    <!--RawCompost = Fertile Fields [1.1]-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="RPC_Compost" or text()="RF_Compost" or text()="AYCompost" or text()="VG_Compost"]</xpath>
-        <value>
-            <thingDef>DZ_Compost</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::RPC_Compost or self::RF_Compost or self::AYCompost or self::VG_Compost]</xpath>
-        <name>DZ_Compost</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="RPC_Compost" or text()="RF_Compost" or text()="AYCompost" or text()="VG_Compost"]</xpath>
-        <value>
-            <li>DZ_Compost</li>
-        </value>
-    </Operation>
 
 </Patch>

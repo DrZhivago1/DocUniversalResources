@@ -1,8 +1,14 @@
 <Patch>
 
     <!--==========
-    Charcoal {Coal Expanded, Simple Mining Extension, Survivalist's Additions, Apothecary (Continued), Expanded Materials - Metals}
+    Charcoal
+    Universal Replacements
     ==========-->
+    <!--Charcoal = Coal Expanded-->
+    <!--CharCoalOre = Simple Mining Extension-->
+    <!--SRV_Charcoal = Survivalist's Additions-->
+    <!--AYCharcoal = Apothecary (Continued)-->
+    <!--VMEu_Charcoal = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -39,7 +45,7 @@
                 </li>
                 <!--Universal Fuel
                 <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable" and fuelFilter/thingDefs/li[text()="WoodLog"]]/fuelFilter/thingDefs</xpath>
+                    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable" and fuelFilter/thingDefs/li[text()="WoodLog"] and not(fuelFilter/thingDefs/li[text()="DZ_Charcoal")]/fuelFilter/thingDefs</xpath>
                     <value>
                         <li>DZ_Charcoal</li>
                     </value>
@@ -60,20 +66,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Charcoal</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Charcoal</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Charcoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Charcoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Charcoal"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Charcoal</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -86,20 +121,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>resources/charcoal</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>resources/charcoal</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CharCoalOre"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CharCoalOre"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CharCoalOre"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CharCoalOre</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -112,21 +176,37 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Item/Material/Charcoal</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[defName="BurnedTree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>Cupro/Item/Material/Charcoal</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
-                        </graphicData>
+                        <harvestedThingDef>DZ_Charcoal</harvestedThingDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SRV_Charcoal"]</xpath>
                 </li>
+
                 <!--Add blank Def, not sure of the use cases, possibly broke something-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
@@ -141,6 +221,28 @@
                         </ThingDef>
                     </value>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SRV_Charcoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SRV_Charcoal"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SRV_Charcoal</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -153,20 +255,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                    <value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
                         <graphicData>
                             <texPath>Things/Item/Resource/Misc/AYCharcoal/AYCharcoal</texPath>
                             <graphicClass>Graphic_Single</graphicClass>
                         </graphicData>
-                    </value>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AYCharcoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AYCharcoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AYCharcoal"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AYCharcoal</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -179,60 +310,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]/graphicData</xpath>
-                    <value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
                         <graphicData>
                             <texPath>Things/Item/Resource/VMEu_Charcoal</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_Charcoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Charcoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Charcoal"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Charcoal</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Charcoal = Coal Expanded-->
-    <!--VMEu_Charcoal = Expanded Materials - Metals-->
-    <!--SRV_Charcoal = Survivalist's Additions-->
-    <!--AYCharcoal = Apothecary (Continued)-->
-    <!--CharCoalOre = Simple Mining Extension-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
-        <value>
-            <thingDef>DZ_Charcoal</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Charcoal or self::VMEu_Charcoal or self::SRV_Charcoal or self::AYCharcoal or self::CharCoalOre]</xpath>
-        <name>DZ_Charcoal</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
-        <value>
-            <li>DZ_Charcoal</li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//harvestedThingDef[text()="Charcoal" or text()="VMEu_Charcoal" or text()="SRV_Charcoal" or text()="AYCharcoal" or text()="CharCoalOre"]</xpath>
-        <value>
-            <harvestedThingDef>DZ_Charcoal</harvestedThingDef>
-        </value>
     </Operation>
 
 </Patch>

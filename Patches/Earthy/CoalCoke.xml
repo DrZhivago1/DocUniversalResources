@@ -1,41 +1,39 @@
 <Patch>
 
     <!--==========
-    Coal Coke {Materials+, Project RimFactory - Materials}
+    Coal Coke
+    Universal Replacements
     ==========-->
+    <!--AM_CokeCoal = Materials+-->
+    <!--PRF_Coke = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>PRF.Materials</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_CoalCoke" ParentName="DZ_EarthyBase">
-                            <defName>DZ_CoalCoke</defName>
-                            <label>Coal coke</label>
-                            <description>Coal coke: Made by heating coal in the absence of air. A great fuel source.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Standard_Pickup</soundInteract>
-                            <soundDrop>Standard_Pickup</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <MarketValue>1.5</MarketValue>
-                                <Mass>0.15</Mass>
-                                <Flammability>1</Flammability>
-                            </statBases>
-                            <tradeTags />
-                            <stuffProps />
-                            <smeltable>false</smeltable>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_CoalCoke" ParentName="DZ_EarthyBase">
+                    <defName>DZ_CoalCoke</defName>
+                    <label>Coal coke</label>
+                    <description>Coal coke: Made by heating coal in the absence of air. A great fuel source.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Standard_Pickup</soundInteract>
+                    <soundDrop>Standard_Pickup</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <MarketValue>1.5</MarketValue>
+                        <Mass>0.15</Mass>
+                        <Flammability>1</Flammability>
+                    </statBases>
+                    <tradeTags />
+                    <stuffProps />
+                    <smeltable>false</smeltable>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -51,20 +49,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_Coke</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_Coke</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_CokeCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_CokeCoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_CoalCoke</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_CokeCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalCoke</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_CokeCoal</xpath>
+                    <name>DZ_CoalCoke</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -77,49 +104,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Coke</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Coke</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Coke"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Coke"]</xpath>
+                    <value>
+                        <thingDef>DZ_CoalCoke</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Coke"]</xpath>
+                    <value>
+                        <li>DZ_CoalCoke</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Coke</xpath>
+                    <name>DZ_CoalCoke</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_CokeCoal = Materials+-->
-    <!--PRF_Coke = Project RimFactory - Materials-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AM_CokeCoal" or text()="PRF_Coke"]</xpath>
-        <value>
-            <thingDef>DZ_CoalCoke</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
-        <xpath>/Defs//*[self::AM_CokeCoal or self::PRF_Coke]</xpath>
-        <name>DZ_CoalCoke</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AM_CokeCoal" or text()="PRF_Coke"]</xpath>
-        <value>
-            <li>DZ_CoalCoke</li>
-        </value>
     </Operation>
 
 </Patch>

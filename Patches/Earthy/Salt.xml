@@ -1,8 +1,14 @@
 <Patch>
 
     <!--==========
-    Salt {Real World Food 2 (Continued), RimSeasoning, Apothecary (Continued), [KYD] Rebalanced - Apothecary, VGP Garden Gourmet, Salted Meat, Vanilla Cooking Expanded}
+    Salt
+    Universal Replacements
     ==========-->
+    <!--RWF_Salt = Real World Food 2 (Continued)-->
+    <!--RimSeasoning_Salt = RimSeasoning-->
+    <!--AYSalt = Apothecary (Continued)-->
+    <!--ChunkSalt = VGP Garden Gourmet-->
+    <!--VCE_Salt = Vanilla Cooking Expanded, Salted Meat (only requires a loadAfter rule)-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -12,40 +18,36 @@
             <li>dismarzero.VGP.VGPGardenGourmet</li>
             <li>VanillaExpanded.VCookE</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Salt" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Salt</defName>
-                            <label>Salt</label>
-                            <description>Salt: Enhances flavors in cooking and preserves organics.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MarketValue>1.76</MarketValue>
-                                <Nutrition>1</Nutrition>
-                                <Flammability>1.3</Flammability>
-                                <MaxHitPoints>60</MaxHitPoints>
-                                <Mass>0.03</Mass>
-                                <DeteriorationRate>3</DeteriorationRate>
-                            </statBases>
-                            <healthAffectsPrice>false</healthAffectsPrice>
-                            <deepCommonality>1.25</deepCommonality>
-                            <deepCountPerPortion>10</deepCountPerPortion>
-                            <deepLumpSizeRange>2~5</deepLumpSizeRange>
-                            <ingestible>
-                                <foodType>Plant</foodType>
-                                <preferability>NeverForNutrition</preferability>
-                            </ingestible>
-                            <tradeTags />
-                            <comps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Salt" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Salt</defName>
+                    <label>Salt</label>
+                    <description>Salt: Enhances flavors in cooking and preserves organics.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>1.76</MarketValue>
+                        <Nutrition>1</Nutrition>
+                        <Flammability>1.3</Flammability>
+                        <MaxHitPoints>60</MaxHitPoints>
+                        <Mass>0.03</Mass>
+                        <DeteriorationRate>3</DeteriorationRate>
+                    </statBases>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <deepCommonality>1.25</deepCommonality>
+                    <deepCountPerPortion>10</deepCountPerPortion>
+                    <deepLumpSizeRange>2~5</deepLumpSizeRange>
+                    <ingestible>
+                        <foodType>Plant</foodType>
+                        <preferability>NeverForNutrition</preferability>
+                        <specialThoughtAsIngredient />
+                    </ingestible>
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -61,30 +63,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Food_In/Salt/RWF_Salt</texPath>
-                                <drawSize>0.9</drawSize>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Food_In/Salt/RWF_Salt</texPath>
-                            <drawSize>0.9</drawSize>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Food_In/Salt/RWF_Salt</texPath>
+                                    <drawSize>0.9</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RWF_Salt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RWF_Salt"]</xpath>
+                    <value>
+                        <thingDef>DZ_Salt</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RWF_Salt"]</xpath>
+                    <value>
+                        <li>DZ_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RWF_Salt</xpath>
+                    <name>DZ_Salt</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -97,38 +118,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Salt/Salt</texPath>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <texPath>Salt/Salt</texPath>
-                        </value>
-                    </nomatch>
-                </li>
-                <!--Use hediff comp-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/comps</xpath>
-                    <value>
-                        <li Class="RimSeasoning.CompProperties_Seasoning">
-                            <compClass>RimSeasoning.CompSeasoning</compClass>
-                            <consumedThought>RimSeasoning_AteWithSalt</consumedThought>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Salt/Salt</texPath>
+                                </graphicData>
+                            </value>
                         </li>
-                    </value>
+                        <!--Use hediff comp-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps</xpath>
+                            <value>
+                                <li Class="RimSeasoning.CompProperties_Seasoning">
+                                    <compClass>RimSeasoning.CompSeasoning</compClass>
+                                    <consumedThought>RimSeasoning_AteWithSalt</consumedThought>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RimSeasoning_Salt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RimSeasoning_Salt"]</xpath>
+                    <value>
+                        <thingDef>DZ_Salt</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RimSeasoning_Salt"]</xpath>
+                    <value>
+                        <li>DZ_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RimSeasoning_Salt</xpath>
+                    <name>DZ_Salt</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -141,28 +182,48 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Misc/AYSalt/AYSalt</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AYSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AYSalt"]</xpath>
+                    <value>
+                        <thingDef>DZ_Salt</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AYSalt"]</xpath>
+                    <value>
+                        <li>DZ_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AYSalt</xpath>
+                    <name>DZ_Salt</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -191,34 +252,54 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Salt</texPath>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Salt</texPath>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Salt</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="ChunkSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="ChunkSalt"]</xpath>
+                    <value>
+                        <thingDef>DZ_Salt</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="ChunkSalt"]</xpath>
+                    <value>
+                        <li>DZ_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//ChunkSalt</xpath>
+                    <name>DZ_Salt</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
     <!--Vanilla Cooking Expanded-->
-    <!--Salted Meat(Only requires a loadAfter rule)-->
+    <!--Salted Meat-->
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
             <li>VanillaExpanded.VCookE</li>
@@ -226,84 +307,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Items/Condiments/VCE_Salt</texPath>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Items/Condiments/VCE_Salt</texPath>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Condiments/VCE_Salt</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace specialThoughtAsIngredient-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible/specialThoughtAsIngredient</xpath>
+                            <value>
+                                <specialThoughtAsIngredient>VCE_ConsumedSalt</specialThoughtAsIngredient>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Use/replace specialThoughtAsIngredient-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible/specialThoughtAsIngredient</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible/specialThoughtAsIngredient</xpath>
-                        <value>
-                            <specialThoughtAsIngredient>VCE_ConsumedSalt</specialThoughtAsIngredient>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Salt"]/ingestible</xpath>
-                        <value>
-                            <specialThoughtAsIngredient>VCE_ConsumedSalt</specialThoughtAsIngredient>
-                        </value>
-                    </nomatch>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VCE_Salt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VCE_Salt"]</xpath>
+                    <value>
+                        <thingDef>DZ_Salt</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VCE_Salt"]</xpath>
+                    <value>
+                        <li>DZ_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VCE_Salt</xpath>
+                    <name>DZ_Salt</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--VCE_Salt = Vanilla Cooking Expanded-->
-    <!--AYSalt = Apothecary (Continued)-->
-    <!--RWF_Salt = Real World Food 2 (Continued)-->
-    <!--RimSeasoning_Salt = RimSeasoning-->
-    <!--ChunkSalt = VGP Garden Gourmet-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]</xpath>
-        <value>
-            <thingDef>DZ_Salt</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs//*[self::VCE_Salt or self::AYSalt or self::RWF_Salt or self::RimSeasoning_Salt or self::ChunkSalt]</xpath>
-        <name>DZ_Salt</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]</xpath>
-        <value>
-            <li>DZ_Salt</li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="VCE_Salt" or text()="AYSalt" or text()="RWF_Salt" or text()="RimSeasoning_Salt" or text()="ChunkSalt"]</xpath>
-        <value>
-            <mineableThing>DZ_Salt</mineableThing>
-        </value>
     </Operation>
 
 </Patch>

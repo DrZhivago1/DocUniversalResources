@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Adobe {Simple Mining Extension, Primitive Workbenches, Materials+, Ceramics}
+    Adobe 
+    Universal Replacements
     ==========-->
+    <!--AdobeRaw = Simple Mining Extension-->
+    <!--VBY_ClayPaste = Primitive Workbenches-->
+    <!--AM_RawMud = Materials+-->
+    <!--N7_RawMudbrick = Ceramics-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -11,33 +16,28 @@
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Adobe" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Adobe</defName>
-                            <label>Adobe</label>
-                            <description>Adobe: Organics combined with clay to produce moldable material.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Stone_Drop</soundInteract>
-                            <soundDrop>Stone_Drop</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <Mass>1.0</Mass>
-                                <Beauty>-2</Beauty>
-                                <Flammability>0.1</Flammability>
-                            </statBases>
-                            <tickerType />
-                            <tradeTags />
-                            <comps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Adobe" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Adobe</defName>
+                    <label>Adobe</label>
+                    <description>Adobe: Organics combined with clay to produce moldable material.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Stone_Drop</soundInteract>
+                    <soundDrop>Stone_Drop</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <Mass>1.0</Mass>
+                        <Beauty>-2</Beauty>
+                        <Flammability>0.1</Flammability>
+                    </statBases>
+                    <tickerType />
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -53,37 +53,66 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>resources/AdobeRaw</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(168,140,104)</color>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Use Ticker-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/tickerType</xpath>
-                    <value>
-                        <tickerType>Rare</tickerType>
-                    </value>
-                </li>
-                <!--Allow Drying-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/comps</xpath>
-                    <value>
-                        <li Class="OreProcessing.CompProperties_Dryable">
-                            <defDriesTo>DZ_BlocksAdobe</defDriesTo>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>resources/AdobeRaw</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(168,140,104)</color>
+                                </graphicData>
+                            </value>
                         </li>
-                    </value>
+                        <!--Use Ticker-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/tickerType</xpath>
+                            <value>
+                                <tickerType>Rare</tickerType>
+                            </value>
+                        </li>
+                        <!--Allow Drying-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps</xpath>
+                            <value>
+                                <li Class="OreProcessing.CompProperties_Dryable">
+                                    <defDriesTo>DZ_BlocksAdobe</defDriesTo>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AdobeRaw"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AdobeRaw"]</xpath>
+                    <value>
+                        <thingDef>DZ_Adobe</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AdobeRaw"]</xpath>
+                    <value>
+                        <li>DZ_Adobe</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AdobeRaw</xpath>
+                    <name>DZ_Adobe</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -96,21 +125,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VBY_WetClay</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <drawSize>0.90</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VBY_WetClay</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>0.90</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VBY_ClayPaste"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VBY_ClayPaste"]</xpath>
+                    <value>
+                        <thingDef>DZ_Adobe</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VBY_ClayPaste"]</xpath>
+                    <value>
+                        <li>DZ_Adobe</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VBY_ClayPaste</xpath>
+                    <name>DZ_Adobe</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -123,20 +181,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_Mud</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_Mud</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_RawMud"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_RawMud"]</xpath>
+                    <value>
+                        <thingDef>DZ_Adobe</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_RawMud"]</xpath>
+                    <value>
+                        <li>DZ_Adobe</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_RawMud</xpath>
+                    <name>DZ_Adobe</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -149,16 +236,23 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/RawMudBrick</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/RawMudBrick</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Replace drying resource-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[defName="Building_DryingRack"]/comps/li[@Class="Ceramics.CompProperties_Processing"]/ingredientDef</xpath>
@@ -166,42 +260,35 @@
                         <ingredientDef>DZ_Adobe</ingredientDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="N7_RawMudbrick"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="N7_RawMudbrick"]</xpath>
+                    <value>
+                        <thingDef>DZ_Adobe</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="N7_RawMudbrick"]</xpath>
+                    <value>
+                        <li>DZ_Adobe</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//N7_RawMudbrick</xpath>
+                    <name>DZ_Adobe</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AdobeRaw = Simple Mining Extension-->
-    <!--VBY_ClayPaste = Primitive Workbenches-->
-    <!--AM_RawMud = Materials+-->
-    <!--N7_RawMudbrick = Ceramics-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick" or text()="AM_RawMud"]</xpath>
-        <value>
-            <thingDef>DZ_Adobe</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AdobeRaw or self::VBY_ClayPaste or self::N7_RawMudbrick or self::AM_RawMud]</xpath>
-        <name>DZ_Adobe</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AdobeRaw" or text()="VBY_ClayPaste" or text()="N7_RawMudbrick" or text()="AM_RawMud"]</xpath>
-        <value>
-            <li>DZ_Adobe</li>
-        </value>
     </Operation>
 
 </Patch>

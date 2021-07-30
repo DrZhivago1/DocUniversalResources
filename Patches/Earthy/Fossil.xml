@@ -1,51 +1,49 @@
 <Patch>
 
     <!--==========
-    Fossil {Project RimFactory - Materials, Expanded Materials - Metals}
+    Fossil
+    Universal Replacements
     ==========-->
+    <!--PRF_Fossil = Project RimFactory - Materials-->
+    <!--VMEu_Fossil = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
             <li>PRF.Materials</li>
             <li>argon.vmeu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Fossil" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Fossil</defName>
-                            <label>Fossil</label>
-                            <description>Fossil: Animal matter turned into stone by time.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Metal_Drop</soundInteract>
-                            <soundDrop>Metal_Drop</soundDrop>
-                            <statBases>
-                                <MarketValue>6</MarketValue>
-                                <Mass>0.5</Mass>
-                                <StuffPower_Armor_Sharp>1</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.75</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>0.68</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                                <SharpDamageMultiplier>1</SharpDamageMultiplier>
-                                <BluntDamageMultiplier>1</BluntDamageMultiplier>
-                            </statBases>
-                            <useHitPoints>false</useHitPoints>
-                            <healthAffectsPrice>false</healthAffectsPrice>
-                            <deepCommonality>0.5</deepCommonality>
-                            <deepCountPerPortion>11</deepCountPerPortion>
-                            <deepLumpSizeRange>3~7</deepLumpSizeRange>
-                            <burnableByRecipe>false</burnableByRecipe>
-                            <smeltable>true</smeltable>
-                            <stuffProps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Fossil" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Fossil</defName>
+                    <label>Fossil</label>
+                    <description>Fossil: Animal matter turned into stone by time.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Metal_Drop</soundInteract>
+                    <soundDrop>Metal_Drop</soundDrop>
+                    <statBases>
+                        <MarketValue>6</MarketValue>
+                        <Mass>0.5</Mass>
+                        <StuffPower_Armor_Sharp>1</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.75</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.68</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>1</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>1</BluntDamageMultiplier>
+                    </statBases>
+                    <useHitPoints>false</useHitPoints>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <deepCommonality>0.5</deepCommonality>
+                    <deepCountPerPortion>11</deepCountPerPortion>
+                    <deepLumpSizeRange>3~7</deepLumpSizeRange>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>true</smeltable>
+                    <stuffProps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -61,20 +59,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Fossil</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Fossil</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Fossil"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Fossil"]</xpath>
+                    <value>
+                        <thingDef>DZ_Fossil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Fossil"]</xpath>
+                    <value>
+                        <li>DZ_Fossil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Fossil</xpath>
+                    <name>DZ_Fossil</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -87,72 +114,73 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Fossil</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_Fossil</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace stuffProps to ThingDef-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <categories>
+                                        <li>Stony</li>
+                                    </categories>
+                                    <commonality>1.00</commonality>
+                                    <constructEffect>ConstructMetal</constructEffect>
+                                    <color>(176,146,100)</color>
+                                    <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                    <statFactors>
+                                        <MaxHitPoints>1</MaxHitPoints>
+                                        <Beauty>1.65</Beauty>
+                                        <Flammability>0.06</Flammability>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Use/replace stuffProps to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]/stuffProps</xpath>
-                    <value>
-                        <stuffProps>
-                            <categories>
-                                <li>Stony</li>
-                            </categories>
-                            <commonality>1.00</commonality>
-                            <constructEffect>ConstructMetal</constructEffect>
-                            <color>(176,146,100)</color>
-                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-                            <statFactors>
-                                <MaxHitPoints>1</MaxHitPoints>
-                                <Beauty>1.65</Beauty>
-                                <Flammability>0.06</Flammability>
-                            </statFactors>
-                        </stuffProps>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_Fossil"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Fossil"]</xpath>
+                    <value>
+                        <thingDef>DZ_Fossil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Fossil"]</xpath>
+                    <value>
+                        <li>DZ_Fossil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Fossil</xpath>
+                    <name>DZ_Fossil</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--PRF_Fossil = Project RimFactory - Materials-->
-    <!--VMEu_Fossil = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="PRF_Fossil" or text()="VMEu_Fossil"]</xpath>
-        <value>
-            <thingDef>DZ_Fossil</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::PRF_Fossil or self::VMEu_Fossil]</xpath>
-        <name>DZ_Fossil</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="PRF_Fossil" or text()="VMEu_Fossil"]</xpath>
-        <value>
-            <li>DZ_Fossil</li>
-        </value>
     </Operation>
 
 </Patch>

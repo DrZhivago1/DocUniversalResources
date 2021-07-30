@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Clay {Materials+, Ceramics, Project RimFactory - Materials, Fertile Fields}
+    Clay
+    Universal Replacements
     ==========-->
+    <!--AM_RawClay = Materials+-->
+    <!--N7_RawClay = Ceramics-->
+    <!--PRF_RawClay = Project RimFactory - Materials-->
+    <!--RFFClay = Fertile Fields-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -11,45 +16,28 @@
             <li>PRF.Materials</li>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Clay" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Clay</defName>
-                            <label>Clay</label>
-                            <description>Clay: Can be molded, folded, and/or fired to create bricks.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Standard_Pickup</soundInteract>
-                            <soundDrop>Standard_Pickup</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <MarketValue>0.1</MarketValue>
-                                <Mass>0.15</Mass>
-                                <Flammability>0</Flammability>
-                            </statBases>
-                            <tradeTags />
-                            <stuffProps />
-                            <smeltable>false</smeltable>
-                        </ThingDef>
-                    </value>
-                </li>
-                <!--Combat Extended, taken from Ceramics (Discontinued support b/c I don't know what I'm doing. Some CE nerd plz help.)
-                <li Class="PatchOperation_DZ.FindModByID">
-                    <mods>
-                        <li>CETeam.CombatExtended</li>
-                    </mods>
-                    <match Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/statBases</xpath>
-                        <value>
-                            <Bulk>0.05</Bulk>
-                        </value>
-                    </match>
-                </li>-->
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Clay" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Clay</defName>
+                    <label>Clay</label>
+                    <description>Clay: Can be molded, folded, and/or fired to create bricks.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Standard_Pickup</soundInteract>
+                    <soundDrop>Standard_Pickup</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <MarketValue>0.1</MarketValue>
+                        <Mass>0.15</Mass>
+                        <Flammability>0</Flammability>
+                    </statBases>
+                    <tradeTags />
+                    <stuffProps />
+                    <smeltable>false</smeltable>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -65,20 +53,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_Clay</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_Clay</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_RawClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_RawClay"]</xpath>
+                    <value>
+                        <thingDef>DZ_Clay</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_RawClay"]</xpath>
+                    <value>
+                        <li>DZ_Clay</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_RawClay</xpath>
+                    <name>DZ_Clay</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -91,41 +108,70 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Clay</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Clay</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Add StuffProps to ThingDef-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <categories Inherit="false">
+                                        <li>Clay</li>
+                                    </categories>
+                                    <color>(128,70,27)</color>
+                                    <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                    <stuffAdjective>clay</stuffAdjective>
+                                    <statFactors>
+                                        <MarketValue>0.6</MarketValue>
+                                        <Flammability>0</Flammability>
+                                        <Beauty>0.7</Beauty>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Add StuffProps to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/stuffProps</xpath>
-                    <value>
-                        <stuffProps>
-                            <categories Inherit="false">
-                                <li>Clay</li>
-                            </categories>
-                            <color>(128,70,27)</color>
-                            <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                            <stuffAdjective>clay</stuffAdjective>
-                            <statFactors>
-                                <MarketValue>0.6</MarketValue>
-                                <Flammability>0</Flammability>
-                                <Beauty>0.7</Beauty>
-                            </statFactors>
-                        </stuffProps>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="N7_RawClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="N7_RawClay"]</xpath>
+                    <value>
+                        <thingDef>DZ_Clay</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="N7_RawClay"]</xpath>
+                    <value>
+                        <li>DZ_Clay</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//N7_RawClay</xpath>
+                    <name>DZ_Clay</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -138,20 +184,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Clay</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Clay</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_RawClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_RawClay"]</xpath>
+                    <value>
+                        <thingDef>DZ_Clay</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_RawClay"]</xpath>
+                    <value>
+                        <li>DZ_Clay</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_RawClay</xpath>
+                    <name>DZ_Clay</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -164,59 +239,59 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Clay</texPath>
-                            <color>(132,115,82)</color>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Clay</texPath>
+                                    <color>(132,115,82)</color>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Add FF trade tags to ThingDef-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>TerraformingResources</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Add FF trade tags to ThingDef-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Clay"]/tradeTags</xpath>
-                    <value>
-                        <li>TerraformingResources</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RFFClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RFFClay"]</xpath>
+                    <value>
+                        <thingDef>DZ_Clay</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RFFClay"]</xpath>
+                    <value>
+                        <li>DZ_Clay</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RFFClay</xpath>
+                    <name>DZ_Clay</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--RFFClay = Fertile Fields-->
-    <!--N7_RawClay = Ceramics-->
-    <!--AM_RawClay = Materials+-->
-    <!--PRF_RawClay = Project RimFactory - Materials-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="RFFClay" or text()="N7_RawClay" or text()="AM_RawClay" or text()="PRF_RawClay"]</xpath>
-        <value>
-            <thingDef>DZ_Clay</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!-- MANDATORY due to vanilla bug -->
-        <xpath>/Defs//*[self::RFFClay or self::N7_RawClay or self::AM_RawClay or self::PRF_RawClay]</xpath>
-        <name>DZ_Clay</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="RFFClay" or text()="N7_RawClay" or text()="AM_RawClay" or text()="PRF_RawClay"]</xpath>
-        <value>
-            <li>DZ_Clay</li>
-        </value>
     </Operation>
 
 </Patch>

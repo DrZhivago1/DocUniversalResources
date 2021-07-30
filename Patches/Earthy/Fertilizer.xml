@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Fertilizer {Advanced Cultivation, VGP Garden Tools, Fertile Fields [1.1]}
+    Fertilizer
+    Universal Replacements
     ==========-->
+    <!--AC_Fertilizer = Advanced Cultivation-->
+    <!--RawFertilizer = VGP Garden Tools-->
+    <!--Fertilizer = Fertile Fields [1.1]-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -53,20 +57,23 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Fertilizer</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Fertilizer</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Remove resource -->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="AC_Fertilizer"]</xpath>
-                </li>
+
                 <!--Replace thingCategories (uses a duplicate defName)-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[@Name="AC_FertilizerBase"]/thingCategories/li[text()="AC_Fertilizer"]</xpath>
@@ -74,6 +81,33 @@
                         <li>DZ_EarthyCategory</li>
                     </value>
                 </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AC_Fertilizer"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AC_Fertilizer"]</xpath>
+                    <value>
+                        <thingDef>DZ_Fertilizer</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AC_Fertilizer"]</xpath>
+                    <value>
+                        <li>DZ_Fertilizer</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AC_Fertilizer</xpath>
+                    <name>DZ_Fertilizer</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -86,20 +120,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Fertilizer</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Fertilizer</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RawFertilizer"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RawFertilizer"]</xpath>
+                    <value>
+                        <thingDef>DZ_Fertilizer</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RawFertilizer"]</xpath>
+                    <value>
+                        <li>DZ_Fertilizer</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RawFertilizer</xpath>
+                    <name>DZ_Fertilizer</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -112,51 +175,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!Use/replace graphics to ThingDef>
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]/graphicData</xpath>
-                    <value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
+                    <operations>
+                        <!Use/replace graphics>
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
                         <graphicData>
                             <texPath>Fertilizer</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                         </graphicData>
-                    </value>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!Remove resource>
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Fertilizer"]</xpath>
                 </li>
+
+                <!Replace References>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Fertilizer"]</xpath>
+                    <value>
+                        <thingDef>DZ_Fertilizer</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Fertilizer"]</xpath>
+                    <value>
+                        <li>DZ_Fertilizer</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Fertilizer</xpath>
+                    <name>DZ_Fertilizer</name>
+                </li>
+
             </operations>
         </match>
     </Operation>-->
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AC_Fertilizer = Advanced Cultivation-->
-    <!--RawFertilizer = VGP Garden Tools-->
-    <!--Fertilizer = Fertile Fields [1.1]-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AC_Fertilizer" or text()="RawFertilizer"]</xpath>
-        <value>
-            <thingDef>DZ_Fertilizer</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AC_Fertilizer or self::RawFertilizer]</xpath>
-        <name>DZ_Fertilizer</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AC_Fertilizer" or text()="RawFertilizer"]</xpath>
-        <value>
-            <li>DZ_Fertilizer</li>
-        </value>
-    </Operation>
 
 </Patch>

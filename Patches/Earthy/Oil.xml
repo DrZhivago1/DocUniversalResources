@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Oil {Materials+, Rimefeller, Project RimFactory - Materials, Expanded Materials - Metals}
+    Oil
+    Universal Replacements
     ==========-->
+    <!--AM_CrudeOil = Materials+-->
+    <!--OilBarrel = Rimefeller-->
+    <!--PRF_Oil = Project RimFactory - Materials-->
+    <!--VMEu_DarkOil = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -11,49 +16,44 @@
             <li>prf.materials</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Oil" ParentName="DZ_EarthyBase">
-                            <defName>DZ_Oil</defName>
-                            <label>Oil</label>
-                            <description>Oil: A viscous and combustible liquid.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <stackLimit>75</stackLimit>
-                            <healthAffectsPrice>false</healthAffectsPrice>
-                            <statBases>
-                                <MaxHitPoints>50</MaxHitPoints>
-                                <MarketValue>11</MarketValue>
-                                <Mass>0.05</Mass>
-                                <Flammability>2.0</Flammability>
-                                <DeteriorationRate>1.0</DeteriorationRate>
-                            </statBases>
-                            <deepCommonality>5</deepCommonality>
-                            <deepCountPerPortion>30</deepCountPerPortion>
-                            <deepLumpSizeRange>20~30</deepLumpSizeRange>
-                            <tickerType>Normal</tickerType>
-                            <comps>
-                                <li Class="CompProperties_Explosive">
-                                    <explosiveRadius>0.95</explosiveRadius>
-                                    <explosiveDamageType>Flame</explosiveDamageType>
-                                    <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
-                                    <startWickOnDamageTaken>
-                                        <li>Flame</li>
-                                    </startWickOnDamageTaken>
-                                    <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
-                                    <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
-                                    <preExplosionSpawnChance>1</preExplosionSpawnChance>
-                                    <wickTicks>70~150</wickTicks>
-                                </li>
-                            </comps>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Oil" ParentName="DZ_EarthyBase">
+                    <defName>DZ_Oil</defName>
+                    <label>Oil</label>
+                    <description>Oil: A viscous and combustible liquid.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <stackLimit>75</stackLimit>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <statBases>
+                        <MaxHitPoints>50</MaxHitPoints>
+                        <MarketValue>11</MarketValue>
+                        <Mass>0.05</Mass>
+                        <Flammability>2.0</Flammability>
+                        <DeteriorationRate>1.0</DeteriorationRate>
+                    </statBases>
+                    <deepCommonality>5</deepCommonality>
+                    <deepCountPerPortion>30</deepCountPerPortion>
+                    <deepLumpSizeRange>20~30</deepLumpSizeRange>
+                    <tickerType>Normal</tickerType>
+                    <comps>
+                        <li Class="CompProperties_Explosive">
+                            <explosiveRadius>0.95</explosiveRadius>
+                            <explosiveDamageType>Flame</explosiveDamageType>
+                            <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+                            <startWickOnDamageTaken>
+                                <li>Flame</li>
+                            </startWickOnDamageTaken>
+                            <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+                            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+                            <wickTicks>70~150</wickTicks>
+                        </li>
+                    </comps>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -69,21 +69,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_OilBarrel</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(180,180,180)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_OilBarrel</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(180,180,180)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_CrudeOil"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_CrudeOil"]</xpath>
+                    <value>
+                        <thingDef>DZ_Oil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_CrudeOil"]</xpath>
+                    <value>
+                        <li>DZ_Oil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_CrudeOil</xpath>
+                    <name>DZ_Oil</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -96,27 +125,56 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Rimefeller/Things/Resource/OilBarrel</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Rimefeller/Things/Resource/OilBarrel</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace comps to ThingDef (no UI graphic)
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps</xpath>
+                            <value>
+                                <li Class="Rimefeller.CompProperties_KickOver"/>
+                            </value>
+                        </li>-->
+                    </operations>
                 </li>
-                <!--Use/replace comps to ThingDef (no UI graphic)
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]/comps</xpath>
-                    <value>
-                        <li Class="Rimefeller.CompProperties_KickOver"/>
-                    </value>
-                </li>-->
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="OilBarrel"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="OilBarrel"]</xpath>
+                    <value>
+                        <thingDef>DZ_Oil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="OilBarrel"]</xpath>
+                    <value>
+                        <li>DZ_Oil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//OilBarrel</xpath>
+                    <name>DZ_Oil</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -129,20 +187,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Oil</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Oil</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Oil"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Oil"]</xpath>
+                    <value>
+                        <thingDef>DZ_Oil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Oil"]</xpath>
+                    <value>
+                        <li>DZ_Oil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Oil</xpath>
+                    <name>DZ_Oil</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -155,52 +242,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_DarkOil</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_DarkOil</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_DarkOil"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_DarkOil"]</xpath>
+                    <value>
+                        <thingDef>DZ_Oil</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_DarkOil"]</xpath>
+                    <value>
+                        <li>DZ_Oil</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_DarkOil</xpath>
+                    <name>DZ_Oil</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_CrudeOil = Materials+-->
-    <!--OilBarrel = Rimefeller-->
-    <!--PRF_Oil = Project RimFactory - Materials-->
-    <!--VMEu_DarkOil = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="VMEu_DarkOil" or text()="PRF_Oil" or text()="OilBarrel" or text()="AM_CrudeOil"]</xpath>
-        <value>
-            <thingDef>DZ_Oil</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::VMEu_DarkOil or self::PRF_Oil or self::OilBarrel or self::AM_CrudeOil]</xpath>
-        <name>DZ_Oil</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="VMEu_DarkOil" or text()="PRF_Oil" or text()="OilBarrel" or text()="AM_CrudeOil"]</xpath>
-        <value>
-            <li>DZ_Oil</li>
-        </value>
     </Operation>
 
 </Patch>

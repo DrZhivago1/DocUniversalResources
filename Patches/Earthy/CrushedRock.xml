@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Crushed Rock {Fertile Fields [1.1], [RF] Concrete (Continued), Expanded Materials - Metals}
+    Crushed Rock
+    Universal Replacements
     ==========-->
+    <!--CrushedRocks = Fertile Fields [1.1], [RF] Concrete (Continued)-->
+    <!--VMEu_RockPowder = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation_DZ.FindModByID">
         <mods>
@@ -51,20 +54,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>CrushedRocks</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>CrushedRocks</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CrushedRocks"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CrushedRocks"]</xpath>
+                    <value>
+                        <thingDef>DZ_CrushedRock</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CrushedRocks"]</xpath>
+                    <value>
+                        <li>DZ_CrushedRock</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CrushedRocks</xpath>
+                    <name>DZ_CrushedRock</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -77,73 +109,74 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_RockPowder</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation_DZ.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_RockPowder</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace stuffProps to ThingDef-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <stuffAdjective>crushed rock</stuffAdjective>
+                                    <categories>
+                                        <li>VMEu_ConcreteStuffCategory</li>
+                                    </categories>
+                                    <commonality>0.3</commonality>
+                                    <constructEffect>ConstructDirt</constructEffect>
+                                    <color>(150,150,150)</color>
+                                    <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                    <statFactors>
+                                        <MaxHitPoints>1</MaxHitPoints>
+                                        <Beauty>1</Beauty>
+                                        <Flammability>0</Flammability>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Use/replace stuffProps to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]/stuffProps</xpath>
-                    <value>
-                        <stuffProps>
-                            <stuffAdjective>crushed rock</stuffAdjective>
-                            <categories>
-                                <li>VMEu_ConcreteStuffCategory</li>
-                            </categories>
-                            <commonality>0.3</commonality>
-                            <constructEffect>ConstructDirt</constructEffect>
-                            <color>(150,150,150)</color>
-                            <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                            <statFactors>
-                                <MaxHitPoints>1</MaxHitPoints>
-                                <Beauty>1</Beauty>
-                                <Flammability>0</Flammability>
-                            </statFactors>
-                        </stuffProps>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_RockPowder"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_RockPowder"]</xpath>
+                    <value>
+                        <thingDef>DZ_CrushedRock</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_RockPowder"]</xpath>
+                    <value>
+                        <li>DZ_CrushedRock</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_RockPowder</xpath>
+                    <name>DZ_CrushedRock</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CrushedRocks = Fertile Fields [1.1], [RF] Concrete (Continued)-->
-    <!--VMEu_RockPowder = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="CrushedRocks" or text()="VMEu_RockPowder"]</xpath>
-        <value>
-            <thingDef>DZ_CrushedRock</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::CrushedRocks or self::VMEu_RockPowder]</xpath>
-        <name>DZ_CrushedRock</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="CrushedRocks" or text()="VMEu_RockPowder"]</xpath>
-        <value>
-            <li>DZ_CrushedRock</li>
-        </value>
     </Operation>
 
 </Patch>
