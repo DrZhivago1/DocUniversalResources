@@ -4,7 +4,7 @@
     Iron {Simple Chains: Steel, Vanilla Iron and Steel, Lord of the Rims - The Third Age (Continued), Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Owlchemist.SimpleChains.Steel</li>
             <li>neceros.vanillaironandsteel</li>
@@ -75,7 +75,7 @@
     ==========-->
 
     <!--Simple Chains: Steel-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Owlchemist.SimpleChains.Steel</li>
         </mods>
@@ -109,7 +109,7 @@
     </Operation>
 
     <!--Vanilla Iron and Steel-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.vanillaironandsteel</li>
         </mods>
@@ -143,7 +143,7 @@
     </Operation>
 
     <!--Lord of the Rims - The Third Age (Continued)
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
         </mods>
@@ -169,7 +169,7 @@
     </Operation>-->
 
     <!--Metals+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kyrrisayo.MetalsPlus</li>
         </mods>
@@ -203,7 +203,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -238,7 +238,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -272,7 +272,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

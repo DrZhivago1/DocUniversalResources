@@ -4,7 +4,7 @@
     Lapis Lazuli {Gems (Continued), Gemstones}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
             <li>zylle.Gemstones</li>
@@ -80,7 +80,7 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
         </mods>
@@ -124,7 +124,7 @@
     </Operation>
 
     <!--Gemstones-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>zylle.Gemstones</li>
         </mods>

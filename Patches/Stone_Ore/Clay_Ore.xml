@@ -4,7 +4,7 @@
     Clay Ore {Materials+, Ceramics}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
@@ -43,7 +43,7 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -70,7 +70,7 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
         </mods>

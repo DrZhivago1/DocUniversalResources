@@ -1,47 +1,46 @@
 <Patch>
 
     <!--==========
-    Apple {[1.0, 1.1] RimCuisine 2 Core, VGP Vegetable Garden, Vanilla Cooking Expanded}
+    Apple
+    Universal Replacements
     ==========-->
+    <!--RC2_RawApples = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--Rawapple = VGP Vegetable Garden-->
+    <!--VCE_RawApple = Vanilla Plants Expanded-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Crustypeanut.RC2.Core</li>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
             <li>VanillaExpanded.VPlantsE</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
 
-                        <ThingDef Name="DZ_RawApple" ParentName="DZ_FruitVeggieBase">
-                            <defName>DZ_RawApple</defName>
-                            <label>apples</label>
-                            <description>Apples: Edible fruit produced by an apple tree.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MarketValue>1.2</MarketValue>
-                            </statBases>
-                            <ingestible>
-                                <preferability>RawTasty</preferability>
-                                <tasteThought/>
-                                <foodType>VegetableOrFruit</foodType>
-                            </ingestible>
-                            <comps>
-                                <li Class="CompProperties_Rottable">
-                                    <daysToRotStart>15</daysToRotStart>
-                                    <rotDestroys>true</rotDestroys>
-                                </li>
-                            </comps>
-                        </ThingDef>
+                <ThingDef Name="DZ_RawApple" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawApple</defName>
+                    <label>apples</label>
+                    <description>Apples: Edible fruit produced by an apple tree.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>1.2</MarketValue>
+                    </statBases>
+                    <ingestible>
+                        <preferability>RawTasty</preferability>
+                        <tasteThought/>
+                        <foodType>VegetableOrFruit</foodType>
+                    </ingestible>
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>15</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
+                </ThingDef>
 
-                    </value>
-                </li>
-            </operations>
+            </value>
         </match>
     </Operation>
 
@@ -50,114 +49,189 @@
     ==========-->
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Crustypeanut.RC2.Core</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>RC2_Things/RC2_Veg/Apples</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[defName="RC2_PlantAppletree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>RC2_Things/RC2_Veg/Apples</texPath>
-                        </graphicData>
+                        <harvestedThingDef>DZ_RawApple</harvestedThingDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RC2_RawApples"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RC2_RawApples"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawApple</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RC2_RawApples"]</xpath>
+                    <value>
+                        <li>DZ_RawApple</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RC2_RawApples</xpath>
+                    <name>DZ_RawApple</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
     <!--VGP Vegetable Garden-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Fruits/apple</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[defName="WildAppletree" or defName="PlantAppletree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>Things/Fruits/apple</texPath>
-                        </graphicData>
+                        <harvestedThingDef>DZ_RawApple</harvestedThingDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Rawapple"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Rawapple"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawApple</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Rawapple"]</xpath>
+                    <value>
+                        <li>DZ_RawApple</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Rawapple</xpath>
+                    <name>DZ_RawApple</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
     <!--Vanilla Plants Expanded-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>VanillaExpanded.VPlantsE</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Raw/VCE_Apples</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawApple"]/graphicData</xpath>
+                    <xpath>/Defs/ThingDef[defName="VCE_AppleTree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>Things/Items/Raw/VCE_Apples</texPath>
-                        </graphicData>
+                        <harvestedThingDef>DZ_RawApple</harvestedThingDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VCE_RawApple"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VCE_RawApple"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawApple</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VCE_RawApple"]</xpath>
+                    <value>
+                        <li>DZ_RawApple</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VCE_RawApple</xpath>
+                    <name>DZ_RawApple</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--RC2_RawApples = [1.0, 1.1] RimCuisine 2 Core-->
-    <!--Rawapple = VGP Vegetable Garden-->
-    <!--VCE_RawApple = Vanilla Plants Expanded-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]</xpath>
-        <value>
-            <thingDef>DZ_RawApple</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Rawapple or self::RC2_RawApples or self::VCE_RawApple]</xpath>
-        <name>DZ_RawApple</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]</xpath>
-        <value>
-            <li>DZ_RawApple</li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//harvestedThingDef[text()="Rawapple" or text()="RC2_RawApples" or text()="VCE_RawApple"]</xpath>
-        <value>
-            <harvestedThingDef>DZ_RawApple</harvestedThingDef>
-        </value>
     </Operation>
 
 </Patch>

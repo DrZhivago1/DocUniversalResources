@@ -4,7 +4,7 @@
     Adamantite Ore {Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mercurydoll.fantasymetals</li>
             <li>Ryflamer.Rimcraft.Metals</li>
@@ -44,7 +44,7 @@
     ==========-->
 
     <!--Fantasy Metals Reforged-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mercurydoll.fantasymetals</li>
         </mods>
@@ -73,7 +73,7 @@
     </Operation>
 
     <!--[Ry]Rimcraft Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Ryflamer.Rimcraft.Metals</li>
         </mods>

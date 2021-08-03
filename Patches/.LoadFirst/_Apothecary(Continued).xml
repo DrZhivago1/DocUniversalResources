@@ -5,7 +5,7 @@
     ==========-->
 
     <!--Replace duplicate research defName with unique-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Apothecary</li>
         </mods>

@@ -4,7 +4,7 @@
     Ruby {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Gemstones, Jewelry}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
             <li>chance2000w.clockworkandsteam</li>
@@ -83,7 +83,7 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
         </mods>
@@ -127,7 +127,7 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
         </mods>
@@ -186,7 +186,7 @@
     </Operation>
 
     <!--Kura's Extra Gems-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
         </mods>
@@ -221,7 +221,7 @@
     </Operation>
 
     <!--Gemstones-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>zylle.Gemstones</li>
         </mods>
@@ -275,7 +275,7 @@
     </Operation>
 
     <!--Jewelry-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>kikohi.jewelry</li>
         </mods>

@@ -8,7 +8,7 @@
     <!--RFFCement = [RF] Concrete (Continued), Concrete for Fertile Fields-->
     <!--PRF_Cement = Project RimFactory - Materials-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dninemfive.simpleconcrete</li>
             <li>Mlie.Concrete</li>
@@ -46,7 +46,7 @@
     ==========-->
 
     <!--Simple Concrete-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dninemfive.simpleconcrete</li>
         </mods>
@@ -54,7 +54,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Cement"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -102,7 +102,7 @@
 
     <!--[RF] Concrete (Continued)-->
     <!--Concrete for Fertile Fields-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Concrete</li>
             <li>malkav73.concrete</li>
@@ -111,7 +111,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Cement"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -166,7 +166,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -174,7 +174,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Cement"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

@@ -7,7 +7,7 @@
     <!--RC2_Tofu = [1.0, 1.1] RimCuisine 2 Core-->
     <!--Rawtofu = VGP Garden Gourmet-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>crustypeanut.rc2.core</li>
             <li>dismarzero.vgp.vgpgardengourmet</li>
@@ -48,7 +48,7 @@
     ==========-->
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>crustypeanut.rc2.core</li>
         </mods>
@@ -56,7 +56,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Tofu"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -117,7 +117,7 @@
     </Operation>
 
     <!--VGP Garden Gourmet-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.vgp.vgpgardengourmet</li>
         </mods>
@@ -125,7 +125,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Tofu"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

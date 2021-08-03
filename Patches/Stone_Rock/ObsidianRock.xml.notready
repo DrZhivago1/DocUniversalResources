@@ -4,7 +4,7 @@
     Obsidian Rock {[K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures), Alpha Biomes}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraStone</li>
             <li>Kura.ExtraStoneCupro</li>
@@ -80,7 +80,7 @@
     ==========-->
 
     <!--[K]Extra Stone-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraStone</li>
         </mods>
@@ -133,7 +133,7 @@
     </Operation>
 
     <!--[K]Extra Stone(w/ Cupro's Textures)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraStoneCupro</li>
         </mods>
@@ -187,7 +187,7 @@
     </Operation>
 
     <!--Alpha Biomes-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>sarg.alphabiomes</li>
         </mods>

@@ -4,7 +4,7 @@
     Zinc {Clockwork And Steam, Cupro's Alloys (Continued)}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
             <li>Mlie.CuprosAlloys</li>
@@ -73,7 +73,7 @@
 
 
     <!--Clockwork And Steam-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
         </mods>
@@ -108,7 +108,7 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
         </mods>

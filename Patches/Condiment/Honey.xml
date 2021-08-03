@@ -8,7 +8,7 @@
     <!--RC2_Honey = [1.0, 1.1] RimCuisine 2 Core-->
     <!--RB_BaseHoney = RimBees-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Haplo.Miscellaneous.BeesNHoney</li>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
@@ -46,7 +46,7 @@
     ==========-->
 
     <!--Misc. Bees'n'Honey-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Haplo.Miscellaneous.BeesNHoney</li>
         </mods>
@@ -54,7 +54,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -134,7 +134,7 @@
     </Operation>
 
     <!--VGP Vegetable Garden-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
         </mods>
@@ -142,7 +142,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -213,7 +213,7 @@
     </Operation>
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Crustypeanut.RC2.Core</li>
         </mods>
@@ -221,7 +221,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -291,11 +291,11 @@
 
     <!--Vanilla Factions Expanded - Vikings-->
     <!--Special considerations b/c of unique fermenting barrel
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>OskarPotocki.VFE.Vikings</li>
         </mods>
-        <match Class="PatchOperation_DZ.FindModByID">
+        <match Class="PatchOperation.FindModByID">
             <mods>
                 <li>syrchalis.universalfermenter</li>
             </mods>
@@ -336,7 +336,7 @@
     </Operation>-->
 
     <!--RimBees-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>sarg.rimbees</li>
         </mods>
@@ -344,7 +344,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

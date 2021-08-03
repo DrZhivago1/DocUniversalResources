@@ -10,7 +10,7 @@
     <!--AYCharcoal = Apothecary (Continued)-->
     <!--VMEu_Charcoal = Expanded Materials - Metals-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
             <li>Yuno.SimpleOresTest</li>
@@ -59,7 +59,7 @@
     ==========-->
 
     <!--Coal Expanded-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
         </mods>
@@ -67,7 +67,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -114,7 +114,7 @@
     </Operation>
 
     <!--Simple Mining Extension-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
         </mods>
@@ -122,7 +122,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -169,7 +169,7 @@
     </Operation>
 
     <!--Survivalist's Additions-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mantrasong.SurvAdd.1</li>
         </mods>
@@ -177,7 +177,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -248,7 +248,7 @@
     </Operation>
 
     <!--Apothecary (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Apothecary</li>
         </mods>
@@ -256,7 +256,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -303,7 +303,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -311,7 +311,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

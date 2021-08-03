@@ -4,7 +4,7 @@
     Diamond Ore {Gems (Continued), Project RimFactory - Materials, Kura's Extra Gems, Jewelry}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
             <li>PRF.Materials</li>
@@ -45,7 +45,7 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
         </mods>
@@ -74,7 +74,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -103,7 +103,7 @@
     </Operation>
 
     <!--Kura's Extra Gems-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
         </mods>
@@ -132,7 +132,7 @@
     </Operation>
 
     <!--Jewelry-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>kikohi.jewelry</li>
         </mods>

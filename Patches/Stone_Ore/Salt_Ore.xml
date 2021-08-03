@@ -4,7 +4,7 @@
     Salt Ore {Real World Food 2 (Continued), RimSeasoning, VGP Garden Gourmet, Salted Meat}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RealWorldFood2</li>
             <li>tikubonn.RimSeasoning</li>
@@ -45,7 +45,7 @@
     ==========-->
 
     <!--Real World Food 2 (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RealWorldFood2</li>
         </mods>
@@ -74,7 +74,7 @@
     </Operation>
 
     <!--RimSeasoning-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>tikubonn.RimSeasoning</li>
         </mods>
@@ -103,7 +103,7 @@
     </Operation>
 
     <!--VGP Garden Gourmet-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
         </mods>
@@ -132,7 +132,7 @@
     </Operation>
 
     <!--Salted Meat-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.SaltedMeat</li>
         </mods>

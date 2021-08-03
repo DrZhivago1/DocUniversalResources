@@ -4,7 +4,7 @@
     Garnet {Kura's Extra Gems, Gemstones}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
@@ -80,7 +80,7 @@
     ==========-->
 
     <!--Kura's Extra Gems-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
         </mods>
@@ -115,7 +115,7 @@
     </Operation>
 
     <!--Gemstones-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>zylle.Gemstones</li>
         </mods>

@@ -10,7 +10,7 @@
     <!--ChunkSalt = VGP Garden Gourmet-->
     <!--VCE_Salt = Vanilla Cooking Expanded, Salted Meat (only requires a loadAfter rule)-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RealWorldFood2</li>
             <li>tikubonn.RimSeasoning</li>
@@ -56,7 +56,7 @@
     ==========-->
 
     <!--Real World Food 2 (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RealWorldFood2</li>
         </mods>
@@ -64,7 +64,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -111,7 +111,7 @@
     </Operation>
 
     <!--RimSeasoning-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>tikubonn.RimSeasoning</li>
         </mods>
@@ -119,7 +119,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -175,7 +175,7 @@
     </Operation>
 
     <!--Apothecary (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Apothecary</li>
         </mods>
@@ -183,7 +183,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -229,7 +229,7 @@
     </Operation>
 
     <!--[KYD] Rebalanced - Apothecary-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KYD.RebalancedApothecary</li>
         </mods>
@@ -245,7 +245,7 @@
     </Operation>
 
     <!--VGP Garden Gourmet-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
         </mods>
@@ -253,7 +253,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -300,7 +300,7 @@
 
     <!--Vanilla Cooking Expanded-->
     <!--Salted Meat-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>VanillaExpanded.VCookE</li>
         </mods>
@@ -308,7 +308,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Salt"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

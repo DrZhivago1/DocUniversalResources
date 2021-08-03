@@ -9,7 +9,7 @@
     <!--PRF_RawSand = Project RimFactory - Materials-->
     <!--SandPile = Fertile Fields, [RF] Concrete (Continued)-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>n7huntsman.ceramics</li>
@@ -46,7 +46,7 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -54,7 +54,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -101,7 +101,7 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
         </mods>
@@ -109,7 +109,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -156,7 +156,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -164,7 +164,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -212,7 +212,7 @@
     </Operation>
 
     <!--Fertile Fields-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
@@ -220,7 +220,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -274,7 +274,7 @@
     </Operation>
 
     <!--[RF] Concrete (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Concrete</li>
         </mods>
@@ -282,7 +282,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Sand"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

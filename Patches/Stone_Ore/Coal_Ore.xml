@@ -4,7 +4,7 @@
     Coal Ore {Simple Mining Extension, [WD] Simple Coal, RimBound, Clockwork And Steam, Coal Expanded, Rimhammer - The End Times, Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>Wemd.SimpleCoal</li>
@@ -50,7 +50,7 @@
     ==========-->
 
     <!--Simple Mining Extension-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
         </mods>
@@ -79,7 +79,7 @@
     </Operation>
 
     <!--[WD] Simple Coal-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Wemd.SimpleCoal</li>
         </mods>
@@ -108,7 +108,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -137,7 +137,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -166,7 +166,7 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
         </mods>
@@ -195,7 +195,7 @@
     </Operation>
 
     <!--Coal Expanded-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
         </mods>
@@ -224,7 +224,7 @@
     </Operation>
 
     <!--Rimhammer - The End Times-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>sickboywi.theendtimes.theendtimes</li>
         </mods>
@@ -253,7 +253,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -282,7 +282,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

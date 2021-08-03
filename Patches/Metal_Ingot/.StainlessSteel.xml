@@ -4,7 +4,7 @@
     Stainless Steel {Industrialisation, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
             <li>Mlie.CuprosAlloys</li>
@@ -74,7 +74,7 @@
     ==========-->
 
     <!--Industrialisation-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
         </mods>
@@ -108,7 +108,7 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
         </mods>
@@ -143,7 +143,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -178,7 +178,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

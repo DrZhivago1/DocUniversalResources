@@ -4,7 +4,7 @@
     Reinforced Glass {Materials+, Project RimFactory - Materials, Glass+Lights}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>PRF.Materials</li>
@@ -43,7 +43,7 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -95,7 +95,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -148,7 +148,7 @@
     </Operation>
 
     <!--Glass+Lights-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NanoCE.GlassLights</li>
         </mods>

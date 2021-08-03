@@ -46,7 +46,7 @@
     Condiment {[1.0, 1.1] RimCuisine 2 Core, Vanilla Cooking Expanded}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Crustypeanut.RC2.Core</li>
             <li>VanillaExpanded.VCookE</li>
@@ -64,7 +64,7 @@
     Earthy {}
     ==========
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li></li>
         </mods>
@@ -82,7 +82,7 @@
     Gemstones {Kura's Extra Gems}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
         </mods>
@@ -99,7 +99,7 @@
     Metal_Ingot {Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -116,7 +116,7 @@
     Metal_Ore {}
     ==========
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li></li>
         </mods>
@@ -133,7 +133,7 @@
     Synthetic {}
     ==========
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li></li>
         </mods>

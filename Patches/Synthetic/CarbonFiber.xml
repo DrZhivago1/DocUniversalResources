@@ -4,7 +4,7 @@
     Carbon Fiber {Carbon, RimPlas (Continued), Project RimFactory - Materials}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Oblitus.Carbon</li>
             <li>Mlie.RimPlas</li>
@@ -72,7 +72,7 @@
     ==========-->
 
     <!--Carbon-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Oblitus.Carbon</li>
         </mods>
@@ -98,7 +98,7 @@
     </Operation>
 
     <!--RimPlas (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RimPlas</li>
         </mods>
@@ -124,7 +124,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>prf.materials</li>
         </mods>

@@ -4,7 +4,7 @@
     Carbon Powder {RimPlas (Continued), Project RimFactory - Materials}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RimPlas</li>
             <li>PRF.Materials</li>
@@ -53,7 +53,7 @@
     ==========-->
 
     <!--RimPlas (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RimPlas</li>
         </mods>
@@ -79,7 +79,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>

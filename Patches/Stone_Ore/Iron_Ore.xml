@@ -5,7 +5,7 @@
     Iron Ore Production Chain {Simple Mining Extension, RimBound}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
             <li>Kyrrisayo.MetalsPlus</li>
@@ -47,7 +47,7 @@
     ==========-->
 
     <!--Lord of the Rims - The Third Age (Continued)
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
         </mods>
@@ -76,7 +76,7 @@
     </Operation>-->
 
     <!--Metals+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kyrrisayo.MetalsPlus</li>
         </mods>
@@ -105,7 +105,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -134,7 +134,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -163,7 +163,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -221,7 +221,7 @@
     <!--==========
     Iron Ore Production Chain
     ==========-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>KBraid.Rimbound</li>

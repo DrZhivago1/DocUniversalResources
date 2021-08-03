@@ -4,7 +4,7 @@
     Titanium {Metals+, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
@@ -73,7 +73,7 @@
     ==========-->
 
     <!--Metals+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kyrrisayo.MetalsPlus</li>
         </mods>
@@ -107,7 +107,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -142,7 +142,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

@@ -15,7 +15,7 @@
     <!--PRF_Coal = Project RimFactory - Materials-->
     <!--VMEu_Coal = Expanded Materials - Metals-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>vindar.medievaltimes</li>
             <li>Yuno.SimpleOresTest</li>
@@ -74,7 +74,7 @@
     ==========-->
 
     <!--Medieval Times Unofficial Update-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>vindar.medievaltimes</li>
         </mods>
@@ -82,7 +82,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -130,7 +130,7 @@
     </Operation>
 
     <!--Simple Mining Extension-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
         </mods>
@@ -138,7 +138,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -185,7 +185,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -193,7 +193,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -240,7 +240,7 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
         </mods>
@@ -248,7 +248,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -295,7 +295,7 @@
     </Operation>
 
     <!--[WD] Simple Coal-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Wemd.SimpleCoal</li>
         </mods>
@@ -303,7 +303,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -350,7 +350,7 @@
     </Operation>
 
     <!--Coal Expanded-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
         </mods>
@@ -358,7 +358,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -406,7 +406,7 @@
 
     <!--Rimhammer - The End Times-->
     <!--Rimhammer - The End Times - WITH GUNS!!-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>sickboywi.theendtimes.theendtimes</li>
             <li>SickBoyWi.TheEndTimes.WithGuns</li>
@@ -415,7 +415,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -462,7 +462,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -470,7 +470,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -518,7 +518,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -526,7 +526,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -573,7 +573,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -581,7 +581,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

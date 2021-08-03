@@ -4,7 +4,7 @@
     Emerald Ore {Gems (Continued), Kura's Extra Gems}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
             <li>Kura.ExtraGems</li>
@@ -43,7 +43,7 @@
     ==========-->
 
     <!--Gems (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
         </mods>
@@ -72,7 +72,7 @@
     </Operation>
 
     <!--Kura's Extra Gems-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kura.ExtraGems</li>
         </mods>

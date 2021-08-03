@@ -7,7 +7,7 @@
     <!--VCE_SmokeleafButter = Vanilla Cooking Expanded-->
     <!--SmokeleafButter = Smokeleaf Industry Reborn-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>VanillaExpanded.VCookE</li>
             <li>ogliss.bishop.smokeleafindustryreborn</li>
@@ -43,7 +43,7 @@
     ==========-->
 
     <!--Vanilla Cooking Expanded-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>VanillaExpanded.VCookE</li>
         </mods>
@@ -51,7 +51,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_SmokeleafButter"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -110,7 +110,7 @@
     </Operation>
 
     <!--Smokeleaf Industry Reborn-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>ogliss.bishop.smokeleafindustryreborn</li>
         </mods>
@@ -118,7 +118,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_SmokeleafButter"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

@@ -7,7 +7,7 @@
     <!--CrushedRocks = Fertile Fields [1.1], [RF] Concrete (Continued)-->
     <!--VMEu_RockPowder = Expanded Materials - Metals-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
@@ -46,7 +46,7 @@
     ==========-->
 
     <!--Fertile Fields [1.1], [RF] Concrete (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
@@ -55,7 +55,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -102,7 +102,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -110,7 +110,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

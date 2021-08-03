@@ -4,7 +4,7 @@
     Tungsten {Tungsten, RimVali: Far From Avalon, RimBound, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Hol.Tungsten</li>
             <li>NeziTheAvali.RimVali</li>
@@ -75,7 +75,7 @@
     ==========-->
 
     <!--Tungsten-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Hol.Tungsten</li>
         </mods>
@@ -109,7 +109,7 @@
     </Operation>
 
     <!--RimVali: Far From Avalon-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NeziTheAvali.RimVali</li>
         </mods>
@@ -144,7 +144,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -179,7 +179,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

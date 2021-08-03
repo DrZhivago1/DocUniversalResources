@@ -4,7 +4,7 @@
     Copper {Industrialisation, Clockwork And Steam, Metals+, RimBound, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
             <li>chance2000w.clockworkandsteam</li>
@@ -77,7 +77,7 @@
     ==========-->
 
     <!--Industrialisation-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
         </mods>
@@ -111,7 +111,7 @@
     </Operation>
 
     <!--Clockwork And Steam-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>chance2000w.clockworkandsteam</li>
         </mods>
@@ -146,7 +146,7 @@
     </Operation>
 
     <!--Metals+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Kyrrisayo.MetalsPlus</li>
         </mods>
@@ -180,7 +180,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>
@@ -262,7 +262,7 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
         </mods>
@@ -310,7 +310,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -344,7 +344,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

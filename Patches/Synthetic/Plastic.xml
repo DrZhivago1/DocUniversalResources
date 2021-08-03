@@ -4,7 +4,7 @@
     Plastic {Materials+, RimPlas (Continued), Rimefeller, Project RimFactory - Materials}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>Mlie.RimPlas</li>
@@ -72,7 +72,7 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -99,7 +99,7 @@
     </Operation>
 
     <!--RimPlas (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.RimPlas</li>
         </mods>
@@ -144,7 +144,7 @@
     </Operation>
 
     <!--Rimefeller-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Dubwise.Rimefeller</li>
         </mods>
@@ -196,7 +196,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>

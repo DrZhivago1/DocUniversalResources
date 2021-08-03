@@ -11,6 +11,15 @@
 DUR catches duplicate resources and replaces them with one defName.    
 	</description>
 
+	<modDependencies>
+		<li>
+			<packageId>ccl.patchoperation.highlander</packageId>
+			<displayName>PatchOperationHighlander</displayName>
+			<downloadUrl>https://github.com/notfood/PatchOperationHighlander</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2552002158</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+
 	<incompatibleWith>
 	</incompatibleWith>
 

@@ -8,7 +8,7 @@
     <!--RawFertilizer = VGP Garden Tools-->
     <!--Fertilizer = Fertile Fields [1.1]-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Gasch.AdvancedCultivation</li>
             <li>dismarzero.VGP.VGPGardenTools</li>
@@ -50,7 +50,7 @@
     ==========-->
 
     <!--Advanced Cultivation-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Gasch.AdvancedCultivation</li>
         </mods>
@@ -58,7 +58,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -113,7 +113,7 @@
     </Operation>
 
     <!--VGP Garden Tools-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPGardenTools</li>
         </mods>
@@ -121,7 +121,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -168,7 +168,7 @@
     </Operation>
 
     <!--Fertile Fields [1.1]
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
@@ -176,7 +176,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Fertilizer"]</xpath>
                     <operations>
                         <!Use/replace graphics>

@@ -4,7 +4,7 @@
     Concrete Blocks {Industrialisation, UN-Colony (Continued), UN-Colony [1.2], [WD] Simple Concrete, Simple Concrete, Materials+, [RF] Concrete (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
             <li>Mlie.UNColony</li>
@@ -75,7 +75,7 @@
     ==========-->
 
     <!--Industrialisation-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
         </mods>
@@ -109,7 +109,7 @@
     </Operation>
 
     <!--UN-Colony (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.UNColony</li>
         </mods>
@@ -143,7 +143,7 @@
     </Operation>
 
     <!--UN-Colony [1.2]-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Sadjuuk.UNColony</li>
         </mods>
@@ -177,7 +177,7 @@
     </Operation>
 
     <!--[WD] Simple Concrete-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Wemd.SimpleConcrete</li>
         </mods>
@@ -210,7 +210,7 @@
     </Operation>
 
     <!--Simple Concrete-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dninemfive.simpleconcrete</li>
         </mods>
@@ -244,7 +244,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -279,7 +279,7 @@
 
     <!--[RF] Concrete (Continued)-->
     <!--Concrete for Fertile Fields-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Concrete</li>
             <li>malkav73.concrete</li>
@@ -322,7 +322,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -357,7 +357,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

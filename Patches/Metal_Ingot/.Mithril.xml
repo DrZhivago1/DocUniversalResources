@@ -4,7 +4,7 @@
     Mithril {Lord of the Rims - The Third Age (Continued), Fantasy Metals Reforged, [Ry]Rimcraft Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
             <li>mercurydoll.fantasymetals</li>
@@ -65,7 +65,7 @@
     ==========-->
 
     <!--Lord of the Rims - The Third Age (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.LordoftheRimsTheThirdAge</li>
         </mods>
@@ -99,7 +99,7 @@
     </Operation>
 
     <!--Fantasy Metals Reforged-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mercurydoll.fantasymetals</li>
         </mods>
@@ -133,7 +133,7 @@
     </Operation>
 
     <!--[Ry]Rimcraft Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Ryflamer.Rimcraft.Metals</li>
         </mods>

@@ -4,7 +4,7 @@
     Adobe Blocks {Simple Mining Extension, Medieval Times Unofficial Update, Materials+, Ceramics}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>vindar.medievaltimes</li>
@@ -65,7 +65,7 @@
     ==========-->
 
     <!--Simple Mining Extension-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
         </mods>
@@ -111,7 +111,7 @@
     </Operation>
 
     <!--Medieval Times Unofficial Update-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>vindar.medievaltimes</li>
         </mods>
@@ -146,7 +146,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -179,7 +179,7 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
         </mods>

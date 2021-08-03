@@ -1,37 +1,40 @@
 <Patch>
 
     <!--==========
-    Coal Coke
+    Barley 
     Universal Replacements
     ==========-->
-    <!--AM_CokeCoal = Materials+-->
-    <!--PRF_Coke = Project RimFactory - Materials-->
+    <!--RC2_RawBarley = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--RawBarley = VGP Vegetable Garden-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Atlas.MaterialsPlus.AT</li>
-            <li>PRF.Materials</li>
+            <li>crustypeanut.rc2.core</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_CoalCoke" ParentName="DZ_EarthyBase">
-                    <defName>DZ_CoalCoke</defName>
-                    <label>Coal coke</label>
-                    <description>Coal coke: Made by heating coal in the absence of air. A great fuel source.</description>
+                <ThingDef Name="DZ_RawBarley" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawBarley</defName>
+                    <label>barley</label>
+                    <description>Barley: An edible grain.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
-                    <soundInteract>Standard_Pickup</soundInteract>
-                    <soundDrop>Standard_Pickup</soundDrop>
-                    <stackLimit>75</stackLimit>
                     <statBases>
-                        <MarketValue>1.5</MarketValue>
-                        <Mass>0.15</Mass>
-                        <Flammability>1</Flammability>
+                        <MarketValue>1.2</MarketValue>
                     </statBases>
-                    <tradeTags />
-                    <stuffProps />
-                    <smeltable>false</smeltable>
+                    <ingestible>
+                        <preferability>RawTasty</preferability>
+                        <tasteThought/>
+                        <foodType>VegetableOrFruit</foodType>
+                    </ingestible>
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>60</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
                 </ThingDef>
             </value>
         </match>
@@ -41,110 +44,124 @@
     Mods
     ==========-->
 
-    <!--Materials+-->
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Atlas.MaterialsPlus.AT</li>
+            <li>crustypeanut.rc2.core</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawBarley"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Resources/AM_Coke</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <texPath>RC2_Things/RC2_Veg/Barley</texPath>
                                 </graphicData>
                             </value>
                         </li>
                     </operations>
                 </li>
 
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="RC2_PlantBarley"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawBarley</harvestedThingDef>
+                    </value>
+                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="AM_CokeCoal"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RC2_RawBarley"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="AM_CokeCoal"]</xpath>
+                    <xpath>//thingDef[.="RC2_RawBarley"]</xpath>
                     <value>
-                        <thingDef>DZ_CoalCoke</thingDef>
+                        <thingDef>DZ_RawBarley</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="AM_CokeCoal"]</xpath>
+                    <xpath>//li[.="RC2_RawBarley"]</xpath>
                     <value>
-                        <li>DZ_CoalCoke</li>
+                        <li>DZ_RawBarley</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//AM_CokeCoal</xpath>
-                    <name>DZ_CoalCoke</name>
+                    <xpath>//RC2_RawBarley</xpath>
+                    <name>DZ_RawBarley</name>
                 </li>
 
             </operations>
         </match>
     </Operation>
 
-    <!--Project RimFactory - Materials-->
+    <!--VGP Vegetable Garden-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>PRF.Materials</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawBarley"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Resources/PRF_Coke</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <texPath>Things/Veg/Barley</texPath>
                                 </graphicData>
                             </value>
                         </li>
                     </operations>
                 </li>
 
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="Plant_Barley"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawBarley</harvestedThingDef>
+                    </value>
+                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="PRF_Coke"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RawBarley"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="PRF_Coke"]</xpath>
+                    <xpath>//thingDef[.="RawBarley"]</xpath>
                     <value>
-                        <thingDef>DZ_CoalCoke</thingDef>
+                        <thingDef>DZ_RawBarley</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="PRF_Coke"]</xpath>
+                    <xpath>//li[.="RawBarley"]</xpath>
                     <value>
-                        <li>DZ_CoalCoke</li>
+                        <li>DZ_RawBarley</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//PRF_Coke</xpath>
-                    <name>DZ_CoalCoke</name>
+                    <xpath>//RawBarley</xpath>
+                    <name>DZ_RawBarley</name>
                 </li>
 
             </operations>

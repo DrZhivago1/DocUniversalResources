@@ -4,7 +4,7 @@
     Glass {Dubs Skylights, UN-Colony (Continued), UN-Colony [1.2], Materials+, Project RimFactory - Materials, Just Glass, Glass+Lights}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Dubwise.DubsSkylights</li>
             <li>Mlie.UNColony</li>
@@ -50,7 +50,7 @@
     ==========-->
 
     <!--Dubs Skylights-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Dubwise.DubsSkylights</li>
         </mods>
@@ -77,7 +77,7 @@
     </Operation>
 
     <!--UN-Colony (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.UNColony</li>
         </mods>
@@ -103,7 +103,7 @@
     </Operation>
 
     <!--UN-Colony [1.2]-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Sadjuuk.UNColony</li>
         </mods>
@@ -129,7 +129,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -181,7 +181,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -235,7 +235,7 @@
 
     <!--Glass+Lights-->
     <!--Just Glass-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NanoCE.GlassLights</li>
             <li>spoden.JustGlass</li>

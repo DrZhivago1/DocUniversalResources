@@ -1,37 +1,40 @@
 <Patch>
 
     <!--==========
-    Coal Coke
+    Blueberry 
     Universal Replacements
     ==========-->
-    <!--AM_CokeCoal = Materials+-->
-    <!--PRF_Coke = Project RimFactory - Materials-->
+    <!--RawBlueberries = [SYR] Blueberries-->
+    <!--Rawblueberry = VGP Vegetable Garden-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Atlas.MaterialsPlus.AT</li>
-            <li>PRF.Materials</li>
+            <li>syrchalis.blueberries</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_CoalCoke" ParentName="DZ_EarthyBase">
-                    <defName>DZ_CoalCoke</defName>
-                    <label>Coal coke</label>
-                    <description>Coal coke: Made by heating coal in the absence of air. A great fuel source.</description>
+                <ThingDef Name="DZ_RawBlueberry" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawBlueberry</defName>
+                    <label>blueberries</label>
+                    <description>Blueberries: Edible fruit produced by a blueberry bush.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
-                    <soundInteract>Standard_Pickup</soundInteract>
-                    <soundDrop>Standard_Pickup</soundDrop>
-                    <stackLimit>75</stackLimit>
                     <statBases>
-                        <MarketValue>1.5</MarketValue>
-                        <Mass>0.15</Mass>
-                        <Flammability>1</Flammability>
+                        <MarketValue>1.2</MarketValue>
                     </statBases>
-                    <tradeTags />
-                    <stuffProps />
-                    <smeltable>false</smeltable>
+                    <ingestible>
+                        <preferability>RawTasty</preferability>
+                        <tasteThought/>
+                        <foodType>VegetableOrFruit</foodType>
+                    </ingestible>
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>15</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
                 </ThingDef>
             </value>
         </match>
@@ -41,110 +44,124 @@
     Mods
     ==========-->
 
-    <!--Materials+-->
+    <!--[SYR] Blueberries-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Atlas.MaterialsPlus.AT</li>
+            <li>syrchalis.blueberries</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawBlueberry"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Resources/AM_Coke</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <texPath>Things/Item/Resource/PlantFoodRaw/Blueberries</texPath>
                                 </graphicData>
                             </value>
                         </li>
                     </operations>
                 </li>
 
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="Plant_SyrBlueberry"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawBlueberry</harvestedThingDef>
+                    </value>
+                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="AM_CokeCoal"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RawBlueberries"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="AM_CokeCoal"]</xpath>
+                    <xpath>//thingDef[.="RawBlueberries"]</xpath>
                     <value>
-                        <thingDef>DZ_CoalCoke</thingDef>
+                        <thingDef>DZ_RawBlueberry</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="AM_CokeCoal"]</xpath>
+                    <xpath>//li[.="RawBlueberries"]</xpath>
                     <value>
-                        <li>DZ_CoalCoke</li>
+                        <li>DZ_RawBlueberry</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//AM_CokeCoal</xpath>
-                    <name>DZ_CoalCoke</name>
+                    <xpath>//RawBlueberries</xpath>
+                    <name>DZ_RawBlueberry</name>
                 </li>
 
             </operations>
         </match>
     </Operation>
 
-    <!--Project RimFactory - Materials-->
+    <!--VGP Vegetable Garden-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>PRF.Materials</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalCoke"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawBlueberry"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Resources/PRF_Coke</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <texPath>Things/Fruits/blueberry</texPath>
                                 </graphicData>
                             </value>
                         </li>
                     </operations>
                 </li>
 
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[@Name="Plantblueberry"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawBlueberry</harvestedThingDef>
+                    </value>
+                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="PRF_Coke"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Rawblueberry"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="PRF_Coke"]</xpath>
+                    <xpath>//thingDef[.="Rawblueberry"]</xpath>
                     <value>
-                        <thingDef>DZ_CoalCoke</thingDef>
+                        <thingDef>DZ_RawBlueberry</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="PRF_Coke"]</xpath>
+                    <xpath>//li[.="Rawblueberry"]</xpath>
                     <value>
-                        <li>DZ_CoalCoke</li>
+                        <li>DZ_RawBlueberry</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//PRF_Coke</xpath>
-                    <name>DZ_CoalCoke</name>
+                    <xpath>//Rawblueberry</xpath>
+                    <name>DZ_RawBlueberry</name>
                 </li>
 
             </operations>

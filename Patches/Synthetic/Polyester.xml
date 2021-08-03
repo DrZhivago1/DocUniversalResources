@@ -4,7 +4,7 @@
     Polyester {RimPlas (Continued), Materials+, Project RimFactory - Materials}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mlie.rimplas</li>
             <li>Atlas.MaterialsPlus.AT</li>
@@ -59,7 +59,7 @@
     ==========-->
 
     <!--RimPlas (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mlie.rimplas</li>
         </mods>
@@ -86,7 +86,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -113,7 +113,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>prf.materials</li>
         </mods>

@@ -4,7 +4,7 @@
     Lead {Cupro's Alloys (Continued), Expanded Materials - Metals}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
             <li>Argon.VMEu</li>
@@ -74,7 +74,7 @@
     ==========-->
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
         </mods>
@@ -115,7 +115,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>

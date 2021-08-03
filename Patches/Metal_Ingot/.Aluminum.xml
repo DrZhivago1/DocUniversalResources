@@ -4,7 +4,7 @@
     Aluminum {Industrialisation, Cupro's Alloys (Continued)}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
             <li>Mlie.CuprosAlloys</li>
@@ -74,7 +74,7 @@
     ==========-->
 
     <!--Industrialisation-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
         </mods>
@@ -108,7 +108,7 @@
     </Operation>
 
     <!--Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.CuprosAlloys</li>
         </mods>

@@ -9,7 +9,7 @@
     <!--AM_RawMud = Materials+-->
     <!--N7_RawMudbrick = Ceramics-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>PrimitiveProduction.velcroboy333</li>
@@ -46,7 +46,7 @@
     ==========-->
 
     <!--Simple Mining Extension-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
         </mods>
@@ -54,7 +54,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -118,7 +118,7 @@
     </Operation>
 
     <!--Primitive Workbenches-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PrimitiveProduction.velcroboy333</li>
         </mods>
@@ -126,7 +126,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -174,7 +174,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -182,7 +182,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -229,7 +229,7 @@
     </Operation>
 
     <!--Ceramics-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
         </mods>
@@ -237,7 +237,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Adobe"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

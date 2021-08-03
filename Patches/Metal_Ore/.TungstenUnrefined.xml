@@ -4,7 +4,7 @@
     Tungsten Ore {RimVali: Far From Avalon, RimBound}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NeziTheAvali.RimVali</li>
             <li>KBraid.Rimbound</li>
@@ -41,7 +41,7 @@
     ==========-->
 
     <!--RimVali: Far From Avalon-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NeziTheAvali.RimVali</li>
         </mods>
@@ -68,7 +68,7 @@
     </Operation>
 
     <!--RimBound-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>
         </mods>

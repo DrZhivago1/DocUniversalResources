@@ -7,7 +7,7 @@
     <!--PRF_Fossil = Project RimFactory - Materials-->
     <!--VMEu_Fossil = Expanded Materials - Metals-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
             <li>argon.vmeu</li>
@@ -52,7 +52,7 @@
     ==========-->
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -60,7 +60,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -107,7 +107,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>argon.vmeu</li>
         </mods>
@@ -115,7 +115,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Fossil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

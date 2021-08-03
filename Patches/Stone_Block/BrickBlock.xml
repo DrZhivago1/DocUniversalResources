@@ -4,7 +4,7 @@
     Brick Blocks {Ceramics, Materials+, Project RimFactory - Materials, Fertile Fields [1.1]}
     ==========-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
             <li>Atlas.MaterialsPlus.AT</li>
@@ -65,7 +65,7 @@
     ==========-->
 
     <!--Ceramics-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>n7huntsman.ceramics</li>
         </mods>
@@ -117,7 +117,7 @@
     </Operation>
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Atlas.MaterialsPlus.AT</li>
         </mods>
@@ -150,7 +150,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>PRF.Materials</li>
         </mods>
@@ -185,7 +185,7 @@
     </Operation>
 
     <!--Fertile Fields [1.1]-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>

@@ -9,7 +9,7 @@
     <!--PRF_Oil = Project RimFactory - Materials-->
     <!--VMEu_DarkOil = Expanded Materials - Metals-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>atlas.materialsplus.at</li>
             <li>dubwise.rimefeller</li>
@@ -62,7 +62,7 @@
     ==========-->
 
     <!--Materials+-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>atlas.materialsplus.at</li>
         </mods>
@@ -70,7 +70,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -118,7 +118,7 @@
     </Operation>
 
     <!--Rimefeller-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dubwise.rimefeller</li>
         </mods>
@@ -126,7 +126,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -180,7 +180,7 @@
     </Operation>
 
     <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>prf.materials</li>
         </mods>
@@ -188,7 +188,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -235,7 +235,7 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
         </mods>
@@ -243,7 +243,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Oil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

@@ -6,26 +6,21 @@
     ==========-->
     <!--mod_item_defname = Mod_Name-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>packageID</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_item" ParentName="DZ_TypeBase">
-                            <defName>DZ_item</defName>
-                            <label>Item_Name</label>
-                            <description>Item_Description.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_item" ParentName="DZ_TypeBase">
+                    <defName>DZ_item</defName>
+                    <label>Item_Name</label>
+                    <description>Item_Description.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -34,7 +29,7 @@
     ==========-->
 
     <!--Mod_Name-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>packageID</li>
         </mods>
@@ -42,7 +37,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_item"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->

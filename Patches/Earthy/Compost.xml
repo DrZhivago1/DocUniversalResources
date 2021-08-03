@@ -11,7 +11,7 @@
     <!--VG_Compost = VGP Garden Tools-->
     <!--RawCompost = Fertile Fields [1.1]-->
 
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <!--<li>Gasch.AdvancedCultivation</li>-->
             <li>Storm.RimworldFarming</li>
@@ -51,7 +51,7 @@
     ==========-->
 
     <!--Advanced Cultivation
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Gasch.AdvancedCultivation</li>
         </mods>
@@ -59,7 +59,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!Use/replace graphics
@@ -106,7 +106,7 @@
     </Operation>-->
 
     <!--Rimworld Farming-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Storm.RimworldFarming</li>
         </mods>
@@ -114,7 +114,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -161,7 +161,7 @@
     </Operation>
 
     <!--ResourcePackCore-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>RimWorldsoudanzyo.ResourcePackCore</li>
         </mods>
@@ -169,7 +169,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -216,7 +216,7 @@
     </Operation>
 
     <!--Apothecary (Continued)-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Apothecary</li>
         </mods>
@@ -224,7 +224,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -271,7 +271,7 @@
     </Operation>
 
     <!--VGP Garden Tools-->
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dismarzero.VGP.VGPGardenTools</li>
         </mods>
@@ -279,7 +279,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
@@ -326,7 +326,7 @@
     </Operation>
 
     <!--Fertile Fields [1.1]
-    <Operation Class="PatchOperation_DZ.FindModByID">
+    <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
@@ -334,7 +334,7 @@
             <success>Always</success>
             <operations>
 
-                <li Class="PatchOperation_DZ.Context">
+                <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Compost"]</xpath>
                     <operations>
                         <!Use/replace graphics>
