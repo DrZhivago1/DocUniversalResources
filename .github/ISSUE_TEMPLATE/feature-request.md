@@ -16,4 +16,4 @@ _Resource_
 
 
 All text should be replace with the appropriate info. EG:
-### [Actual Example](https://github.com/DrZhivago1/DocUniversalResources/issues/26)
+https://github.com/DrZhivago1/DocUniversalResources/issues/26
