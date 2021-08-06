@@ -15,10 +15,5 @@ _Resource_
 
 
 
-Copy/paste the above template ad infinitum.
 All text should be replace with the appropriate info. EG:
-
-### [DocUniversalResources](https://github.com/DrZhivago1/DocUniversalResources) drzhivago.docuniversalresources
-_________________________________________________________________
-_Bronze_
-- [ ] DZ_Bronze
+### [Actual Example](https://github.com/DrZhivago1/DocUniversalResources/issues/26)
