@@ -105,7 +105,7 @@
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
-            <xpath>//li[text()="VMEu_SpecialMetals"]</xpath>
+            <xpath>//li[.="VMEu_SpecialMetals"]</xpath>
             <value>
                 <li>DZ_MetalIngotCategory</li>
             </value>

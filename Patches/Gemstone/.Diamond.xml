@@ -1,81 +1,82 @@
 <Patch>
 
     <!--==========
-    Diamond {Gems (Continued), Carbon, Project RimFactory - Materials, Kura's Extra Gems, Gemstones, Jewelry}
+    Diamond
+    Universal Replacements
     ==========-->
+    <!--Diamond = Gems (Continued), Carbon-->
+    <!--PRF_RawDiamond = Project RimFactory - Materials-->
+    <!--KDiamond =  Kura's Extra Gems-->
+    <!--Z_Diamond = Gemstones-->
+    <!--Diamond = Jewelry-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Mlie.Gems</li>
             <li>Oblitus.Carbon</li>
+            <li>PRF.Materials</li>
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
-            <li>PRF.Materials</li>
             <li>kikohi.jewelry</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Diamond" ParentName="DZ_GemstoneBase">
-                            <defName>DZ_Diamond</defName>
-                            <label>Diamond</label>
-                            <description>Diamond: A transparent and whitish form of the element carbon.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>ChunkRock_Drop</soundInteract>
-                            <soundDrop>ChunkRock_Drop</soundDrop>
-                            <statBases>
-                                <MarketValue>50</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
-                                <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.045</RoyalFavorValue>                                <!--Gold = 0.015-->
-                                <Flammability>0</Flammability>
-                                <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>0.54</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                                <SharpDamageMultiplier>1.25</SharpDamageMultiplier>
-                                <BluntDamageMultiplier>0.75</BluntDamageMultiplier>
-                            </statBases>
-                            <useHitPoints>false</useHitPoints>
-                            <healthAffectsPrice>false</healthAffectsPrice>
-                            <stuffProps>
-                                <categories>
-                                    <li>Stony</li>
-                                </categories>
-                                <commonality>0.02</commonality>                                <!--Gold = 0.02-->
-                                <color />
-                                <constructEffect>ConstructMetal</constructEffect>
-                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <statOffsets>
-                                    <Beauty>20</Beauty>                                    <!--Gold = 20-->
-                                </statOffsets>
-                                <statFactors>
-                                    <Flammability>0</Flammability>
-                                    <Beauty>3</Beauty>                                    <!--Gold = 4-->
-                                    <MaxHitPoints>0.7</MaxHitPoints>
-                                    <WorkToBuild>5</WorkToBuild>
-                                    <WorkToMake>3</WorkToMake>
-                                    <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
-                                </statFactors>
-                            </stuffProps>
-                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-                            <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
-                            <deepCountPerPortion>5</deepCountPerPortion>
-                            <deepLumpSizeRange>3~10</deepLumpSizeRange>
-                            <burnableByRecipe>false</burnableByRecipe>
-                            <smeltable>false</smeltable>
-                            <tradeTags />
-                            <comps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Diamond" ParentName="DZ_GemstoneBase">
+                    <defName>DZ_Diamond</defName>
+                    <label>Diamond</label>
+                    <description>Diamond: A transparent and whitish form of the element carbon.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>ChunkRock_Drop</soundInteract>
+                    <soundDrop>ChunkRock_Drop</soundDrop>
+                    <statBases>
+                        <MarketValue>50</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.15</Mass>                        <!--Steel = 0.5-->
+                        <RoyalFavorValue>0.045</RoyalFavorValue>                        <!--Gold = 0.015-->
+                        <Flammability>0</Flammability>
+                        <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.54</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>1.25</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>0.75</BluntDamageMultiplier>
+                    </statBases>
+                    <useHitPoints>false</useHitPoints>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <stuffProps>
+                        <categories>
+                            <li>Stony</li>
+                        </categories>
+                        <commonality>0.02</commonality>                        <!--Gold = 0.02-->
+                        <color />
+                        <constructEffect>ConstructMetal</constructEffect>
+                        <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                        <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                        <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                        <statOffsets>
+                            <Beauty>20</Beauty>                            <!--Gold = 20-->
+                        </statOffsets>
+                        <statFactors>
+                            <Flammability>0</Flammability>
+                            <Beauty>3</Beauty>                            <!--Gold = 4-->
+                            <MaxHitPoints>0.7</MaxHitPoints>
+                            <WorkToBuild>5</WorkToBuild>
+                            <WorkToMake>3</WorkToMake>
+                            <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
+                        </statFactors>
+                    </stuffProps>
+                    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                    <deepCommonality>0.15</deepCommonality>                    <!--Gold = 0.5-->
+                    <deepCountPerPortion>5</deepCountPerPortion>
+                    <deepLumpSizeRange>3~10</deepLumpSizeRange>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>false</smeltable>
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -91,38 +92,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Diamond</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Diamond</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Diamond</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(184,225,225)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(184,225,225)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Diamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Diamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Diamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Diamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -135,35 +155,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Diamond</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Diamond</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(193,230,255)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(193,230,255)</color>
-                    </value>
-                </li>
-                <!--Use tradeability-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"][not(tradeability)]</xpath>
-                    <value>
-                        <tradeability>All</tradeability>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Diamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Diamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Diamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Diamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -176,28 +218,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_RawDiamond</texPath>
-                            <graphicClass>Graphic_Stackcount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_RawDiamond</texPath>
+                                    <graphicClass>Graphic_Stackcount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(148,176,180)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(148,176,180)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_RawDiamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_RawDiamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_RawDiamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_RawDiamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -210,29 +281,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(250,250,250)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(250,250,250)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(250,250,250)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(250,250,250)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="KDiamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="KDiamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="KDiamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//KDiamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -245,48 +345,77 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/PreciousGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(255, 255, 255)</color>
-                            <colorTwo>(240, 250, 255)</colorTwo>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(255, 255, 255)</color>
-                    </value>
-                </li>
-                <!--Add TradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/tradeTags</xpath>
-                    <value>
-                        <li>Z_Gemstones_Precious</li>
-                    </value>
-                </li>
-                <!--Add Comps-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
-                    <value>
-                        <li Class="CompProperties_Glower">
-                            <glowRadius>1</glowRadius>
-                            <glowColor>(33,33,33,0)</glowColor>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/PreciousGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(255, 255, 255)</color>
+                                    <colorTwo>(240, 250, 255)</colorTwo>
+                                </graphicData>
+                            </value>
                         </li>
-                    </value>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(255, 255, 255)</color>
+                            </value>
+                        </li>
+                        <!--Add TradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Z_Gemstones_Precious</li>
+                            </value>
+                        </li>
+                        <!--Add Comps-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
+                            <value>
+                                <li Class="CompProperties_Glower">
+                                    <glowRadius>1</glowRadius>
+                                    <glowColor>(33,33,33,0)</glowColor>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Z_Diamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Z_Diamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Z_Diamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Z_Diamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -299,73 +428,73 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Items/Resource/Diamond</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Items/Resource/Diamond</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(78,177,190)</color>
+                            </value>
+                        </li>
+                        <!--Add TradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Gemstones</li>
+                            </value>
+                        </li>
+                        <!--Use stuffProps categories-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/stuffProps/categories</xpath>
+                            <value>
+                                <li>Gemstones</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Diamond"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(78,177,190)</color>
-                    </value>
-                </li>
-                <!--Use stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>Gemstones</li>
-                    </value>
-                </li>
-                <!--Add TradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Diamond"]/tradeTags</xpath>
-                    <value>
-                        <li>Gemstones</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Diamond"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Diamond"]</xpath>
+                    <value>
+                        <thingDef>DZ_Diamond</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Diamond"]</xpath>
+                    <value>
+                        <li>DZ_Diamond</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Diamond</xpath>
+                    <name>DZ_Diamond</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Diamond = Gems (Continued), Carbon, Jewelry-->
-    <!--Z_Diamond = Gemstones-->
-    <!--PRF_RawDiamond = Project RimFactory - Materials-->
-    <!--KDiamond =  Kura's Extra Gems-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Diamond" or text()="Z_Diamond" or text()="PRF_RawDiamond" or text()="KDiamond"]</xpath>
-        <value>
-            <thingDef>DZ_Diamond</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Diamond or self::Z_Diamond or self::PRF_RawDiamond or self::KDiamond]</xpath>
-        <name>DZ_Diamond</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Diamond" or text()="Z_Diamond" or text()="PRF_RawDiamond" or text()="KDiamond"]</xpath>
-        <value>
-            <li>DZ_Diamond</li>
-        </value>
     </Operation>
 
 </Patch>

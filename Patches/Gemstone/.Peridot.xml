@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Peridot {Gems (Continued), Kura's Extra Gems}
+    Peridot
+    Universal Replacements
     ==========-->
+    <!--Peridot = Gems (Continued)-->
+    <!--KPeridot = Kura's Extra Gems-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -87,38 +90,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Peridot</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Peridot</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Peridot</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(176,255,146)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Peridot"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(176,255,146)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Peridot"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Peridot"]</xpath>
+                    <value>
+                        <thingDef>DZ_Peridot</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Peridot"]</xpath>
+                    <value>
+                        <li>DZ_Peridot</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Peridot</xpath>
+                    <name>DZ_Peridot</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -131,58 +153,60 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(170,200,70)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Peridot"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(170,200,70)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(170,200,70)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Peridot"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(170,200,70)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="KPeridot"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="KPeridot"]</xpath>
+                    <value>
+                        <thingDef>DZ_Peridot</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="KPeridot"]</xpath>
+                    <value>
+                        <li>DZ_Peridot</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//KPeridot</xpath>
+                    <name>DZ_Peridot</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Peridot = Gems (Continued)-->
-    <!--KPeridot = Kura's Extra Gems-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Peridot" or text()="KPeridot"]</xpath>
-        <value>
-            <thingDef>DZ_Peridot</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Peridot or self::KPeridot]</xpath>
-        <name>DZ_Peridot</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Peridot" or text()="KPeridot"]</xpath>
-        <value>
-            <li>DZ_Peridot</li>
-        </value>
     </Operation>
 
 </Patch>

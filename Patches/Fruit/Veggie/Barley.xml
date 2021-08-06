@@ -25,9 +25,9 @@
                         <MarketValue>1.2</MarketValue>
                     </statBases>
                     <ingestible>
-                        <preferability>RawTasty</preferability>
-                        <tasteThought/>
-                        <foodType>VegetableOrFruit</foodType>
+                        <preferability>DesperateOnly</preferability>
+                        <tasteThought />
+                        <foodType>Plant</foodType>
                     </ingestible>
                     <comps>
                         <li Class="CompProperties_Rottable">

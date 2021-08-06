@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Garnet {Kura's Extra Gems, Gemstones}
+    Garnet
+    Universal Replacements
     ==========-->
+    <!--KGarnet = Kura's Extra Gems-->
+    <!--Z_Garnet = Gemstones-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -87,29 +90,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(108,35,28)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(108,35,28)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(108,35,28)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(108,35,28)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="KGarnet"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="KGarnet"]</xpath>
+                    <value>
+                        <thingDef>DZ_Garnet</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="KGarnet"]</xpath>
+                    <value>
+                        <li>DZ_Garnet</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//KGarnet</xpath>
+                    <name>DZ_Garnet</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -122,65 +154,67 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Gemstone</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(56,7,28)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Gemstone</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(56,7,28)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(56,7,28)</color>
+                            </value>
+                        </li>
+                        <!--Add TradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Z_Gemstones_SemiPrecious</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Garnet"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(56,7,28)</color>
-                    </value>
-                </li>
-                <!--Add TradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Garnet"]/tradeTags</xpath>
-                    <value>
-                        <li>Z_Gemstones_SemiPrecious</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Z_Garnet"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Z_Garnet"]</xpath>
+                    <value>
+                        <thingDef>DZ_Garnet</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Z_Garnet"]</xpath>
+                    <value>
+                        <li>DZ_Garnet</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Z_Garnet</xpath>
+                    <name>DZ_Garnet</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--KGarnet = Kura's Extra Gems-->
-    <!--Z_Garnet = Gemstones-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="KGarnet" or text()="Z_Garnet"]</xpath>
-        <value>
-            <thingDef>DZ_Garnet</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::KGarnet or self::Z_Garnet]</xpath>
-        <name>DZ_Garnet</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="KGarnet" or text()="Z_Garnet"]</xpath>
-        <value>
-            <li>DZ_Garnet</li>
-        </value>
     </Operation>
 
 </Patch>

@@ -1,24 +1,27 @@
 <Patch>
 
     <!--==========
-    Blueberry 
+    Peach
     Universal Replacements
     ==========-->
-    <!--RawBlueberries = [SYR] Blueberries-->
-    <!--Rawblueberry = VGP Vegetable Garden-->
+    <!--RC2_RawPeaches = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--Rawpeach = VGP Vegetable Garden-->
+    <!--VCE_RawPeach = Vanilla Plants Expanded-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>syrchalis.blueberries</li>
+            <li>crustypeanut.rc2.core</li>
             <li>dismarzero.vgp.vgpvegetablegarden</li>
+            <li>vanillaexpanded.vplantse</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_RawBlueberry" ParentName="DZ_FruitVeggieBase">
-                    <defName>DZ_RawBlueberry</defName>
-                    <label>blueberries</label>
-                    <description>Blueberries: Edible fruit produced by a blueberry bush.</description>
+
+                <ThingDef Name="DZ_RawPeach" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawPeach</defName>
+                    <label>peachs</label>
+                    <description>Peachs: Edible fruit produced by a peach tree.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <statBases>
@@ -36,6 +39,7 @@
                         </li>
                     </comps>
                 </ThingDef>
+
             </value>
         </match>
     </Operation>
@@ -44,24 +48,24 @@
     Mods
     ==========-->
 
-    <!--[SYR] Blueberries-->
+    <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>syrchalis.blueberries</li>
+            <li>crustypeanut.rc2.core</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawBlueberry"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawPeach"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Item/Resource/PlantFoodRaw/Blueberries</texPath>
+                                    <texPath>RC2_Things/RC2_Veg/Peaches</texPath>
                                 </graphicData>
                             </value>
                         </li>
@@ -70,36 +74,36 @@
 
                 <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="Plant_SyrBlueberry"]/plant/harvestedThingDef</xpath>
+                    <xpath>/Defs/ThingDef[defName="RC2_PlantPeachTree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <harvestedThingDef>DZ_RawBlueberry</harvestedThingDef>
+                        <harvestedThingDef>DZ_RawPeach</harvestedThingDef>
                     </value>
                 </li>
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RawBlueberries"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RC2_RawPeaches"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="RawBlueberries"]</xpath>
+                    <xpath>//thingDef[.="RC2_RawPeaches"]</xpath>
                     <value>
-                        <thingDef>DZ_RawBlueberry</thingDef>
+                        <thingDef>DZ_RawPeach</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="RawBlueberries"]</xpath>
+                    <xpath>//li[.="RC2_RawPeaches"]</xpath>
                     <value>
-                        <li>DZ_RawBlueberry</li>
+                        <li>DZ_RawPeach</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//RawBlueberries</xpath>
-                    <name>DZ_RawBlueberry</name>
+                    <xpath>//RC2_RawPeaches</xpath>
+                    <name>DZ_RawPeach</name>
                 </li>
 
             </operations>
@@ -116,14 +120,14 @@
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawBlueberry"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawPeach"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Fruits/blueberry</texPath>
+                                    <texPath>Things/Fruits/peach</texPath>
                                 </graphicData>
                             </value>
                         </li>
@@ -132,36 +136,98 @@
 
                 <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="Plantblueberry"]/plant/harvestedThingDef</xpath>
+                    <xpath>/Defs/ThingDef[defName="WildPeachTree" or defName="PlantPeachTree"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <harvestedThingDef>DZ_RawBlueberry</harvestedThingDef>
+                        <harvestedThingDef>DZ_RawPeach</harvestedThingDef>
                     </value>
                 </li>
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="Rawblueberry"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="Rawpeach"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="Rawblueberry"]</xpath>
+                    <xpath>//thingDef[.="Rawpeach"]</xpath>
                     <value>
-                        <thingDef>DZ_RawBlueberry</thingDef>
+                        <thingDef>DZ_RawPeach</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="Rawblueberry"]</xpath>
+                    <xpath>//li[.="Rawpeach"]</xpath>
                     <value>
-                        <li>DZ_RawBlueberry</li>
+                        <li>DZ_RawPeach</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//Rawblueberry</xpath>
-                    <name>DZ_RawBlueberry</name>
+                    <xpath>//Rawpeach</xpath>
+                    <name>DZ_RawPeach</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Plants Expanded-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>vanillaexpanded.vplantse</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawPeach"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Raw/VCE_Peaches</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VCE_PeachTree"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawPeach</harvestedThingDef>
+                    </value>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_RawPeach"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VCE_RawPeach"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawPeach</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VCE_RawPeach"]</xpath>
+                    <value>
+                        <li>DZ_RawPeach</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VCE_RawPeach</xpath>
+                    <name>DZ_RawPeach</name>
                 </li>
 
             </operations>

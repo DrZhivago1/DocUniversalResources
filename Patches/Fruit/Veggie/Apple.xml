@@ -10,9 +10,9 @@
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li>
-            <li>dismarzero.VGP.VGPVegetableGarden</li>
-            <li>VanillaExpanded.VPlantsE</li>
+            <li>crustypeanut.rc2.core</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
+            <li>vanillaexpanded.vplantse</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -29,7 +29,7 @@
                     </statBases>
                     <ingestible>
                         <preferability>RawTasty</preferability>
-                        <tasteThought/>
+                        <tasteThought />
                         <foodType>VegetableOrFruit</foodType>
                     </ingestible>
                     <comps>
@@ -51,7 +51,7 @@
     <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li>
+            <li>crustypeanut.rc2.core</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -113,7 +113,7 @@
     <!--VGP Vegetable Garden-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>dismarzero.VGP.VGPVegetableGarden</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -175,7 +175,7 @@
     <!--Vanilla Plants Expanded-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>VanillaExpanded.VPlantsE</li>
+            <li>vanillaexpanded.vplantse</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

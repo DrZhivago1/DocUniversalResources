@@ -28,6 +28,9 @@ DUR catches duplicate resources and replaces them with one defName.
 	</loadBefore>
 
 	<loadAfter>
+		<li>oskarpotocki.vanillafactionsexpanded.medievalmodule</li>
+		<li>dismarzero.vgp.vgpmoreveggies</li>
+		<li>notfood.seedsplease</li>
 		<li>ogliss.bishop.smokeleafindustryreborn</li>
 		<li>Mlie.RimPlas</li>
 		<li>Dubwise.Rimefeller</li>

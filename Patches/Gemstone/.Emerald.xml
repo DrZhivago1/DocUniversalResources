@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Emerald {Gems (Continued), Kura's Extra Gems, Gemstones}
+    Emerald
+    Universal Replacements
     ==========-->
+    <!--Emerald = Gems (Continued)-->
+    <!--KEmerald = Kura's Extra Gems-->
+    <!--Z_Emerald = Gemstones-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -10,69 +14,64 @@
             <li>Kura.ExtraGems</li>
             <li>zylle.Gemstones</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Emerald" ParentName="DZ_GemstoneBase">
-                            <defName>DZ_Emerald</defName>
-                            <label>Emerald</label>
-                            <description>Emerald: A translucent and green variety of beryl.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>ChunkRock_Drop</soundInteract>
-                            <soundDrop>ChunkRock_Drop</soundDrop>
-                            <statBases>
-                                <MarketValue>50</MarketValue>                                <!--Gold = 100(10x10 since small volume)-->
-                                <Mass>0.15</Mass>                                <!--Steel = 0.5-->
-                                <RoyalFavorValue>0.045</RoyalFavorValue>                                <!--Gold = 0.015-->
-                                <Flammability>0</Flammability>
-                                <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>0.54</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-                                <SharpDamageMultiplier>0.75</SharpDamageMultiplier>
-                                <BluntDamageMultiplier>1.25</BluntDamageMultiplier>
-                            </statBases>
-                            <useHitPoints>false</useHitPoints>
-                            <healthAffectsPrice>false</healthAffectsPrice>
-                            <stuffProps>
-                                <categories>
-                                    <li>Stony</li>
-                                </categories>
-                                <commonality>0.02</commonality>                                <!--Gold = 0.02-->
-                                <color />
-                                <constructEffect>ConstructMetal</constructEffect>
-                                <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <statOffsets>
-                                    <Beauty>20</Beauty>                                    <!--Gold = 20-->
-                                </statOffsets>
-                                <statFactors>
-                                    <Flammability>0</Flammability>
-                                    <Beauty>3</Beauty>                                    <!--Gold = 4-->
-                                    <MaxHitPoints>0.5</MaxHitPoints>
-                                    <WorkToBuild>5</WorkToBuild>
-                                    <WorkToMake>3</WorkToMake>
-                                    <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
-                                </statFactors>
-                            </stuffProps>
-                            <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-                            <deepCommonality>0.15</deepCommonality>                            <!--Gold = 0.5-->
-                            <deepCountPerPortion>5</deepCountPerPortion>
-                            <deepLumpSizeRange>3~10</deepLumpSizeRange>
-                            <burnableByRecipe>false</burnableByRecipe>
-                            <smeltable>false</smeltable>
-                            <tradeTags />
-                            <comps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Emerald" ParentName="DZ_GemstoneBase">
+                    <defName>DZ_Emerald</defName>
+                    <label>Emerald</label>
+                    <description>Emerald: A translucent and green variety of beryl.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>ChunkRock_Drop</soundInteract>
+                    <soundDrop>ChunkRock_Drop</soundDrop>
+                    <statBases>
+                        <MarketValue>50</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.15</Mass>                        <!--Steel = 0.5-->
+                        <RoyalFavorValue>0.045</RoyalFavorValue>                        <!--Gold = 0.015-->
+                        <Flammability>0</Flammability>
+                        <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.54</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>0.75</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>1.25</BluntDamageMultiplier>
+                    </statBases>
+                    <useHitPoints>false</useHitPoints>
+                    <healthAffectsPrice>false</healthAffectsPrice>
+                    <stuffProps>
+                        <categories>
+                            <li>Stony</li>
+                        </categories>
+                        <commonality>0.02</commonality>                        <!--Gold = 0.02-->
+                        <color />
+                        <constructEffect>ConstructMetal</constructEffect>
+                        <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                        <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                        <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                        <statOffsets>
+                            <Beauty>20</Beauty>                            <!--Gold = 20-->
+                        </statOffsets>
+                        <statFactors>
+                            <Flammability>0</Flammability>
+                            <Beauty>3</Beauty>                            <!--Gold = 4-->
+                            <MaxHitPoints>0.5</MaxHitPoints>
+                            <WorkToBuild>5</WorkToBuild>
+                            <WorkToMake>3</WorkToMake>
+                            <MeleeWeapon_CooldownMultiplier>1.25</MeleeWeapon_CooldownMultiplier>
+                        </statFactors>
+                    </stuffProps>
+                    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                    <deepCommonality>0.15</deepCommonality>                    <!--Gold = 0.5-->
+                    <deepCountPerPortion>5</deepCountPerPortion>
+                    <deepLumpSizeRange>3~10</deepLumpSizeRange>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>false</smeltable>
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -88,28 +87,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Emerald</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Emerald</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(54,241,205)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(54,241,205)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Emerald"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Emerald"]</xpath>
+                    <value>
+                        <thingDef>DZ_Emerald</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Emerald"]</xpath>
+                    <value>
+                        <li>DZ_Emerald</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Emerald</xpath>
+                    <name>DZ_Emerald</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -122,29 +150,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Kura/Things/Item/Resource/KGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(43,139,128)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Kura/Things/Item/Resource/KGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(43,139,128)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(43,139,128)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(43,139,128)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="KEmerald"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="KEmerald"]</xpath>
+                    <value>
+                        <thingDef>DZ_Emerald</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="KEmerald"]</xpath>
+                    <value>
+                        <li>DZ_Emerald</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//KEmerald</xpath>
+                    <name>DZ_Emerald</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -157,78 +214,79 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/PreciousGem</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(0, 174, 127)</color>
-                            <colorTwo>(0,120,90)</colorTwo>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Emerald"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(0, 174, 127)</color>
-                    </value>
-                </li>
-                <!--Add TradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/tradeTags</xpath>
-                    <value>
-                        <li>Z_Gemstones_Precious</li>
-                    </value>
-                </li>
-                <!--Add Comps-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
-                    <value>
-                        <li Class="CompProperties_Glower">
-                            <glowRadius>1</glowRadius>
-                            <glowColor>(33,33,33,0)</glowColor>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Emerald"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/PreciousGem</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(0, 174, 127)</color>
+                                    <colorTwo>(0,120,90)</colorTwo>
+                                </graphicData>
+                            </value>
                         </li>
-                    </value>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(0, 174, 127)</color>
+                            </value>
+                        </li>
+                        <!--Add TradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Z_Gemstones_Precious</li>
+                            </value>
+                        </li>
+                        <!--Add Comps-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/comps[not(li[@Class="CompProperties_Glower"])]</xpath>
+                            <value>
+                                <li Class="CompProperties_Glower">
+                                    <glowRadius>1</glowRadius>
+                                    <glowColor>(33,33,33,0)</glowColor>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Z_Emerald"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Z_Emerald"]</xpath>
+                    <value>
+                        <thingDef>DZ_Emerald</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Z_Emerald"]</xpath>
+                    <value>
+                        <li>DZ_Emerald</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Z_Emerald</xpath>
+                    <name>DZ_Emerald</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Emerald = Gems (Continued)-->
-    <!--Z_Emerald = Gemstones-->
-    <!--KEmerald = Kura's Extra Gems-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Emerald" or text()="Z_Emerald" or text()="KEmerald"]</xpath>
-        <value>
-            <thingDef>DZ_Emerald</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Emerald or self::Z_Emerald or self::KEmerald]</xpath>
-        <name>DZ_Emerald</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Emerald" or text()="Z_Emerald" or text()="KEmerald"]</xpath>
-        <value>
-            <li>DZ_Emerald</li>
-        </value>
     </Operation>
 
 </Patch>

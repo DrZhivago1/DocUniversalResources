@@ -28,7 +28,7 @@
                     </statBases>
                     <ingestible>
                         <preferability>RawTasty</preferability>
-                        <tasteThought/>
+                        <tasteThought />
                         <foodType>VegetableOrFruit</foodType>
                     </ingestible>
                     <comps>

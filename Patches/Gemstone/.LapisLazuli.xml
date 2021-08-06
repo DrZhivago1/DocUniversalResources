@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Lapis Lazuli {Gems (Continued), Gemstones}
+    Lapis Lazuli
+    Universal Replacements
     ==========-->
+    <!--LapisLazuli = Gems (Continued)-->
+    <!--Z_Lapis = Gemstones-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -87,38 +90,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/LapisLazuli</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/LapisLazuli</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </value>
-                    </nomatch>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/LapisLazuli</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(57,160,237)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_LapisLazuli"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(57,160,237)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="LapisLazuli"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="LapisLazuli"]</xpath>
+                    <value>
+                        <thingDef>DZ_LapisLazuli</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="LapisLazuli"]</xpath>
+                    <value>
+                        <li>DZ_LapisLazuli</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//LapisLazuli</xpath>
+                    <name>DZ_LapisLazuli</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -131,76 +153,67 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationConditional">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData/texPath</xpath>
-                    <match Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/Gemstone</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Gemstone</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(30, 45, 112)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
                                 <color>(30, 45, 112)</color>
-                            </graphicData>
-                        </value>
-                    </match>
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/graphicData</xpath>
-                        <value>
-                            <texPath>Things/Item/Resource/Gemstone</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(30, 45, 112)</color>
-                        </value>
-                    </nomatch>
+                            </value>
+                        </li>
+                        <!--Add TradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Z_Gemstones_SemiPrecious</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_LapisLazuli"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(30, 45, 112)</color>
-                    </value>
-                </li>
-                <!--Add TradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LapisLazuli"]/tradeTags</xpath>
-                    <value>
-                        <li>Z_Gemstones_SemiPrecious</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Z_Lapis"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Z_Lapis"]</xpath>
+                    <value>
+                        <thingDef>DZ_LapisLazuli</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Z_Lapis"]</xpath>
+                    <value>
+                        <li>DZ_LapisLazuli</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Z_Lapis</xpath>
+                    <name>DZ_LapisLazuli</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--LapisLazuli = Gems (Continued)-->
-    <!--Z_Lapis = Gemstones-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="LapisLazuli" or text()="Z_Lapis"]</xpath>
-        <value>
-            <thingDef>DZ_LapisLazuli</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::LapisLazuli or self::Z_Lapis]</xpath>
-        <name>DZ_LapisLazuli</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="LapisLazuli" or text()="Z_Lapis"]</xpath>
-        <value>
-            <li>DZ_LapisLazuli</li>
-        </value>
     </Operation>
 
 </Patch>
