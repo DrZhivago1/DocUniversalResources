@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Brass {Clockwork And Steam, Cupro's Alloys (Continued)}
+    Brass
+    Universal Replacements
     ==========-->
+    <!--CaS_Brass = Clockwork And Steam-->
+    <!--CAL_Brass = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -81,28 +84,30 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(255,200,70)</color>
-                        </graphicData>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Brass"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(255,200,70)</color>
-                    </value>
-                </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="CaS_Brass"]</xpath>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(255,200,70)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(255,200,70)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
                 <!--Replace resource-->
                 <li Class="PatchOperationReplace">
@@ -111,7 +116,34 @@
                         <machineInput>DZ_Brass</machineInput>
                     </value>
                 </li>
-                <!--Removal causes issues for now. Need to discover why.-->
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="CaS_Brass"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CaS_Brass"]</xpath>
+                    <value>
+                        <thingDef>DZ_Brass</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_Brass"]</xpath>
+                    <value>
+                        <li>DZ_Brass</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CaS_Brass</xpath>
+                    <name>DZ_Brass</name>
+                </li>
+
+                <!--Removal causes issues for now. Need to discover why.
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
@@ -123,7 +155,7 @@
                             <thingCategories Inherit="False" />
                         </ThingDef>
                     </value>
-                </li>
+                </li>-->
             </operations>
         </match>
     </Operation>
@@ -136,65 +168,67 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Item/Material/Ingot_Shiny</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(244, 205, 125)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Item/Material/Ingot_Shiny</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(244, 205, 125)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(244, 205, 125)</color>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Exotic</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Brass"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(244, 205, 125)</color>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Brass"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_Brass"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CAL_Brass"]</xpath>
+                    <value>
+                        <thingDef>DZ_Brass</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_Brass"]</xpath>
+                    <value>
+                        <li>DZ_Brass</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CAL_Brass</xpath>
+                    <name>DZ_Brass</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CaS_Brass = Clockwork And Steam-->
-    <!--CAL_Brass = Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
-        <value>
-            <thingDef>DZ_Brass</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::CaS_Brass or self::CAL_Brass]</xpath>
-        <name>DZ_Brass</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="CaS_Brass" or text()="CAL_Brass"]</xpath>
-        <value>
-            <li>DZ_Brass</li>
-        </value>
     </Operation>
 
 </Patch>

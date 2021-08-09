@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Reinforced Glass {Materials+, Project RimFactory - Materials, Glass+Lights}
+    Reinforced Glass
+    Universal Replacements
     ==========-->
+    <!--AM_RGlass = Materials+-->
+    <!--ReinforcedGlass = Glass+Lights-->
+    <!--PRF_RGlass = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -50,99 +54,75 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_RGlass</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_RGlass</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!-- Replace StuffProps-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <categories>
+                                        <li>AM_Glassy</li>
+                                    </categories>
+                                    <commonality>0</commonality>
+                                    <constructEffect>ConstructMetal</constructEffect>
+                                    <color>(175,238,238)</color>
+                                    <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                    <stuffAdjective>reinforced glass</stuffAdjective>
+                                    <appearance>GlassAM</appearance>
+                                    <statFactors>
+                                        <MaxHitPoints>1.5</MaxHitPoints>
+                                        <Beauty>1.15</Beauty>
+                                        <Flammability>0</Flammability>
+                                        <WorkToMake>2</WorkToMake>
+                                        <WorkToBuild>2</WorkToBuild>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!-- Replace StuffProps-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/stuffProps</xpath>
-                    <value>
-                        <stuffProps>
-                            <categories>
-                                <li>AM_Glassy</li>
-                            </categories>
-                            <commonality>0</commonality>
-                            <constructEffect>ConstructMetal</constructEffect>
-                            <color>(175,238,238)</color>
-                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-                            <stuffAdjective>reinforced glass</stuffAdjective>
-                            <appearance>GlassAM</appearance>
-                            <statFactors>
-                                <MaxHitPoints>1.5</MaxHitPoints>
-                                <Beauty>1.15</Beauty>
-                                <Flammability>0</Flammability>
-                                <WorkToMake>2</WorkToMake>
-                                <WorkToBuild>2</WorkToBuild>
-                            </statFactors>
-                        </stuffProps>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_RGlass"]</xpath>
                 </li>
-            </operations>
-        </match>
-    </Operation>
 
-    <!--Project RimFactory - Materials-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>PRF.Materials</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics to ThingDef-->
+                <!--Replace References-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/graphicData</xpath>
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_RGlass"]</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_RGlass</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <drawSize>(0.8,0.8)</drawSize>
-                        </graphicData>
+                        <thingDef>DZ_ReinforcedGlass</thingDef>
                     </value>
                 </li>
-                <!-- Replace StuffProps-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/stuffProps</xpath>
+                    <success>Always</success>
+                    <xpath>//li[.="AM_RGlass"]</xpath>
                     <value>
-                        <stuffProps>
-                            <categories>
-                                <li>PRF_Glassy</li>
-                            </categories>
-                            <commonality>0</commonality>
-                            <constructEffect>ConstructMetal</constructEffect>
-                            <color>(175,238,238)</color>
-                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-                            <stuffAdjective>reinforced glass</stuffAdjective>
-                            <appearance>ReinforceAM</appearance>
-                            <statFactors>
-                                <MaxHitPoints>1.5</MaxHitPoints>
-                                <Beauty>1.15</Beauty>
-                                <Flammability>0</Flammability>
-                                <WorkToMake>2</WorkToMake>
-                                <WorkToBuild>2</WorkToBuild>
-                            </statFactors>
-                        </stuffProps>
+                        <li>DZ_ReinforcedGlass</li>
                     </value>
                 </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="PRF_RGlass"]</xpath>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_RGlass</xpath>
+                    <name>DZ_ReinforcedGlass</name>
                 </li>
+
             </operations>
         </match>
     </Operation>
@@ -155,73 +135,155 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/ReinforcedGlass</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/ReinforcedGlass</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!-- Replace StuffProps-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <stuffAdjective>Reinforced Glass</stuffAdjective>
+                                    <categories>
+                                        <li>Glass</li>
+                                    </categories>
+                                    <color>(240,240,245)</color>
+                                    <constructEffect>ConstructMetal</constructEffect>
+                                    <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                    <appearance>GlassGL</appearance>
+                                    <statFactors>
+                                        <MaxHitPoints>1</MaxHitPoints>
+                                        <Flammability>0</Flammability>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!-- Replace StuffProps-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]/stuffProps</xpath>
-                    <value>
-                        <stuffProps>
-                            <stuffAdjective>Reinforced Glass</stuffAdjective>
-                            <categories>
-                                <li>Glass</li>
-                            </categories>
-                            <color>(240,240,245)</color>
-                            <constructEffect>ConstructMetal</constructEffect>
-                            <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-                            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-                            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-                            <appearance>GlassGL</appearance>
-                            <statFactors>
-                                <MaxHitPoints>1</MaxHitPoints>
-                                <Flammability>0</Flammability>
-                            </statFactors>
-                        </stuffProps>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="ReinforcedGlass"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="ReinforcedGlass"]</xpath>
+                    <value>
+                        <thingDef>DZ_ReinforcedGlass</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="ReinforcedGlass"]</xpath>
+                    <value>
+                        <li>DZ_ReinforcedGlass</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//ReinforcedGlass</xpath>
+                    <name>DZ_ReinforcedGlass</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_RGlass = Materials+-->
-    <!--PRF_RGlass = Project RimFactory - Materials-->
-    <!--ReinforcedGlass = Glass+Lights-->
+    <!--Project RimFactory - Materials-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>PRF.Materials</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AM_RGlass" or text()="PRF_RGlass" or text()="ReinforcedGlass"]</xpath>
-        <value>
-            <thingDef>DZ_ReinforcedGlass</thingDef>
-        </value>
-    </Operation>
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ReinforcedGlass"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_RGlass</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>(0.8,0.8)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!-- Replace StuffProps-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <categories>
+                                        <li>PRF_Glassy</li>
+                                    </categories>
+                                    <commonality>0</commonality>
+                                    <constructEffect>ConstructMetal</constructEffect>
+                                    <color>(175,238,238)</color>
+                                    <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+                                    <stuffAdjective>reinforced glass</stuffAdjective>
+                                    <appearance>ReinforceAM</appearance>
+                                    <statFactors>
+                                        <MaxHitPoints>1.5</MaxHitPoints>
+                                        <Beauty>1.15</Beauty>
+                                        <Flammability>0</Flammability>
+                                        <WorkToMake>2</WorkToMake>
+                                        <WorkToBuild>2</WorkToBuild>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
 
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AM_RGlass or self::PRF_RGlass or self::ReinforcedGlass]</xpath>
-        <name>DZ_ReinforcedGlass</name>
-    </Operation>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="PRF_RGlass"]</xpath>
+                </li>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AM_RGlass" or text()="PRF_RGlass" or text()="ReinforcedGlass"]</xpath>
-        <value>
-            <li>DZ_ReinforcedGlass</li>
-        </value>
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_RGlass"]</xpath>
+                    <value>
+                        <thingDef>DZ_ReinforcedGlass</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_RGlass"]</xpath>
+                    <value>
+                        <li>DZ_ReinforcedGlass</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_RGlass</xpath>
+                    <name>DZ_ReinforcedGlass</name>
+                </li>
+
+            </operations>
+        </match>
     </Operation>
 
 </Patch>

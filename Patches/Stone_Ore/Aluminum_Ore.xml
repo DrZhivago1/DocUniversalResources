@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Aluminum Ore {Industrialisation, Cupro's Alloys (Continued)}
+    Aluminum Ore
+    Universal Replacements
     ==========-->
+    <!--Ind_MineableAluminium = Industrialisation-->
+    <!--CAL_MineableBauxite = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -50,23 +53,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_AluminumOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(124,124,110)</color>
-                            <colorTwo>(175,175,165)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AluminumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(124,124,110)</color>
+                                    <colorTwo>(175,175,165)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Ind_MineableAluminium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Ind_MineableAluminium"]</xpath>
+                    <value>
+                        <li>DZ_AluminumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -79,39 +99,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_AluminumOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(157,99,59)</color>
-                            <colorTwo>(151,63,30)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_AluminumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(157,99,59)</color>
+                                    <colorTwo>(151,63,30)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_MineableBauxite"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_MineableBauxite"]</xpath>
+                    <value>
+                        <li>DZ_AluminumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Ind_MineableAluminium = Industrialisation-->
-    <!--CAL_MineableBauxite = Cupro's Alloys (Continued)-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="Ind_MineableAluminium" or text()="CAL_MineableBauxite"]</xpath>
-        <value>
-            <li>DZ_AluminumOre</li>
-        </value>
     </Operation>
 
 </Patch>

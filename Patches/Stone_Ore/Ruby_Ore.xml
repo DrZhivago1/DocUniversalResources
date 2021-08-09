@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Ruby Ore {Gems (Continued), Clockwork And Steam, Kura's Extra Gems, Jewelry}
+    Ruby Ore
+    Universal Replacements
     ==========-->
+    <!--MineableRuby = Gems (Continued)-->
+    <!--CaS_MineableRuby = Clockwork And Steam-->
+    <!--KMineableRuby = Kura's Extra Gems-->
+    <!--MineableRuby = Jewelry-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -52,23 +57,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,114,114)</color>
-                            <colorTwo>(221,28,26)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,114,114)</color>
+                                    <colorTwo>(221,28,26)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableRuby"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableRuby"]</xpath>
+                    <value>
+                        <li>DZ_RubyOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -81,23 +103,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(50,0,0)</color>
-                            <colorTwo>(180,0,0)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(50,0,0)</color>
+                                    <colorTwo>(180,0,0)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_MineableRuby"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_MineableRuby"]</xpath>
+                    <value>
+                        <li>DZ_RubyOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -110,23 +149,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,114,114)</color>
-                            <colorTwo>(169,46,42)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,114,114)</color>
+                                    <colorTwo>(169,46,42)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="KMineableRuby"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="KMineableRuby"]</xpath>
+                    <value>
+                        <li>DZ_RubyOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -139,40 +195,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(107, 97, 97)</color>
-                            <colorTwo>(125,38,37)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RubyOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(107, 97, 97)</color>
+                                    <colorTwo>(125,38,37)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableRuby"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableRuby"]</xpath>
+                    <value>
+                        <li>DZ_RubyOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--MineableRuby = Gems (Continued), Jewelry-->
-    <!--CaS_MineableRuby = Clockwork And Steam-->
-    <!--KMineableRuby = Kura's Extra Gems-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableRuby" or text()="CaS_MineableRuby" or text()="KMineableRuby"]</xpath>
-        <value>
-            <li>DZ_RubyOre</li>
-        </value>
     </Operation>
 
 </Patch>

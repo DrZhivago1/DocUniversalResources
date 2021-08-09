@@ -1,9 +1,17 @@
 <Patch>
 
     <!--==========
-    Tungsten Ore {Tungsten, Expanded Materials - Metals}
-    Tungsten Ore Production Chain {RimVali: Far From Avalon, RimBound}
+    Tungsten Ore
+    Universal Replacements
     ==========-->
+    <!--MineableTungsten = Tungsten, RimBound-->
+    <!--TungstenOre = RimVali: Far From Avalon-->
+    <!--VMEu_Titanium = Expanded Materials - Metals-->
+
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--DZ_Tungsten = RimVali: Far From Avalon, RimBound-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -53,23 +61,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(116,116,116)</color>
-                            <colorTwo>(212,212,212)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(116,116,116)</color>
+                                    <colorTwo>(212,212,212)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableTungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableTungsten"]</xpath>
+                    <value>
+                        <li>DZ_TungstenOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -82,23 +107,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(166,143,141)</color>
-                            <colorTwo>(214,106,47)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(166,143,141)</color>
+                                    <colorTwo>(214,106,47)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="TungstenOre"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="TungstenOre"]</xpath>
+                    <value>
+                        <li>DZ_TungstenOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -111,23 +153,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(215,217,219)</color>
-                            <colorTwo>(185,187,190)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(215,217,219)</color>
+                                    <colorTwo>(185,187,190)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableTungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableTungsten"]</xpath>
+                    <value>
+                        <li>DZ_TungstenOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -140,45 +199,48 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(76,94,77)</colorTwo>
-                            <color>(46,56,47)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(76,94,77)</colorTwo>
+                                    <color>(46,56,47)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_MineableTungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_MineableTungsten"]</xpath>
+                    <value>
+                        <li>DZ_TungstenOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
     <!--==========
-    Universal Replacements
-    ==========-->
-    <!--MineableTungsten = Tungsten, RimBound-->
-    <!--TungstenOre = RimVali: Far From Avalon-->
-    <!--VMEu_Titanium = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableTungsten" or text()="VMEu_MineableTungsten" or text()="TungstenOre"]</xpath>
-        <value>
-            <li>DZ_TungstenOre</li>
-        </value>
-    </Operation>
-
-    <!--==========
     Tungsten Ore Production Chain
     ==========-->
+    <!--DZ_Tungsten = RimVali: Far From Avalon, RimBound-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>NeziTheAvali.RimVali</li>

@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Clay Ore {Materials+, Ceramics}
+    Clay Ore
+    Universal Replacements
     ==========-->
+    <!--AM_MineableClay = Materials+-->
+    <!--MineableClay = Ceramics-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -50,21 +53,38 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/Rock_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(98,61,51)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/Rock_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(98,61,51)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_MineableClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_MineableClay"]</xpath>
+                    <value>
+                        <li>DZ_ClayOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -77,37 +97,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/Rock_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(128,70,27)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ClayOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/Rock_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(128,70,27)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableClay"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableClay"]</xpath>
+                    <value>
+                        <li>DZ_ClayOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_MineableClay = Materials+-->
-    <!--MineableClay = Ceramics-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="AM_MineableClay" or text()="MineableClay"]</xpath>
-        <value>
-            <li>DZ_ClayOre</li>
-        </value>
     </Operation>
 
 </Patch>

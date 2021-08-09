@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Salt Ore {Real World Food 2 (Continued), RimSeasoning, VGP Garden Gourmet, Salted Meat}
+    Salt Ore
+    Universal Replacements
     ==========-->
+    <!--MineableSalt = Real World Food 2 (Continued)-->
+    <!--RimSeasoning_RockSalt = RimSeasoning-->
+    <!--MineableSalt = VGP Garden Gourmet, Salted Meat-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -52,23 +56,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(196,133,126)</color>
-                            <colorTwo>(255,255,255)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(196,133,126)</color>
+                                    <colorTwo>(255,255,255)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableSalt"]</xpath>
+                    <value>
+                        <li>DZ_SaltOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -81,23 +102,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(204,115,112)</color>
-                            <colorTwo>(255,190,151)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(204,115,112)</color>
+                                    <colorTwo>(255,190,151)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RimSeasoning_RockSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RimSeasoning_RockSalt"]</xpath>
+                    <value>
+                        <li>DZ_SaltOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -110,23 +148,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(199,201,197)</color>
-                            <colorTwo>(240,242,237)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(199,201,197)</color>
+                                    <colorTwo>(240,242,237)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableSalt"]</xpath>
+                    <value>
+                        <li>DZ_SaltOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -139,39 +194,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(150, 119, 83)</color>
-                            <colorTwo>(230,193,163)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_SaltOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(150, 119, 83)</color>
+                                    <colorTwo>(230,193,163)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableSalt"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableSalt"]</xpath>
+                    <value>
+                        <li>DZ_SaltOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--MineableSalt = Real World Food 2 (Continued), VGP Garden Gourmet, Salted Meat-->
-    <!--RimSeasoning_RockSalt = RimSeasoning-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableSalt" or text()="RimSeasoning_RockSalt"]</xpath>
-        <value>
-            <li>DZ_SaltOre</li>
-        </value>
     </Operation>
 
 </Patch>

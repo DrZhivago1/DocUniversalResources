@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Aluminum {Industrialisation, Cupro's Alloys (Continued)}
+    Aluminum
+    Universal Replacements
     ==========-->
+    <!--Ind_Aluminium = Industrialisation-->
+    <!--CAL_Aluminum = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -81,28 +84,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Ind/Stuff/Aluminium</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Ind/Stuff/Aluminium</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(175,175,175)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Aluminum"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(175,175,175)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Ind_Aluminium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Ind_Aluminium"]</xpath>
+                    <value>
+                        <thingDef>DZ_Aluminum</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Ind_Aluminium"]</xpath>
+                    <value>
+                        <li>DZ_Aluminum</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Ind_Aluminium</xpath>
+                    <name>DZ_Aluminum</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -115,71 +147,73 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Item/Material/Aluminum</texPath>
-                            <graphicClass>Graphic_Random</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Item/Material/Aluminum</texPath>
+                                    <graphicClass>Graphic_Random</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(183,184,179)</color>
+                            </value>
+                        </li>
+                        <!--Use stuffProps categories-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/stuffProps/categories</xpath>
+                            <value>
+                                <li>Conducting</li>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Exotic</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Aluminum"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(183,184,179)</color>
-                    </value>
-                </li>
-                <!--Use stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>Conducting</li>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Aluminum"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_Aluminum"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CAL_Aluminum"]</xpath>
+                    <value>
+                        <thingDef>DZ_Aluminum</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_Aluminum"]</xpath>
+                    <value>
+                        <li>DZ_Aluminum</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CAL_Aluminum</xpath>
+                    <name>DZ_Aluminum</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Ind_Aluminium = Industrialisation-->
-    <!--CAL_Aluminum = Cupro's Alloys (Continued)-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Ind_Aluminium" or text()="CAL_Aluminum"]</xpath>
-        <value>
-            <thingDef>DZ_Aluminum</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Ind_Aluminium or self::CAL_Aluminum]</xpath>
-        <name>DZ_Aluminum</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Ind_Aluminium" or text()="CAL_Aluminum"]</xpath>
-        <value>
-            <li>DZ_Aluminum</li>
-        </value>
     </Operation>
 
 </Patch>

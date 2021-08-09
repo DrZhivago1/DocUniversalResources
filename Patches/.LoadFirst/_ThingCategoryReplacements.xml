@@ -43,13 +43,13 @@
     ==========-->
 
     <!--==========
-    Condiment {[1.0, 1.1] RimCuisine 2 Core, Vanilla Cooking Expanded}
+    Condiment
     ==========-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li>
-            <li>VanillaExpanded.VCookE</li>
+            <li>Crustypeanut.RC2.Core</li><!--[1.0, 1.1] RimCuisine 2 Core-->
+            <li>VanillaExpanded.VCookE</li><!--Vanilla Cooking Expanded-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -70,7 +70,7 @@
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
-            <xpath>//li[text()=""]</xpath>
+            <xpath>//li[.=""]</xpath>
             <value>
                 <li>DZ_EarthyCategory</li>
             </value>
@@ -79,12 +79,12 @@
 
 
     <!--==========
-    Gemstones {Kura's Extra Gems}
+    Gemstones
     ==========-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Kura.ExtraGems</li>
+            <li>Kura.ExtraGems</li><!--Kura's Extra Gems-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -96,12 +96,12 @@
     </Operation>
 
     <!--==========
-    Metal_Ingot {Expanded Materials - Metals}
+    Metal_Ingot
     ==========-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Argon.VMEu</li>
+            <li>Argon.VMEu</li><!--Expanded Materials - Metals-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -113,7 +113,7 @@
     </Operation>
 
     <!--==========
-    Metal_Ore {}
+    Metal_Ore
     ==========
 
     <Operation Class="PatchOperation.FindModByID">
@@ -122,7 +122,7 @@
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
-            <xpath>//li[text()=""]</xpath>
+            <xpath>//li[.=""]</xpath>
             <value>
                 <li>DZ_MetalOreCategory</li>
             </value>
@@ -130,7 +130,7 @@
     </Operation>-->
 
     <!--==========
-    Synthetic {}
+    Synthetic
     ==========
 
     <Operation Class="PatchOperation.FindModByID">
@@ -139,13 +139,11 @@
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
-            <xpath>//li[text()=""]</xpath>
+            <xpath>//li[.=""]</xpath>
             <value>
                 <li>DZ_SyntheticCategory</li>
             </value>
         </match>
     </Operation>-->
-
-
 
 </Patch>

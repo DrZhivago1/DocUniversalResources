@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Zinc Ore {Clockwork And Steam, Cupro's Alloys (Continued)}
+    Zinc Ore
+    Universal Replacements
     ==========-->
+    <!--CaS_MineableZinc = Clockwork And Steam-->
+    <!--CAL_MineableSphalerite = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -50,23 +53,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ZincOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(80,80,80)</color>
-                            <colorTwo>(250,250,250)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ZincOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(80,80,80)</color>
+                                    <colorTwo>(250,250,250)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_MineableZinc"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_MineableZinc"]</xpath>
+                    <value>
+                        <li>DZ_ZincOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -79,39 +99,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ZincOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,98,89)</color>
-                            <colorTwo>(82,89,92)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ZincOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,98,89)</color>
+                                    <colorTwo>(82,89,92)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_MineableSphalerite"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_MineableSphalerite"]</xpath>
+                    <value>
+                        <li>DZ_ZincOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CaS_MineableZinc = Clockwork And Steam-->
-    <!--CAL_MineableSphalerite = Cupro's Alloys (Continued)-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="CaS_MineableZinc" or text()="CAL_MineableSphalerite"]</xpath>
-        <value>
-            <li>DZ_ZincOre</li>
-        </value>
     </Operation>
 
 </Patch>

@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Titanium {Metals+, RimBound, Expanded Materials - Metals}
+    Titanium
+    Universal Replacements
     ==========-->
+    <!--Titanium = Metals+-->
+    <!--SB_titanium_bar = RimBound-->
+    <!--VMEu_Titanium = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -80,28 +84,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Titanium</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Titanium</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(223,230,236)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(223,230,236)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Titanium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Titanium"]</xpath>
+                    <value>
+                        <thingDef>DZ_Titanium</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Titanium"]</xpath>
+                    <value>
+                        <li>DZ_Titanium</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Titanium</xpath>
+                    <name>DZ_Titanium</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -114,29 +147,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Items/Resource/SBingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(235,232,255)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Resource/SBingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(235,232,255)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(231,231,231)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(231,231,231)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SB_titanium_bar"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SB_titanium_bar"]</xpath>
+                    <value>
+                        <thingDef>DZ_Titanium</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SB_titanium_bar"]</xpath>
+                    <value>
+                        <li>DZ_Titanium</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SB_titanium_bar</xpath>
+                    <name>DZ_Titanium</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -149,58 +211,59 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Titanium</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_Titanium</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(58,58,58)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Titanium"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(58,58,58)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_Titanium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Titanium"]</xpath>
+                    <value>
+                        <thingDef>DZ_Titanium</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Titanium"]</xpath>
+                    <value>
+                        <li>DZ_Titanium</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Titanium</xpath>
+                    <name>DZ_Titanium</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Titanium = Metals+-->
-    <!--SB_titanium_bar = RimBound-->
-    <!--VMEu_Titanium = Expanded Materials - Metals-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Titanium" or text()="SB_titanium_bar" or text()="VMEu_Titanium"]</xpath>
-        <value>
-            <thingDef>DZ_Titanium</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Titanium or self::SB_titanium_bar or self::VMEu_Titanium]</xpath>
-        <name>DZ_Titanium</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Titanium" or text()="SB_titanium_bar" or text()="VMEu_Titanium"]</xpath>
-        <value>
-            <li>DZ_Titanium</li>
-        </value>
     </Operation>
 
 </Patch>

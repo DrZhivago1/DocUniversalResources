@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Carbon Fiber {Carbon, RimPlas (Continued), Project RimFactory - Materials}
+    Carbon Fiber
+    Universal Replacements
     ==========-->
+    <!--CarbonFiber = Carbon-->
+    <!--CarboFibre = RimPlas (Continued)-->
+    <!--PRF_CarbonFiber = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -79,20 +83,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/CarbonFiber</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/CarbonFiber</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CarbonFiber"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CarbonFiber"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonFiber</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CarbonFiber"]</xpath>
+                    <value>
+                        <li>DZ_CarbonFiber</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CarbonFiber</xpath>
+                    <name>DZ_CarbonFiber</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -105,20 +138,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/CarboFibre</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/CarboFibre</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CarboFibre"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CarboFibre"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonFiber</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CarboFibre"]</xpath>
+                    <value>
+                        <li>DZ_CarbonFiber</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CarboFibre</xpath>
+                    <name>DZ_CarbonFiber</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -131,53 +193,53 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Carbon_Kevlar</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(50,50,50)</color>
-                            <drawSize>(0.9,0.9)</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonFiber"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Carbon_Kevlar</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(50,50,50)</color>
+                                    <drawSize>(0.9,0.9)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_CarbonFiber"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_CarbonFiber"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonFiber</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_CarbonFiber"]</xpath>
+                    <value>
+                        <li>DZ_CarbonFiber</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_CarbonFiber</xpath>
+                    <name>DZ_CarbonFiber</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CarbonFiber = Carbon-->
-    <!--CarboFibre = RimPlas (Continued)-->
-    <!--PRF_CarbonFiber = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="CarbonFiber" or text()="CarboFibre" or text()="PRF_CarbonFiber"]</xpath>
-        <value>
-            <thingDef>DZ_CarbonFiber</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::CarbonFiber or self::CarboFibre or self::PRF_CarbonFiber]</xpath>
-        <name>DZ_CarbonFiber</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="CarbonFiber" or text()="CarboFibre" or text()="PRF_CarbonFiber"]</xpath>
-        <value>
-            <li>DZ_CarbonFiber</li>
-        </value>
     </Operation>
 
 </Patch>

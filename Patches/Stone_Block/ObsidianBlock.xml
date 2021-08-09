@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Obsidian Blocks {[K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures), Alpha Biomes}
+    Obsidian Blocks
+    Universal Replacements
     ==========-->
+    <!--BlocksObsidian = [K]Extra Stone, [K]Extra Stone(w/ Cupro's Textures)-->
+    <!--AB_BlocksObsidian = Alpha Biomes-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -10,45 +13,40 @@
             <li>Kura.ExtraStoneCupro</li>
             <li>sarg.alphabiomes</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
 
-                        <ThingDef Name="DZ_BlocksObsidian" ParentName="DZ_StoneBlocksBase">
-                            <defName>DZ_BlocksObsidian</defName>
-                            <label>Obsidian blocks</label>
-                            <description>Obsidian Blocks: Solid obsidian fashioned into usable blocks.</description>
-                            <graphicData />
-                            <statBases>
-                                <MarketValue>0.9</MarketValue>
-                                <Mass>1</Mass>
-                                <SharpDamageMultiplier>1.0</SharpDamageMultiplier>
-                            </statBases>
-                            <tradeability />
-                            <stuffProps>
-                                <stuffAdjective>obsidian</stuffAdjective>
-                                <commonality>0</commonality>
-                                <color />
-                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <appearance />
-                                <statFactors>
-                                    <Beauty>1.1</Beauty>
-                                    <MarketValue>0.4</MarketValue>
-                                    <MaxHitPoints>1.5</MaxHitPoints>
-                                    <WorkToBuild>5.0</WorkToBuild>
-                                    <WorkToMake>1.5</WorkToMake>
-                                </statFactors>
-                            </stuffProps>
-                        </ThingDef>
+                <ThingDef Name="DZ_BlocksObsidian" ParentName="DZ_StoneBlocksBase">
+                    <defName>DZ_BlocksObsidian</defName>
+                    <label>Obsidian blocks</label>
+                    <description>Obsidian Blocks: Solid obsidian fashioned into usable blocks.</description>
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>0.9</MarketValue>
+                        <Mass>1</Mass>
+                        <SharpDamageMultiplier>1.0</SharpDamageMultiplier>
+                    </statBases>
+                    <tradeability />
+                    <stuffProps>
+                        <stuffAdjective>obsidian</stuffAdjective>
+                        <commonality>0</commonality>
+                        <color />
+                        <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                        <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                        <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                        <appearance />
+                        <statFactors>
+                            <Beauty>1.1</Beauty>
+                            <MarketValue>0.4</MarketValue>
+                            <MaxHitPoints>1.5</MaxHitPoints>
+                            <WorkToBuild>5.0</WorkToBuild>
+                            <WorkToMake>1.5</WorkToMake>
+                        </statFactors>
+                    </stuffProps>
+                </ThingDef>
 
-                    </value>
-                </li>
-            </operations>
+            </value>
         </match>
     </Operation>
 
@@ -64,26 +62,56 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <color>(35,35,35)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <color>(35,35,35)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(35,35,35)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(35,35,35)</color>
-                    </value>
-                </li>
-                <!--Remove resources-->
+
+                <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="BlocksObsidian"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="BlocksObsidian"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksObsidian</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="BlocksObsidian"]</xpath>
+                    <value>
+                        <li>DZ_BlocksObsidian</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//BlocksObsidian</xpath>
+                    <name>DZ_BlocksObsidian</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -96,33 +124,63 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <color>(30,30,30)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <color>(30,30,30)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(30,30,30)</color>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps appearance-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/appearance</xpath>
+                            <value>
+                                <appearance>SmoothStone</appearance>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(30,30,30)</color>
-                    </value>
-                </li>
-                <!--Replace stuffProps appearance-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/appearance</xpath>
-                    <value>
-                        <appearance>SmoothStone</appearance>
-                    </value>
-                </li>
-                <!--Remove resources-->
+
+                <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="BlocksObsidian"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="BlocksObsidian"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksObsidian</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="BlocksObsidian"]</xpath>
+                    <value>
+                        <li>DZ_BlocksObsidian</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//BlocksObsidian</xpath>
+                    <name>DZ_BlocksObsidian</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -135,62 +193,65 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <color>(50,50,50)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <color>(50,50,50)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(50,50,50)</color>
+                            </value>
+                        </li>
+                        <!--Replace tradeability-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/tradeability</xpath>
+                            <value>
+                                <tradeability>Sellable</tradeability>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(50,50,50)</color>
-                    </value>
-                </li>
-                <!--Replace tradeability-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksObsidian"]/tradeability</xpath>
-                    <value>
-                        <tradeability>Sellable</tradeability>
-                    </value>
-                </li>
-                <!--Remove resources-->
+
+                <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AB_BlocksObsidian"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AB_BlocksObsidian"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksObsidian</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AB_BlocksObsidian"]</xpath>
+                    <value>
+                        <li>DZ_BlocksObsidian</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AB_BlocksObsidian</xpath>
+                    <name>DZ_BlocksObsidian</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--BlocksObsidian = [K]Extra Stone-->
-    <!--AB_BlocksObsidian = Alpha Biomes-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
-        <value>
-            <thingDef>DZ_BlocksObsidian</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>        <!--MANDATORY due to vanilla bug-->
-        <xpath>/Defs//*[self::AB_BlocksObsidian or self::BlocksObsidian]</xpath>
-        <name>DZ_BlocksObsidian</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AB_BlocksObsidian" or text()="BlocksObsidian"]</xpath>
-        <value>
-            <li>DZ_BlocksObsidian</li>
-        </value>
     </Operation>
 
 </Patch>

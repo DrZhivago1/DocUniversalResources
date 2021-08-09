@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Tungsten {Tungsten, RimVali: Far From Avalon, RimBound, Expanded Materials - Metals}
+    Tungsten
+    Universal Replacements
     ==========-->
+    <!--Tungsten = Tungsten-->
+    <!--AvaliTungstenPowder = RimVali: Far From Avalon-->
+    <!--SB_tungsten_bar = RimBound-->
+    <!--VMEu_Tungsten = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -82,28 +87,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Tungsten</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Tungsten</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(214,214,214)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(214,214,214)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Tungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Tungsten"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Tungsten"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Tungsten</xpath>
+                    <name>DZ_Tungsten</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -116,29 +150,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>avali/Things/Tungsten/TungstenPowder</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <drawSize>0.85</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>avali/Things/Tungsten/TungstenPowder</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>0.85</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(176,176,176)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(176,176,176)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AvaliTungstenPowder"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AvaliTungstenPowder"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AvaliTungstenPowder"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AvaliTungstenPowder</xpath>
+                    <name>DZ_Tungsten</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -151,29 +214,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Items/Resource/SBingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(184,186,189)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Resource/SBingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(184,186,189)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(184,186,189)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(184,186,189)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SB_tungsten_bar"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SB_tungsten_bar"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SB_tungsten_bar"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SB_tungsten_bar</xpath>
+                    <name>DZ_Tungsten</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -186,59 +278,59 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Tungsten</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_Tungsten</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(68,82,63)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Tungsten"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(68,82,63)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_Tungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Tungsten"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Tungsten"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Tungsten</xpath>
+                    <name>DZ_Tungsten</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Tungsten = Metals+-->
-    <!--AvaliTungstenPowder = RimVali: Far From Avalon-->
-    <!--SB_tungsten_bar = RimBound-->
-    <!--VMEu_Tungsten = Expanded Materials - Metals-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten" or text()="AvaliTungstenPowder"]</xpath>
-        <value>
-            <thingDef>DZ_Tungsten</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Tungsten or self::SB_tungsten_bar or self::VMEu_Tungsten or self::AvaliTungstenPowder]</xpath>
-        <name>DZ_Tungsten</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Tungsten" or text()="SB_tungsten_bar" or text()="VMEu_Tungsten" or text()="AvaliTungstenPowder"]</xpath>
-        <value>
-            <li>DZ_Tungsten</li>
-        </value>
     </Operation>
 
 </Patch>

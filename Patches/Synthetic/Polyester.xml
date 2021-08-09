@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Polyester {RimPlas (Continued), Materials+, Project RimFactory - Materials}
+    Polyester
+    Universal Replacements
     ==========-->
+    <!--RimPoly = RimPlas (Continued)-->
+    <!--AM_Polyester = Materials+-->
+    <!--PRF_Polyester = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -66,21 +70,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/RimPoly/RimPoly</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(188,203,181)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/RimPoly/RimPoly</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(188,203,181)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RimPoly"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RimPoly"]</xpath>
+                    <value>
+                        <thingDef>DZ_Polyester</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RimPoly"]</xpath>
+                    <value>
+                        <li>DZ_Polyester</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RimPoly</xpath>
+                    <name>DZ_Polyester</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -93,21 +126,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_SyntheticTextile</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(152,152,172)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_SyntheticTextile</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(152,152,172)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_Polyester"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_Polyester"]</xpath>
+                    <value>
+                        <thingDef>DZ_Polyester</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_Polyester"]</xpath>
+                    <value>
+                        <li>DZ_Polyester</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_Polyester</xpath>
+                    <name>DZ_Polyester</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -120,53 +182,53 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_SyntheticTextile</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(152,152,172)</color>
-                            <drawSize>(0.8,0.8)</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_SyntheticTextile</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(152,152,172)</color>
+                                    <drawSize>(0.8,0.8)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Polyester"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Polyester"]</xpath>
+                    <value>
+                        <thingDef>DZ_Polyester</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Polyester"]</xpath>
+                    <value>
+                        <li>DZ_Polyester</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Polyester</xpath>
+                    <name>DZ_Polyester</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--RimPoly = RimPlas (Continued)-->
-    <!--AM_Polyester = Materials+-->
-    <!--PRF_Polyester = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AM_Polyester" or text()="RimPoly" or text()="PRF_Polyester"]</xpath>
-        <value>
-            <thingDef>DZ_Polyester</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AM_Polyester or self::RimPoly or self::PRF_Polyester]</xpath>
-        <name>DZ_Polyester</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AM_Polyester" or text()="RimPoly" or text()="PRF_Polyester"]</xpath>
-        <value>
-            <li>DZ_Polyester</li>
-        </value>
     </Operation>
 
 </Patch>

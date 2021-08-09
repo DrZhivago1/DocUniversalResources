@@ -1,18 +1,30 @@
 <Patch>
 
     <!--==========
-    Coal Ore {Simple Mining Extension, [WD] Simple Coal, RimBound, Clockwork And Steam, Coal Expanded, Rimhammer - The End Times, Project RimFactory - Materials, Expanded Materials - Metals}
+    Coal Ore
+    Universal Replacements
     ==========-->
+    <!--MineableCoalOre = Simple Mining Extension-->
+    <!--WDMineableCoal = [WD] Simple Coal-->
+    <!--AM_MineableCoal = Materials+-->
+    <!--CaS_MineableCoal = Clockwork And Steam-->
+    <!--MineableCoal = Coal Expanded-->
+    <!--RH_TET_MineableCoal = Rimhammer - The End Times-->
+    <!--MineableCoal = RimBound-->
+    <!--DankPyon_MineableCoal = Medieval Overhaul-->
+    <!--PRF_MineableCoal = Project RimFactory - Materials-->
+    <!--VMEu_MineableCoal = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>Wemd.SimpleCoal</li>
-            <li>KBraid.Rimbound</li>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>neceros.coalexpanded</li>
             <li>sickboywi.theendtimes.theendtimes</li>
+            <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </mods>
@@ -57,23 +69,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,92,83)</color>
-                            <colorTwo>(0,0,0)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,92,83)</color>
+                                    <colorTwo>(0,0,0)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableCoalOre"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableCoalOre"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -86,52 +115,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(30,30,30)</color>
-                            <colorTwo>(88,88,88)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(30,30,30)</color>
+                                    <colorTwo>(88,88,88)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="WDMineableCoal"]</xpath>
                 </li>
-            </operations>
-        </match>
-    </Operation>
 
-    <!--RimBound-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>KBraid.Rimbound</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <!--Use/replace graphics to ThingDef-->
+                <!--Replace References-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
+                    <success>Always</success>
+                    <xpath>//li[.="WDMineableCoal"]</xpath>
                     <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(72,80,100)</color>
-                            <colorTwo>(175,183,204)</colorTwo>
-                        </graphicData>
+                        <li>DZ_CoalOre</li>
                     </value>
                 </li>
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="MineableCoal"]</xpath>
-                </li>
+
             </operations>
         </match>
     </Operation>
@@ -144,23 +161,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(44,44,44)</color>
-                            <colorTwo>(50,50,50)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(44,44,44)</color>
+                                    <colorTwo>(50,50,50)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -173,23 +207,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(0,0,0)</color>
-                            <colorTwo>(10,10,10)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(0,0,0)</color>
+                                    <colorTwo>(10,10,10)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -202,23 +253,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,114,114)</color>
-                            <colorTwo>(30,30,30)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,114,114)</color>
+                                    <colorTwo>(30,30,30)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -231,23 +299,132 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(18,18,18)</color>
-                            <colorTwo>(93,93,93)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(18,18,18)</color>
+                                    <colorTwo>(93,93,93)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RH_TET_MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RH_TET_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--RimBound-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>KBraid.Rimbound</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(72,80,100)</color>
+                                    <colorTwo>(175,183,204)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="MineableCoal"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,114,114)</color>
+                                    <colorTwo>(57,53,52)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_MineableCoal"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -260,23 +437,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(30,30,30)</color>
-                            <colorTwo>(88,88,88)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(30,30,30)</color>
+                                    <colorTwo>(88,88,88)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -289,45 +483,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(31,31,31)</colorTwo>
-                            <color>(128,128,128)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(31,31,31)</colorTwo>
+                                    <color>(128,128,128)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_MineableCoal"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_MineableCoal"]</xpath>
+                    <value>
+                        <li>DZ_CoalOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--MineableCoalOre = Simple Mining Extension-->
-    <!--WDMineableCoal = [WD] Simple Coal-->
-    <!--CaS_MineableCoal = Clockwork And Steam-->
-    <!--VMEu_MineableCoal = Expanded Materials - Metals-->
-    <!--MineableCoal = Coal Expanded, RimBound-->
-    <!--PRF_MineableCoal = Project RimFactory - Materials-->
-    <!--RH_TET_MineableCoal = Rimhammer - The End Times-->
-    <!--AM_MineableCoal = Materials+-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableCoalOre" or text()="WDMineableCoal" or text()="CaS_MineableCoal" or text()="MineableCoal" or text()="RH_TET_MineableCoal" or text()="PRF_MineableCoal" or text()="VMEu_MineableCoal" or text()="AM_MineableCoal"]</xpath>
-        <value>
-            <li>DZ_CoalOre</li>
-        </value>
     </Operation>
 
 </Patch>

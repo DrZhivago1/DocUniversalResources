@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Carbon Weave {Carbon, RimPlas (Continued), Project RimFactory - Materials}
+    Carbon Weave
+    Universal Replacements
     ==========-->
+    <!--CarbonWeave = Carbon-->
+    <!--CarboSynth = RimPlas (Continued)-->
+    <!--PRF_CarbonKevlarComposite = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -41,7 +45,7 @@
                             <burnableByRecipe>true</burnableByRecipe>
                             <smeltable>false</smeltable>
                             <stuffProps>
-                                <stuffAdjective>carbon kevlar</stuffAdjective>
+                                <stuffAdjective>carbon weave</stuffAdjective>
                                 <categories>
                                     <li>Fabric</li>
                                 </categories>
@@ -79,21 +83,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Cloth</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(35,35,35)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Cloth</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(35,35,35)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CarbonWeave"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CarbonWeave"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonWeave</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CarbonWeave"]</xpath>
+                    <value>
+                        <li>DZ_CarbonWeave</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CarbonWeave</xpath>
+                    <name>DZ_CarbonWeave</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -106,20 +139,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/CarboSynth</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/CarboSynth</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CarboSynth"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CarboSynth"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonWeave</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CarboSynth"]</xpath>
+                    <value>
+                        <li>DZ_CarbonWeave</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CarboSynth</xpath>
+                    <name>DZ_CarbonWeave</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -132,51 +194,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_CarbonMix</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonWeave"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_CarbonMix</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_CarbonKevlarComposite"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_CarbonKevlarComposite"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonWeave</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_CarbonKevlarComposite"]</xpath>
+                    <value>
+                        <li>DZ_CarbonWeave</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_CarbonKevlarComposite</xpath>
+                    <name>DZ_CarbonWeave</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CarbonWeave = Carbon-->
-    <!--CarboSynth = RimPlas (Continued)-->
-    <!--PRF_CarbonKevlarComposite = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="PRF_CarbonKevlarComposite" or text()="CarbonWeave" or text()="CarboSynth"]</xpath>
-        <value>
-            <thingDef>DZ_CarbonWeave</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::PRF_CarbonKevlarComposite or self::CarbonWeave or self::CarboSynth]</xpath>
-        <name>DZ_CarbonWeave</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="PRF_CarbonKevlarComposite" or text()="CarbonWeave" or text()="CarboSynth"]</xpath>
-        <value>
-            <li>DZ_CarbonWeave</li>
-        </value>
     </Operation>
 
 </Patch>

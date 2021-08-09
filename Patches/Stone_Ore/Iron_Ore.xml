@@ -1,15 +1,33 @@
 <Patch>
 
     <!--==========
-    Iron Ore {Simple Chains: Steel, Vanilla Iron and Steel, Lord of the Rims - The Third Age (Continued), Metals+, RimBound, Project RimFactory - Materials, Expanded Materials - Metals}
-    Iron Ore Production Chain {Simple Mining Extension, RimBound}
+    Iron Ore
+    Universal Replacements
     ==========-->
+    <!--LotR_MineableIron = Lord of the Rims - The Third Age (Continued)-->
+    <!--MineableIron = Metals+, RimBound-->
+    <!--DankPyon_MineableIron = Medieval Overhaul-->
+    <!--PRF_MineableIron = Project RimFactory - Materials-->
+    <!--VMEu_MineableIron = Expanded Materials - Metals-->
+
+    <!--===
+    Mods that patch Vanilla Steel instead of add Iron ore
+    ===-->
+    <!--NECIron = Vanilla Iron and Steel-->
+    <!--Owl_Iron = Simple Chains: Steel-->
+
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--ChunkIronOre = Simple Mining Extension-->
+    <!--DZ_Iron = RimBound, Medieval Overhaul-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </mods>
@@ -83,23 +101,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(118,102,96)</color>
-                            <colorTwo>(206,187,187)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(118,102,96)</color>
+                                    <colorTwo>(206,187,187)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableIron"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableIron"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -112,23 +147,86 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(105,111,103)</color>
-                            <colorTwo>(160,99,75)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(105,111,103)</color>
+                                    <colorTwo>(160,99,75)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableIron"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableIron"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,92,83)</color>
+                                    <colorTwo>(112,108,101)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_MineableIron"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_MineableIron"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -141,23 +239,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(153,88,70)</colorTwo>
-                            <color>(107,94,97)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(153,88,70)</colorTwo>
+                                    <color>(107,94,97)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_MineableIron"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_MineableIron"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -170,61 +285,81 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(200,183,183)</colorTwo>
-                            <color>(108,83,83)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(200,183,183)</colorTwo>
+                                    <color>(108,83,83)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_MineableIron"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_MineableIron"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Owl_Iron = Simple Chains: Steel-->
+    <!--===
+    Mods that patch Vanilla Steel instead of add Iron ore
+    ===-->
     <!--NECIron = Vanilla Iron and Steel-->
-    <!--MineableIron = Metals+, RimBound-->
-    <!--PRF_MineableIron = Project RimFactory - Materials-->
-    <!--VMEu_MineableIron = Expanded Materials - Metals-->
-    <!--LotR_MineableIron = Lord of the Rims - The Third Age (Continued)-->
+    <!--Owl_Iron = Simple Chains: Steel-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>neceros.vanillaironandsteel</li>
+            <li>owlchemist.simplechains.steel</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableIron" or text()="PRF_MineableIron" or text()="VMEu_MineableIron"]</xpath>
-        <value>
-            <li>DZ_IronOre</li>
-        </value>
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="NECIron" or text()="Owl_Iron"]</xpath>
+                    <value>
+                        <mineableThing>DZ_Iron</mineableThing>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
     </Operation>
 
-    <!--Mods that patch Vanilla Steel instead of add Iron ore-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="Iron" or text()="NECIron" or text()="Owl_Iron"]</xpath>
-        <value>
-            <mineableThing>DZ_Iron</mineableThing>
-        </value>
-    </Operation>
-
-    <!--==========
-    Iron Ore Production Chain
-    ==========-->
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--ChunkIronOre = Simple Mining Extension-->
+    <!--DZ_Iron = RimBound, Medieval Overhaul-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>

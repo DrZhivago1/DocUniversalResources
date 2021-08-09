@@ -169,8 +169,8 @@
                             <value>
                                 <graphicData>
                                     <texPath>Things/Item/Resource/CaS_Sapphire</texPath>
-                                    <graphicClass>Graphic_Single</graphicClass>
-                                    <drawSize>0.5</drawSize>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>0.85</drawSize>
                                 </graphicData>
                             </value>
                         </li>

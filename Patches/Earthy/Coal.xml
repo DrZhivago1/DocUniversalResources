@@ -12,6 +12,7 @@
     <!--Coal = Coal Expanded-->
     <!--RH_TET_Coal = Rimhammer - The End Times, Rimhammer - The End Times - WITH GUNS!!-->
     <!--SB_coal_ore = RimBound-->
+    <!--DankPyon_MineableCoal = Medieval Overhaul-->
     <!--PRF_Coal = Project RimFactory - Materials-->
     <!--VMEu_Coal = Expanded Materials - Metals-->
 
@@ -26,6 +27,7 @@
             <li>sickboywi.theendtimes.theendtimes</li>
             <li>SickBoyWi.TheEndTimes.WithGuns</li>
             <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </mods>
@@ -510,6 +512,62 @@
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
                     <xpath>//SB_coal_ore</xpath>
+                    <name>DZ_Coal</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Coal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/Coal</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>(1,1)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Coal"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_Coal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Coal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_Coal"]</xpath>
+                    <value>
+                        <li>DZ_Coal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_Coal</xpath>
                     <name>DZ_Coal</name>
                 </li>
 

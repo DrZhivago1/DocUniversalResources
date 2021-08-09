@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Lead Ore {Cupro's Alloys (Continued), Expanded Materials - Metals}
+    Lead Ore
+    Universal Replacements
     ==========-->
+    <!--CAL_MineableGalena = Cupro's Alloys (Continued)-->
+    <!--VMEu_MineableLead = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -50,23 +53,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LeadOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,92,83)</color>
-                            <colorTwo>(50,45,75)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LeadOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,92,83)</color>
+                                    <colorTwo>(50,45,75)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_MineableGalena"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_MineableGalena"]</xpath>
+                    <value>
+                        <li>DZ_LeadOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -79,39 +99,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_LeadOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(126,136,148)</colorTwo>
-                            <color>(78,84,92)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_LeadOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(126,136,148)</colorTwo>
+                                    <color>(78,84,92)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_MineableLead"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_MineableLead"]</xpath>
+                    <value>
+                        <li>DZ_LeadOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CAL_MineableGalena = Cupro's Alloys (Continued)-->
-    <!--VMEu_MineableLead = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="CAL_MineableGalena" or text()="VMEu_MineableLead"]</xpath>
-        <value>
-            <li>DZ_LeadOre</li>
-        </value>
     </Operation>
 
 </Patch>

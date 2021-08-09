@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Kevlar {Materials+, Project RimFactory - Materials}
+    Kevlar
+    Universal Replacements
     ==========-->
+    <!--AM_Kevlar = Materials+-->
+    <!--PRF_Kevlar = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -62,21 +65,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Kevlar"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_SyntheticTextile</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(172,172,110)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Kevlar"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_SyntheticTextile</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(172,172,110)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_Kevlar"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_Kevlar"]</xpath>
+                    <value>
+                        <thingDef>DZ_Kevlar</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_Kevlar"]</xpath>
+                    <value>
+                        <li>DZ_Kevlar</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_Kevlar</xpath>
+                    <name>DZ_Kevlar</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -89,52 +121,53 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Kevlar"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Carbon_Kevlar</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <color>(172,172,110)</color>
-                            <drawSize>(0.9,0.9)</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Kevlar"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Carbon_Kevlar</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <color>(172,172,110)</color>
+                                    <drawSize>(0.9,0.9)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Kevlar"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Kevlar"]</xpath>
+                    <value>
+                        <thingDef>DZ_Kevlar</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Kevlar"]</xpath>
+                    <value>
+                        <li>DZ_Kevlar</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Kevlar</xpath>
+                    <name>DZ_Kevlar</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_Kevlar = Materials+-->
-    <!--PRF_Kevlar = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AM_Kevlar" or text()="PRF_Kevlar"]</xpath>
-        <value>
-            <thingDef>DZ_Kevlar</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AM_Kevlar or self::PRF_Kevlar]</xpath>
-        <name>DZ_Kevlar</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AM_Kevlar" or text()="PRF_Kevlar"]</xpath>
-        <value>
-            <li>DZ_Kevlar</li>
-        </value>
     </Operation>
 
 </Patch>

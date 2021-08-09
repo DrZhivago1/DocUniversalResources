@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Plastic {Materials+, RimPlas (Continued), Rimefeller, Project RimFactory - Materials}
+    Plastic
+    Universal Replacements
     ==========-->
+    <!--AM_MixedPlastic = Materials+-->
+    <!--RimPlas = RimPlas (Continued)-->
+    <!--Synthylene = Rimefeller-->
+    <!--PRF_MixedPlastic = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -79,21 +84,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Resources/AM_GeneralPlastic</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(180,180,180)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Resources/AM_GeneralPlastic</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(180,180,180)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AM_MixedPlastic"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AM_MixedPlastic"]</xpath>
+                    <value>
+                        <thingDef>DZ_Plastic</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AM_MixedPlastic"]</xpath>
+                    <value>
+                        <li>DZ_Plastic</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AM_MixedPlastic</xpath>
+                    <name>DZ_Plastic</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -106,21 +140,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/RimPlas_RimPlas</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/RimPlas_RimPlas</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RimPlas"]</xpath>
                 </li>
-                <!--Add category so mod quits bitching-->
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RimPlas"]</xpath>
+                    <value>
+                        <thingDef>DZ_Plastic</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RimPlas"]</xpath>
+                    <value>
+                        <li>DZ_Plastic</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RimPlas</xpath>
+                    <name>DZ_Plastic</name>
+                </li>
+
+                <!--Add Research for duplicate defNames-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
@@ -146,21 +209,28 @@
     <!--Rimefeller-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Dubwise.Rimefeller</li>
+            <li>dubwise.rimefeller</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Rimefeller/Things/Resource/synthylene</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Rimefeller/Things/Resource/synthylene</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Change production resource-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[defName="SynthyleneRefiner"]/comps/li[@Class="Rimefeller.CompProperties_Refinery"]/Product</xpath>
@@ -168,16 +238,40 @@
                         <Product>DZ_Plastic</Product>
                     </value>
                 </li>
+
                 <!--Use attribute on ThingDef-->
                 <li Class="PatchOperationAttributeSet">
                     <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
                     <attribute>Class</attribute>
                     <value>Rimefeller.Synthylene</value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Synthylene"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Synthylene"]</xpath>
+                    <value>
+                        <thingDef>DZ_Plastic</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Synthylene"]</xpath>
+                    <value>
+                        <li>DZ_Plastic</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Synthylene</xpath>
+                    <name>DZ_Plastic</name>
+                </li>
+
                 <!--Add category so mod quits bitching-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
@@ -191,6 +285,7 @@
                         </ThingCategoryDef>
                     </value>
                 </li>
+
             </operations>
         </match>
     </Operation>
@@ -203,54 +298,53 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]/graphicData</xpath>
-                    <value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
                         <graphicData>
                             <texPath>Resources/PRF_GeneralPlastic</texPath>
                             <graphicClass>Graphic_StackCount</graphicClass>
                             <color>(180,180,180)</color>
                             <drawSize>(1.2,1.2)</drawSize>
                         </graphicData>
-                    </value>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_MixedPlastic"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_MixedPlastic"]</xpath>
+                    <value>
+                        <thingDef>DZ_Plastic</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_MixedPlastic"]</xpath>
+                    <value>
+                        <li>DZ_Plastic</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_MixedPlastic</xpath>
+                    <name>DZ_Plastic</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AM_MixedPlastic = Materials+-->
-    <!--RimPlas = RimPlas (Continued)-->
-    <!--Synthylene = Rimefeller-->
-    <!--PRF_MixedPlastic = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="AM_MixedPlastic" or text()="RimPlas" or text()="Synthylene" or text()="PRF_MixedPlastic"]</xpath>
-        <value>
-            <thingDef>DZ_Plastic</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::AM_MixedPlastic or self::RimPlas or self::Synthylene or self::PRF_MixedPlastic]</xpath>
-        <name>DZ_Plastic</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="AM_MixedPlastic" or text()="RimPlas" or text()="Synthylene" or text()="PRF_MixedPlastic"]</xpath>
-        <value>
-            <li>DZ_Plastic</li>
-        </value>
     </Operation>
 
 </Patch>

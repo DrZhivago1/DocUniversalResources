@@ -1,37 +1,39 @@
 <Patch>
 
     <!--==========
-    Titanium Ore
+    Gold Ore
     Universal Replacements
     ==========-->
-    <!--SB_titanium_ore = RimBound-->
+    <!--DankPyon_GoldOre = Medieval Overhaul-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_Titanium_UnrefinedOre" ParentName="DZ_MetalOreBase">
-                    <defName>DZ_Titanium_UnrefinedOre</defName>
-                    <label>Titanium ore</label>
-                    <description>Titanium ore: A commonly utilized, silver-white, and magnetic metal. Requires refining.</description>
+                <ThingDef Name="DZ_Gold_UnrefinedOre" ParentName="DZ_MetalOreBase">
+                    <defName>DZ_Gold_UnrefinedOre</defName>
+                    <label>gold ore</label>
+                    <description>Gold Ore: A commonly utilized yellow metal. Requires refining.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
                     <soundInteract>Stone_Drop</soundInteract>
                     <soundDrop>Stone_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>0.5</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
+                        <MarketValue>3</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
                         <Mass>0.2</Mass>                        <!--Steel = 0.5-->
                     </statBases>
+                    <stackLimit>500</stackLimit>
+                    <smallVolume>true</smallVolume>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <deepCommonality>4</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
-                    <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
-                    <deepLumpSizeRange>20~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
+                    <deepCommonality>0.5</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>8</deepCountPerPortion>                    <!--Steel = 45-->
+                    <deepLumpSizeRange>1~4</deepLumpSizeRange>                    <!--Steel = 20~30-->
                     <tradeTags />
                     <comps />
                 </ThingDef>
@@ -43,24 +45,24 @@
     Mods
     ==========-->
 
-    <!--RimBound-->
+    <!--Medieval Overhaul-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Titanium_UnrefinedOre"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_Gold_UnrefinedOre"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Things/Items/Resource/SBoretitanium</texPath>
+                                    <texPath>Resources/GoldOre</texPath>
                                     <graphicClass>Graphic_StackCount</graphicClass>
                                 </graphicData>
                             </value>
@@ -70,28 +72,28 @@
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="SB_titanium_ore"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="DankPyon_GoldOre"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="SB_titanium_ore"]</xpath>
+                    <xpath>//thingDef[.="DankPyon_GoldOre"]</xpath>
                     <value>
-                        <thingDef>DZ_Titanium_UnrefinedOre</thingDef>
+                        <thingDef>DZ_Gold_UnrefinedOre</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="SB_titanium_ore"]</xpath>
+                    <xpath>//li[.="DankPyon_GoldOre"]</xpath>
                     <value>
-                        <li>DZ_Titanium_UnrefinedOre</li>
+                        <li>DZ_Gold_UnrefinedOre</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//SB_titanium_ore</xpath>
-                    <name>DZ_Titanium_UnrefinedOre</name>
+                    <xpath>//DankPyon_GoldOre</xpath>
+                    <name>DZ_Gold_UnrefinedOre</name>
                 </li>
 
             </operations>

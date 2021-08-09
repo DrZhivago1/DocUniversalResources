@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Zinc {Clockwork And Steam, Cupro's Alloys (Continued)}
+    Zinc
+    Universal Replacements
     ==========-->
+    <!--CaS_Zinc = Clockwork And Steam-->
+    <!--CAL_Zinc = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -71,7 +74,6 @@
     Mods
     ==========-->
 
-
     <!--Clockwork And Steam-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -80,29 +82,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(250,250,250)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(250,250,250)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(250,250,250)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Zinc"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(250,250,250)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_Zinc"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CaS_Zinc"]</xpath>
+                    <value>
+                        <thingDef>DZ_Zinc</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_Zinc"]</xpath>
+                    <value>
+                        <li>DZ_Zinc</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CaS_Zinc</xpath>
+                    <name>DZ_Zinc</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -115,64 +146,66 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Item/Material/Zinc</texPath>
-                            <graphicClass>Graphic_Random</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Item/Material/Zinc</texPath>
+                                    <graphicClass>Graphic_Random</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(165,182,199)</color>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Exotic</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Zinc"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(165,182,199)</color>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Zinc"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_Zinc"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CAL_Zinc"]</xpath>
+                    <value>
+                        <thingDef>DZ_Zinc</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_Zinc"]</xpath>
+                    <value>
+                        <li>DZ_Zinc</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CAL_Zinc</xpath>
+                    <name>DZ_Zinc</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CAL_Zinc = Cupro's Alloys (Continued)-->
-    <!--CaS_Zinc = Clockwork And Steam-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
-        <value>
-            <thingDef>DZ_Zinc</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::CAL_Zinc or self::CaS_Zinc]</xpath>
-        <name>DZ_Zinc</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="CAL_Zinc" or text()="CaS_Zinc"]</xpath>
-        <value>
-            <li>DZ_Zinc</li>
-        </value>
     </Operation>
 
 </Patch>

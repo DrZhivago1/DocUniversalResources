@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Tungsten Ore {RimVali: Far From Avalon, RimBound}
+    Tungsten Ore
+    Universal Replacements
     ==========-->
+    <!--AvaliTungsten = RimVali: Far From Avalon-->
+    <!--SB_tungsten_ore = RimBound-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -26,6 +29,8 @@
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>true</smeltable>
                     <deepCommonality>4</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
                     <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
                     <deepLumpSizeRange>20~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
@@ -48,21 +53,50 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten_UnrefinedOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>avali/Things/Tungsten/TungstenOre</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <drawSize>0.85</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten_UnrefinedOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>avali/Things/Tungsten/TungstenOre</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>0.85</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="AvaliTungsten"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AvaliTungsten"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten_UnrefinedOre</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AvaliTungsten"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten_UnrefinedOre</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AvaliTungsten</xpath>
+                    <name>DZ_Tungsten_UnrefinedOre</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -75,49 +109,51 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten_UnrefinedOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Items/Resource/SBoretungsten</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Tungsten_UnrefinedOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Resource/SBoretungsten</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SB_tungsten_ore"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SB_tungsten_ore"]</xpath>
+                    <value>
+                        <thingDef>DZ_Tungsten_UnrefinedOre</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SB_tungsten_ore"]</xpath>
+                    <value>
+                        <li>DZ_Tungsten_UnrefinedOre</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SB_tungsten_ore</xpath>
+                    <name>DZ_Tungsten_UnrefinedOre</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--AvaliTungsten = RimVali: Far From Avalon-->
-    <!--SB_tungsten_ore = RimBound-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="SB_tungsten_ore" or text()="AvaliTungsten"]</xpath>
-        <value>
-            <thingDef>DZ_Tungsten_UnrefinedOre</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::SB_tungsten_ore or self::AvaliTungsten]</xpath>
-        <name>DZ_Tungsten_UnrefinedOre</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="SB_tungsten_ore" or text()="AvaliTungsten"]</xpath>
-        <value>
-            <li>DZ_Tungsten_UnrefinedOre</li>
-        </value>
     </Operation>
 
 </Patch>

@@ -1,8 +1,16 @@
 <Patch>
 
     <!--==========
-    Copper {Industrialisation, Clockwork And Steam, Metals+, RimBound, Cupro's Alloys (Continued), Project RimFactory - Materials, Expanded Materials - Metals}
+    Copper
+    Universal Replacements
     ==========-->
+    <!--Ind_Copper = Industrialisation-->
+    <!--CaS_Copper = Clockwork And Steam-->
+    <!--Copper = Metals+-->
+    <!--SB_copper_ore = RimBound-->
+    <!--CAL_Copper = Cupro's Alloys (Continued)-->
+    <!--PRF_Copper = Project RimFactory - Materials-->
+    <!--VMEu_Copper = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -84,28 +92,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Ind/Stuff/Copper</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Ind/Stuff/Copper</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(128,170,150)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(128,170,150)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Ind_Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Ind_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Ind_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Ind_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -118,29 +155,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/CaS_Ingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(230,150,0)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/CaS_Ingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(230,150,0)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(230,150,0)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(230,150,0)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CaS_Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CaS_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CaS_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CaS_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -153,28 +219,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Copper</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Copper</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(236,146,121)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(236,146,121)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -187,76 +282,104 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Items/Resource/SBorepile</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(231,171,137)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Resource/SBorepile</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(231,171,137)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(199,138,42)</color>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Art</li>
+                            </value>
+                        </li>
+                        <!--Replace mass-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/statBases/Mass</xpath>
+                            <value>
+                                <Mass>0.008</Mass>
+                            </value>
+                        </li>
+                        <!--Replace sound-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/soundInteract</xpath>
+                            <value>
+                                <soundInteract>Silver_Drop</soundInteract>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/soundDrop</xpath>
+                            <value>
+                                <soundDrop>Silver_Drop</soundDrop>
+                            </value>
+                        </li>
+                        <!--Replace stackLimit-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stackLimit</xpath>
+                            <value>
+                                <stackLimit>500</stackLimit>
+                            </value>
+                        </li>
+                        <!--Use smallVolume-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/smallVolume</xpath>
+                            <value>
+                                <smallVolume>true</smallVolume>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(199,138,42)</color>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/tradeTags</xpath>
-                    <value>
-                        <li>Art</li>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/statBases/Mass</xpath>
-                    <value>
-                        <Mass>0.008</Mass>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundInteract</xpath>
-                    <value>
-                        <soundInteract>Silver_Drop</soundInteract>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundDrop</xpath>
-                    <value>
-                        <soundDrop>Silver_Drop</soundDrop>
-                    </value>
-                </li>
-                <!--Add stackLimit-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stackLimit</xpath>
-                    <value>
-                        <stackLimit>500</stackLimit>
-                    </value>
-                </li>
-                <!--Add smallVolume-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/smallVolume</xpath>
-                    <value>
-                        <smallVolume>true</smallVolume>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SB_copper_ore"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SB_copper_ore"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SB_copper_ore"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SB_copper_ore</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -269,42 +392,71 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Item/Material/Copper</texPath>
-                            <graphicClass>Graphic_Random</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Item/Material/Copper</texPath>
+                                    <graphicClass>Graphic_Random</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(184,115,51)</color>
+                            </value>
+                        </li>
+                        <!--Use stuffProps categories-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/stuffProps/categories</xpath>
+                            <value>
+                                <li>Conducting</li>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Exotic</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(184,115,51)</color>
-                    </value>
-                </li>
-                <!--Use stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>Conducting</li>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CAL_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CAL_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -317,28 +469,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_CopperOre</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_CopperOre</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(175, 73, 27)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(175, 73, 27)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -351,102 +532,98 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/VMEu_Copper</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_Copper</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(175, 73, 27)</color>
+                            </value>
+                        </li>
+                        <!--Replace mass-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/statBases/Mass</xpath>
+                            <value>
+                                <Mass>0.008</Mass>
+                            </value>
+                        </li>
+                        <!--Replace sound-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/soundInteract</xpath>
+                            <value>
+                                <soundInteract>Silver_Drop</soundInteract>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/soundDrop</xpath>
+                            <value>
+                                <soundDrop>Silver_Drop</soundDrop>
+                            </value>
+                        </li>
+                        <!--Change stackLimit-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stackLimit</xpath>
+                            <value>
+                                <stackLimit>500</stackLimit>
+                            </value>
+                        </li>
+                        <!--Use smallVolume-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/smallVolume</xpath>
+                            <value>
+                                <smallVolume>true</smallVolume>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(175, 73, 27)</color>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/statBases/Mass</xpath>
-                    <value>
-                        <Mass>0.008</Mass>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundInteract</xpath>
-                    <value>
-                        <soundInteract>Silver_Drop</soundInteract>
-                    </value>
-                </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/soundDrop</xpath>
-                    <value>
-                        <soundDrop>Silver_Drop</soundDrop>
-                    </value>
-                </li>
-                <!--Add stackLimit-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/stackLimit</xpath>
-                    <value>
-                        <stackLimit>500</stackLimit>
-                    </value>
-                </li>
-                <!--Add smallVolume-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Copper"]/smallVolume</xpath>
-                    <value>
-                        <smallVolume>true</smallVolume>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_Copper"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Copper = Metals+-->
-    <!--CaS_Copper = Clockwork And Steam-->
-    <!--Ind_Copper = Industrialisation-->
-    <!--SB_copper_ore = RimBound-->
-    <!--CAL_Copper = Cupro's Alloys (Continued)-->
-    <!--PRF_Copper = Project RimFactory - Materials-->
-    <!--VMEu_Copper = Expanded Materials - Metals-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="SB_copper_ore" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]</xpath>
-        <value>
-            <thingDef>DZ_Copper</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Copper or self::CaS_Copper or self::Ind_Copper or self::SB_copper_ore or self::CAL_Copper or self::PRF_Copper or self::VMEu_Copper]</xpath>
-        <name>DZ_Copper</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Copper" or text()="CaS_Copper" or text()="Ind_Copper" or text()="SB_copper_ore" or text()="CAL_Copper" or text()="PRF_Copper" or text()="VMEu_Copper"]</xpath>
-        <value>
-            <li>DZ_Copper</li>
-        </value>
     </Operation>
 
 </Patch>

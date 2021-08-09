@@ -1,0 +1,36 @@
+<Patch>
+
+    <!--==========
+    Silver Ore
+    Universal Replacements
+    ==========-->
+
+    <!--===
+    Mods that add Silver ore
+    ===-->
+
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--DankPyon_SilverOre = Medieval Overhaul-->
+
+
+    <!--==========
+    Mods with a production chain for Metal_Ore
+    ==========-->
+    <!--DankPyon_SilverOre = Medieval Overhaul-->
+
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="DankPyon_SilverOre"]</xpath>
+            <value>
+                <mineableThing>DZ_Silver_UnrefinedOre</mineableThing>
+            </value>
+        </match>
+    </Operation>
+
+</Patch>

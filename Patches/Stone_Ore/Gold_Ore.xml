@@ -1,0 +1,53 @@
+<Patch>
+
+    <!--==========
+    Gold Ore
+    Universal Replacements
+    ==========-->
+
+    <!--===
+    Mods that add Gold ore
+    ===-->
+    <!--DankPyon_MineableGold = Medieval Overhaul-->
+
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--MineableGold, DankPyon_GoldOre = Medieval Overhaul-->
+
+
+    <!--==========
+    Mods that add Gold ore
+    ==========-->
+    <!--DankPyon_MineableGold = Medieval Overhaul-->
+
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <!--Remove References-->
+        <match Class="PatchOperationRemove">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef[defName="DankPyon_MineableGold"]</xpath>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods with a production chain for Metal_Ore
+    ==========-->
+    <!--MineableGold, DankPyon_GoldOre = Medieval Overhaul-->
+
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>/Defs/ThingDef[@ParentName="RockBase"]/building/mineableThing[text()="MineableGold" or text()="DankPyon_GoldOre"]</xpath>
+            <value>
+                <mineableThing>DZ_Gold_UnrefinedOre</mineableThing>
+            </value>
+        </match>
+    </Operation>
+
+</Patch>

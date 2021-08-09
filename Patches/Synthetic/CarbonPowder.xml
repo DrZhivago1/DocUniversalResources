@@ -1,8 +1,11 @@
 <Patch>
 
     <!--==========
-    Carbon Powder {RimPlas (Continued), Project RimFactory - Materials}
+    Carbon Powder
+    Universal Replacements
     ==========-->
+    <!--CarboPitch = RimPlas (Continued)-->
+    <!--PRF_Carbon = Project RimFactory - Materials-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -60,20 +63,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonPowder"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/CarboPitch</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonPowder"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/CarboPitch</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CarboPitch"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="CarboPitch"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonPowder</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CarboPitch"]</xpath>
+                    <value>
+                        <li>DZ_CarbonPowder</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//CarboPitch</xpath>
+                    <name>DZ_CarbonPowder</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -86,51 +118,52 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonPowder"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_CarbonPowder</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <drawSize>(0.8,0.8)</drawSize>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CarbonPowder"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_CarbonPowder</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <drawSize>(0.8,0.8)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Carbon"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Carbon"]</xpath>
+                    <value>
+                        <thingDef>DZ_CarbonPowder</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Carbon"]</xpath>
+                    <value>
+                        <li>DZ_CarbonPowder</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Carbon</xpath>
+                    <name>DZ_CarbonPowder</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CarboPitch = RimPlas (Continued)-->
-    <!--PRF_Carbon = Project RimFactory - Materials-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="PRF_Carbon" or text()="CarboPitch"]</xpath>
-        <value>
-            <thingDef>DZ_CarbonPowder</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::PRF_Carbon or self::CarboPitch]</xpath>
-        <name>DZ_CarbonPowder</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="PRF_Carbon" or text()="CarboPitch"]</xpath>
-        <value>
-            <li>DZ_CarbonPowder</li>
-        </value>
     </Operation>
 
 </Patch>

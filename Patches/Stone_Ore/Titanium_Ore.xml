@@ -1,9 +1,16 @@
 <Patch>
 
     <!--==========
-    Titanium Ore {Metals+, Expanded Materials - Metals}
-    Titanium Ore Production Chain {RimBound}
+    Titanium Ore
+    Universal Replacements
     ==========-->
+    <!--MineableTitanium = Metals+, RimBound-->
+    <!--VMEu_Titanium = Expanded Materials - Metals-->
+
+    <!--===
+    Mods with a production chain for Metal_Ore
+    ===-->
+    <!--DZ_Titanium = RimBound-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -51,23 +58,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(120,113,122)</color>
-                            <colorTwo>(194,202,214)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(120,113,122)</color>
+                                    <colorTwo>(194,202,214)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableTitanium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableTitanium"]</xpath>
+                    <value>
+                        <li>DZ_TitaniumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -80,23 +104,40 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TungstenOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(218,216,237)</color>
-                            <colorTwo>(104,93,161)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(218,216,237)</color>
+                                    <colorTwo>(104,93,161)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="MineableTitanium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="MineableTitanium"]</xpath>
+                    <value>
+                        <li>DZ_TitaniumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -109,44 +150,48 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <colorTwo>(199,199,199)</colorTwo>
-                            <color>(56,56,56)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_TitaniumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <colorTwo>(199,199,199)</colorTwo>
+                                    <color>(56,56,56)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VMEu_MineableTitanium"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_MineableTitanium"]</xpath>
+                    <value>
+                        <li>DZ_TitaniumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
     <!--==========
-    Universal Replacements
-    ==========-->
-    <!--MineableTitanium = Metals+, RimBound-->
-    <!--VMEu_Titanium = Expanded Materials - Metals-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="MineableTitanium" or text()="VMEu_MineableTitanium"]</xpath>
-        <value>
-            <li>DZ_TitaniumOre</li>
-        </value>
-    </Operation>
-
-    <!--==========
     Titanium Ore Production Chain
     ==========-->
+    <!--DZ_Titanium = RimBound-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>KBraid.Rimbound</li>

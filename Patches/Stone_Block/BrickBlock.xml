@@ -1,8 +1,13 @@
 <Patch>
 
     <!--==========
-    Brick Blocks {Ceramics, Materials+, Project RimFactory - Materials, Fertile Fields [1.1]}
+    Brick Blocks
+    Universal Replacements
     ==========-->
+    <!--RFFBricks = Fertile Fields [1.1]-->
+    <!--N7_FiredBrick = Ceramics-->
+    <!--PRF_Brick = Project RimFactory - Materials-->
+    <!--Blocks_BrickAM = Materials+-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -11,52 +16,47 @@
             <li>PRF.Materials</li>
             <li>jamaicancastle.RF.fertilefields</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_BlocksBrick" ParentName="DZ_StoneBlocksBase">
-                            <defName>DZ_BlocksBrick</defName>
-                            <label>Brick blocks</label>
-                            <description>Brick Blocks: Clay hardened into building material.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Stone_Drop</soundInteract>
-                            <soundDrop>Stone_Drop</soundDrop>
-                            <stackLimit>75</stackLimit>
-                            <statBases>
-                                <Mass>1</Mass>
-                                <Beauty>0</Beauty>
-                                <Flammability>0</Flammability>
-                                <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
-                            </statBases>
-                            <stuffProps>
-                                <stuffAdjective>brick</stuffAdjective>
-                                <categories />
-                                <color />
-                                <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
-                                <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
-                                <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
-                                <statFactors>
-                                    <MarketValue>0.2</MarketValue>
-                                    <Flammability>0</Flammability>
-                                    <BedRestEffectiveness>0.6</BedRestEffectiveness>
-                                    <MeleeWeapon_CooldownMultiplier>1.10</MeleeWeapon_CooldownMultiplier>
-                                    <Beauty>0.8</Beauty>
-                                    <MaxHitPoints>1.5</MaxHitPoints>
-                                    <WorkToBuild>1.5</WorkToBuild>
-                                    <WorkToMake>0.85</WorkToMake>
-                                </statFactors>
-                            </stuffProps>
-                            <smeltable>false</smeltable>
-                            <tradeTags />
-                            <comps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_BlocksBrick" ParentName="DZ_StoneBlocksBase">
+                    <defName>DZ_BlocksBrick</defName>
+                    <label>Brick blocks</label>
+                    <description>Brick Blocks: Clay hardened into building material.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Stone_Drop</soundInteract>
+                    <soundDrop>Stone_Drop</soundDrop>
+                    <stackLimit>75</stackLimit>
+                    <statBases>
+                        <Mass>1</Mass>
+                        <Beauty>0</Beauty>
+                        <Flammability>0</Flammability>
+                        <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
+                    </statBases>
+                    <stuffProps>
+                        <stuffAdjective>brick</stuffAdjective>
+                        <categories />
+                        <color />
+                        <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                        <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                        <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                        <statFactors>
+                            <MarketValue>0.2</MarketValue>
+                            <Flammability>0</Flammability>
+                            <BedRestEffectiveness>0.6</BedRestEffectiveness>
+                            <MeleeWeapon_CooldownMultiplier>1.10</MeleeWeapon_CooldownMultiplier>
+                            <Beauty>0.8</Beauty>
+                            <MaxHitPoints>1.5</MaxHitPoints>
+                            <WorkToBuild>1.5</WorkToBuild>
+                            <WorkToMake>0.85</WorkToMake>
+                        </statFactors>
+                    </stuffProps>
+                    <smeltable>false</smeltable>
+                    <tradeTags />
+                    <comps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -72,35 +72,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/FiredBrick</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/FiredBrick</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(177,110,96)</color>
+                            </value>
+                        </li>
+                        <!--Replace StuffProps Categories-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/categories</xpath>
+                            <value>
+                                <categories Inherit="false">
+                                    <li>Masonry</li>
+                                    <li>Stony</li>
+                                    <li>Mosaic</li>
+                                </categories>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_BlocksBrick"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(177,110,96)</color>
-                    </value>
-                </li>
-                <!--Replace StuffProps Categories-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]/stuffProps/categories</xpath>
-                    <value>
-                        <categories Inherit="false">
-                            <li>Masonry</li>
-                            <li>Stony</li>
-                            <li>Mosaic</li>
-                        </categories>
-                    </value>
-                </li>
+
                 <!--Replace drying resource-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[defName="Building_PrimitiveKiln" or defName="Building_BasicKiln" or defName="Building_ElectricKiln"]/comps/li[@Class="Ceramics.CompProperties_Processing"]/productDef</xpath>
@@ -108,10 +115,33 @@
                         <productDef>DZ_BlocksBrick</productDef>
                     </value>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="N7_FiredBrick"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="N7_FiredBrick"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksBrick</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="N7_FiredBrick"]</xpath>
+                    <value>
+                        <li>DZ_BlocksBrick</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//N7_FiredBrick</xpath>
+                    <name>DZ_BlocksBrick</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -124,27 +154,56 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <color>(139,79,57)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <color>(139,79,57)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(139,79,57)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_BlocksBrick"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(139,79,57)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Blocks_BrickAM"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Blocks_BrickAM"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksBrick</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Blocks_BrickAM"]</xpath>
+                    <value>
+                        <li>DZ_BlocksBrick</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Blocks_BrickAM</xpath>
+                    <name>DZ_BlocksBrick</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -157,29 +216,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_Brick</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(139,79,57)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/PRF_Brick</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(139,79,57)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(139,79,57)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_BlocksBrick"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(139,79,57)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="PRF_Brick"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="PRF_Brick"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksBrick</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="PRF_Brick"]</xpath>
+                    <value>
+                        <li>DZ_BlocksBrick</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//PRF_Brick</xpath>
+                    <name>DZ_BlocksBrick</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -192,59 +280,58 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <color>(160,64,48)</color>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_BlocksBrick"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <color>(160,64,48)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(160,64,48)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_BlocksBrick"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(160,64,48)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="RFFBricks"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RFFBricks"]</xpath>
+                    <value>
+                        <thingDef>DZ_BlocksBrick</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RFFBricks"]</xpath>
+                    <value>
+                        <li>DZ_BlocksBrick</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RFFBricks</xpath>
+                    <name>DZ_BlocksBrick</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--RFFBricks = Fertile Fields [1.1]-->
-    <!--N7_FiredBrick = Ceramics-->
-    <!--PRF_Brick = Project RimFactory - Materials-->
-    <!--Blocks_BrickAM = Materials+-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="RFFBricks" or text()="N7_FiredBrick" or text()="PRF_Brick" or text()="Blocks_BrickAM"]</xpath>
-        <value>
-            <thingDef>DZ_BlocksBrick</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::RFFBricks or self::N7_FiredBrick or self::PRF_Brick or self::Blocks_BrickAM]</xpath>
-        <name>DZ_BlocksBrick</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="RFFBricks" or text()="N7_FiredBrick" or text()="PRF_Brick" or text()="Blocks_BrickAM"]</xpath>
-        <value>
-            <li>DZ_BlocksBrick</li>
-        </value>
     </Operation>
 
 </Patch>

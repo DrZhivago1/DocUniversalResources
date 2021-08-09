@@ -1,8 +1,12 @@
 <Patch>
 
     <!--==========
-    Mithril {Lord of the Rims - The Third Age (Continued), Fantasy Metals Reforged, [Ry]Rimcraft Metals}
+    Mithril
+    Universal Replacements
     ==========-->
+    <!--LotR_Mithril = Lord of the Rims - The Third Age (Continued)-->
+    <!--Mithril = Fantasy Metals Reforged-->
+    <!--WoW_mithril = [Ry]Rimcraft Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -72,28 +76,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/edmundWulfgarthMithril</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/edmundWulfgarthMithril</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(213,225,245)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(213,225,245)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="LotR_Mithril"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="LotR_Mithril"] | /Defs/ScenarioDef//li[@Class="ScenPart_StartingThing_Defined"]/*[.="LotR_Mithril"]/..</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="LotR_Mithril"]</xpath>
+                    <value>
+                        <thingDef>DZ_Mithril</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="LotR_Mithril"]</xpath>
+                    <value>
+                        <li>DZ_Mithril</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//LotR_Mithril</xpath>
+                    <name>DZ_Mithril</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -106,28 +139,57 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Resource/Mithril</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/Mithril</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(255,255,255)</color>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(255,255,255)</color>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="Mithril"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="Mithril"]</xpath>
+                    <value>
+                        <thingDef>DZ_Mithril</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="Mithril"]</xpath>
+                    <value>
+                        <li>DZ_Mithril</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//Mithril</xpath>
+                    <name>DZ_Mithril</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -140,78 +202,74 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Item/Metal/Mithril_Ingot</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Metal/Mithril_Ingot</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(200,216,75)</color>
+                            </value>
+                        </li>
+                        <!--Use stuffProps categories-->
+                        <li Class="PatchOperationAdd">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/categories</xpath>
+                            <value>
+                                <li>Magical</li>
+                            </value>
+                        </li>
+                        <!--Use tradeTags-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/tradeTags</xpath>
+                            <value>
+                                <li>Exotic</li>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
-                <!--Replace stuffProps color to match-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/color</xpath>
-                    <value>
-                        <color>(200,216,75)</color>
-                    </value>
-                </li>
-                <!--Use stuffProps categories-->
-                <li Class="PatchOperationAdd">
-                    <success>Always</success>
-                    <xpath>/Defs/ThingDef[defName="DZ_Mithril"]/stuffProps/categories</xpath>
-                    <value>
-                        <li>Magical</li>
-                    </value>
-                </li>
-                <!--Use tradeTags-->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Mithril"]/tradeTags</xpath>
-                    <value>
-                        <li>Exotic</li>
-                    </value>
-                </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="WoW_mithril"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="WoW_mithril"]</xpath>
+                    <value>
+                        <thingDef>DZ_Mithril</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="WoW_mithril"]</xpath>
+                    <value>
+                        <li>DZ_Mithril</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//WoW_mithril</xpath>
+                    <name>DZ_Mithril</name>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--Mithril = Fantasy Metals Reforged-->
-    <!--WoW_mithril = [Ry]Rimcraft Metals-->
-    <!--LotR_Mithril = Lord of the Rims - The Third Age (Continued)-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="Mithril" or text()="WoW_mithril" or text()="LotR_Mithril"]</xpath>
-        <value>
-            <thingDef>DZ_Mithril</thingDef>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::Mithril or self::WoW_mithril or self::LotR_Mithril]</xpath>
-        <name>DZ_Mithril</name>
-    </Operation>
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="Mithril" or text()="WoW_mithril" or text()="LotR_Mithril"]</xpath>
-        <value>
-            <li>DZ_Mithril</li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationRemove">
-        <success>Always</success>
-        <xpath>/Defs/ScenarioDef//li[@Class="ScenPart_StartingThing_Defined"]/*[text()="Mithril" or text()="WoW_mithril" or text()="LotR_Mithril"]/..</xpath>
     </Operation>
 
 </Patch>

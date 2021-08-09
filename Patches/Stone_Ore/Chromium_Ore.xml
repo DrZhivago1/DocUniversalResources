@@ -1,8 +1,10 @@
 <Patch>
 
     <!--==========
-    Chromium Ore {Cupro's Alloys (Continued)}
+    Chromium Ore
+    Universal Replacements
     ==========-->
+    <!--CAL_MineableChromite = Cupro's Alloys (Continued)-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -49,38 +51,42 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics to ThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_ChromiumOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                            <shaderType>CutoutComplex</shaderType>
-                            <color>(114,92,83)</color>
-                            <colorTwo>(75,75,80)</colorTwo>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_ChromiumOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Cupro/Object/Structure/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(114,92,83)</color>
+                                    <colorTwo>(75,75,80)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="CAL_MineableChromite"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="CAL_MineableChromite"]</xpath>
+                    <value>
+                        <li>DZ_ChromiumOre</li>
+                    </value>
+                </li>
+
             </operations>
         </match>
-    </Operation>
-
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--CAL_MineableChromite = Cupro's Alloys (Continued)-->
-
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/GenStepDef/genStep/mineables/li[text()="CAL_MineableChromite"]</xpath>
-        <value>
-            <li>DZ_ChromiumOre</li>
-        </value>
     </Operation>
 
 </Patch>

@@ -1,13 +1,18 @@
 <Patch>
 
     <!--==========
-    Iron Ore {Simple Mining Extension, RimBound}
+    Iron Ore
+    Universal Replacements
     ==========-->
+    <!--ChunkIronOre = Simple Mining Extension-->
+    <!--SB_iron_ore = RimBound-->
+    <!--DankPyon_IronOre = Medieval Overhaul-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Yuno.SimpleOresTest</li>
             <li>KBraid.Rimbound</li>
+            <li>dankpyon.medieval.overhaul</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -26,6 +31,8 @@
                     </statBases>
                     <useHitPoints>false</useHitPoints>
                     <healthAffectsPrice>false</healthAffectsPrice>
+                    <burnableByRecipe>false</burnableByRecipe>
+                    <smeltable>true</smeltable>
                     <deepCommonality>4</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
                     <deepCountPerPortion>45</deepCountPerPortion>                    <!--Steel = 45-->
                     <deepLumpSizeRange>20~30</deepLumpSizeRange>                    <!--Steel = 20~30-->
@@ -48,20 +55,49 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Iron_UnrefinedOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>orechunks/iron_chunk</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron_UnrefinedOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>orechunks/iron_chunk</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="ChunkIronOre"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="ChunkIronOre"]</xpath>
+                    <value>
+                        <thingDef>DZ_Iron_UnrefinedOre</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="ChunkIronOre"]</xpath>
+                    <value>
+                        <li>DZ_Iron_UnrefinedOre</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//ChunkIronOre</xpath>
+                    <name>DZ_Iron_UnrefinedOre</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
@@ -74,49 +110,106 @@
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
-                <!--Use/replace graphics-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Iron_UnrefinedOre"]/graphicData</xpath>
-                    <value>
-                        <graphicData>
-                            <texPath>Things/Items/Resource/SBoreiron</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                        </graphicData>
-                    </value>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron_UnrefinedOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Resource/SBoreiron</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
                 </li>
+
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="SB_iron_ore"]</xpath>
                 </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="SB_iron_ore"]</xpath>
+                    <value>
+                        <thingDef>DZ_Iron_UnrefinedOre</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="SB_iron_ore"]</xpath>
+                    <value>
+                        <li>DZ_Iron_UnrefinedOre</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//SB_iron_ore</xpath>
+                    <name>DZ_Iron_UnrefinedOre</name>
+                </li>
+
             </operations>
         </match>
     </Operation>
 
-    <!--==========
-    Universal Replacements
-    ==========-->
-    <!--ChunkIronOre = Simple Mining Extension-->
-    <!--SB_iron_ore = RimBound-->
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//thingDef[text()="SB_iron_ore" or text()="ChunkIronOre"]</xpath>
-        <value>
-            <thingDef>DZ_Iron_UnrefinedOre</thingDef>
-        </value>
-    </Operation>
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
 
-    <Operation Class="PatchOperationSetName">
-        <success>Always</success>
-        <xpath>/Defs//*[self::SB_iron_ore or self::ChunkIronOre]</xpath>
-        <name>DZ_Iron_UnrefinedOre</name>
-    </Operation>
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron_UnrefinedOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/IronOre</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
 
-    <Operation Class="PatchOperationReplace">
-        <success>Always</success>
-        <xpath>/Defs/*//li[text()="SB_iron_ore" or text()="ChunkIronOre"]</xpath>
-        <value>
-            <li>DZ_Iron_UnrefinedOre</li>
-        </value>
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_IronOre"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_IronOre"]</xpath>
+                    <value>
+                        <thingDef>DZ_Iron_UnrefinedOre</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_IronOre"]</xpath>
+                    <value>
+                        <li>DZ_Iron_UnrefinedOre</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_IronOre</xpath>
+                    <name>DZ_Iron_UnrefinedOre</name>
+                </li>
+
+            </operations>
+        </match>
     </Operation>
 
 </Patch>
