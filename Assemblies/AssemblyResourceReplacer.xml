@@ -1,0 +1,10 @@
+<AssemblyResourceReplacer>
+
+    <li>
+        <keys>
+            <li>VFEV_Honey</li>
+        </keys>
+        <value>DZ_Honey</value>
+    </li>
+
+</AssemblyResourceReplacer>

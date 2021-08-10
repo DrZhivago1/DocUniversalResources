@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PatchAssemblies.cs" />
     <Compile Include="ReplaceDefNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
