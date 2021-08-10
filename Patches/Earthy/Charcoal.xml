@@ -4,7 +4,7 @@
     Charcoal
     Universal Replacements
     ==========-->
-    <!--Charcoal = Coal Expanded-->
+    <!--Charcoal = Coal Expanded, Coal Expanded (Continued)-->
     <!--CharCoalOre = Simple Mining Extension-->
     <!--SRV_Charcoal = Survivalist's Additions-->
     <!--AYCharcoal = Apothecary (Continued)-->
@@ -13,6 +13,7 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
+            <li>mlie.coalexpanded</li>
             <li>Yuno.SimpleOresTest</li>
             <li>Mantrasong.SurvAdd.1</li>
             <li>Mlie.Apothecary</li>
@@ -59,9 +60,11 @@
     ==========-->
 
     <!--Coal Expanded-->
+    <!--Coal Expanded (Continued)-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
+            <li>mlie.coalexpanded</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

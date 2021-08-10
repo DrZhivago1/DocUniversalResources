@@ -28,6 +28,8 @@ DUR catches duplicate resources and replaces them with one defName.
 	</loadBefore>
 
 	<loadAfter>
+		<li>mlie.coalexpanded</li>
+		<li>dankpyon.medieval.overhaul</li>
 		<li>spoden.JustGlass</li>
 		<li>oskarpotocki.vanillafactionsexpanded.medievalmodule</li>
 		<li>dismarzero.vgp.vgpmoreveggies</li>

@@ -9,7 +9,7 @@
     <!--AM_Coal = Materials+-->
     <!--CaS_Coal = Clockwork And Steam-->
     <!--WDCoal = [WD] Simple Coal-->
-    <!--Coal = Coal Expanded-->
+    <!--Coal = Coal Expanded, Coal Expanded (Continued)-->
     <!--RH_TET_Coal = Rimhammer - The End Times, Rimhammer - The End Times - WITH GUNS!!-->
     <!--SB_coal_ore = RimBound-->
     <!--DankPyon_MineableCoal = Medieval Overhaul-->
@@ -24,6 +24,7 @@
             <li>chance2000w.clockworkandsteam</li>
             <li>Wemd.SimpleCoal</li>
             <li>neceros.coalexpanded</li>
+            <li>mlie.coalexpanded</li>
             <li>sickboywi.theendtimes.theendtimes</li>
             <li>SickBoyWi.TheEndTimes.WithGuns</li>
             <li>KBraid.Rimbound</li>
@@ -352,9 +353,11 @@
     </Operation>
 
     <!--Coal Expanded-->
+    <!--Coal Expanded (Continued)-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>neceros.coalexpanded</li>
+            <li>mlie.coalexpanded</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

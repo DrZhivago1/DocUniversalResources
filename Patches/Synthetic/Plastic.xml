@@ -272,7 +272,7 @@
                     <name>DZ_Plastic</name>
                 </li>
 
-                <!--Add category so mod quits bitching-->
+                <!--Allows unintended consequences for production chains
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
@@ -284,7 +284,7 @@
                             <resourceReadoutRoot>false</resourceReadoutRoot>
                         </ThingCategoryDef>
                     </value>
-                </li>
+                </li>-->
 
             </operations>
         </match>

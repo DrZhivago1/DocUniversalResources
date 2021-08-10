@@ -13,7 +13,7 @@
             <li>Haplo.Miscellaneous.BeesNHoney</li>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
             <li>Crustypeanut.RC2.Core</li>
-            <!--<li>OskarPotocki.VFE.Vikings</li>-->
+            <li>oskarpotocki.vfe.vikings</li>
             <li>sarg.rimbees</li>
         </mods>
         <match Class="PatchOperationAdd">
@@ -290,50 +290,74 @@
     </Operation>
 
     <!--Vanilla Factions Expanded - Vikings-->
-    <!--Special considerations b/c of unique fermenting barrel
+    <!--Special considerations b/c of unique fermenting barrel-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>OskarPotocki.VFE.Vikings</li>
+            <li>oskarpotocki.vfe.vikings</li>
         </mods>
-        <match Class="PatchOperation.FindModByID">
-            <mods>
-                <li>syrchalis.universalfermenter</li>
-            </mods>
-            <match Class="PatchOperationSequence">
-                <success>Always</success>
-                <operations>-->
-    <!--Use/replace graphics
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/graphicData</xpath>
-                        <value>
-                            <graphicData>
-                                <texPath>Things/Item/Resource/AnimalProductRaw/Honey</texPath>
-                                <graphicClass>Graphic_StackCount</graphicClass>
-                            </graphicData>
-                        </value>
-                    </li>-->
-    <!--Use ingestible data
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[@Name="DZ_Honey"]/ingestible</xpath>
-                        <value>
-                            <ingestible>
-                                <foodType>AnimalProduct</foodType>
-                                <preferability>RawTasty</preferability>
-                                <joy>0.10</joy>
-                                <joyKind>Gluttonous</joyKind>
-                                <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
-                                <ingestSound>Meal_Eat</ingestSound>
-                            </ingestible>
-                        </value>
-                    </li>-->
-    <!--Remove resource
-                    <li Class="PatchOperationRemove">
-                        <xpath>/Defs/ThingDef[defName="VFEV_Honey"]</xpath>
-                    </li>
-                </operations>
-            </match>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/AnimalProductRaw/Honey</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <foodType>AnimalProduct</foodType>
+                                    <preferability>RawTasty</preferability>
+                                    <joy>0.10</joy>
+                                    <joyKind>Gluttonous</joyKind>
+                                    <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+                                    <ingestSound>Meal_Eat</ingestSound>
+                                </ingestible>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VFEV_Honey"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VFEV_Honey"]</xpath>
+                    <value>
+                        <thingDef>DZ_Honey</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VFEV_Honey"]</xpath>
+                    <value>
+                        <li>DZ_Honey</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VFEV_Honey</xpath>
+                    <name>DZ_Honey</name>
+                </li>
+
+            </operations>
         </match>
-    </Operation>-->
+    </Operation>
 
     <!--RimBees-->
     <Operation Class="PatchOperation.FindModByID">
