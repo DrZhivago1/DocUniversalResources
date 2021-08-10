@@ -12,8 +12,8 @@ namespace DocUniversalResources
         {
             Log.Message(string.Format("[DUR] Check"));
             var harmony = new Harmony("drzhivago.docuniversalresources.harmony");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
             XmlParser.CollectXmlData();
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 
