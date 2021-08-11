@@ -4,11 +4,13 @@
     Adamantite
     Universal Replacements
     ==========-->
+    <!--RF_Adamantium = RimForge-->
     <!--Adamantite = Fantasy Metals Reforged-->
     <!--WoW_adamantite = [Ry]Rimcraft Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <!--<li>co.uk.epicguru.rimforge</li>-->
             <li>mercurydoll.fantasymetals</li>
             <li>Ryflamer.Rimcraft.Metals</li>
         </mods>
@@ -57,6 +59,7 @@
                     <smeltable>true</smeltable>
                     <tradeTags />
                     <comps />
+                    <modExtensions />
                 </ThingDef>
             </value>
         </match>
@@ -65,6 +68,102 @@
     <!--==========
     Mods
     ==========-->
+
+    <!--RimForge>
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>co.uk.epicguru.rimforge</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Adamantite"]</xpath>
+                    <operations>
+                        <!Use/replace graphics>
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>RF/Resources/Adamantium</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>-->
+                        <!--Replace stuffProps color to match
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(37,26,54)</color>
+                            </value>
+                        </li>-->
+                        <!--Add modExtensions
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/modExtensions</xpath>
+                            <value>
+                                <li Class="RimForge.Extension">
+                                    <meltingPoint>2000</meltingPoint>
+                                </li>
+                                <li Class="Rimforge.StuffCompGiver">
+                                    <onlyMeleeWeapons>true</onlyMeleeWeapons>
+                                    <compClass>RimForge.Comps.CompDeflector</compClass>
+                                    <props Class="RimForge.Comps.CompProperties_Deflector">
+                                        <deflectChance>0.5</deflectChance>
+                                        <reflectChance>0.5</reflectChance>
+                                    </props>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
+                </li>-->
+
+                <!--Alloy recipe
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/RimForge.AlloyDef/output/resource</xpath>
+                    <value>
+                        <resource>DZ_Adamantite</resource>
+                    </value>
+                </li>-->
+
+                <!--Achievements
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/AchievementsExpanded.AchievementDef/tracker/def[.="RF_Adamantium"]</xpath>
+                    <value>
+                        <def>DZ_Adamantite</def>
+                    </value>
+                </li>-->
+
+                <!--Remove resource
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="RF_Adamantium"]</xpath>
+                </li>-->
+
+                <!--Replace References
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="RF_Adamantium"]</xpath>
+                    <value>
+                        <thingDef>DZ_Adamantite</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="RF_Adamantium"]</xpath>
+                    <value>
+                        <li>DZ_Adamantite</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//RF_Adamantium</xpath>
+                    <name>DZ_Adamantite</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>-->
 
     <!--Fantasy Metals Reforged-->
     <Operation Class="PatchOperation.FindModByID">

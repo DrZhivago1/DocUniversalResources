@@ -13,6 +13,12 @@ DUR catches duplicate resources and replaces them with one defName.
 
 	<modDependencies>
 		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+		<li>
 			<packageId>ccl.patchoperation.highlander</packageId>
 			<displayName>PatchOperationHighlander</displayName>
 			<downloadUrl>https://github.com/notfood/PatchOperationHighlander</downloadUrl>
@@ -28,6 +34,7 @@ DUR catches duplicate resources and replaces them with one defName.
 	</loadBefore>
 
 	<loadAfter>
+		<li>argon.vmeup</li>
 		<li>mlie.coalexpanded</li>
 		<li>dankpyon.medieval.overhaul</li>
 		<li>spoden.JustGlass</li>

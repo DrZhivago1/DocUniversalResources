@@ -4,11 +4,14 @@
     Raw Cotton 
     Universal Replacements
     ==========-->
-    <!--RawCotton = SeedsPlease, VGP Garden Fabrics-->
+    <!--RawCotton = SeedsPlease-->
+    <!--DankPyon_RawCotton = Medieval Overhaul-->
+    <!--RawCotton = VGP Garden Fabrics-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>notfood.seedsplease</li>
+            <li>dankpyon.medieval.overhaul</li>
             <li>dismarzero.vgp.vgpgardenfabrics</li>
         </mods>
         <match Class="PatchOperationAdd">
@@ -111,6 +114,69 @@
                     <value>
                         <harvest>DZ_RawCotton</harvest>
                     </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawCotton"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Plants/RawCotton</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="Plant_Cotton"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawCotton</harvestedThingDef>
+                    </value>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_RawCotton"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_RawCotton"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawCotton</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_RawCotton"]</xpath>
+                    <value>
+                        <li>DZ_RawCotton</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_RawCotton</xpath>
+                    <name>DZ_RawCotton</name>
                 </li>
 
             </operations>

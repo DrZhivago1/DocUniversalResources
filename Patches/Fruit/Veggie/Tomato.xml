@@ -4,12 +4,14 @@
     Tomato 
     Universal Replacements
     ==========-->
+    <!--DankPyon_RawTomatoes = Medieval Overhaul-->
     <!--RC2_RawTomato = [1.0, 1.1] RimCuisine 2 Core-->
     <!--RawTomatoes = VGP More Veggies-->
     <!--VCE_RawTomatoes = Vanilla Plants Expanded-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>dankpyon.medieval.overhaul</li>
             <li>crustypeanut.rc2.core</li>
             <li>dismarzero.vgp.vgpmoreveggies</li>
             <li>vanillaexpanded.vplantse</li>
@@ -45,6 +47,68 @@
     <!--==========
     Mods
     ==========-->
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawTomato"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Plants/RawTomatoes</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Tomatoes"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawTomato</harvestedThingDef>
+                    </value>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_RawTomatoes"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_RawTomatoes"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawTomato</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_RawTomatoes"]</xpath>
+                    <value>
+                        <li>DZ_RawTomato</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_RawTomatoes</xpath>
+                    <name>DZ_RawTomato</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation.FindModByID">

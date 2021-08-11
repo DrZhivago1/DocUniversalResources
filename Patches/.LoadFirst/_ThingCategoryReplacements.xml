@@ -48,8 +48,8 @@
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Crustypeanut.RC2.Core</li><!--[1.0, 1.1] RimCuisine 2 Core-->
-            <li>VanillaExpanded.VCookE</li><!--Vanilla Cooking Expanded-->
+            <li>Crustypeanut.RC2.Core</li>            <!--[1.0, 1.1] RimCuisine 2 Core-->
+            <li>VanillaExpanded.VCookE</li>            <!--Vanilla Cooking Expanded-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -84,7 +84,7 @@
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Kura.ExtraGems</li><!--Kura's Extra Gems-->
+            <li>Kura.ExtraGems</li>            <!--Kura's Extra Gems-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -101,7 +101,7 @@
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>Argon.VMEu</li><!--Expanded Materials - Metals-->
+            <li>Argon.VMEu</li>            <!--Expanded Materials - Metals-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
@@ -131,19 +131,19 @@
 
     <!--==========
     Synthetic
-    ==========
+    ==========-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li></li>
+            <li>argon.vmeup</li>            <!--Expanded Materials - Plastics-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>
-            <xpath>//li[.=""]</xpath>
+            <xpath>//li[.="VMEu_PlasticThingCategory" or .="VMEu_LiquidPlasticThingCategory"]</xpath>
             <value>
                 <li>DZ_SyntheticCategory</li>
             </value>
         </match>
-    </Operation>-->
+    </Operation>
 
 </Patch>

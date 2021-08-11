@@ -4,12 +4,14 @@
     Flour 
     Universal Replacements
     ==========-->
+    <!--DankPyon_Flour = Medieval Overhaul-->
     <!--RC2_Flour = [1.0, 1.1] RimCuisine 2 Core-->
     <!--Flour = VGP Garden Gourmet-->
     <!--VCE_Flour = Vanilla Cooking Expanded-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>dankpyon.medieval.overhaul</li>
             <li>Crustypeanut.RC2.Core</li>
             <li>dismarzero.VGP.VGPGardenGourmet</li>
             <li>VanillaExpanded.VCookE</li>
@@ -48,6 +50,72 @@
     <!--==========
     Mods
     ==========-->
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Flour"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/Flour</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <drawSize>(1,1)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <foodType>Processed</foodType>
+                                    <preferability>NeverForNutrition</preferability>
+                                </ingestible>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Flour"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_Flour"]</xpath>
+                    <value>
+                        <thingDef>DZ_Flour</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_Flour"]</xpath>
+                    <value>
+                        <li>DZ_Flour</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_Flour</xpath>
+                    <name>DZ_Flour</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
 
     <!--[1.0, 1.1] RimCuisine 2 Core-->
     <Operation Class="PatchOperation.FindModByID">

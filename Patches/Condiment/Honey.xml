@@ -6,6 +6,7 @@
     ==========-->
     <!--Honey = Misc. Bees'n'Honey, VGP Vegetable Garden-->
     <!--RC2_Honey = [1.0, 1.1] RimCuisine 2 Core-->
+    <!--VFEV_Honey = Vanilla Factions Expanded - Vikings-->
     <!--RB_BaseHoney = RimBees-->
 
     <Operation Class="PatchOperation.FindModByID">
@@ -13,7 +14,7 @@
             <li>Haplo.Miscellaneous.BeesNHoney</li>
             <li>dismarzero.VGP.VGPVegetableGarden</li>
             <li>Crustypeanut.RC2.Core</li>
-            <li>oskarpotocki.vfe.vikings</li>
+            <!--<li>oskarpotocki.vfe.vikings</li>-->
             <li>sarg.rimbees</li>
         </mods>
         <match Class="PatchOperationAdd">
@@ -28,7 +29,7 @@
                     <stackLimit>75</stackLimit>
                     <socialPropernessMatters>true</socialPropernessMatters>
                     <statBases>
-                        <MarketValue>4.2</MarketValue>
+                        <MarketValue>5</MarketValue>
                         <Mass>0.015</Mass>
                         <Nutrition>0.05</Nutrition>
                         <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
@@ -290,7 +291,7 @@
     </Operation>
 
     <!--Vanilla Factions Expanded - Vikings-->
-    <!--Special considerations b/c of unique fermenting barrel-->
+    <!--Special considerations b/c of unique fermenting barrel
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>oskarpotocki.vfe.vikings</li>
@@ -302,7 +303,7 @@
                 <li Class="PatchOperation.Context">
                     <xpath>/Defs/ThingDef[@Name="DZ_Honey"]</xpath>
                     <operations>
-                        <!--Use/replace graphics-->
+                        <!Use/replace graphics>
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
@@ -312,7 +313,7 @@
                                 </graphicData>
                             </value>
                         </li>
-                        <!--Use ingestible data-->
+                        <!Use ingestible data>
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/ingestible</xpath>
                             <value>
@@ -329,12 +330,12 @@
                     </operations>
                 </li>
 
-                <!--Remove resource-->
+                <!Remove resource>
                 <li Class="PatchOperationRemove">
                     <xpath>/Defs/ThingDef[defName="VFEV_Honey"]</xpath>
                 </li>
 
-                <!--Replace References-->
+                <!Replace References>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>//thingDef[.="VFEV_Honey"]</xpath>
@@ -357,7 +358,7 @@
 
             </operations>
         </match>
-    </Operation>
+    </Operation>-->
 
     <!--RimBees-->
     <Operation Class="PatchOperation.FindModByID">

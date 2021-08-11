@@ -1,28 +1,27 @@
 <Patch>
 
     <!--==========
-    Carrot 
+    Lentil 
     Universal Replacements
     ==========-->
-    <!--DankPyon_RawCarrots = Medieval Overhaul-->
-    <!--RC2_RawCarrots = [1.0, 1.1] RimCuisine 2 Core-->
-    <!--RawCarrots = VGP More Veggies-->
+    <!--DankPyon_RawLentils = Medieval Overhaul-->
+    <!--RawRedLentil = VGP Vegetable Garden-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>dankpyon.medieval.overhaul</li>
-            <li>crustypeanut.rc2.core</li>
-            <li>dismarzero.vgp.vgpmoreveggies</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
             <value>
-                <ThingDef Name="DZ_RawCarrot" ParentName="DZ_FruitVeggieBase">
-                    <defName>DZ_RawCarrot</defName>
-                    <label>carrots</label>
-                    <description>Carrots: Edible root grown in the soil.</description>
+                <ThingDef Name="DZ_RawLentil" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawLentil</defName>
+                    <label>lentils</label>
+                    <description>Lentils: Edible vegetable.</description>
                     <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
                     <graphicData />
+                    <thingCategories />
                     <statBases>
                         <MarketValue>1.2</MarketValue>
                     </statBases>
@@ -55,14 +54,15 @@
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawCarrot"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawLentil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>Plants/RawCarrots</texPath>
+                                    <texPath>Plants/LentilPlant</texPath>
+                                    <graphicClass>Graphic_Random</graphicClass>
                                 </graphicData>
                             </value>
                         </li>
@@ -71,61 +71,68 @@
 
                 <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Carrots"]/plant/harvestedThingDef</xpath>
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Lentils"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <harvestedThingDef>DZ_RawCarrot</harvestedThingDef>
+                        <harvestedThingDef>DZ_RawLentil</harvestedThingDef>
                     </value>
                 </li>
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="DankPyon_RawCarrots"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="DankPyon_RawLentils"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="DankPyon_RawCarrots"]</xpath>
+                    <xpath>//thingDef[.="DankPyon_RawLentils"]</xpath>
                     <value>
-                        <thingDef>DZ_RawCarrot</thingDef>
+                        <thingDef>DZ_RawLentil</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="DankPyon_RawCarrots"]</xpath>
+                    <xpath>//li[.="DankPyon_RawLentils"]</xpath>
                     <value>
-                        <li>DZ_RawCarrot</li>
+                        <li>DZ_RawLentil</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//DankPyon_RawCarrots</xpath>
-                    <name>DZ_RawCarrot</name>
+                    <xpath>//DankPyon_RawLentils</xpath>
+                    <name>DZ_RawLentil</name>
                 </li>
 
             </operations>
         </match>
     </Operation>
 
-    <!--[1.0, 1.1] RimCuisine 2 Core-->
+    <!--VGP Vegetable Garden-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
-            <li>crustypeanut.rc2.core</li>
+            <li>dismarzero.vgp.vgpvegetablegarden</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
 
                 <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawCarrot"]</xpath>
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawLentil"]</xpath>
                     <operations>
                         <!--Use/replace graphics-->
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
                                 <graphicData>
-                                    <texPath>RC2_Things/RC2_Veg/Carrots</texPath>
+                                    <texPath>Things/Veg/redlentil</texPath>
                                 </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/ThingDef/thingCategories</xpath>
+                            <value>
+                                <li>MeatRaw</li>
                             </value>
                         </li>
                     </operations>
@@ -133,98 +140,36 @@
 
                 <!--Replace harvestedThingDef-->
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[@Name="RC2_CarrotBase"]/plant/harvestedThingDef</xpath>
+                    <xpath>/Defs/ThingDef[defName="Plant_redlentil"]/plant/harvestedThingDef</xpath>
                     <value>
-                        <harvestedThingDef>DZ_RawCarrot</harvestedThingDef>
+                        <harvestedThingDef>DZ_RawLentil</harvestedThingDef>
                     </value>
                 </li>
 
                 <!--Remove resource-->
                 <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RC2_RawCarrots"]</xpath>
+                    <xpath>/Defs/ThingDef[defName="RawRedLentil"]</xpath>
                 </li>
 
                 <!--Replace References-->
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//thingDef[.="RC2_RawCarrots"]</xpath>
+                    <xpath>//thingDef[.="RawRedLentil"]</xpath>
                     <value>
-                        <thingDef>DZ_RawCarrot</thingDef>
+                        <thingDef>DZ_RawLentil</thingDef>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
-                    <xpath>//li[.="RC2_RawCarrots"]</xpath>
+                    <xpath>//li[.="RawRedLentil"]</xpath>
                     <value>
-                        <li>DZ_RawCarrot</li>
+                        <li>DZ_RawLentil</li>
                     </value>
                 </li>
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
-                    <xpath>//RC2_RawCarrots</xpath>
-                    <name>DZ_RawCarrot</name>
-                </li>
-
-            </operations>
-        </match>
-    </Operation>
-
-    <!--VGP More Veggies-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>dismarzero.vgp.vgpmoreveggies</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_RawCarrot"]</xpath>
-                    <operations>
-                        <!--Use/replace graphics-->
-                        <li Class="PatchOperationReplace">
-                            <xpath>/ThingDef/graphicData</xpath>
-                            <value>
-                                <graphicData>
-                                    <texPath>Things/Veg/Carrot</texPath>
-                                </graphicData>
-                            </value>
-                        </li>
-                    </operations>
-                </li>
-
-                <!--Replace harvestedThingDef-->
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="PlantCarrot"]/plant/harvestedThingDef</xpath>
-                    <value>
-                        <harvestedThingDef>DZ_RawCarrot</harvestedThingDef>
-                    </value>
-                </li>
-
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="RawCarrots"]</xpath>
-                </li>
-
-                <!--Replace References-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//thingDef[.="RawCarrots"]</xpath>
-                    <value>
-                        <thingDef>DZ_RawCarrot</thingDef>
-                    </value>
-                </li>
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//li[.="RawCarrots"]</xpath>
-                    <value>
-                        <li>DZ_RawCarrot</li>
-                    </value>
-                </li>
-                <li Class="PatchOperationSetName">
-                    <success>Always</success>
-                    <xpath>//RawCarrots</xpath>
-                    <name>DZ_RawCarrot</name>
+                    <xpath>//RawRedLentil</xpath>
+                    <name>DZ_RawLentil</name>
                 </li>
 
             </operations>

@@ -1,0 +1,109 @@
+<Patch>
+
+    <!--==========
+    Lemon
+    Universal Replacements
+    ==========-->
+    <!--DankPyon_RawLemons = Medieval Overhaul-->
+
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+
+                <ThingDef Name="DZ_RawLemon" ParentName="DZ_FruitVeggieBase">
+                    <defName>DZ_RawLemon</defName>
+                    <label>lemons</label>
+                    <description>Lemons: Edible fruit produced by a lemon tree.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>1.2</MarketValue>
+                    </statBases>
+                    <ingestible>
+                        <preferability>RawTasty</preferability>
+                        <tasteThought />
+                        <foodType>VegetableOrFruit</foodType>
+                    </ingestible>
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>15</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
+                </ThingDef>
+
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_RawLemon"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Plants/RawLemons</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Tree_Lemon"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_RawLemon</harvestedThingDef>
+                    </value>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_RawLemons"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_RawLemons"]</xpath>
+                    <value>
+                        <thingDef>DZ_RawLemon</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_RawLemons"]</xpath>
+                    <value>
+                        <li>DZ_RawLemon</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_RawLemons</xpath>
+                    <name>DZ_RawLemon</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

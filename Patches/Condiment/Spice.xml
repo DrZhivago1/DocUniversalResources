@@ -1,0 +1,183 @@
+<Patch>
+
+    <!--==========
+    Spice 
+    Universal Replacements
+    ==========-->
+    <!--DankPyon_Spices = Medieval Overhaul-->
+    <!--VCE_RawSpices = Vanilla Cooking Expanded-->
+
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+            <li>vanillaexpanded.vcooke</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Spice" ParentName="DZ_CondimentBase">
+                    <defName>DZ_Spice</defName>
+                    <label>spice</label>
+                    <description>Spice: A mix of dried and crushed seasonings.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MarketValue>3</MarketValue>
+                        <Nutrition>0.01</Nutrition>
+                        <Flammability>1</Flammability>
+                    </statBases>
+                    <comps>
+                        <li Class="CompProperties_Rottable">
+                            <daysToRotStart>120</daysToRotStart>
+                            <rotDestroys>true</rotDestroys>
+                        </li>
+                    </comps>
+                    <ingestible />
+                </ThingDef>
+            </value>
+        </match>
+    </Operation>
+
+    <!--==========
+    Mods
+    ==========-->
+
+    <!--Medieval Overhaul-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>dankpyon.medieval.overhaul</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Spice"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Resources/Spices</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <foodType>Processed</foodType>
+                                    <preferability>NeverForNutrition</preferability>
+                                </ingestible>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="DankPyon_Spices"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="DankPyon_Spices"]</xpath>
+                    <value>
+                        <thingDef>DZ_Spice</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="DankPyon_Spices"]</xpath>
+                    <value>
+                        <li>DZ_Spice</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//DankPyon_Spices</xpath>
+                    <name>DZ_Spice</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Vanilla Cooking Expanded-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>vanillaexpanded.vcooke</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Spice"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Items/Condiments/VCE_Spices</texPath>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use ingestible data-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/ingestible</xpath>
+                            <value>
+                                <ingestible>
+                                    <foodType>Processed</foodType>
+                                    <preferability>NeverForNutrition</preferability>
+                                    <specialThoughtAsIngredient>VCE_ConsumedSpices</specialThoughtAsIngredient>
+                                    <optimalityOffsetFeedingAnimals>-50</optimalityOffsetFeedingAnimals>
+                                </ingestible>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Replace harvestedThingDef-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VCE_Allspice"]/plant/harvestedThingDef</xpath>
+                    <value>
+                        <harvestedThingDef>DZ_Spice</harvestedThingDef>
+                    </value>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VCE_RawSpices"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VCE_RawSpices"]</xpath>
+                    <value>
+                        <thingDef>DZ_Spice</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VCE_RawSpices"]</xpath>
+                    <value>
+                        <li>DZ_Spice</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VCE_RawSpices</xpath>
+                    <name>DZ_Spice</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

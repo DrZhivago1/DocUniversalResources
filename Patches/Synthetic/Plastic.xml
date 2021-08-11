@@ -8,6 +8,7 @@
     <!--RimPlas = RimPlas (Continued)-->
     <!--Synthylene = Rimefeller-->
     <!--PRF_MixedPlastic = Project RimFactory - Materials-->
+    <!--VMEu_PlasticPlanks_TierOne = Expanded Materials - Plastics-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -15,6 +16,7 @@
             <li>Mlie.RimPlas</li>
             <li>Dubwise.Rimefeller</li>
             <li>PRF.Materials</li>
+            <li>argon.vmeup</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -154,6 +156,13 @@
                                 </graphicData>
                             </value>
                         </li>
+                        <!--Use stuffProps color-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(188,203,181)</color>
+                            </value>
+                        </li>
                     </operations>
                 </li>
 
@@ -228,6 +237,13 @@
                                 </graphicData>
                             </value>
                         </li>
+                        <!--Use stuffProps color-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(48,95,144)</color>
+                            </value>
+                        </li>
                     </operations>
                 </li>
 
@@ -272,7 +288,7 @@
                     <name>DZ_Plastic</name>
                 </li>
 
-                <!--Allows unintended consequences for production chains
+                <!--Allows unintended consequences for production chains, Dubs has been asked to change duplicate defNames-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
@@ -284,7 +300,7 @@
                             <resourceReadoutRoot>false</resourceReadoutRoot>
                         </ThingCategoryDef>
                     </value>
-                </li>-->
+                </li>
 
             </operations>
         </match>
@@ -306,12 +322,19 @@
                         <li Class="PatchOperationReplace">
                             <xpath>/ThingDef/graphicData</xpath>
                             <value>
-                        <graphicData>
-                            <texPath>Resources/PRF_GeneralPlastic</texPath>
-                            <graphicClass>Graphic_StackCount</graphicClass>
-                            <color>(180,180,180)</color>
-                            <drawSize>(1.2,1.2)</drawSize>
-                        </graphicData>
+                                <graphicData>
+                                    <texPath>Resources/PRF_GeneralPlastic</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(180,180,180)</color>
+                                    <drawSize>(1.2,1.2)</drawSize>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use stuffProps color-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(180,180,180)</color>
                             </value>
                         </li>
                     </operations>
@@ -340,6 +363,68 @@
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
                     <xpath>//PRF_MixedPlastic</xpath>
+                    <name>DZ_Plastic</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Plastics-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>argon.vmeup</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Plastic"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_PlasticPlanks</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use stuffProps color-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(228,239,242)</color>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_PlasticPlanks_TierOne"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_PlasticPlanks_TierOne"]</xpath>
+                    <value>
+                        <thingDef>DZ_Plastic</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_PlasticPlanks_TierOne"]</xpath>
+                    <value>
+                        <li>DZ_Plastic</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_PlasticPlanks_TierOne</xpath>
                     <name>DZ_Plastic</name>
                 </li>
 

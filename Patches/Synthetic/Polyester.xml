@@ -7,12 +7,14 @@
     <!--RimPoly = RimPlas (Continued)-->
     <!--AM_Polyester = Materials+-->
     <!--PRF_Polyester = Project RimFactory - Materials-->
+    <!--VMEu_PolyesterCloth = Expanded Materials - Plastics-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>mlie.rimplas</li>
             <li>Atlas.MaterialsPlus.AT</li>
             <li>prf.materials</li>
+            <li>argon.vmeup</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -85,6 +87,13 @@
                                 </graphicData>
                             </value>
                         </li>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(188,203,181)</color>
+                            </value>
+                        </li>
                     </operations>
                 </li>
 
@@ -139,6 +148,13 @@
                                     <graphicClass>Graphic_Single</graphicClass>
                                     <color>(152,152,172)</color>
                                 </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(188,188,162)</color>
                             </value>
                         </li>
                     </operations>
@@ -198,6 +214,13 @@
                                 </graphicData>
                             </value>
                         </li>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(188,188,162)</color>
+                            </value>
+                        </li>
                     </operations>
                 </li>
 
@@ -224,6 +247,70 @@
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
                     <xpath>//PRF_Polyester</xpath>
+                    <name>DZ_Polyester</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Plastics-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>argon.vmeup</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Polyester"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_PolyesterCloth</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(213, 217, 219)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(213,217,219)</color>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_PolyesterCloth"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_PolyesterCloth"]</xpath>
+                    <value>
+                        <thingDef>DZ_Polyester</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_PolyesterCloth"]</xpath>
+                    <value>
+                        <li>DZ_Polyester</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_PolyesterCloth</xpath>
                     <name>DZ_Polyester</name>
                 </li>
 
