@@ -16,32 +16,27 @@
             <li>Kura.ExtraGems</li>
             <li>kikohi.jewelry</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_DiamondOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_DiamondOre</defName>
-                            <label>Diamond ore</label>
-                            <description>Rock containing bits of diamond.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>3000</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Diamond</mineableThing>
-                                <mineableYield>5</mineableYield>
-                                <mineableScatterCommonality>0.005</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>3~5</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_DiamondOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_DiamondOre</defName>
+                    <label>Diamond ore</label>
+                    <description>Rock containing bits of diamond.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>3000</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Diamond</mineableThing>
+                        <mineableYield>5</mineableYield>
+                        <mineableScatterCommonality>0.005</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>3~5</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

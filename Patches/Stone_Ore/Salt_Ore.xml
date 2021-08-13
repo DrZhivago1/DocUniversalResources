@@ -17,32 +17,27 @@
             <li>dismarzero.VGP.VGPGardenGourmet</li>
             <li>Argon.SaltedMeat</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_SaltOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_SaltOre</defName>
-                            <label>Salt ore</label>
-                            <description>Rock containing bits of salt.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>750</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Salt</mineableThing>
-                                <mineableYield>25</mineableYield>
-                                <mineableScatterCommonality>0.6</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>10~20</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_SaltOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_SaltOre</defName>
+                    <label>Salt ore</label>
+                    <description>Rock containing bits of salt.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>750</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Salt</mineableThing>
+                        <mineableYield>25</mineableYield>
+                        <mineableScatterCommonality>0.6</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>10~20</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

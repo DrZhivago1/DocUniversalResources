@@ -20,34 +20,29 @@
             <li>spoden.JustGlass</li>
             <li>NanoCE.GlassLights</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Glass" ParentName="DZ_SyntheticBase">
-                            <defName>DZ_Glass</defName>
-                            <label>Glass</label>
-                            <description>Glass: Rapidly cooled molten material, often transparent.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Metal_Drop</soundInteract>
-                            <soundDrop>Metal_Drop</soundDrop>
-                            <statBases>
-                                <MaxHitPoints>15</MaxHitPoints>
-                                <MarketValue>5</MarketValue>
-                                <Mass>3</Mass>
-                                <Flammability>0</Flammability>
-                                <DeteriorationRate>0</DeteriorationRate>
-                            </statBases>
-                            <intricate>true</intricate>
-                            <tradeTags />
-                            <stuffProps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Glass" ParentName="DZ_SyntheticBase">
+                    <defName>DZ_Glass</defName>
+                    <label>Glass</label>
+                    <description>Glass: Rapidly cooled molten material, often transparent.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Metal_Drop</soundInteract>
+                    <soundDrop>Metal_Drop</soundDrop>
+                    <statBases>
+                        <MaxHitPoints>15</MaxHitPoints>
+                        <MarketValue>5</MarketValue>
+                        <Mass>3</Mass>
+                        <Flammability>0</Flammability>
+                        <DeteriorationRate>0</DeteriorationRate>
+                    </statBases>
+                    <intricate>true</intricate>
+                    <tradeTags />
+                    <stuffProps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

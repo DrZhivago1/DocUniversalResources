@@ -12,32 +12,27 @@
             <li>trasheddt.industrialisation</li>
             <li>Mlie.CuprosAlloys</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_AluminumOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_AluminumOre</defName>
-                            <label>Aluminum ore</label>
-                            <description>Rock containing bits of aluminum.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>1500</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Aluminum</mineableThing>
-                                <mineableYield>30</mineableYield>
-                                <mineableScatterCommonality>0.65</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>5~20</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_AluminumOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_AluminumOre</defName>
+                    <label>Aluminum ore</label>
+                    <description>Rock containing bits of aluminum.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>1500</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Aluminum</mineableThing>
+                        <mineableYield>30</mineableYield>
+                        <mineableScatterCommonality>0.65</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>5~20</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

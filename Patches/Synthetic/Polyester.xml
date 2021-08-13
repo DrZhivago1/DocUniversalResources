@@ -16,47 +16,42 @@
             <li>prf.materials</li>
             <li>argon.vmeup</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Polyester" ParentName="DZ_SyntheticBase">
-                            <defName>DZ_Polyester</defName>
-                            <label>Polyester</label>
-                            <description>Polyester: A synthetic polymer fibre.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <StuffPower_Armor_Sharp>0.41</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.1</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>0.22</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
-                                <MaxHitPoints>85</MaxHitPoints>
-                                <MarketValue>3.5</MarketValue>
-                                <Mass>0.020</Mass>
-                                <Flammability>10.0</Flammability>
-                                <DeteriorationRate>2</DeteriorationRate>
-                            </statBases>
-                            <stuffProps>
-                                <statFactors>
-                                    <Flammability>1.2</Flammability>
-                                </statFactors>
-                                <categories>
-                                    <li>Fabric</li>
-                                </categories>
-                                <color/>
-                                <commonality>0.05</commonality>
-                                <allowColorGenerators>true</allowColorGenerators>
-                            </stuffProps>
-                            <burnableByRecipe>true</burnableByRecipe>
-                            <techLevel>Industrial</techLevel>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Polyester" ParentName="DZ_SyntheticBase">
+                    <defName>DZ_Polyester</defName>
+                    <label>Polyester</label>
+                    <description>Polyester: A synthetic polymer fibre.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <StuffPower_Armor_Sharp>0.41</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.1</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.22</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+                        <MaxHitPoints>85</MaxHitPoints>
+                        <MarketValue>3.5</MarketValue>
+                        <Mass>0.020</Mass>
+                        <Flammability>10.0</Flammability>
+                        <DeteriorationRate>2</DeteriorationRate>
+                    </statBases>
+                    <stuffProps>
+                        <statFactors>
+                            <Flammability>1.2</Flammability>
+                        </statFactors>
+                        <categories>
+                            <li>Fabric</li>
+                        </categories>
+                        <color />
+                        <commonality>0.05</commonality>
+                        <allowColorGenerators>true</allowColorGenerators>
+                    </stuffProps>
+                    <burnableByRecipe>true</burnableByRecipe>
+                    <techLevel>Industrial</techLevel>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

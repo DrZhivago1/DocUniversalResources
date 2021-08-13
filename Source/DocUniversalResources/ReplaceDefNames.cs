@@ -37,7 +37,7 @@ namespace DocUniversalResources
                         newName = "DZ_AgaveNectar";
                     }
 
-                    if (defName == "RC2_Flour" || defName == "Flour" || defName == "VCE_Flour")
+                    if (defName == "DankPyon_Flour" || defName == "RC2_Flour" || defName == "Flour" || defName == "VCE_Flour")
                     {
                         newName = "DZ_Flour";
                     }
@@ -52,7 +52,12 @@ namespace DocUniversalResources
                         newName = "DZ_SmokeleafButter";
                     }
 
-                    if (defName == "RC2_Sugar" || defName == "Sugar" || defName == "VCE_RawSugar")
+                    if (defName == "DankPyon_Spices" || defName == "VCE_RawSpices")
+                    {
+                        newName = "DZ_Sugar";
+                    }
+
+                    if (defName == "DankPyon_Sugar" || defName == "RC2_Sugar" || defName == "Sugar" || defName == "VCE_RawSugar")
                     {
                         newName = "DZ_Sugar";
                     }
@@ -84,7 +89,7 @@ namespace DocUniversalResources
                         newName = "DZ_Clay";
                     }
 
-                    if (defName == "MedTimes_Resource_Coal" || defName == "CoalOre" || defName == "AM_Coal" || defName == "CaS_Coal" || defName == "WDCoal" || defName == "Coal" || defName == "RH_TET_Coal" || defName == "SB_coal_ore" || defName == "PRF_Coal" || defName == "VMEu_Coal")
+                    if (defName == "MedTimes_Resource_Coal" || defName == "CoalOre" || defName == "AM_Coal" || defName == "CaS_Coal" || defName == "WDCoal" || defName == "Coal" || defName == "RH_TET_Coal" || defName == "SB_coal_ore" || defName == "DankPyon_MineableCoal" || defName == "PRF_Coal" || defName == "VMEu_Coal")
                     {
                         newName = "DZ_Coal";
                     }
@@ -119,7 +124,7 @@ namespace DocUniversalResources
                         newName = "DZ_Oil";
                     }
 
-                    if (defName == "RawCotton")
+                    if (defName == "RawCotton" || defName == "DankPyon_RawCotton")
                     {
                         newName = "DZ_RawCotton";
                     }
@@ -129,7 +134,7 @@ namespace DocUniversalResources
                         newName = "DZ_RawDevilstrand";
                     }
 
-                    if (defName == "RWF_Salt" || defName == "RimSeasoning_Salt" || defName == "AYSalt" || defName == "ChunkSalt" || defName == "VCE_Salt")
+                    if (defName == "RWF_Salt" || defName == "RimSeasoning_Salt" || defName == "AYSalt" || defName == "DankPyon_Salt" || defName == "ChunkSalt" || defName == "VCE_Salt")
                     {
                         newName = "DZ_Salt";
                     }
@@ -141,7 +146,7 @@ namespace DocUniversalResources
                     //  ==================
                     //      Fruit/Veggie
                     //  ==================
-                    if (defName == "RC2_RawApples" || defName == "Rawapple" || defName == "VCE_RawApple")
+                    if (defName == "DankPyon_RawApples" || defName == "RC2_RawApples" || defName == "Rawapple" || defName == "VCE_RawApple")
                     {
                         newName = "DZ_RawApple";
                     }
@@ -166,7 +171,7 @@ namespace DocUniversalResources
                         newName = "DZ_RawBlueberry";
                     }
 
-                    if (defName == "RC2_RawCabbages" || defName == "VCE_Cabbage")
+                    if (defName == "DankPyon_RawCabbages" || defName == "RC2_RawCabbages" || defName == "VCE_Cabbage")
                     {
                         newName = "DZ_RawCabbage";
                     }
@@ -176,7 +181,7 @@ namespace DocUniversalResources
                         newName = "DZ_RawCactusFruit";
                     }
 
-                    if (defName == "RC2_RawCarrots" || defName == "RawCarrots")
+                    if (defName == "DankPyon_RawCarrots" || defName == "RC2_RawCarrots" || defName == "RawCarrots")
                     {
                         newName = "DZ_RawCarrot";
                     }
@@ -211,12 +216,22 @@ namespace DocUniversalResources
                         newName = "DZ_RawFig";
                     }
 
-                    if (defName == "RC2_RawGrapes" || defName == "Rawgrape" || defName == "VFEM_RawGrapes")
+                    if (defName == "DankPyon_RawGrapes" || defName == "RC2_RawGrapes" || defName == "Rawgrape" || defName == "VFEM_RawGrapes")
                     {
                         newName = "DZ_RawGrape";
                     }
 
-                    if (defName == "RC2_RawOnion" || defName == "VCE_RawOnion")
+                    if (defName == "DankPyon_RawLemons")
+                    {
+                        newName = "DZ_RawLemon";
+                    }
+
+                    if (defName == "DankPyon_RawLentils" || defName == "RawRedLentil")
+                    {
+                        newName = "DZ_RawLentil";
+                    }
+
+                    if (defName == "DankPyon_RawOnions" || defName == "RC2_RawOnion" || defName == "VCE_RawOnion")
                     {
                         newName = "DZ_RawOnion";
                     }
@@ -251,12 +266,12 @@ namespace DocUniversalResources
                         newName = "DZ_RawPlum";
                     }
 
-                    if (defName == "RC2_RawPumpkins" || defName == "Rawpumpkin" || defName == "VCE_RawPumpkin")
+                    if (defName == "DankPyon_RawPumpkins" || defName == "RC2_RawPumpkins" || defName == "Rawpumpkin" || defName == "VCE_RawPumpkin")
                     {
                         newName = "DZ_RawPumpkin";
                     }
 
-                    if (defName == "RC2_RawSugarcane" || defName == "Rawsugarcane")
+                    if (defName == "DankPyon_Sugarcane" || defName == "RC2_RawSugarcane" || defName == "Rawsugarcane")
                     {
                         newName = "DZ_RawSugarcane";
                     }
@@ -266,12 +281,12 @@ namespace DocUniversalResources
                         newName = "DZ_RawTeaLeaf";
                     }
 
-                    if (defName == "RC2_RawTomato" || defName == "RawTomatoes" || defName == "VCE_RawTomatoes")
+                    if (defName == "DankPyon_RawTomatoes" || defName == "RC2_RawTomato" || defName == "RawTomatoes" || defName == "VCE_RawTomatoes")
                     {
                         newName = "DZ_RawTomato";
                     }
 
-                    if (defName == "RC2_RawWheat" || defName == "Rawwheat")
+                    if (defName == "DankPyon_RawWheat" || defName == "RC2_RawWheat" || defName == "Rawwheat")
                     {
                         newName = "DZ_RawWheat";
                     }
@@ -330,7 +345,7 @@ namespace DocUniversalResources
                     //  ==================
                     //      Metal
                     //  ==================
-                    if (defName == "Adamantite" || defName == "WoW_adamantite")
+                    if (defName == "RF_Adamantium" || defName == "Adamantite" || defName == "WoW_adamantite")
                     {
                         newName = "DZ_Adamantite";
                     }
@@ -345,7 +360,7 @@ namespace DocUniversalResources
                         newName = "DZ_Brass";
                     }
 
-                    if (defName == "Bronze" || defName == "CaS_Bronze" || defName == "CAL_Bronze" || defName == "VMEu_Bronze")
+                    if (defName == "Bronze" || defName == "AR_Bronze" || defName == "CaS_Bronze" || defName == "CAL_Bronze" || defName == "VMEu_Bronze")
                     {
                         newName = "DZ_Bronze";
                     }
@@ -355,12 +370,12 @@ namespace DocUniversalResources
                         newName = "DZ_Chromium";
                     }
 
-                    if (defName == "Ind_Copper" || defName == "CaS_Copper" || defName == "Copper" || defName == "CAL_Copper" || defName == "PRF_Copper" || defName == "VMEu_Copper")
+                    if (defName == "Ind_Copper" || defName == "AR_Copper" || defName == "CaS_Copper" || defName == "Copper" || defName == "SB_copper_ore" || defName == "CAL_Copper" || defName == "PRF_Copper" || defName == "VMEu_Copper")
                     {
                         newName = "DZ_Copper";
                     }
 
-                    if (defName == "Iron" || defName == "Owl_Iron" || defName == "NECIron" || defName == "PRF_Iron" || defName == "VMEu_Iron")
+                    if (defName == "Iron" || defName == "Owl_Iron" || defName == "NECIron" || defName == "LotR_Iron" || defName == "AR_Iron" || defName == "SB_iron_bar" || defName == "DankPyon_IronIngot" || defName == "PRF_Iron" || defName == "VMEu_Iron")
                     {
                         newName = "DZ_Iron";
                     }
@@ -385,12 +400,12 @@ namespace DocUniversalResources
                         newName = "DZ_Tin";
                     }
 
-                    if (defName == "Titanium" || defName == "VMEu_Titanium")
+                    if (defName == "Titanium" || defName == "SB_titanium_bar" || defName == "VMEu_Titanium")
                     {
                         newName = "DZ_Titanium";
                     }
 
-                    if (defName == "Tungsten" || defName == "VMEu_Tungsten")
+                    if (defName == "Tungsten" || defName == "AvaliTungstenPowder" || defName == "SB_tungsten_bar" || defName == "VMEu_Tungsten")
                     {
                         newName = "DZ_Tungsten";
                     }
@@ -400,8 +415,59 @@ namespace DocUniversalResources
                         newName = "DZ_Zinc";
                     }
                     //  ==================
+                    //      Metal_Ore
+                    //  ==================
+                    if (defName == "DankPyon_GoldOre")
+                    {
+                        newName = "DZ_Gold_UnrefinedOre";
+                    }
+
+                    if (defName == "ChunkIronOre" || defName == "SB_iron_ore" || defName == "DankPyon_IronOre")
+                    {
+                        newName = "DZ_Iron_UnrefinedOre";
+                    }
+
+                    if (defName == "DankPyon_SilverOre")
+                    {
+                        newName = "DZ_Silver_UnrefinedOre";
+                    }
+
+                    if (defName == "SB_titanium_ore")
+                    {
+                        newName = "DZ_Titanium_UnrefinedOre";
+                    }
+
+                    if (defName == "AvaliTungsten" || defName == "SB_tungsten_ore")
+                    {
+                        newName = "DZ_Tungsten_UnrefinedOre";
+                    }
+                    //  ==================
                     //      Stone_Block
                     //  ==================
+                    if (defName == "BlocksAdobe" || defName == "MedTimes_Resource_AdobeBricks" || defName == "Blocks_MudAM" || defName == "N7_DriedMudbrick")
+                    {
+                        newName = "DZ_BlocksAdobe";
+                    }
+
+                    if (defName == "RFFBricks" || defName == "N7_FiredBrick" || defName == "PRF_Brick" || defName == "Blocks_BrickAM")
+                    {
+                        newName = "DZ_BlocksBrick";
+                    }
+
+                    if (defName == "Ind_Concrete" || defName == "SadjuukConcrete" || defName == "WDBlocksConcrete" || defName == "D9Concrete" || defName == "Stuff_ConcreteAM" || defName == "RFFBlocksConcrete" || defName == "PRF_Concrete" || defName == "VMEu_Concrete")
+                    {
+                        newName = "DZ_BlocksConcrete";
+                    }
+
+                    if (defName == "BlocksObsidian" || defName == "AB_BlocksObsidian")
+                    {
+                        newName = "DZ_BlocksObsidian";
+                    }
+
+                    if (defName == "Stuff_RefConcreteAM" || defName == "PRF_RefConcrete")
+                    {
+                        newName = "DZ_BlocksReinforcedConcrete";
+                    }
                     //  ==================
                     //      Stone_Ore
                     //  ==================
@@ -415,24 +481,54 @@ namespace DocUniversalResources
                         newName = "DZ_AluminumOre";
                     }
 
+                    if (defName == "MineableAmethyst" || defName == "KMineableAmethyst" || defName == "Z_MineableAmethyst")
+                    {
+                        newName = "DZ_AmethystOre";
+                    }
+
                     if (defName == "CAL_MineableChromite")
                     {
                         newName = "DZ_ChromiumOre";
                     }
 
-                    if (defName == "MineableCoalOre" || defName == "WDMineableCoal" || defName == "CaS_MineableCoal" || defName == "VMEu_MineableCoal" || defName == "MineableCoal" || defName == "PRF_MineableCoal" || defName == "RH_TET_MineableCoal")
+                    if (defName == "AM_MineableClay" || defName == "MineableClay")
+                    {
+                        newName = "DZ_ClayOre";
+                    }
+
+                    if (defName == "MineableCoalOre" || defName == "WDMineableCoal" || defName == "AM_MineableCoal" || defName == "CaS_MineableCoal" || defName == "MineableCoal" || defName == "RH_TET_MineableCoal" || defName == "DankPyon_MineableCoal" || defName == "PRF_MineableCoal" || defName == "VMEu_MineableCoal")
                     {
                         newName = "DZ_CoalOre";
                     }
 
-                    if (defName == "Ind_MineableCopper" || defName == "CaS_MineableCopper" || defName == "MineableCopper" || defName == "CAL_MineableMalachite" || defName == "PRF_MineableCopper" || defName == "VMEu_MineableCopper")
+                    if (defName == "Ind_MineableCopper" || defName == "AR_CopperMineral" || defName == "CaS_MineableCopper" || defName == "MineableCopper" || defName == "CAL_MineableMalachite" || defName == "PRF_MineableCopper" || defName == "VMEu_MineableCopper")
                     {
                         newName = "DZ_CopperOre";
                     }
 
-                    if (defName == "Owl_Iron" || defName == "NECIron" || defName == "MineableIron" || defName == "PRF_MineableIron" || defName == "VMEu_MineableIron")
+                    if (defName == "MineableDiamond" || defName == "PRF_MineableDiamond" || defName == "KMineableDiamond")
+                    {
+                        newName = "DZ_DiamondOre";
+                    }
+
+                    if (defName == "MineableEmerald" || defName == "KMineableEmerald")
+                    {
+                        newName = "DZ_EmeraldOre";
+                    }
+
+                    if (defName == "KMineableGarnet" || defName == "Z_MineableGarnet")
+                    {
+                        newName = "DZ_GarnetOre";
+                    }
+
+                    if (defName == "Owl_Iron" || defName == "NECIron" || defName == "AR_CopperMineral" || defName == "MineableIron" || defName == "DankPyon_MineableIron" || defName == "PRF_MineableIron" || defName == "VMEu_MineableIron")
                     {
                         newName = "DZ_IronOre";
+                    }
+
+                    if (defName == "MineableLapis" || defName == "Z_MineableLapis")
+                    {
+                        newName = "DZ_LapisLazuliOre";
                     }
 
                     if (defName == "CAL_MineableGalena" || defName == "VMEu_MineableLead")
@@ -445,6 +541,31 @@ namespace DocUniversalResources
                         newName = "DZ_MithrilOre";
                     }
 
+                    if (defName == "MineablePeridot" || defName == "KMineablePeridot")
+                    {
+                        newName = "DZ_PeridotOre";
+                    }
+
+                    if (defName == "MineableQuartz" || defName == "PRF_MineableQuartz" || defName == "KMineableQuartz" || defName == "Z_MineableQuartz")
+                    {
+                        newName = "DZ_QuartzOre";
+                    }
+
+                    if (defName == "MineableRuby" || defName == "CaS_MineableRuby" || defName == "KMineableRuby" || defName == "VMEu_MineableTin")
+                    {
+                        newName = "DZ_RubyOre";
+                    }
+
+                    if (defName == "MineableSalt" || defName == "RimSeasoning_RockSalt" || defName == "DankPyon_MineableSalt")
+                    {
+                        newName = "DZ_RubyOre";
+                    }
+
+                    if (defName == "MineableSapphire" || defName == "CaS_MineableSapphire" || defName == "KMineableSapphire")
+                    {
+                        newName = "DZ_SapphireOre";
+                    }
+
                     if (defName == "CaS_MineableTin" || defName == "MineableTin" || defName == "CAL_MineableCassiterite" || defName == "VMEu_MineableTin")
                     {
                         newName = "DZ_TinOre";
@@ -455,9 +576,14 @@ namespace DocUniversalResources
                         newName = "DZ_TitaniumOre";
                     }
 
-                    if (defName == "MineableTungsten" || defName == "VMEu_Titanium")
+                    if (defName == "MineableTungsten" || defName == "TungstenOre" || defName == "VMEu_Titanium")
                     {
                         newName = "DZ_TungstenOre";
+                    }
+
+                    if (defName == "MineableTurquoise" || defName == "Z_MineableTurquoise")
+                    {
+                        newName = "DZ_TurquoiseOre";
                     }
 
                     if (defName == "CaS_MineableZinc" || defName == "CAL_MineableSphalerite")
@@ -467,9 +593,44 @@ namespace DocUniversalResources
                     //  ==================
                     //      Synthetic
                     //  ==================
-                    if (defName == "SadjuukGlass" || defName == "Glass" || defName == "GlassPane" || defName == "PRF_Glass" || defName == "AM_Glass")
+                    if (defName == "CarbonFiber" || defName == "CarboFibre" || defName == "PRF_CarbonFiber")
+                    {
+                        newName = "DZ_CarbonFiber";
+                    }
+
+                    if (defName == "CarboPitch" || defName == "PRF_Carbon")
+                    {
+                        newName = "DZ_CarbonPowder";
+                    }
+
+                    if (defName == "CarbonWeave" || defName == "CarboSynth" || defName == "PRF_CarbonKevlarComposite")
+                    {
+                        newName = "DZ_CarbonWeave";
+                    }
+
+                    if (defName == "GlassPane" || defName == "SadjuukGlass" || defName == "AM_Glass" || defName == "Glass" || defName == "PRF_Glass")
                     {
                         newName = "DZ_Glass";
+                    }
+
+                    if (defName == "AM_Kevlar" || defName == "PRF_Kevlar")
+                    {
+                        newName = "DZ_Kevlar";
+                    }
+
+                    if (defName == "AM_MixedPlastic" || defName == "RimPlas" || defName == "Synthylene" || defName == "PRF_MixedPlastic" || defName == "VMEu_PlasticPlanks_TierOne")
+                    {
+                        newName = "DZ_Plastic";
+                    }
+
+                    if (defName == "RimPoly" || defName == "AM_Polyester" || defName == "PRF_Polyester" || defName == "VMEu_PolyesterCloth")
+                    {
+                        newName = "DZ_Polyester";
+                    }
+
+                    if (defName == "AM_RGlass" || defName == "ReinforcedGlass" || defName == "PRF_RGlass")
+                    {
+                        newName = "DZ_ReinforcedGlass";
                     }
                 }
 

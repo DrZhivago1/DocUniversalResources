@@ -12,32 +12,27 @@
             <li>Mlie.CuprosAlloys</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_LeadOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_LeadOre</defName>
-                            <label>Lead ore</label>
-                            <description>Rock containing bits of lead.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>1300</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Lead</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>0.35</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>10~15</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_LeadOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_LeadOre</defName>
+                    <label>Lead ore</label>
+                    <description>Rock containing bits of lead.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>1300</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Lead</mineableThing>
+                        <mineableYield>40</mineableYield>
+                        <mineableScatterCommonality>0.35</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>10~15</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

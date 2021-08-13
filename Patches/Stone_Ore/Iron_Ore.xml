@@ -5,6 +5,7 @@
     Universal Replacements
     ==========-->
     <!--LotR_MineableIron = Lord of the Rims - The Third Age (Continued)-->
+    <!--AR_CopperMineral = Ancient Rim - Core (Continued)-->
     <!--MineableIron = Metals+, RimBound-->
     <!--DankPyon_MineableIron = Medieval Overhaul-->
     <!--PRF_MineableIron = Project RimFactory - Materials-->
@@ -25,38 +26,34 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
+            <li>mlie.ancientrimcore</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_IronOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_IronOre</defName>
-                            <label>Iron ore</label>
-                            <description>Rock containing bits of iron.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>1500</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Iron</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>1</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>15~25</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_IronOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_IronOre</defName>
+                    <label>Iron ore</label>
+                    <description>Rock containing bits of iron.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>1500</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Iron</mineableThing>
+                        <mineableYield>40</mineableYield>
+                        <mineableScatterCommonality>1</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>15~25</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -92,6 +89,52 @@
             </operations>
         </match>
     </Operation>-->
+
+    <!--Ancient Rim - Core (Continued)-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>mlie.ancientrimcore</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_IronOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(128,128,128)</color>
+                                    <colorTwo>(140,90,50)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AR_IronMineral"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AR_IronMineral"]</xpath>
+                    <value>
+                        <li>DZ_IronOre</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
 
     <!--Metals+-->
     <Operation Class="PatchOperation.FindModByID">

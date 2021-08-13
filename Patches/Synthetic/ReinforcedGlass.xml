@@ -14,31 +14,26 @@
             <li>PRF.Materials</li>
             <li>NanoCE.GlassLights</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_ReinforcedGlass" ParentName="DZ_SyntheticBase">
-                            <defName>DZ_ReinforcedGlass</defName>
-                            <label>Reinforced glass</label>
-                            <description>Reinforced Glass: Rapidly cooled molten material reinforced with composites.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>Metal_Drop</soundInteract>
-                            <soundDrop>Metal_Drop</soundDrop>
-                            <useHitPoints>false</useHitPoints>
-                            <statBases>
-                                <MarketValue>3</MarketValue>
-                                <Mass>0.25</Mass>
-                            </statBases>
-                            <smeltable>true</smeltable>
-                            <stuffProps />
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_ReinforcedGlass" ParentName="DZ_SyntheticBase">
+                    <defName>DZ_ReinforcedGlass</defName>
+                    <label>Reinforced glass</label>
+                    <description>Reinforced Glass: Rapidly cooled molten material reinforced with composites.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>Metal_Drop</soundInteract>
+                    <soundDrop>Metal_Drop</soundDrop>
+                    <useHitPoints>false</useHitPoints>
+                    <statBases>
+                        <MarketValue>3</MarketValue>
+                        <Mass>0.25</Mass>
+                    </statBases>
+                    <smeltable>true</smeltable>
+                    <stuffProps />
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

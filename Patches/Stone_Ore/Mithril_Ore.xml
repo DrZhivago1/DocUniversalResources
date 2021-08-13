@@ -12,33 +12,28 @@
             <li>mercurydoll.fantasymetals</li>
             <li>Ryflamer.Rimcraft.Metals</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_MithrilOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_MithrilOre</defName>
-                            <label>Mithril ore</label>
-                            <description>Rock containing bits of mithril.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <Beauty>1</Beauty>
-                                <MaxHitPoints>2500</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Mithril</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>0.1</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>5~12</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_MithrilOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_MithrilOre</defName>
+                    <label>Mithril ore</label>
+                    <description>Rock containing bits of mithril.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <Beauty>1</Beauty>
+                        <MaxHitPoints>2500</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Mithril</mineableThing>
+                        <mineableYield>40</mineableYield>
+                        <mineableScatterCommonality>0.1</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>5~12</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

@@ -5,6 +5,7 @@
     Universal Replacements
     ==========-->
     <!--Ind_Copper = Industrialisation-->
+    <!--AR_Copper = Ancient Rim - Core (Continued)-->
     <!--CaS_Copper = Clockwork And Steam-->
     <!--Copper = Metals+-->
     <!--SB_copper_ore = RimBound-->
@@ -15,6 +16,7 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
+            <li>mlie.ancientrimcore</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
@@ -34,8 +36,8 @@
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>4</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
-                        <Mass>0.2</Mass>                        <!--Steel = 0.5-->
+                        <MarketValue>4</MarketValue> <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.2</Mass> <!--Steel = 0.5-->
                         <StuffPower_Armor_Sharp>0.42</StuffPower_Armor_Sharp>
                         <StuffPower_Armor_Blunt>0.28</StuffPower_Armor_Blunt>
                         <StuffPower_Armor_Heat>0.19</StuffPower_Armor_Heat>
@@ -50,7 +52,7 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>0.12</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <commonality>0.12</commonality> <!--Gold = 0.02, Steel = 1-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
@@ -62,15 +64,15 @@
                         <statFactors>
                             <MaxHitPoints>0.5</MaxHitPoints>
                             <Beauty>1</Beauty>
-                            <Flammability>0.5</Flammability>                            <!--Steel = 0.4-->
+                            <Flammability>0.5</Flammability> <!--Steel = 0.4-->
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
                     <burnableByRecipe>false</burnableByRecipe>
                     <smeltable>true</smeltable>
-                    <deepCommonality>1</deepCommonality>                    <!--Gold = 0.5, Steel = 4-->
-                    <deepCountPerPortion>55</deepCountPerPortion>                    <!--Steel = 45-->
-                    <deepLumpSizeRange>10~20</deepLumpSizeRange>                    <!--Steel = 20~30-->
+                    <deepCommonality>1</deepCommonality> <!--Gold = 0.5, Steel = 4-->
+                    <deepCountPerPortion>55</deepCountPerPortion> <!--Steel = 45-->
+                    <deepLumpSizeRange>10~20</deepLumpSizeRange> <!--Steel = 20~30-->
                     <tradeTags />
                     <comps />
                     <smallVolume />
@@ -140,6 +142,70 @@
                 <li Class="PatchOperationSetName">
                     <success>Always</success>
                     <xpath>//Ind_Copper</xpath>
+                    <name>DZ_Copper</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Ancient Rim - Core (Continued)-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>mlie.ancientrimcore</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Items/Stuff/Copper</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(255,255,255)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(140,90,50)</color>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AR_Copper"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AR_Copper"]</xpath>
+                    <value>
+                        <thingDef>DZ_Copper</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AR_Copper"]</xpath>
+                    <value>
+                        <li>DZ_Copper</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AR_Copper</xpath>
                     <name>DZ_Copper</name>
                 </li>
 

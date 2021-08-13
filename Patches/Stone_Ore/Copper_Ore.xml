@@ -5,6 +5,7 @@
     Universal Replacements
     ==========-->
     <!--Ind_MineableCopper = Industrialisation-->
+    <!--AR_CopperMineral = Ancient Rim - Core (Continued)-->
     <!--CaS_MineableCopper = Clockwork And Steam-->
     <!--MineableCopper = Metals+-->
     <!--CAL_MineableMalachite = Cupro's Alloys (Continued)-->
@@ -14,38 +15,34 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>trasheddt.industrialisation</li>
+            <li>mlie.ancientrimcore</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_CopperOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_CopperOre</defName>
-                            <label>Copper ore</label>
-                            <description>Rock containing bits of copper.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>1500</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Copper</mineableThing>
-                                <mineableYield>50</mineableYield>
-                                <mineableScatterCommonality>0.4</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>15~20</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_CopperOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_CopperOre</defName>
+                    <label>Copper ore</label>
+                    <description>Rock containing bits of copper.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>1500</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Copper</mineableThing>
+                        <mineableYield>50</mineableYield>
+                        <mineableScatterCommonality>0.4</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>15~20</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
@@ -90,6 +87,52 @@
                 <li Class="PatchOperationReplace">
                     <success>Always</success>
                     <xpath>//li[.="Ind_MineableCopper"]</xpath>
+                    <value>
+                        <li>DZ_CopperOre</li>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Ancient Rim - Core (Continued)-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>mlie.ancientrimcore</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                    <shaderType>CutoutComplex</shaderType>
+                                    <color>(140,90,50)</color>
+                                    <colorTwo>(40,80,40)</colorTwo>
+                                </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AR_CopperMineral"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AR_CopperMineral"]</xpath>
                     <value>
                         <li>DZ_CopperOre</li>
                     </value>

@@ -12,42 +12,37 @@
             <li>Mlie.RimPlas</li>
             <li>PRF.Materials</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_CarbonPowder" ParentName="DZ_SyntheticBase">
-                            <defName>DZ_CarbonPowder</defName>
-                            <label>Carbon powder</label>
-                            <description>Carbon Powder: A necessary precursor to many advanced materials.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <soundInteract>ChunkRock_Drop</soundInteract>
-                            <soundDrop>ChunkRock_Drop</soundDrop>
-                            <useHitPoints>true</useHitPoints>
-                            <statBases>
-                                <MarketValue>0.1</MarketValue>
-                                <MaxHitPoints>10</MaxHitPoints>
-                                <Mass>0.05</Mass>
-                                <Flammability>1.0</Flammability>
-                                <DeteriorationRate>0.02</DeteriorationRate>
-                                <StuffPower_Armor_Sharp>0.09</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.04</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>8.2</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
-                                <SharpDamageMultiplier>-0.4</SharpDamageMultiplier>
-                                <BluntDamageMultiplier>-0.9</BluntDamageMultiplier>
-                            </statBases>
-                            <tradeability>All</tradeability>
-                            <burnableByRecipe>true</burnableByRecipe>
-                            <smeltable>false</smeltable>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_CarbonPowder" ParentName="DZ_SyntheticBase">
+                    <defName>DZ_CarbonPowder</defName>
+                    <label>Carbon powder</label>
+                    <description>Carbon Powder: A necessary precursor to many advanced materials.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <soundInteract>ChunkRock_Drop</soundInteract>
+                    <soundDrop>ChunkRock_Drop</soundDrop>
+                    <useHitPoints>true</useHitPoints>
+                    <statBases>
+                        <MarketValue>0.1</MarketValue>
+                        <MaxHitPoints>10</MaxHitPoints>
+                        <Mass>0.05</Mass>
+                        <Flammability>1.0</Flammability>
+                        <DeteriorationRate>0.02</DeteriorationRate>
+                        <StuffPower_Armor_Sharp>0.09</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.04</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>8.2</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+                        <SharpDamageMultiplier>-0.4</SharpDamageMultiplier>
+                        <BluntDamageMultiplier>-0.9</BluntDamageMultiplier>
+                    </statBases>
+                    <tradeability>All</tradeability>
+                    <burnableByRecipe>true</burnableByRecipe>
+                    <smeltable>false</smeltable>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

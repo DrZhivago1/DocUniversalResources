@@ -7,6 +7,7 @@
     <!--Owl_Iron = Simple Chains: Steel-->
     <!--NECIron = Vanilla Iron and Steel-->
     <!--LotR_Iron = Lord of the Rims - The Third Age (Continued)-->
+    <!--AR_Iron = Ancient Rim - Core (Continued)-->
     <!--Iron = Metals+-->
     <!--SB_iron_bar = RimBound-->
     <!--DankPyon_IronIngot = Medieval Overhaul-->
@@ -18,6 +19,7 @@
             <li>Owlchemist.SimpleChains.Steel</li>
             <li>neceros.vanillaironandsteel</li>
             <!--<li>Mlie.LordoftheRimsTheThirdAge</li>-->
+            <li>mlie.ancientrimcore</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>KBraid.Rimbound</li>
             <li>dankpyon.medieval.overhaul</li>
@@ -235,6 +237,70 @@
             </operations>
         </match>
     </Operation>-->
+
+    <!--Ancient Rim - Core (Continued)-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>mlie.ancientrimcore</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Iron"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Items/Stuff/Iron</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(255,255,255)</color>
+                                  </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>((160,145,140)</color>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AR_Iron"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AR_Iron"]</xpath>
+                    <value>
+                        <thingDef>DZ_Iron</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AR_Iron"]</xpath>
+                    <value>
+                        <li>DZ_Iron</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AR_Iron</xpath>
+                    <name>DZ_Iron</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
 
     <!--Metals+-->
     <Operation Class="PatchOperation.FindModByID">

@@ -4,13 +4,15 @@
     Bronze
     Universal Replacements
     ==========-->
-    <!--Bronze = Metals+-->
+    <!--AR_Bronze = Ancient Rim - Core (Continued)-->
     <!--CaS_Bronze = Clockwork And Steam-->
+    <!--Bronze = Metals+-->
     <!--CAL_Bronze = Cupro's Alloys (Continued)-->
     <!--VMEu_Bronze = Expanded Materials - Metals-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>mlie.ancientrimcore</li>
             <li>chance2000w.clockworkandsteam</li>
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
@@ -28,8 +30,8 @@
                     <soundInteract>Metal_Drop</soundInteract>
                     <soundDrop>Metal_Drop</soundDrop>
                     <statBases>
-                        <MarketValue>2</MarketValue>                        <!--Gold = 100(10x10 since small volume)-->
-                        <Mass>0.5</Mass>                        <!--Steel = 0.5-->
+                        <MarketValue>2</MarketValue> <!--Gold = 100(10x10 since small volume)-->
+                        <Mass>0.5</Mass> <!--Steel = 0.5-->
                         <StuffPower_Armor_Sharp>0.78</StuffPower_Armor_Sharp>
                         <StuffPower_Armor_Blunt>0.55</StuffPower_Armor_Blunt>
                         <StuffPower_Armor_Heat>0.52</StuffPower_Armor_Heat>
@@ -44,7 +46,7 @@
                         <categories>
                             <li>Metallic</li>
                         </categories>
-                        <commonality>1</commonality>                        <!--Gold = 0.02, Steel = 1-->
+                        <commonality>1</commonality> <!--Gold = 0.02, Steel = 1-->
                         <color />
                         <constructEffect>ConstructMetal</constructEffect>
                         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
@@ -56,7 +58,7 @@
                         <statFactors>
                             <MaxHitPoints>0.87</MaxHitPoints>
                             <Beauty>1.68</Beauty>
-                            <Flammability>0.3</Flammability>                            <!--Steel = 0.4-->
+                            <Flammability>0.3</Flammability> <!--Steel = 0.4-->
                         </statFactors>
                     </stuffProps>
                     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -75,6 +77,70 @@
     <!--==========
     Mods
     ==========-->
+
+    <!--Ancient Rim - Core (Continued)-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>mlie.ancientrimcore</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Bronze"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Items/Stuff/Bronze</texPath>
+                                    <graphicClass>Graphic_StackCount</graphicClass>
+                                    <color>(183,122,61)</color>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Replace stuffProps color to match-->
+                        <li Class="PatchOperationReplace">
+                            <success>Always</success>
+                            <xpath>/ThingDef/stuffProps/color</xpath>
+                            <value>
+                                <color>(183,122,61)</color>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="AR_Bronze"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="AR_Bronze"]</xpath>
+                    <value>
+                        <thingDef>DZ_Bronze</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="AR_Bronze"]</xpath>
+                    <value>
+                        <li>DZ_Bronze</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//AR_Bronze</xpath>
+                    <name>DZ_Bronze</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
 
     <!--Clockwork And Steam-->
     <Operation Class="PatchOperation.FindModByID">

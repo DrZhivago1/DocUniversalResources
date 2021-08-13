@@ -20,32 +20,27 @@
             <li>KBraid.Rimbound</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_TungstenOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_TungstenOre</defName>
-                            <label>Tungsten ore</label>
-                            <description>Rock containing bits of tungsten.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>3500</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Tungsten</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>0.33</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>6~12</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_TungstenOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_TungstenOre</defName>
+                    <label>Tungsten ore</label>
+                    <description>Rock containing bits of tungsten.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>3500</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Tungsten</mineableThing>
+                        <mineableYield>40</mineableYield>
+                        <mineableScatterCommonality>0.33</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>6~12</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

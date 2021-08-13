@@ -17,32 +17,27 @@
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Argon.VMEu</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_TitaniumOre" ParentName="DZ_StoneOreBase">
-                            <defName>DZ_TitaniumOre</defName>
-                            <label>Titanium ore</label>
-                            <description>Rock containing bits of titanium.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <MaxHitPoints>4000</MaxHitPoints>
-                            </statBases>
-                            <building>
-                                <isResourceRock>true</isResourceRock>
-                                <mineableThing>DZ_Titanium</mineableThing>
-                                <mineableYield>40</mineableYield>
-                                <mineableScatterCommonality>0.2</mineableScatterCommonality>
-                                <mineableScatterLumpSizeRange>6~12</mineableScatterLumpSizeRange>
-                            </building>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_TitaniumOre" ParentName="DZ_StoneOreBase">
+                    <defName>DZ_TitaniumOre</defName>
+                    <label>Titanium ore</label>
+                    <description>Rock containing bits of titanium.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <MaxHitPoints>4000</MaxHitPoints>
+                    </statBases>
+                    <building>
+                        <isResourceRock>true</isResourceRock>
+                        <mineableThing>DZ_Titanium</mineableThing>
+                        <mineableYield>40</mineableYield>
+                        <mineableScatterCommonality>0.2</mineableScatterCommonality>
+                        <mineableScatterLumpSizeRange>6~12</mineableScatterLumpSizeRange>
+                    </building>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 

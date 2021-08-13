@@ -12,44 +12,39 @@
             <li>Atlas.MaterialsPlus.AT</li>
             <li>PRF.Materials</li>
         </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <ThingDef Name="DZ_Kevlar" ParentName="DZ_SyntheticBase">
-                            <defName>DZ_Kevlar</defName>
-                            <label>Kevlar</label>
-                            <description>Kevlar: A highly durable cloth material made from woven kevlar fibres.</description>
-                            <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
-                            <graphicData />
-                            <statBases>
-                                <StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
-                                <StuffPower_Armor_Blunt>0.25</StuffPower_Armor_Blunt>
-                                <StuffPower_Armor_Heat>0.08</StuffPower_Armor_Heat>
-                                <StuffPower_Insulation_Cold>6</StuffPower_Insulation_Cold>
-                                <StuffPower_Insulation_Heat>6</StuffPower_Insulation_Heat>
-                                <MaxHitPoints>80</MaxHitPoints>
-                                <MarketValue>6</MarketValue>
-                                <Mass>0.020</Mass>
-                                <Flammability>1.2</Flammability>
-                            </statBases>
-                            <stuffProps>
-                                <statFactors>
-                                    <Flammability>1.2</Flammability>
-                                </statFactors>
-                                <categories>
-                                    <li>Fabric</li>
-                                </categories>
-                                <color/>
-                                <commonality>0</commonality>
-                                <allowColorGenerators>true</allowColorGenerators>
-                            </stuffProps>
-                        </ThingDef>
-                    </value>
-                </li>
-            </operations>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+                <ThingDef Name="DZ_Kevlar" ParentName="DZ_SyntheticBase">
+                    <defName>DZ_Kevlar</defName>
+                    <label>Kevlar</label>
+                    <description>Kevlar: A highly durable cloth material made from woven kevlar fibres.</description>
+                    <!--=====Nodes below this line are merged from mods to be universally applicable=====-->
+                    <graphicData />
+                    <statBases>
+                        <StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
+                        <StuffPower_Armor_Blunt>0.25</StuffPower_Armor_Blunt>
+                        <StuffPower_Armor_Heat>0.08</StuffPower_Armor_Heat>
+                        <StuffPower_Insulation_Cold>6</StuffPower_Insulation_Cold>
+                        <StuffPower_Insulation_Heat>6</StuffPower_Insulation_Heat>
+                        <MaxHitPoints>80</MaxHitPoints>
+                        <MarketValue>6</MarketValue>
+                        <Mass>0.020</Mass>
+                        <Flammability>1.2</Flammability>
+                    </statBases>
+                    <stuffProps>
+                        <statFactors>
+                            <Flammability>1.2</Flammability>
+                        </statFactors>
+                        <categories>
+                            <li>Fabric</li>
+                        </categories>
+                        <color />
+                        <commonality>0</commonality>
+                        <allowColorGenerators>true</allowColorGenerators>
+                    </stuffProps>
+                </ThingDef>
+            </value>
         </match>
     </Operation>
 
