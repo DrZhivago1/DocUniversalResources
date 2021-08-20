@@ -10,7 +10,7 @@
     <!--MineableCopper = Metals+-->
     <!--CAL_MineableMalachite = Cupro's Alloys (Continued)-->
     <!--PRF_MineableCopper = Project RimFactory - Materials-->
-    <!--VMEu_MineableCopper = Expanded Materials - Metals-->
+    <!--VMEu_MineableCopper = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -328,54 +328,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>Argon.VMEu</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CopperOre"]</xpath>
-                    <operations>
-                        <!--Use/replace graphics-->
-                        <li Class="PatchOperationReplace">
-                            <xpath>/ThingDef/graphicData</xpath>
-                            <value>
-                                <graphicData>
-                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                                    <graphicClass>Graphic_Single</graphicClass>
-                                    <shaderType>CutoutComplex</shaderType>
-                                    <colorTwo>(175,73,27)</colorTwo>
-                                    <color>(87,40,19)</color>
-                                </graphicData>
-                            </value>
-                        </li>
-                    </operations>
-                </li>
-
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_MineableCopper"]</xpath>
-                </li>
-
-                <!--Replace References-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//li[.="VMEu_MineableCopper"]</xpath>
-                    <value>
-                        <li>DZ_CopperOre</li>
-                    </value>
-                </li>
-
-            </operations>
-        </match>
-    </Operation>
-
     <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>Argon.VMEu</li>
             <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">

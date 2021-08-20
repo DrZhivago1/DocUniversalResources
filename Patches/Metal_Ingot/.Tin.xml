@@ -7,7 +7,7 @@
     <!--CaS_Tin = Clockwork And Steam-->
     <!--Tin = Metals+-->
     <!--CAL_Tin = Cupro's Alloys (Continued)-->
-    <!--VMEu_Tin = Expanded Materials - Metals-->
+    <!--VMEu_Tin = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -277,110 +277,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>Argon.VMEu</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Tin"]</xpath>
-                    <operations>
-                        <!--Use/replace graphics-->
-                        <li Class="PatchOperationReplace">
-                            <xpath>/ThingDef/graphicData</xpath>
-                            <value>
-                                <graphicData>
-                                    <texPath>Things/Item/Resource/VMEu_Tin</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
-                                </graphicData>
-                            </value>
-                        </li>
-                        <!--Replace stuffProps color to match-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/stuffProps/color</xpath>
-                            <value>
-                                <color>(218, 220, 227)</color>
-                            </value>
-                        </li>
-                        <!--Replace mass-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/statBases/Mass</xpath>
-                            <value>
-                                <Mass>0.008</Mass>
-                            </value>
-                        </li>
-                        <!--Replace sound-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/soundInteract</xpath>
-                            <value>
-                                <soundInteract>Silver_Drop</soundInteract>
-                            </value>
-                        </li>
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/soundDrop</xpath>
-                            <value>
-                                <soundDrop>Silver_Drop</soundDrop>
-                            </value>
-                        </li>
-                        <!--Use stackLimit-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/stackLimit</xpath>
-                            <value>
-                                <stackLimit>500</stackLimit>
-                            </value>
-                        </li>
-                        <!--Use smallVolume-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/smallVolume</xpath>
-                            <value>
-                                <smallVolume>true</smallVolume>
-                            </value>
-                        </li>
-                    </operations>
-                </li>
-
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_Tin"]</xpath>
-                </li>
-
-                <!--Replace References-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//thingDef[.="VMEu_Tin"]</xpath>
-                    <value>
-                        <thingDef>DZ_Tin</thingDef>
-                    </value>
-                </li>
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//li[.="VMEu_Tin"]</xpath>
-                    <value>
-                        <li>DZ_Tin</li>
-                    </value>
-                </li>
-                <li Class="PatchOperationSetName">
-                    <success>Always</success>
-                    <xpath>//VMEu_Tin</xpath>
-                    <name>DZ_Tin</name>
-                </li>
-
-            </operations>
-        </match>
-    </Operation>
-
     <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>Argon.VMEu</li>
             <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">

@@ -13,7 +13,7 @@
     <!--MineableCoal = RimBound-->
     <!--DankPyon_MineableCoal = Medieval Overhaul-->
     <!--PRF_MineableCoal = Project RimFactory - Materials-->
-    <!--VMEu_MineableCoal = Expanded Materials - Metals-->
+    <!--VMEu_MineableCoal = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -475,54 +475,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
-            <li>Argon.VMEu</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_CoalOre"]</xpath>
-                    <operations>
-                        <!--Use/replace graphics-->
-                        <li Class="PatchOperationReplace">
-                            <xpath>/ThingDef/graphicData</xpath>
-                            <value>
-                                <graphicData>
-                                    <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
-                                    <graphicClass>Graphic_Single</graphicClass>
-                                    <shaderType>CutoutComplex</shaderType>
-                                    <colorTwo>(31,31,31)</colorTwo>
-                                    <color>(128,128,128)</color>
-                                </graphicData>
-                            </value>
-                        </li>
-                    </operations>
-                </li>
-
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_MineableCoal"]</xpath>
-                </li>
-
-                <!--Replace References-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//li[.="VMEu_MineableCoal"]</xpath>
-                    <value>
-                        <li>DZ_CoalOre</li>
-                    </value>
-                </li>
-
-            </operations>
-        </match>
-    </Operation>
-
     <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
+            <li>Argon.VMEu</li>
             <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
@@ -565,7 +521,5 @@
             </operations>
         </match>
     </Operation>
-
-
 
 </Patch>

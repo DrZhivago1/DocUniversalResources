@@ -11,7 +11,7 @@
     <!--SB_copper_ore = RimBound-->
     <!--CAL_Copper = Cupro's Alloys (Continued)-->
     <!--PRF_Copper = Project RimFactory - Materials-->
-    <!--VMEu_Copper = Expanded Materials - Metals-->
+    <!--VMEu_Copper = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -592,110 +592,10 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperation.Context">
-                    <xpath>/Defs/ThingDef[@Name="DZ_Copper"]</xpath>
-                    <operations>
-                        <!--Use/replace graphics-->
-                        <li Class="PatchOperationReplace">
-                            <xpath>/ThingDef/graphicData</xpath>
-                            <value>
-                                <graphicData>
-                                    <texPath>Things/Item/Resource/VMEu_Copper</texPath>
-                                    <graphicClass>Graphic_StackCount</graphicClass>
-                                </graphicData>
-                            </value>
-                        </li>
-                        <!--Replace stuffProps color to match-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/stuffProps/color</xpath>
-                            <value>
-                                <color>(175, 73, 27)</color>
-                            </value>
-                        </li>
-                        <!--Replace mass-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/statBases/Mass</xpath>
-                            <value>
-                                <Mass>0.008</Mass>
-                            </value>
-                        </li>
-                        <!--Replace sound-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/soundInteract</xpath>
-                            <value>
-                                <soundInteract>Silver_Drop</soundInteract>
-                            </value>
-                        </li>
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/soundDrop</xpath>
-                            <value>
-                                <soundDrop>Silver_Drop</soundDrop>
-                            </value>
-                        </li>
-                        <!--Change stackLimit-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/stackLimit</xpath>
-                            <value>
-                                <stackLimit>500</stackLimit>
-                            </value>
-                        </li>
-                        <!--Use smallVolume-->
-                        <li Class="PatchOperationReplace">
-                            <success>Always</success>
-                            <xpath>/ThingDef/smallVolume</xpath>
-                            <value>
-                                <smallVolume>true</smallVolume>
-                            </value>
-                        </li>
-                    </operations>
-                </li>
-
-                <!--Remove resource-->
-                <li Class="PatchOperationRemove">
-                    <xpath>/Defs/ThingDef[defName="VMEu_Copper"]</xpath>
-                </li>
-
-                <!--Replace References-->
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//thingDef[.="VMEu_Copper"]</xpath>
-                    <value>
-                        <thingDef>DZ_Copper</thingDef>
-                    </value>
-                </li>
-                <li Class="PatchOperationReplace">
-                    <success>Always</success>
-                    <xpath>//li[.="VMEu_Copper"]</xpath>
-                    <value>
-                        <li>DZ_Copper</li>
-                    </value>
-                </li>
-                <li Class="PatchOperationSetName">
-                    <success>Always</success>
-                    <xpath>//VMEu_Copper</xpath>
-                    <name>DZ_Copper</name>
-                </li>
-
-            </operations>
-        </match>
-    </Operation>
-
-    <!--Expanded Materials - Metals-->
-    <Operation Class="PatchOperation.FindModByID">
-        <mods>
             <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
