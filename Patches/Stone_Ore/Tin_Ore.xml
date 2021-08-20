@@ -7,7 +7,7 @@
     <!--CaS_MineableTin = Clockwork And Steam-->
     <!--MineableTin = Metals+-->
     <!--CAL_MineableCassiterite = Cupro's Alloys (Continued)-->
-    <!--VMEu_MineableTin = Expanded Materials - Metals-->
+    <!--VMEu_MineableTin = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -15,6 +15,7 @@
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -183,9 +184,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

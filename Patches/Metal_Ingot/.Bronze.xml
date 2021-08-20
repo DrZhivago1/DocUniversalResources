@@ -8,7 +8,7 @@
     <!--CaS_Bronze = Clockwork And Steam-->
     <!--Bronze = Metals+-->
     <!--CAL_Bronze = Cupro's Alloys (Continued)-->
-    <!--VMEu_Bronze = Expanded Materials - Metals-->
+    <!--VMEu_Bronze = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -17,6 +17,7 @@
             <li>Kyrrisayo.MetalsPlus</li>
             <li>Mlie.CuprosAlloys</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -341,9 +342,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

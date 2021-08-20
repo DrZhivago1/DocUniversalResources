@@ -11,7 +11,7 @@
     <!--SB_copper_ore = RimBound-->
     <!--CAL_Copper = Cupro's Alloys (Continued)-->
     <!--PRF_Copper = Project RimFactory - Materials-->
-    <!--VMEu_Copper = Expanded Materials - Metals-->
+    <!--VMEu_Copper = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -23,6 +23,7 @@
             <li>Mlie.CuprosAlloys</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -591,9 +592,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

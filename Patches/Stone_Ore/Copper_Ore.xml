@@ -10,7 +10,7 @@
     <!--MineableCopper = Metals+-->
     <!--CAL_MineableMalachite = Cupro's Alloys (Continued)-->
     <!--PRF_MineableCopper = Project RimFactory - Materials-->
-    <!--VMEu_MineableCopper = Expanded Materials - Metals-->
+    <!--VMEu_MineableCopper = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -21,6 +21,7 @@
             <li>Mlie.CuprosAlloys</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -327,9 +328,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

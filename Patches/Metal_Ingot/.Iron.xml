@@ -12,7 +12,7 @@
     <!--SB_iron_bar = RimBound-->
     <!--DankPyon_IronIngot = Medieval Overhaul-->
     <!--PRF_Iron = Project RimFactory - Materials-->
-    <!--VMEu_Iron = Expanded Materials - Metals-->
+    <!--VMEu_Iron = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -25,6 +25,7 @@
             <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -556,9 +557,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

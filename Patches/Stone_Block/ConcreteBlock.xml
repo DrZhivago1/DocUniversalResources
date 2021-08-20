@@ -11,7 +11,7 @@
     <!--Stuff_ConcreteAM = Materials+-->
     <!--RFFBlocksConcrete = [RF] Concrete (Continued), Concrete for Fertile Fields-->
     <!--PRF_Concrete = Project RimFactory - Materials-->
-    <!--VMEu_Concrete = Expanded Materials - Metals-->
+    <!--VMEu_Concrete = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -25,6 +25,7 @@
             <li>malkav73.concrete</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -593,9 +594,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

@@ -5,13 +5,14 @@
     Universal Replacements
     ==========-->
     <!--CrushedRocks = Fertile Fields [1.1], [RF] Concrete (Continued)-->
-    <!--VMEu_RockPowder = Expanded Materials - Metals-->
+    <!--VMEu_RockPowder = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -102,9 +103,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

@@ -102,6 +102,7 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>            <!--Expanded Materials - Metals-->
+            <li>Argon.LVMEu</li>           <!--Expanded Materials - Metals Lite Version-->
         </mods>
         <match Class="PatchOperationReplace">
             <success>Always</success>

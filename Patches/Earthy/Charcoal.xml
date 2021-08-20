@@ -8,7 +8,7 @@
     <!--CharCoalOre = Simple Mining Extension-->
     <!--SRV_Charcoal = Survivalist's Additions-->
     <!--AYCharcoal = Apothecary (Continued)-->
-    <!--VMEu_Charcoal = Expanded Materials - Metals-->
+    <!--VMEu_Charcoal = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -18,6 +18,7 @@
             <li>Mantrasong.SurvAdd.1</li>
             <li>Mlie.Apothecary</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -306,9 +307,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -359,5 +362,5 @@
             </operations>
         </match>
     </Operation>
-
+    
 </Patch>

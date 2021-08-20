@@ -13,7 +13,7 @@
     <!--MineableCoal = RimBound-->
     <!--DankPyon_MineableCoal = Medieval Overhaul-->
     <!--PRF_MineableCoal = Project RimFactory - Materials-->
-    <!--VMEu_MineableCoal = Expanded Materials - Metals-->
+    <!--VMEu_MineableCoal = Expanded Materials - Metals + Expanded Materials - Metals Lite Version-->
 
     <Operation Class="PatchOperation.FindModByID">
         <mods>
@@ -28,6 +28,7 @@
             <li>dankpyon.medieval.overhaul</li>
             <li>PRF.Materials</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>/Defs</xpath>
@@ -474,9 +475,11 @@
     </Operation>
 
     <!--Expanded Materials - Metals-->
+    <!--Expanded Materials - Metals Lite Version-->
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
