@@ -18,6 +18,7 @@
             <li>Mantrasong.SurvAdd.1</li>
             <li>Mlie.Apothecary</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -309,6 +310,61 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_Charcoal"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/VMEu_Charcoal</texPath>
+                            <graphicClass>Graphic_StackCount</graphicClass>
+                        </graphicData>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_Charcoal"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_Charcoal"]</xpath>
+                    <value>
+                        <thingDef>DZ_Charcoal</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_Charcoal"]</xpath>
+                    <value>
+                        <li>DZ_Charcoal</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_Charcoal</xpath>
+                    <name>DZ_Charcoal</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+    
+    <!--Expanded Materials - Metals Lite Version-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

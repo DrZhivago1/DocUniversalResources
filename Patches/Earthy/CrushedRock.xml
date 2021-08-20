@@ -12,6 +12,7 @@
             <li>jamaicancastle.RF.fertilefields</li>
             <li>Mlie.Concrete</li>
             <li>Argon.VMEu</li>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>
@@ -105,6 +106,84 @@
     <Operation Class="PatchOperation.FindModByID">
         <mods>
             <li>Argon.VMEu</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <li Class="PatchOperation.Context">
+                    <xpath>/Defs/ThingDef[@Name="DZ_CrushedRock"]</xpath>
+                    <operations>
+                        <!--Use/replace graphics-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/graphicData</xpath>
+                            <value>
+                                <graphicData>
+                                    <texPath>Things/Item/Resource/VMEu_RockPowder</texPath>
+                                    <graphicClass>Graphic_Single</graphicClass>
+                                </graphicData>
+                            </value>
+                        </li>
+                        <!--Use/replace stuffProps to ThingDef-->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/ThingDef/stuffProps</xpath>
+                            <value>
+                                <stuffProps>
+                                    <stuffAdjective>crushed rock</stuffAdjective>
+                                    <categories>
+                                        <li>VMEu_ConcreteStuffCategory</li>
+                                    </categories>
+                                    <commonality>0.3</commonality>
+                                    <constructEffect>ConstructDirt</constructEffect>
+                                    <color>(150,150,150)</color>
+                                    <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+                                    <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+                                    <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+                                    <statFactors>
+                                        <MaxHitPoints>1</MaxHitPoints>
+                                        <Beauty>1</Beauty>
+                                        <Flammability>0</Flammability>
+                                    </statFactors>
+                                </stuffProps>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+
+                <!--Remove resource-->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="VMEu_RockPowder"]</xpath>
+                </li>
+
+                <!--Replace References-->
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//thingDef[.="VMEu_RockPowder"]</xpath>
+                    <value>
+                        <thingDef>DZ_CrushedRock</thingDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <success>Always</success>
+                    <xpath>//li[.="VMEu_RockPowder"]</xpath>
+                    <value>
+                        <li>DZ_CrushedRock</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <success>Always</success>
+                    <xpath>//VMEu_RockPowder</xpath>
+                    <name>DZ_CrushedRock</name>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+    <!--Expanded Materials - Metals Lite Version-->
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>Argon.LVMEu</li>
         </mods>
         <match Class="PatchOperationSequence">
             <success>Always</success>

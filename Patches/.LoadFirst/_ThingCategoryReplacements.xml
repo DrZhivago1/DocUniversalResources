@@ -112,6 +112,19 @@
         </match>
     </Operation>
 
+    <Operation Class="PatchOperation.FindModByID">
+        <mods>
+            <li>Argon.LVMEu</li>            <!--Expanded Materials - Metals Lite Version-->
+        </mods>
+        <match Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>//li[.="VMEu_SpecialMetals"]</xpath>
+            <value>
+                <li>DZ_MetalIngotCategory</li>
+            </value>
+        </match>
+    </Operation>
+
     <!--==========
     Metal_Ore
     ==========
